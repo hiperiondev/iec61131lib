@@ -188,7 +188,7 @@ int main(void) {
     iec_type_promote(v2, IEC_T_REAL);
     res = iec_div(&result, v2, v3);
     assert(res == IEC_OK);
-    assert(iec_get_value(result) == 2.5);
+    assert((iec_get_value(result)) == 2.5);
     iec_totype(v2, IEC_T_INT);
     iec_set_value(v2, 500);
     res = iec_mod(&result, v2, v3);
@@ -205,7 +205,54 @@ int main(void) {
 
     printf("_  TEST MATHEMATICAL... ");
 
-    printf("-- missing -- ");
+    iec_type_promote(v2, IEC_T_REAL);
+    iec_set_value(v2, -500);
+    res = iec_abs(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 500);
+
+    iec_set_value(v2, 500);
+    res = iec_sqrt(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 22.36067962646484375);
+
+    res = iec_ln(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 6.21460819244384765625);
+
+    res = iec_log(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 2.6989700794219970703125);
+
+    iec_set_value(v2, 7);
+    res = iec_exp(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 1096.6331787109375);
+
+    res = iec_sin(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 0.65698659420013427734375);
+
+    res = iec_cos(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 0.753902256488800048828125);
+
+    res = iec_tan(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 0.871447980403900146484375);
+
+    iec_set_value(v2, 0.6);
+    res = iec_asin(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 0.64350116252899169921875);
+
+    res = iec_acos(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 0.927295207977294921875);
+
+    res = iec_atan(&result, v2);
+    assert(res == IEC_OK);
+    assert((iec_get_value(result)) == 0.540419518947601318359375);
 
     printf("< OK >\n\n");
     /////////////////////////////////////

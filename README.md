@@ -28,7 +28,7 @@
    * [ ] comparison
    * [ ] conversion
    * [ ] date_time
-   * [ ] mathematical
+   * [x] mathematical
    * [x] selection
    * [ ] string
    
