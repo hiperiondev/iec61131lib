@@ -19,6 +19,7 @@
    * [x] mathematical
    * [x] selection
    * [ ] string
+   * [ ] literals
  
 * [ ] Complete test
    * [x] core
@@ -31,6 +32,7 @@
    * [x] mathematical
    * [x] selection
    * [ ] string
+   * [ ] literals
    
 * [ ] Complete documentation
    * [ ] core
@@ -43,3 +45,4 @@
    * [ ] mathematical
    * [ ] selection
    * [ ] string
+   * [ ] literals
