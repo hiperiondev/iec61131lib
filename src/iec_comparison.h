@@ -39,35 +39,53 @@
  * Summary:
  *
  *  Function      Parameter Type          Parameters   Description
- *  GT            ANY                     2            Greater than
- *  GE            ANY                     2            Greater than or equal to
- *  EQ            ANY                     2            Equal
- *  LE            ANY                     2            Less than or equal to
- *  LT            ANY                     2            Less than
- *  NE            ANY                     2            Not equal to
+ *  GT            ANY_ELEMENTARY          2            Greater than
+ *  GE            ANY_ELEMENTARY          2            Greater than or equal to
+ *  EQ            ANY_ELEMENTARY          2            Equal
+ *  LE            ANY_ELEMENTARY          2            Less than or equal to
+ *  LT            ANY_ELEMENTARY          2            Less than
+ *  NE            ANY_ELEMENTARY          2            Not equal to
  */
 
 uint8_t iec_gt(iec_t *result, iec_t v1, iec_t v2) {
+    iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
+    iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
     return IEC_OK;
 }
 
 uint8_t iec_ge(iec_t *result, iec_t v1, iec_t v2) {
+    iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
+    iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
     return IEC_OK;
 }
 
 uint8_t iec_eq(iec_t *result, iec_t v1, iec_t v2) {
+    iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
+    iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
     return IEC_OK;
 }
 
 uint8_t iec_le(iec_t *result, iec_t v1, iec_t v2) {
+    iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
+    iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
     return IEC_OK;
 }
 
 uint8_t iec_lt(iec_t *result, iec_t v1, iec_t v2) {
+    iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
+    iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
     return IEC_OK;
 }
 
 uint8_t iec_ne(iec_t *result, iec_t v1, iec_t v2) {
+    iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
+    iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
     return IEC_OK;
 }
 
