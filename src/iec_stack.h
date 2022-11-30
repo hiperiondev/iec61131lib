@@ -1,10 +1,18 @@
-/* https://github.com/LookCos/learn-data-structures */
+#ifndef __STACK_H__
+#define __STACK_H__
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
+#include <stddef.h>
 
-#include "iec_stack.h"
+typedef struct stack_node {
+    struct stack_node *next;
+                 void *data;
+} stack_node;
+
+typedef struct stack {
+    struct stack_node *top;
+                   int length;
+} *stack_t;
 
 stack_t stack_create() {
     stack_t stack = (struct stack*) malloc(sizeof(struct stack));
@@ -66,3 +74,5 @@ void stack_release(stack_t stack) {
     stack_empty(stack);
     free(stack);
 }
+
+#endif
