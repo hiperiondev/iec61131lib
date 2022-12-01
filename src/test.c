@@ -45,6 +45,7 @@
 #include "iec_mathematical.h"
 #include "iec_selection.h"
 #include "iec_string.h"
+#include "iec_literals.h"
 
 int main(void) {
     uint8_t res = 0;
@@ -253,6 +254,34 @@ int main(void) {
     res = iec_atan(&result, v2);
     assert(res == IEC_OK);
     assert((iec_get_value(result)) == 0.540419518947601318359375);
+
+    printf("< OK >\n\n");
+    /////////////////////////////////////
+
+    printf("_  TEST LITERALS... ");
+
+    BufferString *str = NEW_STRING(255, "UINT#16#9_A");
+    uint8_t datatype;
+    uint8_t iectype;
+
+    printf("\nstr: %s\n", str->value);
+    datatype = identify_literal(str, &iectype);
+
+    printf("lit: %d, iectype: %d, str: %s\n", datatype, iectype, stringValue(str));
+
+    clearString(str);
+    concatChars(str, "-13e+15");
+    printf("\nstr: %s\n", str->value);
+    datatype = identify_literal(str, &iectype);
+
+    printf("lit: %d, iectype: %d, str: %s\n", datatype, iectype, stringValue(str));
+
+    clearString(str);
+    concatChars(str, "BOOL#TRUE");
+    printf("\nstr: %s\n", str->value);
+    datatype = identify_literal(str, &iectype);
+
+    printf("lit: %d, iectype: %d, str: %s\n", datatype, iectype, stringValue(str));
 
     printf("< OK >\n\n");
     /////////////////////////////////////

@@ -152,7 +152,7 @@ ABI HEAP char *        strcatfv(INOUT char **string, const char *format, va_list
 ///<C
 ABI      int           strchop (const char *string, const char *delimiters, int avail, const char *tokens[]);
 ABI HEAP char**        strsplit(const char *string, const char *delimiters);
-ABI HEAP char*         strjoin (INOUT char **out, const char *tokens[], const char *separator);
+ABI HEAP char*         strjoin (INOUT char **out, char *tokens[], const char *separator);
 
 /// ## String trimming
 /// - Delete substring from a string.
@@ -212,12 +212,12 @@ ABI TEMP char*         strshorten(const wchar_t *utf16);
 
 #ifndef AVA
 // symbol visiblity, abi and linkage
-#ifdef __cplusplus
-   #define ABI extern "C"
-   #else
-#define ABI
-#endif
-#define API(name,...)   __VA_ARGS__
+//#ifdef __cplusplus
+//   #define ABI extern "C"
+//   #else
+//#define ABI
+//#endif
+//#define API(name,...)   __VA_ARGS__
 // code annonations
 #define HEAP           /* heap pointer. must free() after use */
 #define TEMP           /* temporary stack pointer. do not free() after use */
@@ -260,15 +260,14 @@ ABI TEMP char*         strshorten(const wchar_t *utf16);
 
 // String symbol that holds whole api declarations
 // Useful for function-foreign interface (FFI) and related script bindings.
-/*
-ABI const char* const strapi() {
-#undef  API
-#define API(name, ...) #__VA_ARGS__
-    return
-#include __FILE__
-    ;
-}
-*/
+
+//ABI const char* const strapi() {
+//#undef  API
+//#define API(name, ...) #__VA_ARGS__
+//    return 0;
+//#include __FILE__
+//    ;
+//}
 
 #ifdef APIDEMO
 #include <stdio.h>
@@ -3115,7 +3114,7 @@ HEAP char** strsplit(const char *string, const char *delimiters) {
     return res;
 }
 
-HEAP char* strjoin(char **string, const char *words[], const char *separator) {
+HEAP char* strjoin(char **string, char *words[], const char *separator) {
     char* (*table[2])(char**, const char*, ...) = {strcpyf, strcatf };
     char *out = string ? *string : 0;
     for (int i = 0; words[i] /*i < nwords*/; ++i) {
