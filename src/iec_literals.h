@@ -56,7 +56,7 @@ enum LITERALS {
     IEC_LIT_NONE = 0xff    // 0xff
 };
 
-const char *IEC_DATATYPE_PFX[] = {
+const char *IEC_DATAFORMAT_PFX[] = {
     "2#",            // 0
     "8#",            //
     "16#",           //
@@ -70,7 +70,7 @@ const char *IEC_DATATYPE_PFX[] = {
     "DATE_AND_TIME#" // 10
 };
 
-const uint8_t IEC_LITERAL_TYPE[]= {
+const uint8_t IEC_LITERAL_FORMAT[]= {
     IEC_LIT_BASE2,
     IEC_LIT_BASE8,
     IEC_LIT_BASE16,
@@ -169,14 +169,14 @@ uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
     // search data prefix
     uint8_t datatype = IEC_LIT_NONE;
     for (n = 0; n < 10; n++) {
-        if (isStringStartsWith(str, IEC_DATATYPE_PFX[n], 0)) {
+        if (isStringStartsWith(str, IEC_DATAFORMAT_PFX[n], 0)) {
             datatype = n;
             break;
         }
     }
     if (datatype != IEC_LIT_NONE) {
         substringAfter(str, str, "#");
-        return IEC_LITERAL_TYPE[datatype];
+        return IEC_LITERAL_FORMAT[datatype];
     }
 
     if ((indexOfChar(str, 'e', 0) != -1) || (indexOfChar(str, 'E', 0) != -1))
