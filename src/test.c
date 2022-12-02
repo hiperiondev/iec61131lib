@@ -265,21 +265,21 @@ int main(void) {
     uint8_t iectype;
 
     printf("\nstr: %s\n", str->value);
-    datatype = identify_literal(str, &iectype);
+    datatype = iec_identify_literal(str, &iectype);
 
     printf("lit: %d, iectype: %d, str: %s\n", datatype, iectype, stringValue(str));
 
     clearString(str);
-    concatChars(str, "-13e+15");
+    concatChars(str, "-13.5e-2");
     printf("\nstr: %s\n", str->value);
-    datatype = identify_literal(str, &iectype);
+    datatype = iec_identify_literal(str, &iectype);
 
-    printf("lit: %d, iectype: %d, str: %s\n", datatype, iectype, stringValue(str));
+    printf("lit: %d, iectype: %d, str: %s(%f)\n", datatype, iectype, stringValue(str), atof(stringValue(str)));
 
     clearString(str);
     concatChars(str, "BOOL#TRUE");
     printf("\nstr: %s\n", str->value);
-    datatype = identify_literal(str, &iectype);
+    datatype = iec_identify_literal(str, &iectype);
 
     printf("lit: %d, iectype: %d, str: %s\n", datatype, iectype, stringValue(str));
 

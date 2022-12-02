@@ -161,7 +161,7 @@ typedef struct {
 } user_t;
 
 typedef struct {
-        bool wstring;  // true if wide character type
+        bool wstring; // true if wide character type
     uint32_t len;
     uint32_t hash;
     union {

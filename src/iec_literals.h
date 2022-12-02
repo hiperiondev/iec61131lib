@@ -38,7 +38,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "BufferString.h"
+#include "util_buffer_string.h"
 
 enum LITERALS {
     IEC_LIT_BOOLEAN,       // 0x00
@@ -134,7 +134,7 @@ const char *IEC_IECTYPE_PFX[] = {
     "?#",       // 31
 };
 
-uint8_t identify_literal(BufferString *str, uint8_t *iectype) {
+uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
     uint8_t n;
 
     trimAll(str);
@@ -179,7 +179,6 @@ uint8_t identify_literal(BufferString *str, uint8_t *iectype) {
         return IEC_LITERAL_TYPE[datatype];
     }
 
-    // no data type prefix
     if ((indexOfChar(str, 'e', 0) != -1) || (indexOfChar(str, 'E', 0) != -1))
         return IEC_LIT_REAL_EXP;
 
@@ -187,6 +186,52 @@ uint8_t identify_literal(BufferString *str, uint8_t *iectype) {
         return IEC_LIT_REAL;
 
     return IEC_LIT_INTEGER;
+}
+
+void literal_toiec(iec_t *result, BufferString str) {
+    uint8_t datatype;
+    uint8_t iectype;
+
+    datatype = iec_identify_literal(&str, &iectype);
+
+    switch (datatype) {
+        case IEC_LIT_BOOLEAN:
+
+            break;
+        case IEC_LIT_DURATION:
+
+            break;
+        case IEC_LIT_DATE:
+
+            break;
+        case IEC_LIT_TIME_OF_DAY:
+
+            break;
+        case IEC_LIT_DATE_AND_TIME:
+
+            break;
+        case IEC_LIT_INTEGER:
+
+            break;
+        case IEC_LIT_REAL:
+
+            break;
+        case IEC_LIT_REAL_EXP:
+
+            break;
+        case IEC_LIT_BASE2:
+
+            break;
+        case IEC_LIT_BASE8:
+
+            break;
+        case IEC_LIT_BASE16:
+
+            break;
+        default:
+
+    }
+
 }
 
 #endif /* IEC_LITERALS_H_ */

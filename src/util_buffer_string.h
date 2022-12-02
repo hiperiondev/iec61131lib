@@ -1,17 +1,93 @@
-/* https://github.com/ximtech/BufferString */
+/* https://github.com/ximtech/BufferString
+ * MIT license
+ */
 
-#include "BufferString.h"
+#ifndef BUFFERSTRING_H_
+#define BUFFERSTRING_H_
 
-#define TERMINATE_STRING(s) (s)->value[(s)->length] = '\0'
-#define STRING_END(s) ((s)->value + (s)->length)
-#define UINT64_DIGITS_MAX_COUNT 20
+#include <stdbool.h>
+#include <string.h>
+#include <stdint.h>
+#include <ctype.h>
+#include <stdarg.h>
+#include <stdio.h>
 
-#define BIT_READ(value, bit) (((value) >> (bit)) & 0x01)
-#define BIT_SET(value, bit) ((value) |= (1UL << (bit)))
-#define BIT_CLEAR(value, bit) ((value) &= ~(1UL << (bit)))
+#define ENABLE_FLOAT_FORMATTING
 
-#define SET_FLAG(flags, flag) BIT_SET(flags, flag)
-#define IS_FLAG_SET(flags, flag) (BIT_READ(flags, flag)) == true
+#ifdef ENABLE_FLOAT_FORMATTING
+#include <float.h>
+#include <math.h>
+#endif
+
+typedef struct BufferString {
+    char *value;
+    uint32_t length;
+    uint32_t capacity;
+} BufferString;
+
+typedef struct StringIterator {
+    BufferString *str;
+    const char *delimiter;
+    uint32_t delimiterLength;
+    char *nextToken;
+} StringIterator;
+
+// initialization
+#define NEW_STRING(capacity, initValue)                     newString(&(BufferString){0}, initValue, (char[capacity]){0}, capacity)
+#define NEW_STRING_LEN(capacity, initValue, length)         newStringWithLength(&(BufferString){0}, initValue, length, (char[capacity]){0}, capacity)
+#define EMPTY_STRING(capacity)                              newString(&(BufferString){0}, "", (char[capacity]){0}, capacity)
+#define DUP_STRING(capacity, source)                        dubString(source, &(BufferString){0}, (char[capacity]){0}, capacity)
+
+#define STRING_FORMAT(capacity, format, args...)            stringFormat(EMPTY_STRING(capacity), format, args)
+#define SUBSTRING(capacity, source, beginIndex, endIndex)   substringFromTo(source, EMPTY_STRING(capacity), beginIndex, endIndex)
+#define SUBSTRING_AFTER(capacity, source, separator)        substringAfter(source, EMPTY_STRING(capacity), separator)
+#define SUBSTRING_AFTER_LAST(capacity, source, separator)   substringAfterLast(source, EMPTY_STRING(capacity), separator)
+#define SUBSTRING_BEFORE(capacity, source, separator)       substringBefore(source, EMPTY_STRING(capacity), separator)
+#define SUBSTRING_BEFORE_LAST(capacity, source, separator)  substringBeforeLast(source, EMPTY_STRING(capacity), separator)
+#define SUBSTRING_BETWEEN(capacity, source, open, close)    substringBetween(source, EMPTY_STRING(capacity), open, close)
+
+#define INT64_TO_STRING(value)   int64ToString(EMPTY_STRING(32), value)
+#define UINT64_TO_STRING(value)  uInt64ToString(EMPTY_STRING(32), value)
+
+// useful inline creators
+#define NEW_STRING_16(initValue)   NEW_STRING(16, initValue)
+#define NEW_STRING_32(initValue)   NEW_STRING(32, initValue)
+#define NEW_STRING_64(initValue)   NEW_STRING(64, initValue)
+#define NEW_STRING_128(initValue)  NEW_STRING(128, initValue)
+#define NEW_STRING_256(initValue)  NEW_STRING(256, initValue)
+#define NEW_STRING_512(initValue)  NEW_STRING(512, initValue)
+#define NEW_STRING_1024(initValue) NEW_STRING(1024, initValue)
+#define NEW_STRING_2048(initValue) NEW_STRING(2048, initValue)
+
+#define STRING_FORMAT_16(format, args...)   STRING_FORMAT(16, format, args)
+#define STRING_FORMAT_32(format, args...)   STRING_FORMAT(32, format, args)
+#define STRING_FORMAT_64(format, args...)   STRING_FORMAT(64, format, args)
+#define STRING_FORMAT_128(format, args...)  STRING_FORMAT(128, format, args)
+#define STRING_FORMAT_256(format, args...)  STRING_FORMAT(256, format, args)
+#define STRING_FORMAT_512(format, args...)  STRING_FORMAT(512, format, args)
+#define STRING_FORMAT_2048(format, args...) STRING_FORMAT(2048, format, args)
+
+// properties
+static inline char* stringValue(BufferString *str) {
+    return str != NULL ? str->value : NULL;
+}
+static inline uint32_t stringLength(BufferString *str) {
+    return str != NULL ? str->length : 0;
+}
+static inline uint32_t stringCapacity(BufferString *str) {
+    return str != NULL ? str->capacity : 0;
+}
+
+#define TERMINATE_STRING(s)          (s)->value[(s)->length] = '\0'
+#define STRING_END(s)                ((s)->value + (s)->length)
+#define UINT64_DIGITS_MAX_COUNT      20
+
+#define BIT_READ(value, bit)         (((value) >> (bit)) & 0x01)
+#define BIT_SET(value, bit)          ((value) |= (1UL << (bit)))
+#define BIT_CLEAR(value, bit)        ((value) &= ~(1UL << (bit)))
+
+#define SET_FLAG(flags, flag)        BIT_SET(flags, flag)
+#define IS_FLAG_SET(flags, flag)     (BIT_READ(flags, flag)) == true
 #define IS_FLAG_NOT_SET(flags, flag) (BIT_READ(flags, flag)) == false
 
 #define BIN_BASE 2
@@ -19,64 +95,65 @@
 #define DEC_BASE 10
 #define HEX_BASE 16
 
-#define NO_SIGN 0
-#define NO_RESULT -1
-#define HEX_SIZE 2
-#define NAN_LENGTH 3
-#define INF_LENGTH 3
+#define NO_SIGN              0
+#define NO_RESULT           -1
+#define HEX_SIZE             2
+#define NAN_LENGTH           3
+#define INF_LENGTH           3
 #define INF_WITH_SIGN_LENGTH (INF_LENGTH + 1)
 
-#define LENGTH_FIELD_MAX_SIZE 2
-#define SKIP_ONE_CHAR 1
-#define SKIP_TWO_CHARS 2
+#define LENGTH_FIELD_MAX_SIZE     2
+#define SKIP_ONE_CHAR             1
+#define SKIP_TWO_CHARS            2
 #define FORMAT_NUMBER_BUFFER_SIZE 66
-#define POINTER_DEFAULT_WIDTH (sizeof(void *) * 2)
+#define POINTER_DEFAULT_WIDTH     (sizeof(void *) * 2)
 
-#define IS_INT_8(length) ((length)[0] == '8')
+#define IS_INT_8(length)  ((length)[0] == '8')
 #define IS_INT_16(length) ((length)[0] == '1' && (length)[1] == '6')
 #define IS_INT_64(length) ((length)[0] == '6' && (length)[1] == '4')
 
 #ifdef ENABLE_FLOAT_FORMATTING
-#define FORMAT_FLOAT_BUFFER_SIZE 32
-#define FORMAT_MAX_FLOAT_VALUE 1e9
+#define FORMAT_FLOAT_BUFFER_SIZE       32
+#define FORMAT_MAX_FLOAT_VALUE         1e9
 #define FORMAT_DEFAULT_FLOAT_PRECISION 6
-#define FORMAT_MAX_FLOAT_PRECISION 9
+#define FORMAT_MAX_FLOAT_PRECISION     9
 
-#define MANTISSA_BITS 52
-#define EXPONENT_BITS 11
-#define SIGN_BITS 1
-#define DOUBLE_EXPONENT_ZERO_VALUE 1023 // The exponent field is an 11-bit unsigned integer from 0 to 2047, in biased form: an exponent value of 1023 represents the actual zero.
+#define MANTISSA_BITS              52
+#define EXPONENT_BITS              11
+#define SIGN_BITS                  1
+#define DOUBLE_EXPONENT_ZERO_VALUE 1023 // The exponent field is an 11-bit unsigned integer from 0 to 2047,
+//   in biased form: an exponent value of 1023 represents the actual zero.
 
 #define LOG_APPROXIMATION 0.289529654602168
-#define LOG10_OF_2 0.301029995663981    // log10(2) constant
-#define LOG2_OF_10 3.321928094887362    // log2(10) constant
+#define LOG10_OF_2        0.301029995663981    // log10(2) constant
+#define LOG2_OF_10        3.321928094887362    // log2(10) constant
 
 // approximated constant term log 10( 1.5 ) = 0.176091259055681242... by 0.1760912590558
 // to ensure kˆ ≥ k; it is easy to see from Taylor’s theorem that kˆ ≤ k + 1.
 #define LOG10_OF_1_5 0.1760912590558
 
 #define EXPONENT_WIDTH_DEFAULT_VALUE 4
-#define NATURAL_LOG_OF_10 2.302585092994046     // ln(10)
-#define NATURAL_LOG_OF_2 0.6931471805599453     // ln(2)
+#define NATURAL_LOG_OF_10            2.302585092994046     // ln(10)
+#define NATURAL_LOG_OF_2             0.6931471805599453     // ln(2)
 
 typedef union DoubleCast {
     double decimal;
     struct {
-        uint64_t mantissa: MANTISSA_BITS;
-        uint64_t exponent: EXPONENT_BITS;
-        uint64_t sign: SIGN_BITS;
+        uint64_t mantissa : MANTISSA_BITS;
+        uint64_t exponent : EXPONENT_BITS;
+        uint64_t sign : SIGN_BITS;
     } parts;
 } DoubleCast;
 #endif
 
 typedef enum FormatFlagField {
-    LEFT_ALIGN_FLAG,      // '-' -> Left-align the output of this placeholder. (The default is to right-align the output.)
+    LEFT_ALIGN_FLAG,        // '-' -> Left-align the output of this placeholder. (The default is to right-align the output.)
     PLUS_FLAG, // '+' -> Prepends a plus for positive signed-numeric types. positive = +, negative = -. (The default doesn't prepend anything in front of positive numbers.)
-    SPACE_FLAG,           // ' ' -> Prepends a space for positive signed-numeric types. positive =  , negative = -. This flag is ignored if the + flag exists.
-    ZEROES_PADDING_FLAG,  // '0' -> When the 'width' option is specified, prepends zeros for numeric types. (The default prepends spaces.)
+    SPACE_FLAG,             // ' ' -> Prepends a space for positive signed-numeric types. positive =  , negative = -. This flag is ignored if the + flag exists.
+    ZEROES_PADDING_FLAG,    // '0' -> When the 'width' option is specified, prepends zeros for numeric types. (The default prepends spaces.)
     SPECIAL_FLAG, // '#' -> For g and G types, trailing zeros are not removed. For f, F, e, E, g, G types, the output always contains a decimal point. For o, x, X types, the text 0, 0x, 0X, respectively, is prepended to non-zero numbers.
     LOWER_CASE_FLAG, // 'x' -> unsigned int as a hexadecimal number. x uses lower-case letters and X uses upper-case. 'f' and 'F' only differs in how the strings for an infinite number or NaN are printed (inf, infinity and nan for f; INF, INFINITY and NAN for F).
-    SIGNED_NUMBER_FLAG,   // unsigned/signed long flag
+    SIGNED_NUMBER_FLAG,     // unsigned/signed long flag
     ADAPTIVE_EXPONENT_FLAG, // flag for: '%g' that represents the decimal format of the answer, depending upon whose length is smaller, comparing between %e and %f.
 } FormatFlagField;
 
@@ -95,8 +172,8 @@ static BufferString* formatNumber(BufferString *str, uint8_t flags, const char *
         va_list *vaList);
 
 #ifdef ENABLE_FLOAT_FORMATTING
-static BufferString *formatFloat(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
-static BufferString *formatExponential(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
+static BufferString* formatFloat(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
+static BufferString* formatExponential(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
 #endif
 
 static inline BufferString* formatByte(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
@@ -137,6 +214,22 @@ BufferString* newString(BufferString *str, const void *initValue, char *buffer, 
 
 BufferString* dubString(BufferString *source, BufferString *dest, char *buffer, uint32_t bufferLength) {
     return newStringWithLength(dest, source->value, source->length, buffer, bufferLength);
+}
+
+BufferString* clearString(BufferString *str) {
+    if (str == NULL || str->length == 0)
+        return str;
+    memset(str->value, 0, str->length);
+    str->length = 0;
+    return str;
+}
+
+BufferString* concatChar(BufferString *str, char charToConcat) {
+    if (str == NULL || str->length >= (str->capacity - 1))
+        return NULL;
+    *STRING_END(str) = charToConcat;
+    str->length++;
+    return str;
 }
 
 BufferString* stringFormat(BufferString *str, const char *format, ...) {
@@ -232,7 +325,7 @@ BufferString* stringFormat(BufferString *str, const char *format, ...) {
                 SET_FLAG(flags, ADAPTIVE_EXPONENT_FLAG);
                 str = formatExponential(str, va_arg(vaList, double), flags, widthField, precisionField);
                 continue;
-                #endif
+#endif
 
             default:    // unknown char, just concatenate as is
                 str = concatChar(str, *format);
@@ -263,18 +356,6 @@ BufferString* concatString(BufferString *str, BufferString *strToConcat) {
     return str != NULL && strToConcat != NULL ? concatCharsByLength(str, strToConcat->value, strToConcat->length) : NULL;
 }
 
-BufferString* copyString(BufferString *str, const char *strToCopy) {
-    return copyStringByLength(str, strToCopy, strlen(strToCopy));
-}
-
-BufferString* concatChar(BufferString *str, char charToConcat) {
-    if (str == NULL || str->length >= (str->capacity - 1))
-        return NULL;
-    *STRING_END(str) = charToConcat;
-    str->length++;
-    return str;
-}
-
 BufferString* copyStringByLength(BufferString *str, const char *strToCopy, uint32_t length) {
     if (str == NULL || length >= str->capacity)
         return NULL;
@@ -284,12 +365,8 @@ BufferString* copyStringByLength(BufferString *str, const char *strToCopy, uint3
     return str;
 }
 
-BufferString* clearString(BufferString *str) {
-    if (str == NULL || str->length == 0)
-        return str;
-    memset(str->value, 0, str->length);
-    str->length = 0;
-    return str;
+BufferString* copyString(BufferString *str, const char *strToCopy) {
+    return copyStringByLength(str, strToCopy, strlen(strToCopy));
 }
 
 BufferString* toLowerCase(BufferString *str) {
@@ -372,10 +449,6 @@ BufferString* reverseString(BufferString *str) {
     return str;
 }
 
-BufferString* substringFrom(BufferString *source, BufferString *destination, uint32_t beginIndex) {
-    return substringFromTo(source, destination, beginIndex, source->length);
-}
-
 BufferString* substringFromTo(BufferString *source, BufferString *destination, uint32_t beginIndex, uint32_t endIndex) {
     bool isStringNotInBounds = (beginIndex > endIndex || endIndex > source->length);
     if (isStringNotInBounds)
@@ -387,6 +460,10 @@ BufferString* substringFromTo(BufferString *source, BufferString *destination, u
     return destination;
 }
 
+BufferString* substringFrom(BufferString *source, BufferString *destination, uint32_t beginIndex) {
+    return substringFromTo(source, destination, beginIndex, source->length);
+}
+
 BufferString* substringAfter(BufferString *source, BufferString *destination, const char *separator) {
     char *substringPointer = strstr(source->value, separator);
     if (substringPointer == NULL)
@@ -394,6 +471,27 @@ BufferString* substringAfter(BufferString *source, BufferString *destination, co
     uint32_t separatorLength = strlen(separator);
     substringPointer += separatorLength;
     return copyStringByLength(destination, substringPointer, strlen(substringPointer));
+}
+
+int32_t lastIndexOfString(BufferString *str, const char *stringToFind) {
+    if (str == NULL || stringToFind == NULL)
+        return NO_RESULT;
+    uint32_t substringLength = strlen(stringToFind);
+
+    uint32_t i = str->length;
+    while (true) {
+        uint32_t step = (i > substringLength) ? substringLength : 1;
+        if (i == 0) {
+            break;
+        }
+        i -= step;
+
+        char *substringPointer = strstr(str->value + i, stringToFind);
+        if (substringPointer != NULL) {
+            return (substringPointer - str->value);
+        }
+    }
+    return NO_RESULT;
 }
 
 BufferString* substringAfterLast(BufferString *source, BufferString *destination, const char *separator) {
@@ -404,6 +502,13 @@ BufferString* substringAfterLast(BufferString *source, BufferString *destination
     uint32_t separatorLength = strlen(separator);
     char *substringPointer = source->value + position + separatorLength;    // move to the last occurrence
     return copyStringByLength(destination, substringPointer, strlen(substringPointer));
+}
+
+int32_t indexOfString(BufferString *str, const char *stringToFind, uint32_t fromIndex) {
+    if (str == NULL || stringToFind == NULL || fromIndex >= str->length)
+        return NO_RESULT;
+    char *strPointer = strstr(str->value + fromIndex, stringToFind);
+    return strPointer != NULL ? (strPointer - str->value) : NO_RESULT;
 }
 
 BufferString* substringBefore(BufferString *source, BufferString *destination, const char *separator) {
@@ -603,6 +708,14 @@ BufferString* uInt64ToString(BufferString *str, uint64_t value) {
     return reverseString(str);
 }
 
+static inline bool isBuffStringEmpty(BufferString *str) {
+    return (str == NULL || str->value[0] == '\0');
+}
+
+bool isBuffStringNotEmpty(BufferString *str) {
+    return !isBuffStringEmpty(str);
+}
+
 bool isBuffStringBlank(BufferString *str) {
     while (isBuffStringNotEmpty(str)) {
         if (!isspace(*str->value)) {
@@ -645,34 +758,6 @@ int32_t indexOfChar(BufferString *str, char charToFind, uint32_t fromIndex) {
     for (int32_t i = (int32_t) fromIndex; i < str->length; i++) {
         if (str->value[i] == charToFind) {
             return i;
-        }
-    }
-    return NO_RESULT;
-}
-
-int32_t indexOfString(BufferString *str, const char *stringToFind, uint32_t fromIndex) {
-    if (str == NULL || stringToFind == NULL || fromIndex >= str->length)
-        return NO_RESULT;
-    char *strPointer = strstr(str->value + fromIndex, stringToFind);
-    return strPointer != NULL ? (strPointer - str->value) : NO_RESULT;
-}
-
-int32_t lastIndexOfString(BufferString *str, const char *stringToFind) {
-    if (str == NULL || stringToFind == NULL)
-        return NO_RESULT;
-    uint32_t substringLength = strlen(stringToFind);
-
-    uint32_t i = str->length;
-    while (true) {
-        uint32_t step = (i > substringLength) ? substringLength : 1;
-        if (i == 0) {
-            break;
-        }
-        i -= step;
-
-        char *substringPointer = strstr(str->value + i, stringToFind);
-        if (substringPointer != NULL) {
-            return (substringPointer - str->value);
         }
     }
     return NO_RESULT;
@@ -892,8 +977,8 @@ static BufferString* formatNumber(BufferString *str, uint8_t flags, const char *
 }
 
 #ifdef ENABLE_FLOAT_FORMATTING
-static BufferString *formatFloat(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
-    static const double FLOAT_POW_OF_10[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+static BufferString* formatFloat(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
+    static const double FLOAT_POW_OF_10[] = { 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000 };
 
     if (isNanOrInfinity(str, decimalValue, widthField, flags)) {
         return str;
@@ -908,8 +993,8 @@ static BufferString *formatFloat(BufferString *str, double decimalValue, uint8_t
     }
 
     int32_t bufferLength = 0;
-    char tmpDecimalBuffer[FORMAT_FLOAT_BUFFER_SIZE] = {0};
-    while (bufferLength < FORMAT_FLOAT_BUFFER_SIZE && precision > FORMAT_MAX_FLOAT_PRECISION) {// limit precision to 9, cause a precision > 9 can lead to overflow errors
+    char tmpDecimalBuffer[FORMAT_FLOAT_BUFFER_SIZE] = { 0 };
+    while (bufferLength < FORMAT_FLOAT_BUFFER_SIZE && precision > FORMAT_MAX_FLOAT_PRECISION) { // limit precision to 9, cause a precision > 9 can lead to overflow errors
         tmpDecimalBuffer[bufferLength] = '0';
         bufferLength++;
         precision--;
@@ -917,7 +1002,7 @@ static BufferString *formatFloat(BufferString *str, double decimalValue, uint8_t
 
     double power = FLOAT_POW_OF_10[precision];
     decimalValue *= power;
-    decimalValue = (decimalValue >= 0) ? ((int64_t) (decimalValue + 0.5)) / power : ((int64_t) (decimalValue - 0.5)) / power;// round by precision
+    decimalValue = (decimalValue >= 0) ? ((int64_t) (decimalValue + 0.5)) / power : ((int64_t) (decimalValue - 0.5)) / power;    // round by precision
 
     int64_t wholePart = (int64_t) decimalValue;
     char sign = resolveSign(&wholePart, flags, &widthField);
@@ -962,7 +1047,7 @@ static BufferString *formatFloat(BufferString *str, double decimalValue, uint8_t
     return str;
 }
 
-static BufferString *formatExponential(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
+static BufferString* formatExponential(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
     if (isNanOrInfinity(str, decimalValue, widthField, flags)) {
         return str;
     }
@@ -975,13 +1060,13 @@ static BufferString *formatExponential(BufferString *str, double decimalValue, u
     decimalValue = isNegative ? -decimalValue : decimalValue;
 
     // Determine the decimal exponent. Based on the algorithm by David Gay (https://github.com/jwiegley/gdtoa/blob/master/dtoa.c)
-    DoubleCast converter = {.decimal = decimalValue};
+    DoubleCast converter = { .decimal = decimalValue };
     int32_t exponentOfTwo = (converter.parts.exponent - DOUBLE_EXPONENT_ZERO_VALUE);
     converter.parts.exponent = DOUBLE_EXPONENT_ZERO_VALUE;  // drop the exponent so converter.decimal is now in [1,2)
 
     // now approximate log10 from the log2 integer part and an expansion of ln around 1.5
     int32_t exponentValue = (int32_t) ((converter.decimal - 1.5) * LOG_APPROXIMATION + LOG10_OF_1_5 + exponentOfTwo * LOG10_OF_2);
-    exponentOfTwo = (int32_t) (exponentValue * LOG2_OF_10 + 0.5);// now we want to compute 10^exponentValue, but we want to be sure it won't overflow
+    exponentOfTwo = (int32_t) (exponentValue * LOG2_OF_10 + 0.5);  // now we want to compute 10^exponentValue, but we want to be sure it won't overflow
 
     double zValue = (exponentValue * NATURAL_LOG_OF_10) - (exponentOfTwo * NATURAL_LOG_OF_2);
     double zPowOfTwo = zValue * zValue;
@@ -1263,3 +1348,22 @@ static bool isNanOrInfinity(BufferString *str, double decimalValue, int32_t widt
     return false;
 }
 #endif
+
+// additional helper functions
+static inline char charAt(BufferString *str, uint32_t index) {
+    return (char) ((str == NULL || index >= str->length) ? 0 : str->value[index]);
+}
+
+static inline bool containsStr(BufferString *str, const char *searchString) {
+    return (str != NULL && searchString != NULL && strstr(str->value, searchString) != NULL);
+}
+
+static inline bool isBuffStringNotBlank(BufferString *str) {
+    return !isBuffStringBlank(str);
+}
+
+static inline bool isBuffStringNotEquals(BufferString *one, BufferString *two) {
+    return !isBuffStringEquals(one, two);
+}
+
+#endif /* BUFFERSTRING_H_ */
