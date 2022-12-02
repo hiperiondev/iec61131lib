@@ -57,7 +57,8 @@ uint8_t iec_add(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
         return IEC_NLL;
 
-    iec_t tmp = iec_new(IEC_T_NULL);
+    iec_t tmp = IEC_ALLOC;
+    iec_init(&tmp, IEC_T_NULL);
     iec_move(result, (iec_t) stack_pop(*list));
     iec_anytype_allowed(*result, ANY_MAGNITUDE,,,,,);
 
@@ -68,7 +69,7 @@ uint8_t iec_add(iec_t *result, stack_t *list) {
         iec_set_value(*result, (iec_get_value(*result)) + (iec_get_value(tmp)));
     }
 
-    iec_destroy(tmp);
+    iec_deinit(tmp);
     return IEC_OK;
 }
 
@@ -76,7 +77,8 @@ uint8_t iec_mul(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
         return IEC_NLL;
 
-    iec_t tmp = iec_new(IEC_T_NULL);
+    iec_t tmp = IEC_ALLOC;
+    iec_init(&tmp, IEC_T_NULL);
     iec_move(result, (iec_t) stack_pop(*list));
     iec_anytype_allowed(*result, ANY_MAGNITUDE,,,,,);
 
@@ -87,7 +89,7 @@ uint8_t iec_mul(iec_t *result, stack_t *list) {
         iec_set_value(*result, (iec_get_value(*result)) * (iec_get_value(tmp)));
     }
 
-    iec_destroy(tmp);
+    iec_deinit(tmp);
     return IEC_OK;
 }
 

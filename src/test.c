@@ -49,11 +49,17 @@
 
 int main(void) {
     uint8_t res = 0;
-    iec_t result = iec_new(IEC_T_NULL);
-    iec_t v1 = iec_new(IEC_T_INT);
-    iec_t v2 = iec_new(IEC_T_INT);
-    iec_t v3 = iec_new(IEC_T_INT);
-    iec_t v4 = iec_new(IEC_T_INT);
+    iec_t result = IEC_ALLOC;
+    iec_init(&result, IEC_T_NULL);
+
+    iec_t v1 = IEC_ALLOC;
+    iec_t v2 = IEC_ALLOC;
+    iec_t v3 = IEC_ALLOC;
+    iec_t v4 = IEC_ALLOC;
+    iec_init(&v1, IEC_T_INT);
+    iec_init(&v2, IEC_T_INT);
+    iec_init(&v3, IEC_T_INT);
+    iec_init(&v4, IEC_T_INT);
     stack_t fstk = stack_create();
 
     printf("_  TEST BIT_SHIFT... ");
@@ -286,10 +292,11 @@ int main(void) {
     printf("< OK >\n\n");
     /////////////////////////////////////
 
-    iec_destroy(v1);
-    iec_destroy(v2);
-    iec_destroy(v3);
-    iec_destroy(v4);
+    iec_deinit(result);
+    iec_deinit(v1);
+    iec_deinit(v2);
+    iec_deinit(v3);
+    iec_deinit(v4);
     stack_release(fstk);
 
     return 0;

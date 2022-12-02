@@ -38,6 +38,7 @@
 #include <ctype.h>
 #include <string.h>
 
+#include "iec61131lib.h"
 #include "util_buffer_string.h"
 
 enum LITERALS {
@@ -179,6 +180,10 @@ uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
         return IEC_LITERAL_FORMAT[datatype];
     }
 
+    if(isBuffStringEquals(str, NEW_STRING(2, "0")) || isBuffStringEquals(str, NEW_STRING(2, "1")))
+        return IEC_LIT_BOOLEAN;
+
+
     if ((indexOfChar(str, 'e', 0) != -1) || (indexOfChar(str, 'E', 0) != -1))
         return IEC_LIT_REAL_EXP;
 
@@ -191,12 +196,18 @@ uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
 void literal_toiec(iec_t *result, BufferString str) {
     uint8_t datatype;
     uint8_t iectype;
+    char *end;
 
     datatype = iec_identify_literal(&str, &iectype);
 
+    if(iectype != IEC_LIT_NONE) {
+        iec_totype(*result, iectype);
+    }
+
     switch (datatype) {
         case IEC_LIT_BOOLEAN:
-
+            iec_totype(*result, IEC_T_BOOL);
+            iec_set_value(*result, atoi(stringValue(&str)));
             break;
         case IEC_LIT_DURATION:
 
@@ -211,27 +222,29 @@ void literal_toiec(iec_t *result, BufferString str) {
 
             break;
         case IEC_LIT_INTEGER:
-
+            iec_totype(*result, IEC_T_INT);
+            iec_set_value(*result, atoi(stringValue(&str)));
             break;
         case IEC_LIT_REAL:
-
-            break;
         case IEC_LIT_REAL_EXP:
-
+            iec_totype(*result, IEC_T_LREAL);
+            iec_set_value(*result, strtold(stringValue(&str), &end));
             break;
         case IEC_LIT_BASE2:
-
+            iec_totype(*result, IEC_T_INT);
+            iec_set_value(*result, strtol(stringValue(&str), &end, 2));
             break;
         case IEC_LIT_BASE8:
-
+            iec_totype(*result, IEC_T_INT);
+            iec_set_value(*result, strtol(stringValue(&str), &end, 8));
             break;
         case IEC_LIT_BASE16:
-
+            iec_totype(*result, IEC_T_INT);
+            iec_set_value(*result, strtol(stringValue(&str), &end, 16));
             break;
         default:
-
+            iec_totype(*result, IEC_T_NULL);
     }
-
 }
 
 #endif /* IEC_LITERALS_H_ */

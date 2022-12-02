@@ -49,7 +49,6 @@
 // minimal length of string for add hash
 #define STR_MIN_LEN_HASH   10
 
-
 // functions errors
 enum IEC_ERRORS {
     IEC_OK  = 0x00, // ok
@@ -238,7 +237,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define CONCAT_INNER(a, b) a ## b
 #define LABEL(base,x)      CONCAT(base, x)
 #define sign(x)            (((x) > 0) - ((x) < 0))
-
+#define IEC_ALLOC          malloc(sizeof(struct iec))
 // any types
 #ifdef ALLOW_64BITS
 #define ANY_BIT(x)         (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_LWORD)
@@ -294,17 +293,19 @@ static uint8_t IEC_T_SIZEOF[] = {
 // promote to bigger type
 #define iec_type_promote(data, tpy)                                              \
             if ((data)->type < tpy) {                                            \
-                iec_t LABEL(__tmp__, __LINE__) = iec_new(tpy);                   \
+                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC;\
+                iec_init(&LABEL(__tmp__, __LINE__), tpy);                   \
                 iec_set_value(LABEL(__tmp__, __LINE__) , iec_get_value((data))); \
-                iec_destroy((data));                                             \
+                iec_deinit((data));                                             \
                 (data) = LABEL(__tmp__, __LINE__);                               \
             }
 
 // change type
 #define iec_totype(data, tpy)                                                    \
-                iec_t LABEL(__tmp__, __LINE__) = iec_new(tpy);                   \
+                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC; \
+                iec_init(&LABEL(__tmp__, __LINE__), tpy);                   \
                 iec_set_value(LABEL(__tmp__, __LINE__) , iec_get_value((data))); \
-                iec_destroy((data));                                             \
+                iec_deinit((data));                                             \
                 (data) = LABEL(__tmp__, __LINE__);
 
 // get value
@@ -582,112 +583,109 @@ static uint8_t IEC_T_SIZEOF[] = {
 ////////////////////////////////////////////////////////////////
 
 // create new value
-iec_t iec_new(iectype_t type) {
-    iec_t nw = (iec_t) malloc(sizeof(struct iec));
-    nw->type = type;
-    nw->any_type = IEC_ANYTYPE(type);
-    nw->tt = TT_NONE;
+void iec_init(iec_t *nw, iectype_t type) {
+    (*nw)->type = type;
+    (*nw)->any_type = IEC_ANYTYPE(type);
+    (*nw)->tt = TT_NONE;
     switch (type) {
         case IEC_T_BOOL:
-            nw->value = malloc(sizeof(bool));
+            (*nw)->value = malloc(sizeof(bool));
             break;
 
         case IEC_T_SINT:
-            nw->value = malloc(sizeof(int8_t));
+            (*nw)->value = malloc(sizeof(int8_t));
             break;
 
         case IEC_T_USINT:
         case IEC_T_BYTE:
-            nw->value = malloc(sizeof(uint8_t));
+            (*nw)->value = malloc(sizeof(uint8_t));
             break;
 
         case IEC_T_INT:
-            nw->value = malloc(sizeof(int16_t));
+            (*nw)->value = malloc(sizeof(int16_t));
             break;
 
         case IEC_T_UINT:
         case IEC_T_WORD:
-            nw->value = malloc(sizeof(uint16_t));
+            (*nw)->value = malloc(sizeof(uint16_t));
             break;
 
         case IEC_T_DINT:
-            nw->value = malloc(sizeof(int32_t));
+            (*nw)->value = malloc(sizeof(int32_t));
             break;
 
         case IEC_T_UDINT:
         case IEC_T_DWORD:
-            nw->value = malloc(sizeof(uint32_t));
+            (*nw)->value = malloc(sizeof(uint32_t));
             break;
 
         case IEC_T_REAL:
-            nw->value = malloc(sizeof(float));
+            (*nw)->value = malloc(sizeof(float));
             break;
 
         case IEC_T_LREAL:
-            nw->value = malloc(sizeof(double));
+            (*nw)->value = malloc(sizeof(double));
             break;
 
         case IEC_T_TIME:
-            nw->value = malloc(sizeof(double));
+            (*nw)->value = malloc(sizeof(double));
             break;
 
         case IEC_T_DATE:
-            nw->value = malloc(sizeof(date_t));
+            (*nw)->value = malloc(sizeof(date_t));
             break;
 
         case IEC_T_TOD:
-            nw->value = malloc(sizeof(tod_t));
+            (*nw)->value = malloc(sizeof(tod_t));
             break;
 
         case IEC_T_CHAR:
-            nw->value = malloc(sizeof(char));
+            (*nw)->value = malloc(sizeof(char));
             break;
 
         case IEC_T_WCHAR:
-            nw->value = malloc(sizeof(wchar_t));
+            (*nw)->value = malloc(sizeof(wchar_t));
             break;
 
         case IEC_T_STRING:
         case IEC_T_WSTRING:
-            nw->value = malloc(sizeof(string_t));
+            (*nw)->value = malloc(sizeof(string_t));
             break;
 #ifdef ALLOW_64BITS
         case IEC_T_DT:
-            nw->value = malloc(sizeof(dat_t));
+            (*nw)->value = malloc(sizeof(dat_t));
             break;
 
         case IEC_T_ULINT:
-            nw->value = malloc(sizeof(uint64_t));
+            (*nw)->value = malloc(sizeof(uint64_t));
             break;
 
         case IEC_T_LINT:
         case IEC_T_LWORD:
-            nw->value = malloc(sizeof(int64_t));
+            (*nw)->value = malloc(sizeof(int64_t));
             break;
 
         case IEC_T_POINTER:
-            nw->value = malloc(sizeof(pointer_t));
+            (*nw)->value = malloc(sizeof(pointer_t));
             break;
 #endif
         case IEC_T_TABLE:
-            nw->value = malloc(sizeof(table_t));
+            (*nw)->value = malloc(sizeof(table_t));
             break;
 
         case IEC_T_USER:
-            nw->value = malloc(sizeof(user_t));
+            (*nw)->value = malloc(sizeof(user_t));
             break;
 
         default:
-            nw->value = NULL;
-            nw->type = IEC_T_NULL;
+            (*nw)->value = NULL;
+            (*nw)->type = IEC_T_NULL;
             break;
     }
-
-    return nw;
 }
 
 // free value
-void iec_destroy(iec_t var) {
+void iec_deinit(iec_t var) {
     if(var == NULL)
         return;
     if (var->type != IEC_T_NULL)
