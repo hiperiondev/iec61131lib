@@ -42,8 +42,6 @@
 #include <limits.h>
 #include <math.h>
 
-#include "iec_stack.h"
-
 //#define ALLOW_64BITS // allow 64 bits data types
 
 // seed for string hash
