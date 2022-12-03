@@ -148,11 +148,11 @@ typedef union DoubleCast {
 
 typedef enum FormatFlagField {
     LEFT_ALIGN_FLAG,        // '-' -> Left-align the output of this placeholder. (The default is to right-align the output.)
-    PLUS_FLAG, // '+' -> Prepends a plus for positive signed-numeric types. positive = +, negative = -. (The default doesn't prepend anything in front of positive numbers.)
+    PLUS_FLAG,              // '+' -> Prepends a plus for positive signed-numeric types. positive = +, negative = -. (The default doesn't prepend anything in front of positive numbers.)
     SPACE_FLAG,             // ' ' -> Prepends a space for positive signed-numeric types. positive =  , negative = -. This flag is ignored if the + flag exists.
     ZEROES_PADDING_FLAG,    // '0' -> When the 'width' option is specified, prepends zeros for numeric types. (The default prepends spaces.)
-    SPECIAL_FLAG, // '#' -> For g and G types, trailing zeros are not removed. For f, F, e, E, g, G types, the output always contains a decimal point. For o, x, X types, the text 0, 0x, 0X, respectively, is prepended to non-zero numbers.
-    LOWER_CASE_FLAG, // 'x' -> unsigned int as a hexadecimal number. x uses lower-case letters and X uses upper-case. 'f' and 'F' only differs in how the strings for an infinite number or NaN are printed (inf, infinity and nan for f; INF, INFINITY and NAN for F).
+    SPECIAL_FLAG,           // '#' -> For g and G types, trailing zeros are not removed. For f, F, e, E, g, G types, the output always contains a decimal point. For o, x, X types, the text 0, 0x, 0X, respectively, is prepended to non-zero numbers.
+    LOWER_CASE_FLAG,        // 'x' -> unsigned int as a hexadecimal number. x uses lower-case letters and X uses upper-case. 'f' and 'F' only differs in how the strings for an infinite number or NaN are printed (inf, infinity and nan for f; INF, INFINITY and NAN for F).
     SIGNED_NUMBER_FLAG,     // unsigned/signed long flag
     ADAPTIVE_EXPONENT_FLAG, // flag for: '%g' that represents the decimal format of the answer, depending upon whose length is smaller, comparing between %e and %f.
 } FormatFlagField;

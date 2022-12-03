@@ -35,6 +35,8 @@
 #ifndef IEC_STRING_H_
 #define IEC_STRING_H_
 
+#include "util_murhash.h"
+
 /*
  * Summary:
  *
@@ -106,11 +108,12 @@ uint8_t iec_find(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
-uint32_t iec_string_hash(iec_t *string) {
+uint32_t iec_string_hash(iec_t *result) {
     return IEC_OK;
 }
 
-uint8_t iec_string_set(iec_t *string, char str, wchar_t wstr) {
+uint8_t iec_string_set(iec_t *result, void *str, bool wstr) {
+
     return IEC_OK;
 }
 
