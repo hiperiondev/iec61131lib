@@ -115,10 +115,14 @@ typedef enum {
 } iectype_t;
 
 typedef enum {
-    TT_NONE    = 0x00, //
-    TT_MARK    = 0x01, //
+    TT_MARK    = 0x01, // useful for gc
     TT_PERSIST = 0x02, //
-    TT_RETAIN  = 0x03, //
+    TT_RETAIN  = 0x04, //
+    TT_NDEF_08 = 0x08, // not defined
+    TT_NDEF_10 = 0x10, // not defined
+    TT_NDEF_20 = 0x20, // not defined
+    TT_NDEF_40 = 0x40, // not defined
+    TT_NDEF_80 = 0x80  // not defined
 } tt_t;
 
 typedef union {
@@ -238,6 +242,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define LABEL(base,x)      CONCAT(base, x)
 #define sign(x)            (((x) > 0) - ((x) < 0))
 #define IEC_ALLOC          malloc(sizeof(struct iec))
+
 // any types
 #ifdef ALLOW_64BITS
 #define ANY_BIT(x)         (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_LWORD)
@@ -282,6 +287,17 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define SET_BIT(v, b)      ((v) | (1 << b))
 #define CLR_BIT(v, b)      ((v) & ~(1 << b))
 
+// tt get
+#define iec_is_mark(v)        (GET_BIT(v, TT_MARK))
+#define iec_is_persist(v)     (GET_BIT(v, TT_PERSIST))
+#define iec_is_retain(v)      (GET_BIT(v, TT_RETAIN))
+#define iec_set_mark(v)       (SET_BIT(v, TT_MARK))
+#define iec_set_persist(v)    (SET_BIT(v, TT_PERSIST))
+#define iec_set_retain(v)     (SET_BIT(v, TT_RETAIN))
+#define iec_unset_mark(v)     (CLR_BIT(v, TT_MARK))
+#define iec_unset_persist(v)  (CLR_BIT(v, TT_PERSIST))
+#define iec_unset_retain(v)   (CLR_BIT(v, TT_RETAIN))
+
 // check type by length
 #define MAX_TYPE(a,b)               \
             (a)->type > (b)->type ? \
@@ -293,19 +309,19 @@ static uint8_t IEC_T_SIZEOF[] = {
 // promote to bigger type
 #define iec_type_promote(data, tpy)                                              \
             if ((data)->type < tpy) {                                            \
-                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC;\
-                iec_init(&LABEL(__tmp__, __LINE__), tpy);                   \
+                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC;                      \
+                iec_init(&LABEL(__tmp__, __LINE__), tpy);                        \
                 iec_set_value(LABEL(__tmp__, __LINE__) , iec_get_value((data))); \
-                iec_deinit((data));                                             \
+                iec_deinit((data));                                              \
                 (data) = LABEL(__tmp__, __LINE__);                               \
             }
 
 // change type
 #define iec_totype(data, tpy)                                                    \
-                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC; \
-                iec_init(&LABEL(__tmp__, __LINE__), tpy);                   \
+                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC;                      \
+                iec_init(&LABEL(__tmp__, __LINE__), tpy);                        \
                 iec_set_value(LABEL(__tmp__, __LINE__) , iec_get_value((data))); \
-                iec_deinit((data));                                             \
+                iec_deinit((data));                                              \
                 (data) = LABEL(__tmp__, __LINE__);
 
 // get value
@@ -565,16 +581,16 @@ static uint8_t IEC_T_SIZEOF[] = {
             ((data)->type == IEC_T_DINT)       ? (value >= LONG_MIN) && (value <= LONG_MAX) && (round(val) == value)   : \
             ((data)->type == IEC_T_UDINT)                                                                                \
               || ((data)->type == IEC_T_DWORD) ? (value >= ULONG_MIN) && (value <= ULONG_MAX) && (round(val) == value) : \
-            ((data)->type == IEC_T_REAL)       ? 0 :  \
-            ((data)->type == IEC_T_TIME)       ? 0 :  \
-            ((data)->type == IEC_T_LREAL)      ? 0 :  \
+            ((data)->type == IEC_T_REAL)       ? 0 :                                                                     \
+            ((data)->type == IEC_T_TIME)       ? 0 :                                                                     \
+            ((data)->type == IEC_T_LREAL)      ? 0 :                                                                     \
             FT_64(data)
 #ifdef ALLOW_64BITS
-#define FT_64(data)                                   \
-            ((data)->type == IEC_T_ULINT)      ? 0  : \
-            ((data)->type == IEC_T_LINT)              \
-              || ((data)->type == IEC_T_LWORD) ? 0  : \
-            ((data)->type == IEC_T_POINTER)    ? 0  : \
+#define FT_64(data)                                                                                                      \
+            ((data)->type == IEC_T_ULINT)      ? 0  :                                                                    \
+            ((data)->type == IEC_T_LINT)                                                                                 \
+              || ((data)->type == IEC_T_LWORD) ? 0  :                                                                    \
+            ((data)->type == IEC_T_POINTER)    ? 0  :                                                                    \
             0
 #else
 #define FT_64(data) 0
@@ -586,7 +602,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 void iec_init(iec_t *nw, iectype_t type) {
     (*nw)->type = type;
     (*nw)->any_type = IEC_ANYTYPE(type);
-    (*nw)->tt = TT_NONE;
+    (*nw)->tt = 0;
     switch (type) {
         case IEC_T_BOOL:
             (*nw)->value = malloc(sizeof(bool));
