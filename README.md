@@ -19,7 +19,7 @@
    * [x] mathematical
    * [x] selection
    * [ ] string
-   * [ ] literals
+   * [x] literals
  
 * [ ] Complete test
    * [x] core

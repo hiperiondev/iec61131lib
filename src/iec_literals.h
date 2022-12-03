@@ -196,17 +196,21 @@ uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
 void literal_toiec(iec_t *result, BufferString str) {
     uint8_t datatype;
     uint8_t iectype;
+    bool change_type = true;
     char *end;
 
     datatype = iec_identify_literal(&str, &iectype);
 
     if(iectype != IEC_LIT_NONE) {
         iec_totype(*result, iectype);
+        change_type = false;
     }
 
     switch (datatype) {
         case IEC_LIT_BOOLEAN:
-            iec_totype(*result, IEC_T_BOOL);
+            if (change_type) {
+                iec_totype(*result, IEC_T_BOOL)
+            }
             iec_set_value(*result, atoi(stringValue(&str)));
             break;
         case IEC_LIT_DURATION:
@@ -218,28 +222,40 @@ void literal_toiec(iec_t *result, BufferString str) {
         case IEC_LIT_TIME_OF_DAY:
 
             break;
+#ifdef ALLOW_64BITS
         case IEC_LIT_DATE_AND_TIME:
 
             break;
+#endif
         case IEC_LIT_INTEGER:
-            iec_totype(*result, IEC_T_INT);
+            if (change_type) {
+                iec_totype(*result, IEC_T_INT);
+            }
             iec_set_value(*result, atoi(stringValue(&str)));
             break;
         case IEC_LIT_REAL:
         case IEC_LIT_REAL_EXP:
-            iec_totype(*result, IEC_T_LREAL);
+            if (change_type) {
+                iec_totype(*result, IEC_T_LREAL);
+            }
             iec_set_value(*result, strtold(stringValue(&str), &end));
             break;
         case IEC_LIT_BASE2:
-            iec_totype(*result, IEC_T_INT);
+            if (change_type) {
+                iec_totype(*result, IEC_T_INT);
+            }
             iec_set_value(*result, strtol(stringValue(&str), &end, 2));
             break;
         case IEC_LIT_BASE8:
-            iec_totype(*result, IEC_T_INT);
+            if (change_type) {
+                iec_totype(*result, IEC_T_INT);
+            }
             iec_set_value(*result, strtol(stringValue(&str), &end, 8));
             break;
         case IEC_LIT_BASE16:
-            iec_totype(*result, IEC_T_INT);
+            if (change_type) {
+                iec_totype(*result, IEC_T_INT);
+            }
             iec_set_value(*result, strtol(stringValue(&str), &end, 16));
             break;
         default:
