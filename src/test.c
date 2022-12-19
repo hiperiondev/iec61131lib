@@ -47,6 +47,7 @@
 #include "iec_selection.h"
 #include "iec_string.h"
 #include "iec_literals.h"
+#include "iec_std_fun_blocks.h"
 
 int main(void) {
     uint8_t res = 0;
@@ -275,7 +276,7 @@ int main(void) {
 
     printf("_  TEST LITERALS... ");
 
-    BufferString_t *str = NEW_STRING(255, "UINT#16#9_A");
+    str_t *str = NEW_STRING(255, "UINT#16#9_A");
     uint8_t datatype;
     uint8_t iectype;
 
@@ -306,12 +307,12 @@ int main(void) {
     char strt[] = "This is a test";
     iec_string_set(&rst_tmp, strt, 0, 1);
 
-    //BufferString_t *test_str = iec_get_string(result);
+    //str_t *test_str = iec_get_string(result);
     //printf("\nt:%d, result: %s(%d)\n", result->type, stringValue(test_str), stringLength(test_str));
 
     //iec_totype(&v1, IEC_T_UDINT);
     printf("t: %d, (%s)\n", rst_tmp->type, (((string_t*) (rst_tmp->value))->str->value));
-    BufferString_t *str_tmp = iec_get_string(rst_tmp);
+    str_t *str_tmp = iec_get_string(rst_tmp);
     printf("t: %d, l: %d(%s)(%s)\n", rst_tmp->type, stringLength(str_tmp), stringValue(str_tmp), (((string_t*) (rst_tmp->value))->str->value));
 
     printf("< OK >\n\n");

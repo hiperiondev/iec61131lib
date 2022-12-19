@@ -61,7 +61,7 @@ uint8_t iec_string_len(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_totype(result, IEC_T_UDINT);
 
-    BufferString_t *str = iec_get_string(v1);
+    str_t *str = iec_get_string(v1);
     iec_set_value(*result, str->length);
 
     return IEC_OK;
@@ -126,7 +126,7 @@ uint8_t iec_string_set(iec_t *result, char *str, bool wstr, bool hash) {
     }
 
     (*result)->value = (string_t*) malloc(sizeof(struct string));
-    ((string_t*) ((*result)->value))->str = newStringWithLength2(&(BufferString_t ) { 0 }, str, strlen(str));
+    ((string_t*) ((*result)->value))->str = newStringWithLength2(&(str_t ) { 0 }, str, strlen(str));
 
     if (hash) {
         ((string_t*) ((*result)->value))->hash = PMurHash32(STR_SEED_HASH, stringValue(((string_t*) ((*result)->value))->str),

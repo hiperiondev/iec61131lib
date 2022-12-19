@@ -13,26 +13,28 @@
    * [x] arithmetic
    * [x] bit_shift
    * [x] bitwise_boolean
-   * [ ] comparison
+   * [x] comparison
    * [ ] conversion
    * [ ] date_time
    * [x] mathematical
    * [x] selection
    * [ ] string
    * [x] literals
+   * [ ] standard function blocks
  
 * [ ] Complete test
    * [x] core
    * [x] arithmetic
    * [x] bit_shift
    * [x] bitwise_boolean
-   * [ ] comparison
+   * [x] comparison
    * [ ] conversion
    * [ ] date_time
    * [x] mathematical
    * [x] selection
    * [ ] string
-   * [ ] literals
+   * [x] literals
+   * [ ] standard function blocks
    
 * [ ] Complete documentation
    * [ ] core
@@ -46,3 +48,4 @@
    * [ ] selection
    * [ ] string
    * [ ] literals
+   * [ ] standard function blocks

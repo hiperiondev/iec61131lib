@@ -165,7 +165,7 @@ typedef struct string {
             bool wstring; // true if wide character type
         uint32_t len;
         uint32_t hash;
-    BufferString_t *str;
+    str_t *str;
 } string_t;
 
 typedef struct {

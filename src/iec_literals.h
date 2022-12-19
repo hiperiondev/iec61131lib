@@ -135,7 +135,7 @@ const char *IEC_IECTYPE_PFX[] = {
     "?#",       // 31
 };
 
-uint8_t iec_identify_literal(BufferString_t *str, uint8_t *iectype) {
+uint8_t iec_identify_literal(str_t *str, uint8_t *iectype) {
     uint8_t n;
 
     trimAll(str);
@@ -146,7 +146,7 @@ uint8_t iec_identify_literal(BufferString_t *str, uint8_t *iectype) {
     replaceAllOccurrences(str, "FALSE", "0");
 
     // delete _
-    BufferString_t *tmp = EMPTY_STRING(255);
+    str_t *tmp = EMPTY_STRING(255);
     while(indexOfChar(str, '_', 0) != -1) {
         substringAfter(str, tmp, "_");
         substringBefore(str, str, "_");
@@ -193,7 +193,7 @@ uint8_t iec_identify_literal(BufferString_t *str, uint8_t *iectype) {
     return IEC_LIT_INTEGER;
 }
 
-void literal_toiec(iec_t *result, BufferString_t str) {
+void literal_toiec(iec_t *result, str_t str) {
     uint8_t datatype;
     uint8_t iectype;
     bool change_type = true;
