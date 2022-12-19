@@ -135,7 +135,7 @@ const char *IEC_IECTYPE_PFX[] = {
     "?#",       // 31
 };
 
-uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
+uint8_t iec_identify_literal(BufferString_t *str, uint8_t *iectype) {
     uint8_t n;
 
     trimAll(str);
@@ -146,7 +146,7 @@ uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
     replaceAllOccurrences(str, "FALSE", "0");
 
     // delete _
-    BufferString *tmp = EMPTY_STRING(255);
+    BufferString_t *tmp = EMPTY_STRING(255);
     while(indexOfChar(str, '_', 0) != -1) {
         substringAfter(str, tmp, "_");
         substringBefore(str, str, "_");
@@ -193,7 +193,7 @@ uint8_t iec_identify_literal(BufferString *str, uint8_t *iectype) {
     return IEC_LIT_INTEGER;
 }
 
-void literal_toiec(iec_t *result, BufferString str) {
+void literal_toiec(iec_t *result, BufferString_t str) {
     uint8_t datatype;
     uint8_t iectype;
     bool change_type = true;
@@ -202,14 +202,14 @@ void literal_toiec(iec_t *result, BufferString str) {
     datatype = iec_identify_literal(&str, &iectype);
 
     if(iectype != IEC_LIT_NONE) {
-        iec_totype(*result, iectype);
+        iec_totype(result, iectype);
         change_type = false;
     }
 
     switch (datatype) {
         case IEC_LIT_BOOLEAN:
             if (change_type) {
-                iec_totype(*result, IEC_T_BOOL)
+                iec_totype(result, IEC_T_BOOL);
             }
             iec_set_value(*result, atoi(stringValue(&str)));
             break;
@@ -229,37 +229,37 @@ void literal_toiec(iec_t *result, BufferString str) {
 #endif
         case IEC_LIT_INTEGER:
             if (change_type) {
-                iec_totype(*result, IEC_T_INT);
+                iec_totype(result, IEC_T_INT);
             }
             iec_set_value(*result, atoi(stringValue(&str)));
             break;
         case IEC_LIT_REAL:
         case IEC_LIT_REAL_EXP:
             if (change_type) {
-                iec_totype(*result, IEC_T_LREAL);
+                iec_totype(result, IEC_T_LREAL);
             }
             iec_set_value(*result, strtold(stringValue(&str), &end));
             break;
         case IEC_LIT_BASE2:
             if (change_type) {
-                iec_totype(*result, IEC_T_INT);
+                iec_totype(result, IEC_T_INT);
             }
             iec_set_value(*result, strtol(stringValue(&str), &end, 2));
             break;
         case IEC_LIT_BASE8:
             if (change_type) {
-                iec_totype(*result, IEC_T_INT);
+                iec_totype(result, IEC_T_INT);
             }
             iec_set_value(*result, strtol(stringValue(&str), &end, 8));
             break;
         case IEC_LIT_BASE16:
             if (change_type) {
-                iec_totype(*result, IEC_T_INT);
+                iec_totype(result, IEC_T_INT);
             }
             iec_set_value(*result, strtol(stringValue(&str), &end, 16));
             break;
         default:
-            iec_totype(*result, IEC_T_NULL);
+            iec_totype(result, IEC_T_NULL);
     }
 }
 

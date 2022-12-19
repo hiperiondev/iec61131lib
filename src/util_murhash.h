@@ -204,7 +204,7 @@ MH_UINT32 PMurHash32(MH_UINT32 seed, const void *key, int len);
 
 //---------------------------------------------------------------------------
 
-// Main hashing function. Initialise carry to 0 and h1 to 0 or an initial seed
+// Main hashing function. Initialize carry to 0 and h1 to 0 or an initial seed
 // if wanted. Both ph1 and pcarry are required arguments.
 void PMurHash32_Process(uint32_t *ph1, uint32_t *pcarry, const void *key, int len) {
     uint32_t h1 = *ph1;
@@ -217,20 +217,20 @@ void PMurHash32_Process(uint32_t *ph1, uint32_t *pcarry, const void *key, int le
     int n = c & 3;
 
 #if defined(UNALIGNED_SAFE)
-         // This CPU handles unaligned word access
+    // This CPU handles unaligned word access
 
-         // Consume any carry bytes
-         int i = (4 - n) & 3;
-         if (i && i <= len) {
-             DOBYTES(i, h1, c, n, ptr, len);
-         }
+    // Consume any carry bytes
+    int i = (4 - n) & 3;
+    if (i && i <= len) {
+        DOBYTES(i, h1, c, n, ptr, len);
+    }
 
-         // Process 32-bit chunks
-         end = ptr + len / 4 * 4;
-         for (; ptr < end; ptr += 4) {
-             uint32_t k1 = READ_UINT32(ptr);
-             DOBLOCK(h1, k1);
-         }
+    // Process 32-bit chunks
+    end = ptr + len / 4 * 4;
+    for (; ptr < end; ptr += 4) {
+        uint32_t k1 = READ_UINT32(ptr);
+        DOBLOCK(h1, k1);
+    }
 
      #else  //UNALIGNED_SAFE
     // This CPU does not handle unaligned word access
@@ -332,13 +332,13 @@ void PMurHash32_test(const void *key, int len, uint32_t seed, void *out) {
     const uint8_t *end = ptr + len;
 
 #if 0 // Exercise the progressive processing
-       while(ptr < end) {
-         //const uint8_t *mid = ptr + rand()%(end-ptr)+1;
-         const uint8_t *mid = ptr + (rand()&0xF);
-         mid = mid<end?mid:end;
-         PMurHash32_Process(&h1, &carry, ptr, mid-ptr);
-         ptr = mid;
-       }
+    while (ptr < end) {
+        //const uint8_t *mid = ptr + rand()%(end-ptr)+1;
+        const uint8_t *mid = ptr + (rand() & 0xF);
+        mid = mid < end ? mid : end;
+        PMurHash32_Process(&h1, &carry, ptr, mid - ptr);
+        ptr = mid;
+    }
      #else
     PMurHash32_Process(&h1, &carry, ptr, (int) (end - ptr));
 #endif

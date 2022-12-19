@@ -23,20 +23,20 @@ typedef struct BufferString {
     char *value;
     uint32_t length;
     uint32_t capacity;
-} BufferString;
+} BufferString_t;
 
 typedef struct StringIterator {
-    BufferString *str;
+    BufferString_t *str;
     const char *delimiter;
     uint32_t delimiterLength;
     char *nextToken;
-} StringIterator;
+} StringIterator_t;
 
 // initialization
-#define NEW_STRING(capacity, initValue)                     newString(&(BufferString){0}, initValue, (char[capacity]){0}, capacity)
-#define NEW_STRING_LEN(capacity, initValue, length)         newStringWithLength(&(BufferString){0}, initValue, length, (char[capacity]){0}, capacity)
-#define EMPTY_STRING(capacity)                              newString(&(BufferString){0}, "", (char[capacity]){0}, capacity)
-#define DUP_STRING(capacity, source)                        dubString(source, &(BufferString){0}, (char[capacity]){0}, capacity)
+#define NEW_STRING(capacity, initValue)                     newString(&(BufferString_t){0}, initValue, (char[capacity]){0}, capacity)
+#define NEW_STRING_LEN(capacity, initValue, length)         newStringWithLength(&(BufferString_t){0}, initValue, length, (char[capacity]){0}, capacity)
+#define EMPTY_STRING(capacity)                              newString(&(BufferString_t){0}, "", (char[capacity]){0}, capacity)
+#define DUP_STRING(capacity, source)                        dubString(source, &(BufferString_t){0}, (char[capacity]){0}, capacity)
 
 #define STRING_FORMAT(capacity, format, args...)            stringFormat(EMPTY_STRING(capacity), format, args)
 #define SUBSTRING(capacity, source, beginIndex, endIndex)   substringFromTo(source, EMPTY_STRING(capacity), beginIndex, endIndex)
@@ -68,13 +68,15 @@ typedef struct StringIterator {
 #define STRING_FORMAT_2048(format, args...) STRING_FORMAT(2048, format, args)
 
 // properties
-static inline char* stringValue(BufferString *str) {
+static inline char* stringValue(BufferString_t *str) {
     return str != NULL ? str->value : NULL;
 }
-static inline uint32_t stringLength(BufferString *str) {
+
+static inline uint32_t stringLength(BufferString_t *str) {
     return str != NULL ? str->length : 0;
 }
-static inline uint32_t stringCapacity(BufferString *str) {
+
+static inline uint32_t stringCapacity(BufferString_t *str) {
     return str != NULL ? str->capacity : 0;
 }
 
@@ -157,45 +159,45 @@ typedef enum FormatFlagField {
     ADAPTIVE_EXPONENT_FLAG, // flag for: '%g' that represents the decimal format of the answer, depending upon whose length is smaller, comparing between %e and %f.
 } FormatFlagField;
 
-static void shallowStringCopy(BufferString *source, BufferString *destination);
+static void shallowStringCopy(BufferString_t *source, BufferString_t *destination);
 static uint8_t parseFormatFlags(const char *format, uint8_t *flags);
 static uint8_t parseFormatFieldWith(const char *format, va_list *vaList, int32_t *widthField, uint8_t *flags);
 static uint8_t parseFormatPrecision(const char *format, va_list *vaList, int32_t *precision);
 static uint8_t parseLengthField(char *lengthField, const char *format);
 
-static BufferString* formatCharacter(BufferString *str, uint8_t flags, int32_t widthField, va_list *vaList);
-static BufferString* formatChars(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, va_list *vaList);
-static BufferString* formatString(BufferString *str, uint8_t flags, int32_t widthField, int64_t precision, va_list *vaList);
-static BufferString* doFormatChars(BufferString *str, const char *valueStr, uint32_t length, uint8_t flags, int32_t widthField);
-static BufferString* formatPointer(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint64_t pointerAddress);
-static BufferString* formatNumber(BufferString *str, uint8_t flags, const char *lengthField, int32_t widthField, int32_t precision, uint8_t base,
+static BufferString_t* formatCharacter(BufferString_t *str, uint8_t flags, int32_t widthField, va_list *vaList);
+static BufferString_t* formatChars(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, va_list *vaList);
+static BufferString_t* formatString(BufferString_t *str, uint8_t flags, int32_t widthField, int64_t precision, va_list *vaList);
+static BufferString_t* doFormatChars(BufferString_t *str, const char *valueStr, uint32_t length, uint8_t flags, int32_t widthField);
+static BufferString_t* formatPointer(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint64_t pointerAddress);
+static BufferString_t* formatNumber(BufferString_t *str, uint8_t flags, const char *lengthField, int32_t widthField, int32_t precision, uint8_t base,
         va_list *vaList);
 
 #ifdef ENABLE_FLOAT_FORMATTING
-static BufferString* formatFloat(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
-static BufferString* formatExponential(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
+static BufferString_t* formatFloat(BufferString_t *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
+static BufferString_t* formatExponential(BufferString_t *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision);
 #endif
 
-static inline BufferString* formatByte(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
-static inline BufferString* formatShort(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
-static inline BufferString* formatLongLong(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
-static inline BufferString* formatLong(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
-static inline BufferString* formatInt(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
+static inline BufferString_t* formatByte(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
+static inline BufferString_t* formatShort(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
+static inline BufferString_t* formatLongLong(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
+static inline BufferString_t* formatLong(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
+static inline BufferString_t* formatInt(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList);
 
-static BufferString* numberToString(BufferString *str, uint64_t number, char sign, uint8_t base, int32_t size, int32_t precision, uint8_t flags);
+static BufferString_t* numberToString(BufferString_t *str, uint64_t number, char sign, uint8_t base, int32_t size, int32_t precision, uint8_t flags);
 static uint8_t stringToNumber(const char *numberStr, int32_t *resultValue);
-static BufferString* concatLeftPadding(BufferString *str, char *sign, uint8_t base, int32_t *size, uint8_t flags);
-static inline BufferString* concatSpecialIfPresent(BufferString *str, uint8_t base, uint8_t flags);
-static inline BufferString* concatSignIfPresent(BufferString *str, char sign);
-static inline BufferString* concatRightPadding(BufferString *str, int32_t size);
+static BufferString_t* concatLeftPadding(BufferString_t *str, char *sign, uint8_t base, int32_t *size, uint8_t flags);
+static inline BufferString_t* concatSpecialIfPresent(BufferString_t *str, uint8_t base, uint8_t flags);
+static inline BufferString_t* concatSignIfPresent(BufferString_t *str, char sign);
+static inline BufferString_t* concatRightPadding(BufferString_t *str, int32_t size);
 static int32_t numberToStringByBase(uint64_t number, char *numberBuffer, uint8_t base, uint8_t flags);
 static char resolveSign(int64_t *number, uint8_t flags, int32_t *widthField);
 
 #ifdef ENABLE_FLOAT_FORMATTING
-static bool isNanOrInfinity(BufferString *str, double decimalValue, int32_t widthField, uint8_t flags);
+static bool isNanOrInfinity(BufferString_t *str, double decimalValue, int32_t widthField, uint8_t flags);
 #endif
 
-BufferString* newStringWithLength(BufferString *str, const void *initValue, uint32_t initLength, char *buffer, uint32_t bufferLength) {
+BufferString_t* newStringWithLength(BufferString_t *str, const void *initValue, uint32_t initLength, char *buffer, uint32_t bufferLength) {
     if (str == NULL || initLength >= bufferLength)
         return NULL;
     str->value = buffer;
@@ -206,17 +208,26 @@ BufferString* newStringWithLength(BufferString *str, const void *initValue, uint
     return str;
 }
 
-BufferString* newString(BufferString *str, const void *initValue, char *buffer, uint32_t bufferLength) {
+BufferString_t* newStringWithLength2(BufferString_t *str, char *buffer, uint32_t bufferLength) {
+    if (str == NULL)
+        return NULL;
+    str->value = buffer;
+    str->length = bufferLength;
+    str->capacity = bufferLength;
+    return str;
+}
+
+BufferString_t* newString(BufferString_t *str, const void *initValue, char *buffer, uint32_t bufferLength) {
     if (initValue == NULL || buffer == NULL)
         return NULL;
     return newStringWithLength(str, initValue, strnlen(initValue, bufferLength), buffer, bufferLength);
 }
 
-BufferString* dubString(BufferString *source, BufferString *dest, char *buffer, uint32_t bufferLength) {
+BufferString_t* dubString(BufferString_t *source, BufferString_t *dest, char *buffer, uint32_t bufferLength) {
     return newStringWithLength(dest, source->value, source->length, buffer, bufferLength);
 }
 
-BufferString* clearString(BufferString *str) {
+BufferString_t* clearString(BufferString_t *str) {
     if (str == NULL || str->length == 0)
         return str;
     memset(str->value, 0, str->length);
@@ -224,7 +235,7 @@ BufferString* clearString(BufferString *str) {
     return str;
 }
 
-BufferString* concatChar(BufferString *str, char charToConcat) {
+BufferString_t* concatChar(BufferString_t *str, char charToConcat) {
     if (str == NULL || str->length >= (str->capacity - 1))
         return NULL;
     *STRING_END(str) = charToConcat;
@@ -232,7 +243,7 @@ BufferString* concatChar(BufferString *str, char charToConcat) {
     return str;
 }
 
-BufferString* stringFormat(BufferString *str, const char *format, ...) {
+BufferString_t* stringFormat(BufferString_t *str, const char *format, ...) {
     if (str == NULL || format == NULL)
         return NULL;
     clearString(str);
@@ -339,7 +350,7 @@ BufferString* stringFormat(BufferString *str, const char *format, ...) {
     return str;
 }
 
-BufferString* concatCharsByLength(BufferString *str, const char *strToConcat, uint32_t length) {
+BufferString_t* concatCharsByLength(BufferString_t *str, const char *strToConcat, uint32_t length) {
     if (str == NULL || length >= (str->capacity - str->length))
         return NULL;
     memcpy(STRING_END(str), strToConcat, length);
@@ -348,15 +359,15 @@ BufferString* concatCharsByLength(BufferString *str, const char *strToConcat, ui
     return str;
 }
 
-BufferString* concatChars(BufferString *str, const char *strToConcat) {
+BufferString_t* concatChars(BufferString_t *str, const char *strToConcat) {
     return str != NULL && strToConcat != NULL ? concatCharsByLength(str, strToConcat, strnlen(strToConcat, str->capacity)) : NULL;
 }
 
-BufferString* concatString(BufferString *str, BufferString *strToConcat) {
+BufferString_t* concatString(BufferString_t *str, BufferString_t *strToConcat) {
     return str != NULL && strToConcat != NULL ? concatCharsByLength(str, strToConcat->value, strToConcat->length) : NULL;
 }
 
-BufferString* copyStringByLength(BufferString *str, const char *strToCopy, uint32_t length) {
+BufferString_t* copyStringByLength(BufferString_t *str, const char *strToCopy, uint32_t length) {
     if (str == NULL || length >= str->capacity)
         return NULL;
     memcpy(str->value, strToCopy, length);
@@ -365,25 +376,25 @@ BufferString* copyStringByLength(BufferString *str, const char *strToCopy, uint3
     return str;
 }
 
-BufferString* copyString(BufferString *str, const char *strToCopy) {
+BufferString_t* copyString(BufferString_t *str, const char *strToCopy) {
     return copyStringByLength(str, strToCopy, strlen(strToCopy));
 }
 
-BufferString* toLowerCase(BufferString *str) {
+BufferString_t* toLowerCase(BufferString_t *str) {
     for (uint32_t i = 0; i < str->length; i++) {
         str->value[i] = (char) tolower(str->value[i]);
     }
     return str;
 }
 
-BufferString* toUpperCase(BufferString *str) {
+BufferString_t* toUpperCase(BufferString_t *str) {
     for (uint32_t i = 0; i < str->length; i++) {
         str->value[i] = (char) toupper(str->value[i]);
     }
     return str;
 }
 
-BufferString* swapCase(BufferString *str) {
+BufferString_t* swapCase(BufferString_t *str) {
     for (uint32_t i = 0; i < str->length; i++) {
         char valueChar = str->value[i];
         str->value[i] = (char) (islower(valueChar) ? toupper(valueChar) : tolower(valueChar));
@@ -391,7 +402,7 @@ BufferString* swapCase(BufferString *str) {
     return str;
 }
 
-BufferString* replaceFirstOccurrence(BufferString *source, const char *target, const char *replacement) {
+BufferString_t* replaceFirstOccurrence(BufferString_t *source, const char *target, const char *replacement) {
     char *sourcePointer = strstr(source->value, target);
     if (sourcePointer == NULL)
         return NULL;
@@ -408,13 +419,13 @@ BufferString* replaceFirstOccurrence(BufferString *source, const char *target, c
     return source;
 }
 
-BufferString* replaceAllOccurrences(BufferString *source, const char *target, const char *replacement) {
+BufferString_t* replaceAllOccurrences(BufferString_t *source, const char *target, const char *replacement) {
     while (replaceFirstOccurrence(source, target, replacement) != NULL)
         ;
     return source;
 }
 
-BufferString* trimAll(BufferString *str) {
+BufferString_t* trimAll(BufferString_t *str) {
     if (str == NULL)
         return NULL;
 
@@ -439,7 +450,7 @@ BufferString* trimAll(BufferString *str) {
     return str;
 }
 
-BufferString* reverseString(BufferString *str) {
+BufferString_t* reverseString(BufferString_t *str) {
     for (uint32_t i = 0; i < (str->length / 2); i++) {
         char headChar = str->value[i];
         char tailChar = str->value[str->length - i - 1];
@@ -449,7 +460,7 @@ BufferString* reverseString(BufferString *str) {
     return str;
 }
 
-BufferString* substringFromTo(BufferString *source, BufferString *destination, uint32_t beginIndex, uint32_t endIndex) {
+BufferString_t* substringFromTo(BufferString_t *source, BufferString_t *destination, uint32_t beginIndex, uint32_t endIndex) {
     bool isStringNotInBounds = (beginIndex > endIndex || endIndex > source->length);
     if (isStringNotInBounds)
         return NULL;
@@ -460,11 +471,11 @@ BufferString* substringFromTo(BufferString *source, BufferString *destination, u
     return destination;
 }
 
-BufferString* substringFrom(BufferString *source, BufferString *destination, uint32_t beginIndex) {
+BufferString_t* substringFrom(BufferString_t *source, BufferString_t *destination, uint32_t beginIndex) {
     return substringFromTo(source, destination, beginIndex, source->length);
 }
 
-BufferString* substringAfter(BufferString *source, BufferString *destination, const char *separator) {
+BufferString_t* substringAfter(BufferString_t *source, BufferString_t *destination, const char *separator) {
     char *substringPointer = strstr(source->value, separator);
     if (substringPointer == NULL)
         return source;
@@ -473,7 +484,7 @@ BufferString* substringAfter(BufferString *source, BufferString *destination, co
     return copyStringByLength(destination, substringPointer, strlen(substringPointer));
 }
 
-int32_t lastIndexOfString(BufferString *str, const char *stringToFind) {
+int32_t lastIndexOfString(BufferString_t *str, const char *stringToFind) {
     if (str == NULL || stringToFind == NULL)
         return NO_RESULT;
     uint32_t substringLength = strlen(stringToFind);
@@ -494,7 +505,7 @@ int32_t lastIndexOfString(BufferString *str, const char *stringToFind) {
     return NO_RESULT;
 }
 
-BufferString* substringAfterLast(BufferString *source, BufferString *destination, const char *separator) {
+BufferString_t* substringAfterLast(BufferString_t *source, BufferString_t *destination, const char *separator) {
     int32_t position = lastIndexOfString(source, separator);
     if (position == NO_RESULT) {
         return source;
@@ -504,14 +515,14 @@ BufferString* substringAfterLast(BufferString *source, BufferString *destination
     return copyStringByLength(destination, substringPointer, strlen(substringPointer));
 }
 
-int32_t indexOfString(BufferString *str, const char *stringToFind, uint32_t fromIndex) {
+int32_t indexOfString(BufferString_t *str, const char *stringToFind, uint32_t fromIndex) {
     if (str == NULL || stringToFind == NULL || fromIndex >= str->length)
         return NO_RESULT;
     char *strPointer = strstr(str->value + fromIndex, stringToFind);
     return strPointer != NULL ? (strPointer - str->value) : NO_RESULT;
 }
 
-BufferString* substringBefore(BufferString *source, BufferString *destination, const char *separator) {
+BufferString_t* substringBefore(BufferString_t *source, BufferString_t *destination, const char *separator) {
     int32_t position = indexOfString(source, separator, 0);
     if (position == NO_RESULT) {
         return source;
@@ -520,7 +531,7 @@ BufferString* substringBefore(BufferString *source, BufferString *destination, c
     return copyStringByLength(destination, substringPointer, position);
 }
 
-BufferString* substringBeforeLast(BufferString *source, BufferString *destination, const char *separator) {
+BufferString_t* substringBeforeLast(BufferString_t *source, BufferString_t *destination, const char *separator) {
     int32_t position = lastIndexOfString(source, separator);
     if (position == NO_RESULT) {
         return source;
@@ -529,7 +540,7 @@ BufferString* substringBeforeLast(BufferString *source, BufferString *destinatio
     return copyStringByLength(destination, substringPointer, position);
 }
 
-BufferString* substringBetween(BufferString *source, BufferString *destination, const char *open, const char *close) {
+BufferString_t* substringBetween(BufferString_t *source, BufferString_t *destination, const char *open, const char *close) {
     if (source == NULL || destination == NULL)
         return NULL;
     char *startPointer = strstr(source->value, open);
@@ -547,12 +558,12 @@ BufferString* substringBetween(BufferString *source, BufferString *destination, 
     return NULL;
 }
 
-StringIterator getStringSplitIterator(BufferString *str, const char *delimiter) {
-    StringIterator iterator = { .str = str, .delimiter = delimiter, .delimiterLength = delimiter != NULL ? strlen(delimiter) : 0, .nextToken = str->value };
+StringIterator_t getStringSplitIterator(BufferString_t *str, const char *delimiter) {
+    StringIterator_t iterator = { .str = str, .delimiter = delimiter, .delimiterLength = delimiter != NULL ? strlen(delimiter) : 0, .nextToken = str->value };
     return iterator;
 }
 
-bool hasNextSplitToken(StringIterator *iterator, BufferString *token) {
+bool hasNextSplitToken(StringIterator_t *iterator, BufferString_t *token) {
     if (iterator == NULL || iterator->str == NULL || token == NULL)
         return false;
     char *startPointer = iterator->nextToken;
@@ -577,10 +588,10 @@ bool hasNextSplitToken(StringIterator *iterator, BufferString *token) {
     return true;
 }
 
-BufferString* joinChars(BufferString *str, const char *delimiter, uint32_t argCount, ...) {
+BufferString_t* joinChars(BufferString_t *str, const char *delimiter, uint32_t argCount, ...) {
     va_list valist;
     va_start(valist, argCount);
-    BufferString backupString = { 0 };
+    BufferString_t backupString = { 0 };
     shallowStringCopy(str, &backupString);
     uint32_t delimiterLength = strlen(delimiter);
 
@@ -609,8 +620,8 @@ BufferString* joinChars(BufferString *str, const char *delimiter, uint32_t argCo
     return str;
 }
 
-BufferString* joinStringArray(BufferString *str, const char *delimiter, uint32_t argCount, char **tokens) {
-    BufferString backupString = { 0 };
+BufferString_t* joinStringArray(BufferString_t *str, const char *delimiter, uint32_t argCount, char **tokens) {
+    BufferString_t backupString = { 0 };
     shallowStringCopy(str, &backupString);
     uint32_t delimiterLength = strlen(delimiter);
 
@@ -637,16 +648,16 @@ BufferString* joinStringArray(BufferString *str, const char *delimiter, uint32_t
     return str;
 }
 
-BufferString* joinStrings(BufferString *str, const char *delimiter, uint32_t argCount, ...) {
+BufferString_t* joinStrings(BufferString_t *str, const char *delimiter, uint32_t argCount, ...) {
     va_list valist;
     va_start(valist, argCount);
-    BufferString backupString = { 0 };
+    BufferString_t backupString = { 0 };
     shallowStringCopy(str, &backupString);
     uint32_t delimiterLength = strlen(delimiter);
 
     bool isFailedToJoin = false;
     for (uint32_t i = 0; i < argCount; i++) {
-        BufferString *argValue = va_arg(valist, BufferString*);
+        BufferString_t *argValue = va_arg(valist, BufferString_t*);
         if (concatString(str, argValue) == NULL) {
             isFailedToJoin = true;
             break;
@@ -669,7 +680,7 @@ BufferString* joinStrings(BufferString *str, const char *delimiter, uint32_t arg
     return str;
 }
 
-BufferString* repeatChar(BufferString *str, char repeatChar, uint32_t count) {
+BufferString_t* repeatChar(BufferString_t *str, char repeatChar, uint32_t count) {
     while (str != NULL && count > 0) {
         str = concatChar(str, repeatChar);
         count--;
@@ -677,7 +688,7 @@ BufferString* repeatChar(BufferString *str, char repeatChar, uint32_t count) {
     return str;
 }
 
-BufferString* repeatChars(BufferString *str, const char *repeatChars, uint32_t count) {
+BufferString_t* repeatChars(BufferString_t *str, const char *repeatChars, uint32_t count) {
     while (str != NULL && count > 0) {
         str = concatChars(str, repeatChars);
         count--;
@@ -685,7 +696,7 @@ BufferString* repeatChars(BufferString *str, const char *repeatChars, uint32_t c
     return str;
 }
 
-BufferString* int64ToString(BufferString *str, int64_t value) {
+BufferString_t* int64ToString(BufferString_t *str, int64_t value) {
     char *bufferPointer = str->value;
     uint64_t convertedValue = (value < 0) ? -value : value;
     int32_t length = numberToStringByBase(convertedValue, bufferPointer, DEC_BASE, 0);
@@ -701,22 +712,22 @@ BufferString* int64ToString(BufferString *str, int64_t value) {
     return reverseString(str);
 }
 
-BufferString* uInt64ToString(BufferString *str, uint64_t value) {
+BufferString_t* uInt64ToString(BufferString_t *str, uint64_t value) {
     char *bufferPointer = str->value;
     int32_t length = numberToStringByBase(value, bufferPointer, DEC_BASE, 0);
     str->length = length;
     return reverseString(str);
 }
 
-static inline bool isBuffStringEmpty(BufferString *str) {
+static inline bool isBuffStringEmpty(BufferString_t *str) {
     return (str == NULL || str->value[0] == '\0');
 }
 
-bool isBuffStringNotEmpty(BufferString *str) {
+bool isBuffStringNotEmpty(BufferString_t *str) {
     return !isBuffStringEmpty(str);
 }
 
-bool isBuffStringBlank(BufferString *str) {
+bool isBuffStringBlank(BufferString_t *str) {
     while (isBuffStringNotEmpty(str)) {
         if (!isspace(*str->value)) {
             return false;
@@ -726,7 +737,7 @@ bool isBuffStringBlank(BufferString *str) {
     return true;
 }
 
-bool isBuffStringEquals(BufferString *one, BufferString *two) {
+bool isBuffStringEquals(BufferString_t *one, BufferString_t *two) {
     if (one == two)
         return true;
 
@@ -739,7 +750,7 @@ bool isBuffStringEquals(BufferString *one, BufferString *two) {
     return false;
 }
 
-bool isBuffStringEqualsIgnoreCase(BufferString *one, BufferString *two) {
+bool isBuffStringEqualsIgnoreCase(BufferString_t *one, BufferString_t *two) {
     if (one == two)
         return true;
 
@@ -752,7 +763,7 @@ bool isBuffStringEqualsIgnoreCase(BufferString *one, BufferString *two) {
     return false;
 }
 
-int32_t indexOfChar(BufferString *str, char charToFind, uint32_t fromIndex) {
+int32_t indexOfChar(BufferString_t *str, char charToFind, uint32_t fromIndex) {
     if (str == NULL || fromIndex >= str->length)
         return NO_RESULT;
     for (int32_t i = (int32_t) fromIndex; i < str->length; i++) {
@@ -763,7 +774,7 @@ int32_t indexOfChar(BufferString *str, char charToFind, uint32_t fromIndex) {
     return NO_RESULT;
 }
 
-bool isStringStartsWith(BufferString *str, const char *prefix, uint32_t toOffset) {
+bool isStringStartsWith(BufferString_t *str, const char *prefix, uint32_t toOffset) {
     if (str == NULL || prefix == NULL)
         return false;
     uint32_t prefixLength = strlen(prefix);
@@ -779,7 +790,7 @@ bool isStringStartsWith(BufferString *str, const char *prefix, uint32_t toOffset
     return true;
 }
 
-bool isStringStartsWithIgnoreCase(BufferString *str, const char *prefix, uint32_t toOffset) {
+bool isStringStartsWithIgnoreCase(BufferString_t *str, const char *prefix, uint32_t toOffset) {
     if (str == NULL || prefix == NULL)
         return false;
     uint32_t prefixLength = strlen(prefix);
@@ -795,7 +806,7 @@ bool isStringStartsWithIgnoreCase(BufferString *str, const char *prefix, uint32_
     return true;
 }
 
-static void shallowStringCopy(BufferString *source, BufferString *destination) {
+static void shallowStringCopy(BufferString_t *source, BufferString_t *destination) {
     destination->capacity = source->capacity;
     destination->length = source->length;
     destination->value = source->value;
@@ -894,7 +905,7 @@ static uint8_t parseLengthField(char *lengthField, const char *format) {
     return 0;
 }
 
-static BufferString* formatCharacter(BufferString *str, uint8_t flags, int32_t widthField, va_list *vaList) {
+static BufferString_t* formatCharacter(BufferString_t *str, uint8_t flags, int32_t widthField, va_list *vaList) {
     if (IS_FLAG_NOT_SET(flags, LEFT_ALIGN_FLAG)) {
         while (widthField > 0) {
             str = concatChar(str, ' ');
@@ -913,7 +924,7 @@ static BufferString* formatCharacter(BufferString *str, uint8_t flags, int32_t w
     return str;
 }
 
-static BufferString* formatChars(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, va_list *vaList) {
+static BufferString_t* formatChars(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, va_list *vaList) {
     char *valueStr = va_arg(*vaList, char*);
     if (valueStr == NULL)
         return NULL;
@@ -923,8 +934,8 @@ static BufferString* formatChars(BufferString *str, uint8_t flags, int32_t width
     return doFormatChars(str, valueStr, length, flags, widthField);
 }
 
-static BufferString* formatString(BufferString *str, uint8_t flags, int32_t widthField, int64_t precision, va_list *vaList) {
-    BufferString *valueStr = va_arg(*vaList, BufferString*);
+static BufferString_t* formatString(BufferString_t *str, uint8_t flags, int32_t widthField, int64_t precision, va_list *vaList) {
+    BufferString_t *valueStr = va_arg(*vaList, BufferString_t*);
     if (valueStr == NULL || valueStr->length > (str->capacity - str->length))
         return NULL;
     uint32_t maxLength = (precision < 0 || precision > str->capacity) ? valueStr->length + 1 : precision;
@@ -933,7 +944,7 @@ static BufferString* formatString(BufferString *str, uint8_t flags, int32_t widt
     return doFormatChars(str, valueStr->value, length, flags, widthField);
 }
 
-static BufferString* doFormatChars(BufferString *str, const char *valueStr, uint32_t length, uint8_t flags, int32_t widthField) {
+static BufferString_t* doFormatChars(BufferString_t *str, const char *valueStr, uint32_t length, uint8_t flags, int32_t widthField) {
     if (IS_FLAG_NOT_SET(flags, LEFT_ALIGN_FLAG)) {
         while (length < widthField) {
             str = concatChar(str, ' ');
@@ -949,7 +960,7 @@ static BufferString* doFormatChars(BufferString *str, const char *valueStr, uint
     return str;
 }
 
-static BufferString* formatPointer(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint64_t pointerAddress) {
+static BufferString_t* formatPointer(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint64_t pointerAddress) {
     if (widthField <= 0) {
         widthField = POINTER_DEFAULT_WIDTH;
         SET_FLAG(flags, ZEROES_PADDING_FLAG);
@@ -957,7 +968,7 @@ static BufferString* formatPointer(BufferString *str, uint8_t flags, int32_t wid
     return numberToString(str, pointerAddress, NO_SIGN, HEX_BASE, widthField, precision, flags);
 }
 
-static BufferString* formatNumber(BufferString *str, uint8_t flags, const char *lengthField, int32_t widthField, int32_t precision, uint8_t base,
+static BufferString_t* formatNumber(BufferString_t *str, uint8_t flags, const char *lengthField, int32_t widthField, int32_t precision, uint8_t base,
         va_list *vaList) {
     if (lengthField[0] == 'h' || IS_INT_8(lengthField) || IS_INT_16(lengthField)) {    // 	Expect int-sized integer argument which was promoted from a short.
         if (lengthField[1] == 'h' || IS_INT_8(lengthField)) {    // Expect int-sized integer argument which was promoted from a char.
@@ -977,7 +988,7 @@ static BufferString* formatNumber(BufferString *str, uint8_t flags, const char *
 }
 
 #ifdef ENABLE_FLOAT_FORMATTING
-static BufferString* formatFloat(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
+static BufferString_t* formatFloat(BufferString_t *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
     static const double FLOAT_POW_OF_10[] = { 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000 };
 
     if (isNanOrInfinity(str, decimalValue, widthField, flags)) {
@@ -1047,7 +1058,7 @@ static BufferString* formatFloat(BufferString *str, double decimalValue, uint8_t
     return str;
 }
 
-static BufferString* formatExponential(BufferString *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
+static BufferString_t* formatExponential(BufferString_t *str, double decimalValue, uint8_t flags, int32_t widthField, int32_t precision) {
     if (isNanOrInfinity(str, decimalValue, widthField, flags)) {
         return str;
     }
@@ -1129,7 +1140,7 @@ static BufferString* formatExponential(BufferString *str, double decimalValue, u
 }
 #endif
 
-static inline BufferString* formatByte(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
+static inline BufferString_t* formatByte(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
     if (IS_FLAG_SET(flags, SIGNED_NUMBER_FLAG)) {    // "hhi"
         signed char signedInt = (signed char) va_arg(*vaList, signed int);
         int64_t number = (int64_t) signedInt;
@@ -1140,7 +1151,7 @@ static inline BufferString* formatByte(BufferString *str, uint8_t flags, int32_t
     return numberToString(str, number, NO_SIGN, base, widthField, precision, flags);
 }
 
-static inline BufferString* formatShort(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
+static inline BufferString_t* formatShort(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
     if (IS_FLAG_SET(flags, SIGNED_NUMBER_FLAG)) {    // "hi"
         int64_t number = (short) va_arg(*vaList, signed int);
         char sign = resolveSign(&number, flags, &widthField);
@@ -1150,7 +1161,7 @@ static inline BufferString* formatShort(BufferString *str, uint8_t flags, int32_
     return numberToString(str, number, NO_SIGN, base, widthField, precision, flags);
 }
 
-static inline BufferString* formatLongLong(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
+static inline BufferString_t* formatLongLong(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
     if (IS_FLAG_SET(flags, SIGNED_NUMBER_FLAG)) {    // "lld/i"
         int64_t number = va_arg(*vaList, signed long long);
         char sign = resolveSign(&number, flags, &widthField);
@@ -1160,7 +1171,7 @@ static inline BufferString* formatLongLong(BufferString *str, uint8_t flags, int
     return numberToString(str, number, NO_SIGN, base, widthField, precision, flags);
 }
 
-static inline BufferString* formatLong(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
+static inline BufferString_t* formatLong(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
     if (IS_FLAG_SET(flags, SIGNED_NUMBER_FLAG)) {    // "ld/i"
         int64_t number = va_arg(*vaList, signed long);
         char sign = resolveSign(&number, flags, &widthField);
@@ -1170,7 +1181,7 @@ static inline BufferString* formatLong(BufferString *str, uint8_t flags, int32_t
     return numberToString(str, number, NO_SIGN, base, widthField, precision, flags);
 }
 
-static inline BufferString* formatInt(BufferString *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
+static inline BufferString_t* formatInt(BufferString_t *str, uint8_t flags, int32_t widthField, int32_t precision, uint8_t base, va_list *vaList) {
     if (IS_FLAG_SET(flags, SIGNED_NUMBER_FLAG)) {    // "d/i"
         int64_t number = va_arg(*vaList, signed int);
         char sign = resolveSign(&number, flags, &widthField);
@@ -1180,7 +1191,7 @@ static inline BufferString* formatInt(BufferString *str, uint8_t flags, int32_t 
     return numberToString(str, number, NO_SIGN, base, widthField, precision, flags);
 }
 
-static BufferString* numberToString(BufferString *str, uint64_t number, char sign, uint8_t base, int32_t size, int32_t precision, uint8_t flags) {
+static BufferString_t* numberToString(BufferString_t *str, uint64_t number, char sign, uint8_t base, int32_t size, int32_t precision, uint8_t flags) {
     if (number == 0) {
         BIT_CLEAR(flags, SPECIAL_FLAG);
         precision = (size < 0 && precision < 0) ? 1 : precision;    // when field width, precision not provided and number is 0, concat single '0' to string
@@ -1257,7 +1268,7 @@ static int32_t numberToStringByBase(uint64_t number, char *numberBuffer, uint8_t
     return length;
 }
 
-static BufferString* concatLeftPadding(BufferString *str, char *sign, uint8_t base, int32_t *size, uint8_t flags) {
+static BufferString_t* concatLeftPadding(BufferString_t *str, char *sign, uint8_t base, int32_t *size, uint8_t flags) {
     if (IS_FLAG_NOT_SET(flags, LEFT_ALIGN_FLAG)) {
         char paddingChar = IS_FLAG_SET(flags, ZEROES_PADDING_FLAG) ? '0' : ' ';
         if (paddingChar == '0') {
@@ -1276,7 +1287,7 @@ static BufferString* concatLeftPadding(BufferString *str, char *sign, uint8_t ba
     return str;
 }
 
-static inline BufferString* concatSpecialIfPresent(BufferString *str, uint8_t base, uint8_t flags) {
+static inline BufferString_t* concatSpecialIfPresent(BufferString_t *str, uint8_t base, uint8_t flags) {
     if (IS_FLAG_SET(flags, SPECIAL_FLAG)) {
         if (base == OCT_BASE) {
             str = concatChar(str, '0');
@@ -1292,11 +1303,11 @@ static inline BufferString* concatSpecialIfPresent(BufferString *str, uint8_t ba
     return str;
 }
 
-static inline BufferString* concatSignIfPresent(BufferString *str, char sign) {
+static inline BufferString_t* concatSignIfPresent(BufferString_t *str, char sign) {
     return (sign != NO_SIGN) ? concatChar(str, sign) : str;
 }
 
-static inline BufferString* concatRightPadding(BufferString *str, int32_t size) {
+static inline BufferString_t* concatRightPadding(BufferString_t *str, int32_t size) {
     return (size > 0) ? repeatChar(str, ' ', size) : str;
 }
 
@@ -1319,7 +1330,7 @@ static char resolveSign(int64_t *number, uint8_t flags, int32_t *widthField) {
 }
 
 #ifdef ENABLE_FLOAT_FORMATTING
-static bool isNanOrInfinity(BufferString *str, double decimalValue, int32_t widthField, uint8_t flags) {
+static bool isNanOrInfinity(BufferString_t *str, double decimalValue, int32_t widthField, uint8_t flags) {
     char sign = NO_SIGN;
     if (isnan(decimalValue)) {
         widthField -= NAN_LENGTH;
@@ -1350,19 +1361,19 @@ static bool isNanOrInfinity(BufferString *str, double decimalValue, int32_t widt
 #endif
 
 // additional helper functions
-static inline char charAt(BufferString *str, uint32_t index) {
+static inline char charAt(BufferString_t *str, uint32_t index) {
     return (char) ((str == NULL || index >= str->length) ? 0 : str->value[index]);
 }
 
-static inline bool containsStr(BufferString *str, const char *searchString) {
+static inline bool containsStr(BufferString_t *str, const char *searchString) {
     return (str != NULL && searchString != NULL && strstr(str->value, searchString) != NULL);
 }
 
-static inline bool isBuffStringNotBlank(BufferString *str) {
+static inline bool isBuffStringNotBlank(BufferString_t *str) {
     return !isBuffStringBlank(str);
 }
 
-static inline bool isBuffStringNotEquals(BufferString *one, BufferString *two) {
+static inline bool isBuffStringNotEquals(BufferString_t *one, BufferString_t *two) {
     return !isBuffStringEquals(one, two);
 }
 

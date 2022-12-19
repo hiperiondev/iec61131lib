@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
+#include <inttypes.h>
 
 #include "iec61131lib.h"
 #include "iec_arithmetic.h"
@@ -50,7 +51,9 @@
 int main(void) {
     uint8_t res = 0;
     iec_t result = IEC_ALLOC;
+    iec_t rst_tmp = IEC_ALLOC;
     iec_init(&result, IEC_T_NULL);
+    iec_init(&rst_tmp, IEC_T_NULL);
 
     iec_t v1 = IEC_ALLOC;
     iec_t v2 = IEC_ALLOC;
@@ -96,7 +99,7 @@ int main(void) {
     assert(res == IEC_OK);
     assert(iec_get_value(result) == 1000);
 
-    iec_totype(v1, IEC_T_BOOL);
+    iec_totype(&v1, IEC_T_BOOL);
     iec_set_value(v1, 0);
     iec_set_value(v2, 100);
     iec_set_value(v3, 200);
@@ -108,7 +111,7 @@ int main(void) {
     assert(res == IEC_OK);
     assert(iec_get_value(result) == 200);
 
-    iec_totype(v1, IEC_T_INT);
+    iec_totype(&v1, IEC_T_INT);
     iec_set_value(v1, 7);
     iec_set_value(v2, 500);
     iec_set_value(v3, 200);
@@ -192,11 +195,17 @@ int main(void) {
     res = iec_div(&result, v2, v3);
     assert(res == IEC_OK);
     assert(iec_get_value(result) == 2);
-    iec_type_promote(v2, IEC_T_REAL);
+
+    iec_type_promote(&v2, IEC_T_REAL);
+    float v = iec_get_value(v2);
+    printf("V: %f\n", v);
     res = iec_div(&result, v2, v3);
     assert(res == IEC_OK);
+    float r = iec_get_value(result);
+    printf("R: %f\n", r);
+
     assert((iec_get_value(result)) == 2.5);
-    iec_totype(v2, IEC_T_INT);
+    iec_totype(&v2, IEC_T_INT);
     iec_set_value(v2, 500);
     res = iec_mod(&result, v2, v3);
     assert(res == IEC_OK);
@@ -212,7 +221,7 @@ int main(void) {
 
     printf("_  TEST MATHEMATICAL... ");
 
-    iec_type_promote(v2, IEC_T_REAL);
+    iec_type_promote(&v2, IEC_T_REAL);
     iec_set_value(v2, -500);
     res = iec_abs(&result, v2);
     assert(res == IEC_OK);
@@ -266,7 +275,7 @@ int main(void) {
 
     printf("_  TEST LITERALS... ");
 
-    BufferString *str = NEW_STRING(255, "UINT#16#9_A");
+    BufferString_t *str = NEW_STRING(255, "UINT#16#9_A");
     uint8_t datatype;
     uint8_t iectype;
 
@@ -292,11 +301,28 @@ int main(void) {
     printf("< OK >\n\n");
     /////////////////////////////////////
 
-    iec_deinit(result);
-    iec_deinit(v1);
-    iec_deinit(v2);
-    iec_deinit(v3);
-    iec_deinit(v4);
+    printf("_  TEST STRINGS... ");
+
+    char strt[] = "This is a test";
+    iec_string_set(&rst_tmp, strt, 0, 1);
+
+    //BufferString_t *test_str = iec_get_string(result);
+    //printf("\nt:%d, result: %s(%d)\n", result->type, stringValue(test_str), stringLength(test_str));
+
+    //iec_totype(&v1, IEC_T_UDINT);
+    printf("t: %d, (%s)\n", rst_tmp->type, (((string_t*) (rst_tmp->value))->str->value));
+    BufferString_t *str_tmp = iec_get_string(rst_tmp);
+    printf("t: %d, l: %d(%s)(%s)\n", rst_tmp->type, stringLength(str_tmp), stringValue(str_tmp), (((string_t*) (rst_tmp->value))->str->value));
+
+    printf("< OK >\n\n");
+    /////////////////////////////////////
+
+    iec_deinit(&result);
+    iec_deinit(&rst_tmp);
+    iec_deinit(&v1);
+    iec_deinit(&v2);
+    iec_deinit(&v3);
+    iec_deinit(&v4);
     stack_release(fstk);
 
     return 0;

@@ -63,7 +63,7 @@
 uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     maxuint_t _v1 = iec_get_value(v1);
     maxuint_t _v2 = iec_get_value(v2);
@@ -82,7 +82,7 @@ uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2) {
 uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     maxuint_t _v1 = iec_get_value(v1);
     maxuint_t _v2 = iec_get_value(v2);
@@ -99,7 +99,7 @@ uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2) {
 uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     maxuint_t _v1 = iec_get_value(v1);
     maxuint_t _v2 = iec_get_value(v2);
@@ -146,7 +146,7 @@ uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2) {
 uint8_t iec_ror(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     maxuint_t _v1 = iec_get_value(v1);
     maxuint_t _v2 = iec_get_value(v2);

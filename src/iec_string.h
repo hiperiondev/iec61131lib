@@ -35,6 +35,11 @@
 #ifndef IEC_STRING_H_
 #define IEC_STRING_H_
 
+#include <string.h>
+#include <wchar.h>
+
+#include "iec61131lib.h"
+#include "util_buffer_string.h"
 #include "util_murhash.h"
 
 /*
@@ -52,49 +57,54 @@
  *  FIND          1:ANY_STRING;2:ANY_CHAR              2            Finds the location of one string within another.
  */
 
-uint8_t iec_len(iec_t *result, iec_t v1) {
+uint8_t iec_string_len(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
+    iec_totype(result, IEC_T_UDINT);
+
+    BufferString_t *str = iec_get_string(v1);
+    iec_set_value(*result, str->length);
+
     return IEC_OK;
 }
 
-uint8_t iec_left(iec_t *result, iec_t v1, iec_t v2) {
+uint8_t iec_string_left(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
     return IEC_OK;
 }
 
-uint8_t iec_right(iec_t *result, iec_t v1, iec_t v2) {
+uint8_t iec_string_right(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
     return IEC_OK;
 }
 
-uint8_t iec_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
+uint8_t iec_string_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
     iec_anytype_allowed(v3, ANY_INT,,,,,);
     return IEC_OK;
 }
 
-uint8_t iec_concat(iec_t *result, stack_t list) {
+uint8_t iec_string_concat(iec_t *result, stack_t list) {
     return IEC_OK;
 }
 
-uint8_t iec_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
+uint8_t iec_string_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_CHARS,,,,,);
     iec_anytype_allowed(v3, ANY_INT,,,,,);
     return IEC_OK;
 }
 
-uint8_t iec_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
+uint8_t iec_string_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
     iec_anytype_allowed(v3, ANY_INT,,,,,);
     return IEC_OK;
 }
 
-uint8_t iec_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4) {
+uint8_t iec_string_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_CHAR,,,,,);
     iec_anytype_allowed(v3, ANY_INT,,,,,);
@@ -102,17 +112,26 @@ uint8_t iec_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4) {
     return IEC_OK;
 }
 
-uint8_t iec_find(iec_t *result, iec_t v1, iec_t v2) {
+uint8_t iec_string_find(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_CHAR,,,,,);
     return IEC_OK;
 }
 
-uint32_t iec_string_hash(iec_t *result) {
-    return IEC_OK;
-}
+uint8_t iec_string_set(iec_t *result, char *str, bool wstr, bool hash) {
+    if (wstr) {
+        iec_totype(result, IEC_T_WSTRING);
+    } else {
+        iec_totype(result, IEC_T_STRING);
+    }
 
-uint8_t iec_string_set(iec_t *result, void *str, bool wstr) {
+    (*result)->value = (string_t*) malloc(sizeof(struct string));
+    ((string_t*) ((*result)->value))->str = newStringWithLength2(&(BufferString_t ) { 0 }, str, strlen(str));
+
+    if (hash) {
+        ((string_t*) ((*result)->value))->hash = PMurHash32(STR_SEED_HASH, stringValue(((string_t*) ((*result)->value))->str),
+                stringLength(((string_t*) ((*result)->value))->str));
+    }
 
     return IEC_OK;
 }

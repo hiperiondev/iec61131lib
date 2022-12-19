@@ -51,12 +51,18 @@ uint8_t iec_gt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
 
+    iec_totype(result, IEC_T_BOOL);
+    iec_set_value((*result), ((iec_get_value(v1)) > (iec_get_value(v2))));
+
     return IEC_OK;
 }
 
 uint8_t iec_ge(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
+    iec_totype(result, IEC_T_BOOL);
+    iec_set_value((*result), ((iec_get_value(v1)) >= (iec_get_value(v2))));
 
     return IEC_OK;
 }
@@ -65,12 +71,18 @@ uint8_t iec_eq(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
 
+    iec_totype(result, IEC_T_BOOL);
+    iec_set_value((*result), ((iec_get_value(v1)) == (iec_get_value(v2))));
+
     return IEC_OK;
 }
 
 uint8_t iec_le(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
+    iec_totype(result, IEC_T_BOOL);
+    iec_set_value((*result), ((iec_get_value(v1)) <= (iec_get_value(v2))));
 
     return IEC_OK;
 }
@@ -79,12 +91,18 @@ uint8_t iec_lt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
 
+    iec_totype(result, IEC_T_BOOL);
+    iec_set_value((*result), ((iec_get_value(v1)) < (iec_get_value(v2))));
+
     return IEC_OK;
 }
 
 uint8_t iec_ne(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
+
+    iec_totype(result, IEC_T_BOOL);
+    iec_set_value((*result), ((iec_get_value(v1)) != (iec_get_value(v2))));
 
     return IEC_OK;
 }

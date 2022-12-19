@@ -42,12 +42,12 @@
 #include <limits.h>
 #include <math.h>
 
+#include "util_buffer_string.h"
+
 //#define ALLOW_64BITS // allow 64 bits data types
 
 // seed for string hash
 #define STR_SEED_HASH      0x12345
-// minimal length of string for add hash
-#define STR_MIN_LEN_HASH   10
 
 // functions errors
 enum IEC_ERRORS {
@@ -161,14 +161,11 @@ typedef struct {
     uint32_t value;
 } user_t;
 
-typedef struct {
-        bool wstring; // true if wide character type
-    uint32_t len;
-    uint32_t hash;
-    union {
-           char *str;
-        wchar_t *wstr;
-    };
+typedef struct string {
+            bool wstring; // true if wide character type
+        uint32_t len;
+        uint32_t hash;
+    BufferString_t *str;
 } string_t;
 
 typedef struct {
@@ -237,60 +234,60 @@ static uint8_t IEC_T_SIZEOF[] = {
 ///////////////////////////// MACROS ///////////////////////////
 
 // utils
-#define CONCAT(a, b)       CONCAT_INNER(a, b)
-#define CONCAT_INNER(a, b) a ## b
-#define LABEL(base,x)      CONCAT(base, x)
-#define sign(x)            (((x) > 0) - ((x) < 0))
-#define IEC_ALLOC          malloc(sizeof(struct iec))
+#define CONCAT(a, b)          CONCAT_INNER(a, b)
+#define CONCAT_INNER(a, b)    a ## b
+#define LABEL(base,x)         CONCAT(base, x)
+#define sign(x)               (((x) > 0) - ((x) < 0))
+#define IEC_ALLOC             malloc(sizeof(struct iec))
 
 // any types
 #ifdef ALLOW_64BITS
-#define ANY_BIT(x)         (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_LWORD)
-#define ANY_UNSIGNED(x)    (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT || x == IEC_T_ULINT)
-#define ANY_SIGNED(x)      (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_LINT)
-#define ANY_INT(x)         (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_LINT || x == IEC_T_USINT || x == IEC_T_UINT \
-                             || x == IEC_T_UDINT || x == IEC_T_ULINT)
-#define ANY_DATE(x)        (x == IEC_T_DATE || x == IEC_T_DT)
+#define ANY_BIT(x)            (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_LWORD)
+#define ANY_UNSIGNED(x)       (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT || x == IEC_T_ULINT)
+#define ANY_SIGNED(x)         (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_LINT)
+#define ANY_INT(x)            (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_LINT || x == IEC_T_USINT || x == IEC_T_UINT \
+                                || x == IEC_T_UDINT || x == IEC_T_ULINT)
+#define ANY_DATE(x)           (x == IEC_T_DATE || x == IEC_T_DT)
 #else
-#define ANY_BIT(x)         (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD)
-#define ANY_UNSIGNED(x)    (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
-#define ANY_SIGNED(x)      (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT)
-#define ANY_INT(x)         (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
+#define ANY_BIT(x)            (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD)
+#define ANY_UNSIGNED(x)       (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
+#define ANY_SIGNED(x)         (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT)
+#define ANY_INT(x)            (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
 #endif
-#define ANY_DATE(x)        (x == IEC_T_DATE)
-#define ANY_REAL(x)        (x == IEC_T_REAL || x == IEC_T_LREAL)
-#define ANY_NUM(x)         (ANY_INT(x) || ANY_REAL(x))
-#define ANY_STRING(x)      (x == IEC_T_STRING || x == IEC_T_WSTRING)
-#define ANY_ELEMENTARY(x)  (ANY_BIT(x) || ANY_NUM(x) || ANY_DATE(x) || ANY_STRING(x) || x == IEC_T_TIME)
-#define ANY_MAGNITUDE(x)   ((ANY_INT(x) || ANY_REAL(x) || x == IEC_T_TIME) && !(x == IEC_T_NULL))
-#define ANY_INTEGRAL(x)    (ANY_INT(x) || ANY_BIT(x))
-#define ANY_CHAR(x)        (x == IEC_T_CHAR || x == IEC_T_WCHAR)
-#define ANY_CHARS(x)       (ANY_CHAR(x) || ANY_STRING(x))
+#define ANY_DATE(x)           (x == IEC_T_DATE)
+#define ANY_REAL(x)           (x == IEC_T_REAL || x == IEC_T_LREAL)
+#define ANY_NUM(x)            (ANY_INT(x) || ANY_REAL(x))
+#define ANY_STRING(x)         (x == IEC_T_STRING || x == IEC_T_WSTRING)
+#define ANY_ELEMENTARY(x)     (ANY_BIT(x) || ANY_NUM(x) || ANY_DATE(x) || ANY_STRING(x) || x == IEC_T_TIME)
+#define ANY_MAGNITUDE(x)      ((ANY_INT(x) || ANY_REAL(x) || x == IEC_T_TIME) && !(x == IEC_T_NULL))
+#define ANY_INTEGRAL(x)       (ANY_INT(x) || ANY_BIT(x))
+#define ANY_CHAR(x)           (x == IEC_T_CHAR || x == IEC_T_WCHAR)
+#define ANY_CHARS(x)          (ANY_CHAR(x) || ANY_STRING(x))
 
-#define ANY_NUM_BIT        0x0001
-#define ANY_DATE_BIT       0x0002
-#define ANY_BIT_BIT        0x0004
-#define ANY_REAL_BIT       0x0008
-#define ANY_STRING_BIT     0x0010
-#define ANY_ELEMENTARY_BIT 0x0020
-#define ANY_MAGNITUDE_BIT  0x0040
-#define ANY_INT_BIT        0x0080
-#define ANY_INTEGRAL_BIT   0x0100
-#define ANY_UNSIGNED_BIT   0x0200
-#define ANY_SIGNED_BIT     0x0400
-#define ANY_CHAR_BIT       0x0800
-#define ANY_CHARS_BIT      0x1000
-#define _BIT               0
+#define ANY_NUM_BIT           0x0001
+#define ANY_DATE_BIT          0x0002
+#define ANY_BIT_BIT           0x0004
+#define ANY_REAL_BIT          0x0008
+#define ANY_STRING_BIT        0x0010
+#define ANY_ELEMENTARY_BIT    0x0020
+#define ANY_MAGNITUDE_BIT     0x0040
+#define ANY_INT_BIT           0x0080
+#define ANY_INTEGRAL_BIT      0x0100
+#define ANY_UNSIGNED_BIT      0x0200
+#define ANY_SIGNED_BIT        0x0400
+#define ANY_CHAR_BIT          0x0800
+#define ANY_CHARS_BIT         0x1000
+#define _BIT                  0
 
 // bit manipulation
-#define GET_BIT(v, b)      ((v >> b) & 1)
-#define SET_BIT(v, b)      ((v) | (1 << b))
-#define CLR_BIT(v, b)      ((v) & ~(1 << b))
+#define GET_BIT(v, b)         ((v >> b) & 1)
+#define SET_BIT(v, b)         ((v) | (1 << b))
+#define CLR_BIT(v, b)         ((v) & ~(1 << b))
 
 // tt get
-#define iec_is_mark(v)        (GET_BIT(v, TT_MARK))
-#define iec_is_persist(v)     (GET_BIT(v, TT_PERSIST))
-#define iec_is_retain(v)      (GET_BIT(v, TT_RETAIN))
+#define iec_is_mark(v)        (v & TT_MARK)
+#define iec_is_persist(v)     (v & TT_PERSIST)
+#define iec_is_retain(v)      (v & TT_RETAIN)
 #define iec_set_mark(v)       (SET_BIT(v, TT_MARK))
 #define iec_set_persist(v)    (SET_BIT(v, TT_PERSIST))
 #define iec_set_retain(v)     (SET_BIT(v, TT_RETAIN))
@@ -306,49 +303,83 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define IS_TRUNCATED(a,b)                 \
             (a)->type > (b)->type ? 0 : 1
 
-// promote to bigger type
-#define iec_type_promote(data, tpy)                                              \
-            if ((data)->type < tpy) {                                            \
-                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC;                      \
-                iec_init(&LABEL(__tmp__, __LINE__), tpy);                        \
-                iec_set_value(LABEL(__tmp__, __LINE__) , iec_get_value((data))); \
-                iec_deinit((data));                                              \
-                (data) = LABEL(__tmp__, __LINE__);                               \
-            }
-
-// change type
-#define iec_totype(data, tpy)                                                    \
-                iec_t LABEL(__tmp__, __LINE__) = IEC_ALLOC;                      \
-                iec_init(&LABEL(__tmp__, __LINE__), tpy);                        \
-                iec_set_value(LABEL(__tmp__, __LINE__) , iec_get_value((data))); \
-                iec_deinit((data));                                              \
-                (data) = LABEL(__tmp__, __LINE__);
-
 // get value
-#define iec_get_value(data)                                                     \
-            ((data)->type == IEC_T_BOOL)       ? *((bool*)(data)->value)      : \
-            ((data)->type == IEC_T_SINT)       ? *((int8_t*)(data)->value)    : \
-            ((data)->type == IEC_T_USINT                                        \
-              || (data)->type == IEC_T_BYTE)   ? *((uint8_t*)(data)->value)   : \
-            ((data)->type == IEC_T_INT)        ? *((int16_t*)(data)->value)   : \
-            ((data)->type == IEC_T_UINT)                                        \
-              || ((data)->type == IEC_T_WORD)  ? *((uint16_t*)(data)->value)  : \
-            ((data)->type == IEC_T_DINT)       ? *((int32_t*)(data)->value)   : \
-            ((data)->type == IEC_T_UDINT)                                       \
-              || ((data)->type == IEC_T_DWORD) ? *((uint32_t*)(data)->value)  : \
-            ((data)->type == IEC_T_REAL)       ? *((float*)(data)->value)     : \
-            ((data)->type == IEC_T_TIME)       ? *((double*)(data)->value)    : \
-            ((data)->type == IEC_T_LREAL)      ? *((double*)(data)->value)    : \
+#define iec_get_value(data)                                                         \
+            ((data)->type == IEC_T_BOOL)         ? *((bool*)((data)->value))      : \
+            ((data)->type == IEC_T_SINT)         ? *((int8_t*)((data)->value))    : \
+            ((data)->type == IEC_T_USINT                                            \
+              || (data)->type == IEC_T_BYTE)     ? *((uint8_t*)((data)->value))   : \
+            ((data)->type == IEC_T_INT)          ? *((int16_t*)((data)->value))   : \
+            ((data)->type == IEC_T_UINT)                                            \
+              || ((data)->type == IEC_T_WORD)    ? *((uint16_t*)((data)->value))  : \
+            ((data)->type == IEC_T_DINT)         ? *((int32_t*)((data)->value))   : \
+            ((data)->type == IEC_T_UDINT)                                           \
+              || ((data)->type == IEC_T_DWORD)   ? *((uint32_t*)((data)->value))  : \
+            ((data)->type == IEC_T_REAL)         ? *((float*)((data)->value))     : \
+            ((data)->type == IEC_T_TIME)                                            \
+              || ((data)->type == IEC_T_LREAL)   ? *((double*)((data)->value))    : \
             GV_64(data)
 #ifdef ALLOW_64BITS
-#define GV_64(data)                                                             \
-            ((data)->type == IEC_T_ULINT)      ? *((uint64_t*)(data)->value)  : \
-            ((data)->type == IEC_T_LINT)                                        \
-              || ((data)->type == IEC_T_LWORD) ? *((int64_t*)(data)->value)   : \
-            ((data)->type == IEC_T_POINTER)    ? *((pointer_t*)(data)->value) : \
+#define GV_64(data)                                                                 \
+            ((data)->type == IEC_T_ULINT)      ? *((uint64_t*)((data)->value))    : \
+            ((data)->type == IEC_T_LINT)                                            \
+              || ((data)->type == IEC_T_LWORD) ? *((int64_t*)((data)->value))     : \
+            ((data)->type == IEC_T_POINTER)    ? *((pointer_t*)((data)->value))   : \
             0
 #else
 #define GV_64(data) 0
+#endif
+
+#define iec_get_value_type(data, type)                                       \
+            (type == IEC_T_BOOL)         ? *((bool*)(data))                : \
+            (type == IEC_T_SINT)         ? *((int8_t*)((data)))            : \
+            (type == IEC_T_USINT                                             \
+              || type == IEC_T_BYTE)     ? *((uint8_t*)((data)))           : \
+            (type == IEC_T_INT)          ? *((int16_t*)((data)))           : \
+            (type == IEC_T_UINT)                                             \
+              || (type == IEC_T_WORD)    ? *((uint16_t*)((data)))          : \
+            (type == IEC_T_DINT)         ? *((int32_t*)((data)))           : \
+            (type == IEC_T_UDINT)                                            \
+              || (type == IEC_T_DWORD)   ? *((uint32_t*)((data)))          : \
+            (type == IEC_T_REAL)         ? *((float*)((data)))             : \
+            (type == IEC_T_TIME)                                             \
+              || (type == IEC_T_LREAL)   ? *((double*)((data)))            : \
+            GVT_64(data, type)
+#ifdef ALLOW_64BITS
+#define GVT_64(data, type)                                                   \
+            (type == IEC_T_ULINT)      ? *((uint64_t*)((data)))            : \
+            (type == IEC_T_LINT)                                             \
+              || (type == IEC_T_LWORD) ? *((int64_t*)((data)))             : \
+            (type == IEC_T_POINTER)    ? *((pointer_t*)((data)))           : \
+            0
+#else
+#define GVT_64(data, type) 0
+#endif
+
+#define iec_get_valuep(data)                                                     \
+            ((data)->type == IEC_T_BOOL)         ? ((bool*)(data)->value)      : \
+            ((data)->type == IEC_T_SINT)         ? ((int8_t*)(data)->value)    : \
+            ((data)->type == IEC_T_USINT                                         \
+              || (data)->type == IEC_T_BYTE)     ? ((uint8_t*)(data)->value)   : \
+            ((data)->type == IEC_T_INT)          ? ((int16_t*)(data)->value)   : \
+            ((data)->type == IEC_T_UINT)                                         \
+              || ((data)->type == IEC_T_WORD)    ? ((uint16_t*)(data)->value)  : \
+            ((data)->type == IEC_T_DINT)         ? ((int32_t*)(data)->value)   : \
+            ((data)->type == IEC_T_UDINT)                                        \
+              || ((data)->type == IEC_T_DWORD)   ? ((uint32_t*)(data)->value)  : \
+            ((data)->type == IEC_T_REAL)         ? ((float*)(data)->value)     : \
+            ((data)->type == IEC_T_TIME)         ? ((double*)(data)->value)    : \
+            ((data)->type == IEC_T_LREAL)        ? ((double*)(data)->value)    : \
+            GVP_64(data)
+#ifdef ALLOW_64BITS
+#define GVP_64(data)                                                             \
+            ((data)->type == IEC_T_ULINT)      ? ((uint64_t*)(data)->value)    : \
+            ((data)->type == IEC_T_LINT)                                         \
+              || ((data)->type == IEC_T_LWORD) ? ((int64_t*)(data)->value)     : \
+            ((data)->type == IEC_T_POINTER)    ? ((pointer_t*)(data)->value)   : \
+            0
+#else
+#define GVP_64(data) 0
 #endif
 
 // get value and assign to void pointer variable
@@ -384,7 +415,7 @@ static uint8_t IEC_T_SIZEOF[] = {
                     *((float*)(var)) = *((float*)((data)->value));         \
                     break;                                                 \
                 case IEC_T_LREAL:                                          \
-                    *((double*)(var)) = *((double*)((data)->value));         \
+                    *((double*)(var)) = *((double*)((data)->value));       \
                     break;                                                 \
                 case IEC_T_TIME:                                           \
                     *((double*)(var)) = *((double*)((data)->value));       \
@@ -418,6 +449,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define maxuint_t uint32_t
 #endif
 
+#define iec_get_string(data)  (((string_t*) (data->value))->str)
 // set value
 #define iec_set_value(data, val)                          \
             switch ((data)->type) {                       \
@@ -479,6 +511,68 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define SV_64(data, val)
 #endif
+
+#define iec_set_value_type(data, val, type)     \
+            switch (type) {                     \
+                case IEC_T_BOOL:                \
+                    *((bool*)(data)) = val;     \
+                    break;                      \
+                case IEC_T_SINT:                \
+                    *((int8_t*)(data)) = val;   \
+                    break;                      \
+                case IEC_T_USINT:               \
+                case IEC_T_BYTE:                \
+                    *((uint8_t*)(data)) = val;  \
+                    break;                      \
+                case IEC_T_INT:                 \
+                    *((int16_t*)(data)) = val;  \
+                    break;                      \
+                case IEC_T_UINT:                \
+                case IEC_T_WORD:                \
+                    *((uint16_t*)(data)) = val; \
+                    break;                      \
+                case IEC_T_DINT:                \
+                    *((int32_t*)(data)) = val;  \
+                    break;                      \
+                case IEC_T_UDINT:               \
+                case IEC_T_DWORD:               \
+                    *((uint32_t*)(data)) = val; \
+                    break;                      \
+                case IEC_T_REAL:                \
+                    *((float*)(data)) = val;    \
+                    break;                      \
+                case IEC_T_LREAL:               \
+                    *((double*)(data)) = val;   \
+                    break;                      \
+                case IEC_T_TIME:                \
+                    *((double*)(data)) = val;   \
+                    break;                      \
+                case IEC_T_CHAR:                \
+                    *((char*)(data)) = val;     \
+                    break;                      \
+                case IEC_T_WCHAR:               \
+                    *((wchar_t*)(data)) = val;  \
+                    break;                      \
+                SVT_64(data, val)               \
+                default:                        \
+                    (data) = NULL;              \
+            }
+#ifdef ALLOW_64BITS
+#define SVT_64(data, val)                       \
+            case IEC_T_ULINT:                   \
+                *((uint64_t*)(data)) = val;     \
+                break;                          \
+            case IEC_T_LINT:                    \
+            case IEC_T_LWORD:                   \
+                *((int64_t*)(data)) = val;      \
+                break;                          \
+            case IEC_T_POINTER:                 \
+                *((pointer_t*)(data)) = val;    \
+                break;
+#else
+#define SVT_64(data, val)
+#endif
+
 
 // set value from void pointer variable
 #define iec_set_fromvoid(data, val)                                     \
@@ -598,115 +692,152 @@ static uint8_t IEC_T_SIZEOF[] = {
 
 ////////////////////////////////////////////////////////////////
 
-// create new value
-void iec_init(iec_t *nw, iectype_t type) {
-    (*nw)->type = type;
-    (*nw)->any_type = IEC_ANYTYPE(type);
-    (*nw)->tt = 0;
+static inline void iec_new_value(void **nw, iectype_t type) {
     switch (type) {
         case IEC_T_BOOL:
-            (*nw)->value = malloc(sizeof(bool));
+            (*nw) = malloc(sizeof(bool));
             break;
 
         case IEC_T_SINT:
-            (*nw)->value = malloc(sizeof(int8_t));
+            (*nw) = malloc(sizeof(int8_t));
             break;
 
         case IEC_T_USINT:
         case IEC_T_BYTE:
-            (*nw)->value = malloc(sizeof(uint8_t));
+            (*nw) = malloc(sizeof(uint8_t));
             break;
 
         case IEC_T_INT:
-            (*nw)->value = malloc(sizeof(int16_t));
+            (*nw) = malloc(sizeof(int16_t));
             break;
 
         case IEC_T_UINT:
         case IEC_T_WORD:
-            (*nw)->value = malloc(sizeof(uint16_t));
+            (*nw) = malloc(sizeof(uint16_t));
             break;
 
         case IEC_T_DINT:
-            (*nw)->value = malloc(sizeof(int32_t));
+            (*nw) = malloc(sizeof(int32_t));
             break;
 
         case IEC_T_UDINT:
         case IEC_T_DWORD:
-            (*nw)->value = malloc(sizeof(uint32_t));
+            (*nw) = malloc(sizeof(uint32_t));
             break;
 
         case IEC_T_REAL:
-            (*nw)->value = malloc(sizeof(float));
+            (*nw) = malloc(sizeof(float));
             break;
 
         case IEC_T_LREAL:
-            (*nw)->value = malloc(sizeof(double));
+            (*nw) = malloc(sizeof(double));
             break;
 
         case IEC_T_TIME:
-            (*nw)->value = malloc(sizeof(double));
+            (*nw) = malloc(sizeof(double));
             break;
 
         case IEC_T_DATE:
-            (*nw)->value = malloc(sizeof(date_t));
+            (*nw) = malloc(sizeof(date_t));
             break;
 
         case IEC_T_TOD:
-            (*nw)->value = malloc(sizeof(tod_t));
+            (*nw) = malloc(sizeof(tod_t));
             break;
 
         case IEC_T_CHAR:
-            (*nw)->value = malloc(sizeof(char));
+            (*nw) = malloc(sizeof(char));
             break;
 
         case IEC_T_WCHAR:
-            (*nw)->value = malloc(sizeof(wchar_t));
+            (*nw) = malloc(sizeof(wchar_t));
             break;
 
         case IEC_T_STRING:
         case IEC_T_WSTRING:
-            (*nw)->value = malloc(sizeof(string_t));
+            (*nw) = malloc(sizeof(string_t));
             break;
 #ifdef ALLOW_64BITS
-        case IEC_T_DT:
-            (*nw)->value = malloc(sizeof(dat_t));
-            break;
+            case IEC_T_DT:
+                (*nw) = malloc(sizeof(dat_t));
+                break;
 
-        case IEC_T_ULINT:
-            (*nw)->value = malloc(sizeof(uint64_t));
-            break;
+            case IEC_T_ULINT:
+                (*nw) = malloc(sizeof(uint64_t));
+                break;
 
-        case IEC_T_LINT:
-        case IEC_T_LWORD:
-            (*nw)->value = malloc(sizeof(int64_t));
-            break;
+            case IEC_T_LINT:
+            case IEC_T_LWORD:
+                (*nw) = malloc(sizeof(int64_t));
+                break;
 
-        case IEC_T_POINTER:
-            (*nw)->value = malloc(sizeof(pointer_t));
-            break;
-#endif
+            case IEC_T_POINTER:
+                (*nw) = malloc(sizeof(pointer_t));
+                break;
+    #endif
         case IEC_T_TABLE:
-            (*nw)->value = malloc(sizeof(table_t));
+            (*nw) = malloc(sizeof(table_t));
             break;
 
         case IEC_T_USER:
-            (*nw)->value = malloc(sizeof(user_t));
+            (*nw) = malloc(sizeof(user_t));
             break;
 
         default:
-            (*nw)->value = NULL;
-            (*nw)->type = IEC_T_NULL;
+            (*nw) = NULL;
             break;
     }
 }
 
-// free value
-void iec_deinit(iec_t var) {
-    if(var == NULL)
+// create new value
+static inline void iec_init(iec_t *nw, iectype_t type) {
+    (*nw)->type = type;
+    (*nw)->any_type = IEC_ANYTYPE(type);
+    (*nw)->tt = 0;
+    iec_new_value(&((*nw)->value), type);
+
+}
+
+static inline void iec_free_value(iec_t *var) {
+    if ((*var) == NULL)
         return;
-    if (var->type != IEC_T_NULL)
-        free(var->value);
-    free(var);
+    if ((*var)->type != IEC_T_NULL)
+        free((*var)->value);
+}
+
+// free value
+static inline void iec_deinit(iec_t *var) {
+    iec_free_value(var);
+    free(*var);
+}
+
+static inline void iec_totype(iec_t *data, uint8_t tpy) {
+    void *tmp = NULL;
+    uint8_t tp_old = (*data)->type;
+
+
+    if (tp_old != IEC_T_NULL) {
+        iec_new_value(&tmp, tp_old);
+        iec_set_value_type(tmp, iec_get_value(*data), tp_old);
+    }
+
+    (*data)->type = tpy;
+    (*data)->any_type = IEC_ANYTYPE(tpy);
+
+    iec_free_value(data);
+    if (tp_old != IEC_T_STRING && tp_old != IEC_T_WSTRING)
+        iec_new_value(&((*data)->value), tpy);
+
+    if (tp_old != IEC_T_NULL) {
+        iec_set_value((*data), iec_get_value_type(tmp, tp_old));
+        free(tmp);
+    }
+}
+
+static inline void iec_type_promote(iec_t *data, uint8_t tpy) {
+    if ((*data)->type < tpy) {
+        iec_totype(data, tpy);
+    }
 }
 
 #endif /* IEC61131LIB_H_ */

@@ -57,7 +57,7 @@
 
 uint8_t iec_abs(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, fabs((double)iec_get_value(v1)));
 
@@ -66,7 +66,7 @@ uint8_t iec_abs(iec_t *result, iec_t v1) {
 
 uint8_t iec_sqrt(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, sqrt((double)iec_get_value(v1)));
 
@@ -75,7 +75,7 @@ uint8_t iec_sqrt(iec_t *result, iec_t v1) {
 
 uint8_t iec_ln(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, log((double)iec_get_value(v1)));
 
@@ -84,7 +84,7 @@ uint8_t iec_ln(iec_t *result, iec_t v1) {
 
 uint8_t iec_log(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, log10((double)iec_get_value(v1)));
 
@@ -93,7 +93,7 @@ uint8_t iec_log(iec_t *result, iec_t v1) {
 
 uint8_t iec_exp(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, exp((double)iec_get_value(v1)));
 
@@ -102,7 +102,7 @@ uint8_t iec_exp(iec_t *result, iec_t v1) {
 
 uint8_t iec_sin(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, sin((double)iec_get_value(v1)));
 
@@ -111,7 +111,7 @@ uint8_t iec_sin(iec_t *result, iec_t v1) {
 
 uint8_t iec_cos(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, cos((double)iec_get_value(v1)));
 
@@ -120,7 +120,7 @@ uint8_t iec_cos(iec_t *result, iec_t v1) {
 
 uint8_t iec_tan(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, tan((double)iec_get_value(v1)));
 
@@ -129,7 +129,7 @@ uint8_t iec_tan(iec_t *result, iec_t v1) {
 
 uint8_t iec_asin(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, asin((double)iec_get_value(v1)));
 
@@ -138,7 +138,7 @@ uint8_t iec_asin(iec_t *result, iec_t v1) {
 
 uint8_t iec_acos(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, acos((double)iec_get_value(v1)));
 
@@ -147,7 +147,7 @@ uint8_t iec_acos(iec_t *result, iec_t v1) {
 
 uint8_t iec_atan(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
+    iec_type_promote(result, v1->type);
 
     iec_set_value(*result, atan((double)iec_get_value(v1)));
 
@@ -157,8 +157,8 @@ uint8_t iec_atan(iec_t *result, iec_t v1) {
 uint8_t iec_atan2(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_anytype_allowed(v2, ANY_REAL,,,,,);
-    iec_type_promote(*result, v1->type);
-    iec_type_promote(*result, v2->type);
+    iec_type_promote(result, v1->type);
+    iec_type_promote(result, v2->type);
 
     iec_set_value(*result, atan2((double)iec_get_value(v1), (double)iec_get_value(v2)));
 

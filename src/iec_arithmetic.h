@@ -65,11 +65,11 @@ uint8_t iec_add(iec_t *result, stack_t *list) {
     while (!stack_empty(*list)) {
         iec_move(&tmp, (iec_t) stack_pop(*list));
         iec_anytype_allowed(tmp, ANY_MAGNITUDE,,,,,);
-        iec_type_promote(*result, tmp->type);
+        iec_type_promote(result, tmp->type);
         iec_set_value(*result, (iec_get_value(*result)) + (iec_get_value(tmp)));
     }
 
-    iec_deinit(tmp);
+    iec_deinit(&tmp);
     return IEC_OK;
 }
 
@@ -85,11 +85,11 @@ uint8_t iec_mul(iec_t *result, stack_t *list) {
     while (!stack_empty(*list)) {
         iec_move(&tmp, (iec_t) stack_pop(*list));
         iec_anytype_allowed(tmp, ANY_MAGNITUDE,,,,,);
-        iec_type_promote(*result, tmp->type);
+        iec_type_promote(result, tmp->type);
         iec_set_value(*result, (iec_get_value(*result)) * (iec_get_value(tmp)));
     }
 
-    iec_deinit(tmp);
+    iec_deinit(&tmp);
     return IEC_OK;
 }
 
@@ -97,8 +97,8 @@ uint8_t iec_sub(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,,,,,);
     iec_anytype_allowed(v2, ANY_MAGNITUDE,,,,,);
 
-    iec_type_promote(*result, v1->type);
-    iec_type_promote(*result, v2->type);
+    iec_type_promote(result, v1->type);
+    iec_type_promote(result, v2->type);
     iec_set_value(*result, (iec_get_value(v1)) - (iec_get_value(v2)));
 
     return IEC_OK;
@@ -110,8 +110,14 @@ uint8_t iec_div(iec_t *result, iec_t v1, iec_t v2) {
     if ((iec_get_value(v2)) == 0)
         return IEC_NAT;
 
-    iec_type_promote(*result, v1->type);
-    iec_type_promote(*result, v2->type);
+    printf("type: %d\n", (*result)->type);
+    iec_type_promote(result, v1->type);
+    iec_type_promote(result, v2->type);
+    printf("-type: %d\n", (*result)->type);
+    float va, vb;
+    va=iec_get_value(v1);
+    vb=iec_get_value(v2);
+    printf("%f/%f: %f\n", va, vb, va/vb);
     iec_set_value(*result, (iec_get_value(v1)) / (iec_get_value(v2)));
 
     return IEC_OK;
@@ -135,9 +141,9 @@ uint8_t iec_expt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_NUM,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
 
-    iec_type_promote(*result, IEC_T_LREAL);
-    iec_type_promote(v1, IEC_T_LREAL);
-    iec_type_promote(v2, IEC_T_LREAL);
+    iec_type_promote(result, IEC_T_LREAL);
+    iec_type_promote(&v1, IEC_T_LREAL);
+    iec_type_promote(&v2, IEC_T_LREAL);
 
     iec_set_value(*result, (iec_get_value(v1) ^ iec_get_value(v2)));
 

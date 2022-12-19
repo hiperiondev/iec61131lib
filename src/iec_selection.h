@@ -50,10 +50,12 @@
  */
 
 uint8_t iec_move(iec_t *to, iec_t from) {
-    iec_deinit((*to));
+    iec_deinit(to);
     (*to) = IEC_ALLOC;
     iec_init(to, from->type);
+
     (*to)->tt = from->tt;
+    (*to)->any_type = from->any_type;
     iec_set_value((*to), iec_get_value(from));
 
     return IEC_OK;
@@ -87,7 +89,7 @@ uint8_t iec_max(iec_t *result, stack_t *list) {
         }
     }
 
-    iec_deinit(tmp);
+    iec_deinit(&tmp);
     return IEC_OK;
 }
 
@@ -108,7 +110,7 @@ uint8_t iec_min(iec_t *result, stack_t *list) {
         }
     }
 
-    iec_deinit(tmp);
+    iec_deinit(&tmp);
     return IEC_OK;
 }
 
