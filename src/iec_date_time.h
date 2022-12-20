@@ -40,6 +40,26 @@
  *
  *  Function      Parameter Type          Parameters   Description
  *
+ * ADD_DT_TIME                                         Adds an interval to a date and time value.
+ * ADD_TOD_TIME                                        Adds an interval to a time of day value.
+ * ADD_TIME                                            Adds two interval values.
+ * CONCAT_DATE_TOD                                     Adds a time of day value to a date.
+ * CONCAT_DATE                                         Constructs a DATE value from: Year, Month and Date values.
+ * CONCAT_DT                                           Constructs a DATE_AND_TIME value from: Year, Month, Date, Hour, Minute, Second and Millisecond values.
+ * CONCAT_TOD                                          Constructs a TIME_OF_DAY value from: Hour, Minute, Second and Millisecond values.
+ * DAY_OF_WEEK                                         Returns the day of week of a DATE value.
+ * DIVTIME                                             Divides an interval by a numeric value.
+ * MULTIME                                             Multiplies an interval by a numeric value.
+ * SPLIT_DATE                                          Extracts the fields from a DATE value.
+ * SPLIT_DT                                            Extracts the fields from a DATE_AND_TIME value.
+ * SPLIT_TOD                                           Extracts the fields from a TIME_OF_DAY value.
+ * SUB_DATE_DATE                                       Subtracts two date values.
+ * SUB_DT_DT                                           Subtracts two date and time values.
+ * SUB_DT_TIME                                         Subtracts an interval from a date and time value.
+ * SUB_TOD_TOD                                         Subtracts two time of day values.
+ * SUB_TOD_TIME                                        Subtracts an interval from a time of day value.
+ * SUB_TIME                                            Subtracts two interval values.
+ *
  */
 
 uint8_t iec_add_dt_time(iec_t *result, iec_t v1, iec_t v2) {

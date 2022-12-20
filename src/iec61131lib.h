@@ -107,22 +107,22 @@ typedef enum {
 #endif
     IEC_T_TABLE   = 0x19,  // table_t
     IEC_T_USER    = 0x1a,  // user_t
-    IEC_T_NDEF_1B = 0x1b,  // not defined
-    IEC_T_NDEF_1C = 0x1c,  // not defined
+    IEC_T_R_EDGE  = 0x1b,  // bool
+    IEC_T_F_EDGE  = 0x1c,  // bool
     IEC_T_NDEF_1D = 0x1d,  // not defined
     IEC_T_NDEF_1E = 0x1e,  // not defined
     IEC_T_NDEF_1F = 0x1f,  // not defined
 } iectype_t;
 
 typedef enum {
-    TT_MARK    = 0x01, // useful for gc
-    TT_PERSIST = 0x02, //
-    TT_RETAIN  = 0x04, //
-    TT_NDEF_08 = 0x08, // not defined
-    TT_NDEF_10 = 0x10, // not defined
-    TT_NDEF_20 = 0x20, // not defined
-    TT_NDEF_40 = 0x40, // not defined
-    TT_NDEF_80 = 0x80  // not defined
+    TT_MARK     = 0x01, // useful for gc
+    TT_PERSIST  = 0x02, //
+    TT_RETAIN   = 0x04, //
+    TT_MAINTAIN = 0x08, // persist local
+    TT_CONSTANT = 0x10, //
+    TT_FLAG1    = 0x20, //
+    TT_FLAG2    = 0x40, //
+    TT_FLAG3    = 0x80  //
 } tt_t;
 
 typedef union {
@@ -249,7 +249,8 @@ static uint8_t IEC_T_SIZEOF[] = {
                                 || x == IEC_T_UDINT || x == IEC_T_ULINT)
 #define ANY_DATE(x)           (x == IEC_T_DATE || x == IEC_T_DT)
 #else
-#define ANY_BIT(x)            (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD)
+#define ANY_BOOL(x)           (x == IEC_T_BOOL || x == IEC_T_R_EDGE || x == IEC_T_F_EDGE)
+#define ANY_BIT(x)            (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_R_EDGE || x == IEC_T_F_EDGE)
 #define ANY_UNSIGNED(x)       (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
 #define ANY_SIGNED(x)         (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT)
 #define ANY_INT(x)            (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
@@ -283,18 +284,35 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define GET_BIT(v, b)         ((v >> b) & 1)
 #define SET_BIT(v, b)         ((v) | (1 << b))
 #define CLR_BIT(v, b)         ((v) & ~(1 << b))
+#define GET_BIT_VB(v, b)      (v & b) ? 1 : 0
+#define SET_BIT_VB(v, b)      ((v) | b)
+#define CLR_BIT_VB(v, b)      ((v) & ~b)
 
 // tt get
 #define iec_is_mark(v)        (v & TT_MARK)
 #define iec_is_persist(v)     (v & TT_PERSIST)
 #define iec_is_retain(v)      (v & TT_RETAIN)
-#define iec_set_mark(v)       (SET_BIT(v, TT_MARK))
-#define iec_set_persist(v)    (SET_BIT(v, TT_PERSIST))
-#define iec_set_retain(v)     (SET_BIT(v, TT_RETAIN))
-#define iec_unset_mark(v)     (CLR_BIT(v, TT_MARK))
-#define iec_unset_persist(v)  (CLR_BIT(v, TT_PERSIST))
-#define iec_unset_retain(v)   (CLR_BIT(v, TT_RETAIN))
-
+#define iec_is_maintain(v)    (v & TT_MAINTAIN)
+#define iec_is_constant(v)    (v & TT_CONSTANT)
+#define iec_is_flag1(v)       (v & TT_FLAG1)
+#define iec_is_flag2(v)       (v & TT_FLAG2)
+#define iec_is_flag3(v)       (v & TT_FLAG3)
+#define iec_set_mark(v)       (SET_BIT_VB(v, TT_MARK))
+#define iec_set_persist(v)    (SET_BIT_VB(v, TT_PERSIST))
+#define iec_set_retain(v)     (SET_BIT_VB(v, TT_RETAIN))
+#define iec_set_maintain(v)   (SET_BIT_VB(v, TT_MAINTAIN))
+#define iec_set_constant(v)   (SET_BIT_VB(v, TT_CONSTANT))
+#define iec_set_flag1(v)      (SET_BIT_VB(v, TT_FLAG1))
+#define iec_set_flag2(v)      (SET_BIT_VB(v, TT_FLAG2))
+#define iec_set_flag3(v)      (SET_BIT_VB(v, TT_FLAG3))
+#define iec_unset_mark(v)     (CLR_BIT_VB(v, TT_MARK))
+#define iec_unset_persist(v)  (CLR_BIT_VB(v, TT_PERSIST))
+#define iec_unset_retain(v)   (CLR_BIT_VB(v, TT_RETAIN))
+#define iec_unset_maintain(v) (CLR_BIT_VB(v, TT_MAINTAIN))
+#define iec_unset_constant(v) (CLR_BIT_VB(v, TT_CONSTANT))
+#define iec_unset_flag1(v)    (CLR_BIT_VB(v, TT_FLAG1))
+#define iec_unset_flag2(v)    (CLR_BIT_VB(v, TT_FLAG2))
+#define iec_unset_flag3(v)    (CLR_BIT_VB(v, TT_FLAG3))
 // check type by length
 #define MAX_TYPE(a,b)               \
             (a)->type > (b)->type ? \
@@ -305,7 +323,9 @@ static uint8_t IEC_T_SIZEOF[] = {
 
 // get value
 #define iec_get_value(data)                                                         \
-            ((data)->type == IEC_T_BOOL)         ? *((bool*)((data)->value))      : \
+            ((data)->type == IEC_T_BOOL)                                            \
+              || ((data)->type == IEC_T_R_EDGE)                                     \
+              || ((data)->type == IEC_T_F_EDGE)  ? *((bool*)((data)->value))      : \
             ((data)->type == IEC_T_SINT)         ? *((int8_t*)((data)->value))    : \
             ((data)->type == IEC_T_USINT                                            \
               || (data)->type == IEC_T_BYTE)     ? *((uint8_t*)((data)->value))   : \
@@ -573,7 +593,6 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define SVT_64(data, val)
 #endif
 
-
 // set value from void pointer variable
 #define iec_set_fromvoid(data, val)                                     \
             switch ((data)->type) {                                     \
@@ -812,25 +831,25 @@ static inline void iec_deinit(iec_t *var) {
 }
 
 static inline void iec_totype(iec_t *data, uint8_t tpy) {
-    void *tmp = NULL;
+    void *_tmp_ = NULL;
     uint8_t tp_old = (*data)->type;
 
-
-    if (tp_old != IEC_T_NULL) {
-        iec_new_value(&tmp, tp_old);
-        iec_set_value_type(tmp, iec_get_value(*data), tp_old);
+    if (ANY_NUM(tp_old) || ANY_BOOL(tp_old)) {
+        iec_new_value(&_tmp_, tp_old);
+        iec_set_value_type(_tmp_, iec_get_value(*data), tp_old);
     }
 
     (*data)->type = tpy;
     (*data)->any_type = IEC_ANYTYPE(tpy);
 
     iec_free_value(data);
-    if (tp_old != IEC_T_STRING && tp_old != IEC_T_WSTRING)
+    if (!ANY_STRING(tp_old)) {
         iec_new_value(&((*data)->value), tpy);
+    }
 
-    if (tp_old != IEC_T_NULL) {
-        iec_set_value((*data), iec_get_value_type(tmp, tp_old));
-        free(tmp);
+    if (ANY_NUM(tp_old) || ANY_BOOL(tp_old)) {
+        iec_set_value((*data), iec_get_value_type(_tmp_, tp_old));
+        free(_tmp_);
     }
 }
 

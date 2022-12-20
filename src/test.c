@@ -307,14 +307,13 @@ int main(void) {
     char strt[] = "This is a test";
     iec_string_set(&rst_tmp, strt, 0, 1);
 
-    //str_t *test_str = iec_get_string(result);
-    //printf("\nt:%d, result: %s(%d)\n", result->type, stringValue(test_str), stringLength(test_str));
-
-    //iec_totype(&v1, IEC_T_UDINT);
-    printf("t: %d, (%s)\n", rst_tmp->type, (((string_t*) (rst_tmp->value))->str->value));
+    printf("\npp p:%p/%p/%p\n", (((string_t*) (rst_tmp->value))->str->value), strt, v4->value);
+    //iec_totype(&v4, IEC_T_UDINT);
+    printf(">pp p:%p/%p/%p\n", (((string_t*) (rst_tmp->value))->str->value), strt, v4->value);
+    printf("nt: %d, (%s)\n", rst_tmp->type, (((string_t*) (rst_tmp->value))->str->value));
     str_t *str_tmp = iec_get_string(rst_tmp);
     printf("t: %d, l: %d(%s)(%s)\n", rst_tmp->type, stringLength(str_tmp), stringValue(str_tmp), (((string_t*) (rst_tmp->value))->str->value));
-
+    printf("-pp p:%p/%p\n", (((string_t*) (rst_tmp->value))->str->value), strt);
     printf("< OK >\n\n");
     /////////////////////////////////////
 

@@ -125,8 +125,8 @@ uint8_t iec_string_set(iec_t *result, char *str, bool wstr, bool hash) {
         iec_totype(result, IEC_T_STRING);
     }
 
-    (*result)->value = (string_t*) malloc(sizeof(struct string));
-    ((string_t*) ((*result)->value))->str = newStringWithLength2(&(str_t ) { 0 }, str, strlen(str));
+    (*result)->value = malloc(sizeof(string_t));
+    ((string_t*) ((*result)->value))->str = newStringWithLength2(&(str_t) { 0 }, str, strlen(str));
 
     if (hash) {
         ((string_t*) ((*result)->value))->hash = PMurHash32(STR_SEED_HASH, stringValue(((string_t*) ((*result)->value))->str),
