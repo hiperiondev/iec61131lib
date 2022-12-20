@@ -224,8 +224,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 #endif
         sizeof(table_t) * 8,   // IEC_T_TABLE
         sizeof(user_t) * 8,    // IEC_T_USER
-        0,                     // IEC_T_NDEF_1B
-        0,                     // IEC_T_NDEF_1C
+        sizeof(bool) * 8,      // IEC_T_R_EDGE
+        sizeof(bool) * 8,      // IEC_T_F_EDGE
         0,                     // IEC_T_NDEF_1D
         0,                     // IEC_T_NDEF_1E
         0,                     // IEC_T_NDEF_1F
@@ -289,13 +289,13 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define CLR_BIT_VB(v, b)      ((v) & ~b)
 
 // tt get
-#define iec_is_mark(v)        (v & TT_MARK)
-#define iec_is_persist(v)     (v & TT_PERSIST)
-#define iec_is_retain(v)      (v & TT_RETAIN)
-#define iec_is_maintain(v)    (v & TT_MAINTAIN)
-#define iec_is_constant(v)    (v & TT_CONSTANT)
-#define iec_is_flag1(v)       (v & TT_FLAG1)
-#define iec_is_flag2(v)       (v & TT_FLAG2)
+#define iec_is_mark(v)        (GET_BIT_VB(v, TT_MARK))
+#define iec_is_persist(v)     (GET_BIT_VB(v, TT_PERSIST))
+#define iec_is_retain(v)      (GET_BIT_VB(v, TT_RETAIN))
+#define iec_is_maintain(v)    (GET_BIT_VB(v, TT_MAINTAIN))
+#define iec_is_constant(v)    (GET_BIT_VB(v, TT_CONSTANT))
+#define iec_is_flag1(v)       (GET_BIT_VB(v, TT_FLAG1))
+#define iec_is_flag2(v)       (GET_BIT_VB(v, TT_FLAG2))
 #define iec_is_flag3(v)       (v & TT_FLAG3)
 #define iec_set_mark(v)       (SET_BIT_VB(v, TT_MARK))
 #define iec_set_persist(v)    (SET_BIT_VB(v, TT_PERSIST))
