@@ -120,9 +120,9 @@ typedef enum {
     TT_RETAIN   = 0x04, //
     TT_MAINTAIN = 0x08, // persist local
     TT_CONSTANT = 0x10, //
-    TT_FLAG1    = 0x20, //
-    TT_FLAG2    = 0x40, //
-    TT_FLAG3    = 0x80  //
+    TT_INITILZD = 0x20, // value initialized
+    TT_FLAG1    = 0x40, //
+    TT_FLAG2    = 0x80  //
 } tt_t;
 
 typedef union {
@@ -302,30 +302,31 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define CLR_BIT_VB(v, b)      ((v) & ~b)
 
 // tt get
-#define iec_is_mark(v)        (GET_BIT_VB(v, TT_MARK))
-#define iec_is_persist(v)     (GET_BIT_VB(v, TT_PERSIST))
-#define iec_is_retain(v)      (GET_BIT_VB(v, TT_RETAIN))
-#define iec_is_maintain(v)    (GET_BIT_VB(v, TT_MAINTAIN))
-#define iec_is_constant(v)    (GET_BIT_VB(v, TT_CONSTANT))
-#define iec_is_flag1(v)       (GET_BIT_VB(v, TT_FLAG1))
-#define iec_is_flag2(v)       (GET_BIT_VB(v, TT_FLAG2))
-#define iec_is_flag3(v)       (v & TT_FLAG3)
-#define iec_set_mark(v)       (SET_BIT_VB(v, TT_MARK))
-#define iec_set_persist(v)    (SET_BIT_VB(v, TT_PERSIST))
-#define iec_set_retain(v)     (SET_BIT_VB(v, TT_RETAIN))
-#define iec_set_maintain(v)   (SET_BIT_VB(v, TT_MAINTAIN))
-#define iec_set_constant(v)   (SET_BIT_VB(v, TT_CONSTANT))
-#define iec_set_flag1(v)      (SET_BIT_VB(v, TT_FLAG1))
-#define iec_set_flag2(v)      (SET_BIT_VB(v, TT_FLAG2))
-#define iec_set_flag3(v)      (SET_BIT_VB(v, TT_FLAG3))
-#define iec_unset_mark(v)     (CLR_BIT_VB(v, TT_MARK))
-#define iec_unset_persist(v)  (CLR_BIT_VB(v, TT_PERSIST))
-#define iec_unset_retain(v)   (CLR_BIT_VB(v, TT_RETAIN))
-#define iec_unset_maintain(v) (CLR_BIT_VB(v, TT_MAINTAIN))
-#define iec_unset_constant(v) (CLR_BIT_VB(v, TT_CONSTANT))
-#define iec_unset_flag1(v)    (CLR_BIT_VB(v, TT_FLAG1))
-#define iec_unset_flag2(v)    (CLR_BIT_VB(v, TT_FLAG2))
-#define iec_unset_flag3(v)    (CLR_BIT_VB(v, TT_FLAG3))
+#define iec_is_mark(v)           (GET_BIT_VB(v, TT_MARK))
+#define iec_is_persist(v)        (GET_BIT_VB(v, TT_PERSIST))
+#define iec_is_retain(v)         (GET_BIT_VB(v, TT_RETAIN))
+#define iec_is_maintain(v)       (GET_BIT_VB(v, TT_MAINTAIN))
+#define iec_is_constant(v)       (GET_BIT_VB(v, TT_CONSTANT))
+#define iec_is_initialized(v)    (GET_BIT_VB(v, TT_INITILZD))
+#define iec_is_flag1(v)          (GET_BIT_VB(v, TT_FLAG1))
+#define iec_is_flag2(v)          (GET_BIT_VB(v, TT_FLAG2))
+#define iec_set_mark(v)          (SET_BIT_VB(v, TT_MARK))
+#define iec_set_persist(v)       (SET_BIT_VB(v, TT_PERSIST))
+#define iec_set_retain(v)        (SET_BIT_VB(v, TT_RETAIN))
+#define iec_set_maintain(v)      (SET_BIT_VB(v, TT_MAINTAIN))
+#define iec_set_constant(v)      (SET_BIT_VB(v, TT_CONSTANT))
+#define iec_set_initialized(v)   (SET_BIT_VB(v, TT_INITILZD))
+#define iec_set_flag1(v)         (SET_BIT_VB(v, TT_FLAG1))
+#define iec_set_flag2(v)         (SET_BIT_VB(v, TT_FLAG2))
+#define iec_unset_mark(v)        (CLR_BIT_VB(v, TT_MARK))
+#define iec_unset_persist(v)     (CLR_BIT_VB(v, TT_PERSIST))
+#define iec_unset_retain(v)      (CLR_BIT_VB(v, TT_RETAIN))
+#define iec_unset_maintain(v)    (CLR_BIT_VB(v, TT_MAINTAIN))
+#define iec_unset_constant(v)    (CLR_BIT_VB(v, TT_CONSTANT))
+#define iec_unset_initialized(v) (CLR_BIT_VB(v, TT_INITILZD))
+#define iec_unset_flag1(v)       (CLR_BIT_VB(v, TT_FLAG1))
+#define iec_unset_flag2(v)       (CLR_BIT_VB(v, TT_FLAG2))
+
 // check type by length
 #define MAX_TYPE(a,b)               \
             (a)->type > (b)->type ? \

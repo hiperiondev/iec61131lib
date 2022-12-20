@@ -205,12 +205,11 @@ uint8_t iec_tp(iec_t *q, iec_t in, iec_t pt, iec_t et) {
     return IEC_OK;
 }
 
-uint8_t iec_ton(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
     iec_type_allowed(in, IEC_T_BOOL);
     iec_type_allowed(pt, IEC_T_TIME);
     iec_type_allowed(et, IEC_T_TIME);
-
-    iec_totype(q, IEC_T_BOOL);
+    iec_type_allowed(*timer, IEC_T_TIMER);
 
 
     return IEC_OK;
