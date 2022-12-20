@@ -184,7 +184,7 @@ typedef struct {
 #else
     uint32_t last_micros;
 #endif
-} timer_t;
+} t_timer_t;
 
 // main data type
 typedef struct iec {
@@ -239,7 +239,7 @@ static uint8_t IEC_T_SIZEOF[] = {
         sizeof(user_t) * 8,    // IEC_T_USER
         sizeof(bool) * 8,      // IEC_T_R_EDGE
         sizeof(bool) * 8,      // IEC_T_F_EDGE
-        sizeof(timer_t) * 8,   // IEC_T_TIMER
+        sizeof(t_timer_t) * 8,   // IEC_T_TIMER
         0,                     // IEC_T_NDEF_1E
         0,                     // IEC_T_NDEF_1F
 };
@@ -831,7 +831,7 @@ static inline void iec_new_value(void **nw, iectype_t type) {
             (*nw) = malloc(sizeof(user_t));
             break;
         case IEC_T_TIMER:
-            (*nw) = malloc(sizeof(timer_t));
+            (*nw) = malloc(sizeof(t_timer_t));
             break;
 
         default:
@@ -847,12 +847,12 @@ static inline void iec_init(iec_t *nw, iectype_t type) {
     (*nw)->tt = 0;
     iec_new_value(&((*nw)->value), type);
     if (type == IEC_T_TIMER) {
-        ((timer_t*) ((*nw)->value))->q = false;
-        ((timer_t*) ((*nw)->value))->pt = 0;
-        ((timer_t*) ((*nw)->value))->in = false;
-        ((timer_t*) ((*nw)->value))->et = 0;
-        ((timer_t*) ((*nw)->value))->timer_run = false;
-        ((timer_t*) ((*nw)->value))->last_micros = 0;
+        ((t_timer_t*) ((*nw)->value))->q = false;
+        ((t_timer_t*) ((*nw)->value))->pt = 0;
+        ((t_timer_t*) ((*nw)->value))->in = false;
+        ((t_timer_t*) ((*nw)->value))->et = 0;
+        ((t_timer_t*) ((*nw)->value))->timer_run = false;
+        ((t_timer_t*) ((*nw)->value))->last_micros = 0;
     }
 }
 
