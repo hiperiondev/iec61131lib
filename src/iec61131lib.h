@@ -351,7 +351,9 @@ static uint8_t IEC_T_SIZEOF[] = {
 #endif
 
 #define iec_get_value_type(data, type)                                       \
-            (type == IEC_T_BOOL)         ? *((bool*)(data))                : \
+            (type == IEC_T_BOOL)                                             \
+              || (type == IEC_T_R_EDGE)                                      \
+              || (type == IEC_T_F_EDGE)  ? *((bool*)(data))               : \
             (type == IEC_T_SINT)         ? *((int8_t*)((data)))            : \
             (type == IEC_T_USINT                                             \
               || type == IEC_T_BYTE)     ? *((uint8_t*)((data)))           : \
@@ -377,7 +379,9 @@ static uint8_t IEC_T_SIZEOF[] = {
 #endif
 
 #define iec_get_valuep(data)                                                     \
-            ((data)->type == IEC_T_BOOL)         ? ((bool*)(data)->value)      : \
+            ((data)->type == IEC_T_BOOL)                                         \
+			  || ((data)->type == IEC_T_R_EDGE)                                  \
+			  || ((data)->type == IEC_T_F_EDGE)  ? ((bool*)(data)->value)      : \
             ((data)->type == IEC_T_SINT)         ? ((int8_t*)(data)->value)    : \
             ((data)->type == IEC_T_USINT                                         \
               || (data)->type == IEC_T_BYTE)     ? ((uint8_t*)(data)->value)   : \
@@ -407,6 +411,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 		    maxuint_t CONCAT(var, _) = 0;                                  \
 		    void *var = &CONCAT(var, _);                                   \
             switch ((data)->type) {                                        \
+                case IEC_T_F_EDGE:                                         \
+                case IEC_T_R_EDGE:                                         \
                 case IEC_T_BOOL:                                           \
                     *((bool*)(var)) = *((bool*)((data)->value));           \
                     break;                                                 \
@@ -473,6 +479,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 // set value
 #define iec_set_value(data, val)                          \
             switch ((data)->type) {                       \
+                case IEC_T_F_EDGE:                        \
+                case IEC_T_R_EDGE:                        \
                 case IEC_T_BOOL:                          \
 				    *((bool*)((data)->value)) = val;      \
                     break;                                \
@@ -534,6 +542,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 
 #define iec_set_value_type(data, val, type)     \
             switch (type) {                     \
+                case IEC_T_F_EDGE:              \
+                case IEC_T_R_EDGE:              \
                 case IEC_T_BOOL:                \
                     *((bool*)(data)) = val;     \
                     break;                      \
@@ -596,6 +606,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 // set value from void pointer variable
 #define iec_set_fromvoid(data, val)                                     \
             switch ((data)->type) {                                     \
+                case IEC_T_F_EDGE:                                      \
+                case IEC_T_R_EDGE:                                      \
                 case IEC_T_BOOL:                                        \
                     *((bool*)((data)->value)) = *((bool*)val);          \
                     break;                                              \
@@ -683,27 +695,29 @@ static uint8_t IEC_T_SIZEOF[] = {
 
 // TODO: INCOMPLETE!
 // return true if value fit in type
-#define iec_fit(data, value)                                                                                             \
-            ((data)->type == IEC_T_BOOL)       ? (value >= UCHAR_MIN) && (value <= UCHAR_MAX) && (round(val) == value) : \
-            ((data)->type == IEC_T_SINT)       ? (value >= SCHAR_MIN) && (value <= SCHAR_MAX) && (round(val) == value) : \
-            ((data)->type == IEC_T_USINT                                                                                 \
-              || (data)->type == IEC_T_BYTE)   ? (value >= UCHAR_MIN) && (value <= UCHAR_MAX) && (round(val) == value) : \
-            ((data)->type == IEC_T_INT)        ? (value >= INT_MIN) && (value <= INT_MAX) && (round(val) == value)     : \
-            ((data)->type == IEC_T_UINT)                                                                                 \
-              || ((data)->type == IEC_T_WORD)  ? (value >= UINT_MIN) && (value <= UINT_MAX) && (round(val) == value)   : \
-            ((data)->type == IEC_T_DINT)       ? (value >= LONG_MIN) && (value <= LONG_MAX) && (round(val) == value)   : \
-            ((data)->type == IEC_T_UDINT)                                                                                \
-              || ((data)->type == IEC_T_DWORD) ? (value >= ULONG_MIN) && (value <= ULONG_MAX) && (round(val) == value) : \
-            ((data)->type == IEC_T_REAL)       ? 0 :                                                                     \
-            ((data)->type == IEC_T_TIME)       ? 0 :                                                                     \
-            ((data)->type == IEC_T_LREAL)      ? 0 :                                                                     \
+#define iec_fit(data, value)                                                                                              \
+            ((data)->type == IEC_T_BOOL)                                                                                  \
+              || ((data)->type == IEC_T_F_EDGE)                                                                           \
+              || ((data)->type == IEC_T_R_EDGE) ? (value >= UCHAR_MIN) && (value <= UCHAR_MAX) && (round(val) == value) : \
+            ((data)->type == IEC_T_SINT)        ? (value >= SCHAR_MIN) && (value <= SCHAR_MAX) && (round(val) == value) : \
+            ((data)->type == IEC_T_USINT                                                                                  \
+              || (data)->type == IEC_T_BYTE)    ? (value >= UCHAR_MIN) && (value <= UCHAR_MAX) && (round(val) == value) : \
+            ((data)->type == IEC_T_INT)         ? (value >= INT_MIN) && (value <= INT_MAX) && (round(val) == value)     : \
+            ((data)->type == IEC_T_UINT)                                                                                  \
+              || ((data)->type == IEC_T_WORD)   ? (value >= UINT_MIN) && (value <= UINT_MAX) && (round(val) == value)   : \
+            ((data)->type == IEC_T_DINT)        ? (value >= LONG_MIN) && (value <= LONG_MAX) && (round(val) == value)   : \
+            ((data)->type == IEC_T_UDINT)                                                                                 \
+              || ((data)->type == IEC_T_DWORD)  ? (value >= ULONG_MIN) && (value <= ULONG_MAX) && (round(val) == value) : \
+            ((data)->type == IEC_T_REAL)        ? 0 :                                                                     \
+            ((data)->type == IEC_T_TIME)        ? 0 :                                                                     \
+            ((data)->type == IEC_T_LREAL)       ? 0 :                                                                     \
             FT_64(data)
 #ifdef ALLOW_64BITS
-#define FT_64(data)                                                                                                      \
-            ((data)->type == IEC_T_ULINT)      ? 0  :                                                                    \
-            ((data)->type == IEC_T_LINT)                                                                                 \
-              || ((data)->type == IEC_T_LWORD) ? 0  :                                                                    \
-            ((data)->type == IEC_T_POINTER)    ? 0  :                                                                    \
+#define FT_64(data)                                                                                                       \
+            ((data)->type == IEC_T_ULINT)       ? 0  :                                                                    \
+            ((data)->type == IEC_T_LINT)                                                                                  \
+              || ((data)->type == IEC_T_LWORD)  ? 0  :                                                                    \
+            ((data)->type == IEC_T_POINTER)     ? 0  :                                                                    \
             0
 #else
 #define FT_64(data) 0
@@ -713,6 +727,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 
 static inline void iec_new_value(void **nw, iectype_t type) {
     switch (type) {
+        case IEC_T_F_EDGE:
+        case IEC_T_R_EDGE:
         case IEC_T_BOOL:
             (*nw) = malloc(sizeof(bool));
             break;

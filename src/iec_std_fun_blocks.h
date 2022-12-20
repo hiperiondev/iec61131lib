@@ -199,13 +199,17 @@ uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
 }
 
 uint8_t iec_tp(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+
+
     return IEC_OK;
 }
 
 uint8_t iec_ton(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+
     return IEC_OK;
 }
 uint8_t iec_tof(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+
     return IEC_OK;
 }
 
