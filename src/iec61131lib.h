@@ -176,7 +176,6 @@ typedef struct {
 typedef struct {
         bool q;
       time_t pt;
-        bool in;
       time_t et;
         bool timer_run;
 #ifdef ALLOW_64BITS
@@ -737,6 +736,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define FT_64(data) 0
 #endif
 
+#define iec_timer(v)  ((t_timer_t*)((v)->value))
 ////////////////////////////////////////////////////////////////
 
 static inline void iec_new_value(void **nw, iectype_t type) {

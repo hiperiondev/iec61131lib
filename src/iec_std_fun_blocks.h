@@ -205,16 +205,12 @@ uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
     return IEC_OK;
 }
 
-uint8_t iec_initialize_timer(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_initialize_timer(iec_t *timer, iec_t pt) {
     iec_type_allowed(*timer, IEC_T_TIMER);
-    iec_type_allowed(in, IEC_T_BOOL);
     iec_type_allowed(pt, IEC_T_TIME);
-    iec_type_allowed(et, IEC_T_TIME);
 
     ((t_timer_t*) ((*timer)->value))->q = false;
     ((t_timer_t*) ((*timer)->value))->pt = iec_get_value(pt);
-    ((t_timer_t*) ((*timer)->value))->in = iec_get_value(in);
-    ((t_timer_t*) ((*timer)->value))->et = iec_get_value(et);
     ((t_timer_t*) ((*timer)->value))->timer_run = false;
     ((t_timer_t*) ((*timer)->value))->last_micros = 0;
 
@@ -223,28 +219,30 @@ uint8_t iec_initialize_timer(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
     return IEC_OK;
 }
 
-uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
     if (!iec_is_initialized(*timer))
-        iec_initialize_timer(timer, in, pt, et);
+        iec_initialize_timer(timer, pt);
 
     return IEC_OK;
 }
 
-uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
     if (!iec_is_initialized(*timer))
-        iec_initialize_timer(timer, in, pt, et);
+        iec_initialize_timer(timer, pt);
+
 
     return IEC_OK;
 }
-uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
     if (!iec_is_initialized(*timer))
-        iec_initialize_timer(timer, in, pt, et);
+        iec_initialize_timer(timer, pt);
+
 
     return IEC_OK;
 }
