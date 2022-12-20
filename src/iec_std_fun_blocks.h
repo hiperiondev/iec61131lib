@@ -102,7 +102,7 @@ uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
     iec_type_allowed(r, IEC_T_BOOL);
 
     iec_totype(q1, IEC_T_BOOL);
-    (*q1)->tt = iec_set_maintain((*q1)->tt);
+    iec_set_maintain(*q1);
 
     bool q1_, s1_, r_;
     q1_ = iec_get_value((*q1));
@@ -119,7 +119,7 @@ uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1) {
     iec_type_allowed(r1, IEC_T_BOOL);
 
     iec_totype(q1, IEC_T_BOOL);
-    (*q1)->tt = iec_set_maintain((*q1)->tt);
+    iec_set_maintain(*q1);
 
     bool q1_, s_, r1_;
     q1_ = iec_get_value((*q1));
@@ -135,14 +135,17 @@ uint8_t iec_r_trig(iec_t *q, iec_t clk) {
     iec_type_allowed(clk, IEC_T_BOOL);
 
     iec_totype(q, IEC_T_BOOL);
-    (*q)->tt = iec_set_maintain((*q)->tt);
+    iec_set_maintain(*q);
 
     bool clk_, m;
     clk_ = iec_get_value(clk);
-    m = iec_is_flag1((*q)->tt);
+    m = iec_is_flag1(*q);
 
     iec_set_value(*q, (clk_ && !m));
-    (*q)->tt = clk ? iec_set_flag1((*q)->tt) : iec_unset_flag1((*q)->tt);
+    if (clk)
+        iec_set_flag1(*q);
+    else
+        iec_unset_flag1(*q);
 
     return IEC_OK;
 }
@@ -151,14 +154,17 @@ uint8_t iec_f_trig(iec_t *q, iec_t clk) {
     iec_type_allowed(clk, IEC_T_BOOL);
 
     iec_totype(q, IEC_T_BOOL);
-    (*q)->tt = iec_set_maintain((*q)->tt);
+    iec_set_maintain(*q);
 
     bool clk_, m;
     clk_ = iec_get_value(clk);
-    m = iec_is_flag1((*q)->tt);
+    m = iec_is_flag1(*q);
 
     iec_set_value(*q, (!clk_ && !m));
-    (*q)->tt = clk ? iec_unset_flag1((*q)->tt) : iec_set_flag1((*q)->tt);
+    if (clk)
+        iec_unset_flag1(*q);
+    else
+        iec_set_flag1(*q);
 
     return IEC_OK;
 }
@@ -199,22 +205,46 @@ uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
     return IEC_OK;
 }
 
-uint8_t iec_tp(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_initialize_timer(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+    iec_type_allowed(*timer, IEC_T_TIMER);
+    iec_type_allowed(in, IEC_T_BOOL);
+    iec_type_allowed(pt, IEC_T_TIME);
+    iec_type_allowed(et, IEC_T_TIME);
 
+    ((t_timer_t*) ((*timer)->value))->q = false;
+    ((t_timer_t*) ((*timer)->value))->pt = iec_get_value(pt);
+    ((t_timer_t*) ((*timer)->value))->in = iec_get_value(in);
+    ((t_timer_t*) ((*timer)->value))->et = iec_get_value(et);
+    ((t_timer_t*) ((*timer)->value))->timer_run = false;
+    ((t_timer_t*) ((*timer)->value))->last_micros = 0;
+
+    iec_set_initialized(*timer);
+
+    return IEC_OK;
+}
+
+uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+    iec_type_allowed(*timer, IEC_T_TIMER);
+
+    if (!iec_is_initialized(*timer))
+        iec_initialize_timer(timer, in, pt, et);
 
     return IEC_OK;
 }
 
 uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
-    iec_type_allowed(in, IEC_T_BOOL);
-    iec_type_allowed(pt, IEC_T_TIME);
-    iec_type_allowed(et, IEC_T_TIME);
     iec_type_allowed(*timer, IEC_T_TIMER);
 
+    if (!iec_is_initialized(*timer))
+        iec_initialize_timer(timer, in, pt, et);
 
     return IEC_OK;
 }
-uint8_t iec_tof(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t et) {
+    iec_type_allowed(*timer, IEC_T_TIMER);
+
+    if (!iec_is_initialized(*timer))
+        iec_initialize_timer(timer, in, pt, et);
 
     return IEC_OK;
 }

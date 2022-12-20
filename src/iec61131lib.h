@@ -302,30 +302,30 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define CLR_BIT_VB(v, b)      ((v) & ~b)
 
 // tt get
-#define iec_is_mark(v)           (GET_BIT_VB(v, TT_MARK))
-#define iec_is_persist(v)        (GET_BIT_VB(v, TT_PERSIST))
-#define iec_is_retain(v)         (GET_BIT_VB(v, TT_RETAIN))
-#define iec_is_maintain(v)       (GET_BIT_VB(v, TT_MAINTAIN))
-#define iec_is_constant(v)       (GET_BIT_VB(v, TT_CONSTANT))
-#define iec_is_initialized(v)    (GET_BIT_VB(v, TT_INITILZD))
-#define iec_is_flag1(v)          (GET_BIT_VB(v, TT_FLAG1))
-#define iec_is_flag2(v)          (GET_BIT_VB(v, TT_FLAG2))
-#define iec_set_mark(v)          (SET_BIT_VB(v, TT_MARK))
-#define iec_set_persist(v)       (SET_BIT_VB(v, TT_PERSIST))
-#define iec_set_retain(v)        (SET_BIT_VB(v, TT_RETAIN))
-#define iec_set_maintain(v)      (SET_BIT_VB(v, TT_MAINTAIN))
-#define iec_set_constant(v)      (SET_BIT_VB(v, TT_CONSTANT))
-#define iec_set_initialized(v)   (SET_BIT_VB(v, TT_INITILZD))
-#define iec_set_flag1(v)         (SET_BIT_VB(v, TT_FLAG1))
-#define iec_set_flag2(v)         (SET_BIT_VB(v, TT_FLAG2))
-#define iec_unset_mark(v)        (CLR_BIT_VB(v, TT_MARK))
-#define iec_unset_persist(v)     (CLR_BIT_VB(v, TT_PERSIST))
-#define iec_unset_retain(v)      (CLR_BIT_VB(v, TT_RETAIN))
-#define iec_unset_maintain(v)    (CLR_BIT_VB(v, TT_MAINTAIN))
-#define iec_unset_constant(v)    (CLR_BIT_VB(v, TT_CONSTANT))
-#define iec_unset_initialized(v) (CLR_BIT_VB(v, TT_INITILZD))
-#define iec_unset_flag1(v)       (CLR_BIT_VB(v, TT_FLAG1))
-#define iec_unset_flag2(v)       (CLR_BIT_VB(v, TT_FLAG2))
+#define iec_is_mark(v)           (GET_BIT_VB((v)->tt, TT_MARK))
+#define iec_is_persist(v)        (GET_BIT_VB((v)->tt, TT_PERSIST))
+#define iec_is_retain(v)         (GET_BIT_VB((v)->tt, TT_RETAIN))
+#define iec_is_maintain(v)       (GET_BIT_VB((v)->tt, TT_MAINTAIN))
+#define iec_is_constant(v)       (GET_BIT_VB((v)->tt, TT_CONSTANT))
+#define iec_is_initialized(v)    (GET_BIT_VB((v)->tt, TT_INITILZD))
+#define iec_is_flag1(v)          (GET_BIT_VB((v)->tt, TT_FLAG1))
+#define iec_is_flag2(v)          (GET_BIT_VB((v)->tt, TT_FLAG2))
+#define iec_set_mark(v)          ((v)->tt = SET_BIT_VB((v)->tt, TT_MARK))
+#define iec_set_persist(v)       ((v)->tt = SET_BIT_VB((v)->tt, TT_PERSIST))
+#define iec_set_retain(v)        ((v)->tt = SET_BIT_VB((v)->tt, TT_RETAIN))
+#define iec_set_maintain(v)      ((v)->tt = SET_BIT_VB((v)->tt, TT_MAINTAIN))
+#define iec_set_constant(v)      ((v)->tt = SET_BIT_VB((v)->tt, TT_CONSTANT))
+#define iec_set_initialized(v)   ((v)->tt = SET_BIT_VB((v)->tt, TT_INITILZD))
+#define iec_set_flag1(v)         ((v)->tt = SET_BIT_VB((v)->tt, TT_FLAG1))
+#define iec_set_flag2(v)         ((v)->tt = SET_BIT_VB((v)->tt, TT_FLAG2))
+#define iec_unset_mark(v)        ((v)->tt = CLR_BIT_VB((v)->tt, TT_MARK))
+#define iec_unset_persist(v)     ((v)->tt = CLR_BIT_VB((v)->tt, TT_PERSIST))
+#define iec_unset_retain(v)      ((v)->tt = CLR_BIT_VB((v)->tt, TT_RETAIN))
+#define iec_unset_maintain(v)    ((v)->tt = CLR_BIT_VB((v)->tt, TT_MAINTAIN))
+#define iec_unset_constant(v)    ((v)->tt = CLR_BIT_VB((v)->tt, TT_CONSTANT))
+#define iec_unset_initialized(v) ((v)->tt = CLR_BIT_VB((v)->tt, TT_INITILZD))
+#define iec_unset_flag1(v)       ((v)->tt = CLR_BIT_VB((v)->tt, TT_FLAG1))
+#define iec_unset_flag2(v)       ((v)->tt = CLR_BIT_VB((v)->tt, TT_FLAG2))
 
 // check type by length
 #define MAX_TYPE(a,b)               \
@@ -703,8 +703,8 @@ static uint8_t IEC_T_SIZEOF[] = {
                 return IEC_NAT
 
 // check for type allowed
-#define iec_type_allowed(data, A)  \
-            if(!((data)->type == (A))) \
+#define iec_type_allowed(data, A)                      \
+            if(data == NULL || !((data)->type == (A))) \
                 return IEC_NAT
 
 // TODO: INCOMPLETE!
@@ -847,14 +847,6 @@ static inline void iec_init(iec_t *nw, iectype_t type) {
     (*nw)->any_type = IEC_ANYTYPE(type);
     (*nw)->tt = 0;
     iec_new_value(&((*nw)->value), type);
-    if (type == IEC_T_TIMER) {
-        ((t_timer_t*) ((*nw)->value))->q = false;
-        ((t_timer_t*) ((*nw)->value))->pt = 0;
-        ((t_timer_t*) ((*nw)->value))->in = false;
-        ((t_timer_t*) ((*nw)->value))->et = 0;
-        ((t_timer_t*) ((*nw)->value))->timer_run = false;
-        ((t_timer_t*) ((*nw)->value))->last_micros = 0;
-    }
 }
 
 static inline void iec_free_value(iec_t *var) {
