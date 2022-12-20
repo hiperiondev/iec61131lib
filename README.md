@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="doc/iec61131-3lib.png" width="350" alt="EC61131LIB">
+  <img src="doc/iec61131-3lib.png" width="640" alt="EC61131LIB">
 </p>
 
 # Library for data types and functions for IEC 61131-3
