@@ -95,6 +95,7 @@
 #include <stdint.h>
 
 #include "iec61131lib.h"
+#include "fun_hardware.h"
 
 uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
     iec_type_allowed(s1, IEC_T_BOOL);
@@ -205,6 +206,12 @@ uint8_t iec_tp(iec_t *q, iec_t in, iec_t pt, iec_t et) {
 }
 
 uint8_t iec_ton(iec_t *q, iec_t in, iec_t pt, iec_t et) {
+    iec_type_allowed(in, IEC_T_BOOL);
+    iec_type_allowed(pt, IEC_T_TIME);
+    iec_type_allowed(et, IEC_T_TIME);
+
+    iec_totype(q, IEC_T_BOOL);
+
 
     return IEC_OK;
 }

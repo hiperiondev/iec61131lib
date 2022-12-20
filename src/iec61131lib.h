@@ -109,7 +109,7 @@ typedef enum {
     IEC_T_USER    = 0x1a,  // user_t
     IEC_T_R_EDGE  = 0x1b,  // bool
     IEC_T_F_EDGE  = 0x1c,  // bool
-    IEC_T_NDEF_1D = 0x1d,  // not defined
+    IEC_T_TIMER   = 0x1d,  // timer_t
     IEC_T_NDEF_1E = 0x1e,  // not defined
     IEC_T_NDEF_1F = 0x1f,  // not defined
 } iectype_t;
@@ -173,6 +173,19 @@ typedef struct {
         void *table;
 } table_t;
 
+typedef struct {
+        bool q;
+      time_t pt;
+        bool in;
+      time_t et;
+        bool timer_run;
+#ifdef ALLOW_64BITS
+    uint64_t last_micros;
+#else
+    uint32_t last_micros;
+#endif
+} timer_t;
+
 // main data type
 typedef struct iec {
     iectype_t type;
@@ -226,7 +239,7 @@ static uint8_t IEC_T_SIZEOF[] = {
         sizeof(user_t) * 8,    // IEC_T_USER
         sizeof(bool) * 8,      // IEC_T_R_EDGE
         sizeof(bool) * 8,      // IEC_T_F_EDGE
-        0,                     // IEC_T_NDEF_1D
+        sizeof(timer_t) * 8,   // IEC_T_TIMER
         0,                     // IEC_T_NDEF_1E
         0,                     // IEC_T_NDEF_1F
 };
@@ -817,6 +830,9 @@ static inline void iec_new_value(void **nw, iectype_t type) {
         case IEC_T_USER:
             (*nw) = malloc(sizeof(user_t));
             break;
+        case IEC_T_TIMER:
+            (*nw) = malloc(sizeof(timer_t));
+            break;
 
         default:
             (*nw) = NULL;
@@ -830,7 +846,14 @@ static inline void iec_init(iec_t *nw, iectype_t type) {
     (*nw)->any_type = IEC_ANYTYPE(type);
     (*nw)->tt = 0;
     iec_new_value(&((*nw)->value), type);
-
+    if (type == IEC_T_TIMER) {
+        ((timer_t*) ((*nw)->value))->q = false;
+        ((timer_t*) ((*nw)->value))->pt = 0;
+        ((timer_t*) ((*nw)->value))->in = false;
+        ((timer_t*) ((*nw)->value))->et = 0;
+        ((timer_t*) ((*nw)->value))->timer_run = false;
+        ((timer_t*) ((*nw)->value))->last_micros = 0;
+    }
 }
 
 static inline void iec_free_value(iec_t *var) {
