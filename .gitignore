@@ -55,5 +55,4 @@ dkms.conf
 .settings/
 Release/
 temp/
-TEMP/
 vgcore*

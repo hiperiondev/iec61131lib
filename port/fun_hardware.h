@@ -37,19 +37,19 @@
 #include <stdint.h>
 
 #ifdef ALLOW_64BITS
-uint64_t millis(void) {
+uint64_t hw_millis(void) {
     return 0;
 }
 
-uint64_t micros(void) {
+uint64_t hw_micros(void) {
     return 0;
 }
 #else
-uint32_t millis(void) {
+uint32_t hw_millis(void) {
     return 0;
 }
 
-uint32_t micros(void) {
+uint32_t hw_micros(void) {
     return 0;
 }
 #endif

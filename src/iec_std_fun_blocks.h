@@ -228,12 +228,12 @@ uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
 
     if (iec_get_value(in)) {
         if (iec_timer(*timer)->t0 == 0) {
-            iec_timer(*timer)->t0 = millis();
+            iec_timer(*timer)->t0 = hw_millis();
         }
     }
 
     if (iec_timer(*timer)->t0 > 0) {
-        iec_timer(*timer)->et = millis() - iec_timer(*timer)->t0;
+        iec_timer(*timer)->et = hw_millis() - iec_timer(*timer)->t0;
         if (iec_timer(*timer)->et >= iec_timer(*timer)->pt) {
             iec_timer(*timer)->et = iec_timer(*timer)->pt;
         }
@@ -266,9 +266,9 @@ uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
         iec_timer(*timer)->q = false;
     } else {
         if (iec_timer(*timer)->t0 == 0) {
-            iec_timer(*timer)->t0 = millis();
+            iec_timer(*timer)->t0 = hw_millis();
         }
-        iec_timer(*timer)->et = millis() - iec_timer(*timer)->t0;
+        iec_timer(*timer)->et = hw_millis() - iec_timer(*timer)->t0;
         if (iec_timer(*timer)->et >= iec_timer(*timer)->pt) {
             iec_timer(*timer)->et = iec_timer(*timer)->pt;
             iec_timer(*timer)->q = true;
@@ -295,9 +295,9 @@ uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
         iec_timer(*timer)->q = true;
     } else {
         if (iec_timer(*timer)->t0 == 0) {
-            iec_timer(*timer)->t0 = millis();
+            iec_timer(*timer)->t0 = hw_millis();
         }
-        iec_timer(*timer)->et = millis() - iec_timer(*timer)->t0;
+        iec_timer(*timer)->et = hw_millis() - iec_timer(*timer)->t0;
     }
 
     if (iec_timer(*timer)->t0 >= iec_timer(*timer)->pt) {
