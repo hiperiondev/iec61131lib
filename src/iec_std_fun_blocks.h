@@ -104,12 +104,7 @@ uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
     iec_totype(q1, IEC_T_BOOL);
     iec_set_maintain(*q1);
 
-    bool q1_, s1_, r_;
-    q1_ = iec_get_value((*q1));
-    s1_ = iec_get_value(s1);
-    r_ = iec_get_value(r);
-
-    iec_set_value(*q1, (s1_ || (q1_ && !r_)));
+    iec_set_value(*q1, (iec_get_value(s1) || (iec_get_value((*q1)) && !(iec_get_value(r)))));
 
     return IEC_OK;
 }
@@ -121,12 +116,7 @@ uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1) {
     iec_totype(q1, IEC_T_BOOL);
     iec_set_maintain(*q1);
 
-    bool q1_, s_, r1_;
-    q1_ = iec_get_value((*q1));
-    s_ = iec_get_value(s);
-    r1_ = iec_get_value(r1);
-
-    iec_set_value(*q1, ((q1_ || s_) && !r1_));
+    iec_set_value(*q1, ((iec_get_value((*q1)) || iec_get_value(s)) && !(iec_get_value(r1))));
 
     return IEC_OK;
 }
@@ -137,12 +127,8 @@ uint8_t iec_r_trig(iec_t *q, iec_t clk) {
     iec_totype(q, IEC_T_BOOL);
     iec_set_maintain(*q);
 
-    bool clk_, m;
-    clk_ = iec_get_value(clk);
-    m = iec_is_flag1(*q);
-
-    iec_set_value(*q, (clk_ && !m));
-    if (clk)
+    iec_set_value(*q, (iec_get_value(clk) && !(iec_is_flag1(*q))));
+    if (iec_get_value(clk))
         iec_set_flag1(*q);
     else
         iec_unset_flag1(*q);
@@ -156,12 +142,8 @@ uint8_t iec_f_trig(iec_t *q, iec_t clk) {
     iec_totype(q, IEC_T_BOOL);
     iec_set_maintain(*q);
 
-    bool clk_, m;
-    clk_ = iec_get_value(clk);
-    m = iec_is_flag1(*q);
-
-    iec_set_value(*q, (!clk_ && !m));
-    if (clk)
+    iec_set_value(*q, (!iec_get_value(clk) && !(iec_is_flag1(*q))));
+    if (iec_get_value(clk))
         iec_unset_flag1(*q);
     else
         iec_set_flag1(*q);
