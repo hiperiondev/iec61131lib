@@ -1,8 +1,9 @@
 <p align="center">
-  <img src="doc/iec61131-3lib.png" width="640" alt="EC61131LIB">
+  <h1 align="center">
+    <img width="640" src="doc/iec61131-3lib.png" width="640" alt="EC61131LIB">
+    <p align="center">IEC 61131-3 library for data types and functions </p>
+  </h1>
 </p>
-
-# Library for data types and functions for IEC 61131-3
 
 ## Known bugs (will be corrected after complete libraries)
  - iec_totype function interferes with strings
