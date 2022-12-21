@@ -20,7 +20,7 @@
    * [x] selection
    * [ ] string
    * [x] literals
-   * [ ] standard function blocks
+   * [x] standard function blocks
  
 * [ ] Complete test
    * [x] core

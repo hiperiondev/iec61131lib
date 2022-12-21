@@ -209,10 +209,11 @@ uint8_t iec_initialize_timer(iec_t *timer, iec_t pt) {
     iec_type_allowed(*timer, IEC_T_TIMER);
     iec_type_allowed(pt, IEC_T_TIME);
 
-    ((t_timer_t*) ((*timer)->value))->q = false;
-    ((t_timer_t*) ((*timer)->value))->pt = iec_get_value(pt);
-    ((t_timer_t*) ((*timer)->value))->timer_run = false;
-    ((t_timer_t*) ((*timer)->value))->last_micros = 0;
+    iec_timer(*timer)->q = false;
+    iec_timer(*timer)->pt = iec_get_value(pt);
+    iec_timer(*timer)->et = 0;
+    iec_timer(*timer)->timer_run = false;
+    iec_timer(*timer)->t0 = 0;
 
     iec_set_initialized(*timer);
 
@@ -225,6 +226,31 @@ uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     if (!iec_is_initialized(*timer))
         iec_initialize_timer(timer, pt);
 
+    if (iec_get_value(in)) {
+        if (iec_timer(*timer)->t0 == 0) {
+            iec_timer(*timer)->t0 = millis();
+        }
+    }
+
+    if (iec_timer(*timer)->t0 > 0) {
+        iec_timer(*timer)->et = millis() - iec_timer(*timer)->t0;
+        if (iec_timer(*timer)->et >= iec_timer(*timer)->pt) {
+            iec_timer(*timer)->et = iec_timer(*timer)->pt;
+        }
+    }
+
+    if (!iec_get_value(in) && iec_timer(*timer)->et == iec_timer(*timer)->pt) {
+        iec_timer(*timer)->t0 = 0;
+        iec_timer(*timer)->et = 0;
+    }
+
+    iec_timer(*timer)->q = iec_timer(*timer)->et > 0 && iec_timer(*timer)->et < iec_timer(*timer)->pt;
+
+    if (*et != NULL) {
+        iec_type_allowed(*et, IEC_T_TIME);
+        iec_set_value(*et, iec_timer(*timer)->et);
+    }
+
     return IEC_OK;
 }
 
@@ -234,15 +260,55 @@ uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     if (!iec_is_initialized(*timer))
         iec_initialize_timer(timer, pt);
 
+    if (!iec_get_value(in)) {
+        iec_timer(*timer)->et = 0;
+        iec_timer(*timer)->t0 = 0;
+        iec_timer(*timer)->q = false;
+    } else {
+        if (iec_timer(*timer)->t0 == 0) {
+            iec_timer(*timer)->t0 = millis();
+        }
+        iec_timer(*timer)->et = millis() - iec_timer(*timer)->t0;
+        if (iec_timer(*timer)->et >= iec_timer(*timer)->pt) {
+            iec_timer(*timer)->et = iec_timer(*timer)->pt;
+            iec_timer(*timer)->q = true;
+        }
+    }
+
+    if (*et != NULL) {
+        iec_type_allowed(*et, IEC_T_TIME);
+        iec_set_value(*et, iec_timer(*timer)->et);
+    }
 
     return IEC_OK;
 }
+
 uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
     if (!iec_is_initialized(*timer))
         iec_initialize_timer(timer, pt);
 
+    if (iec_get_value(in)) {
+        iec_timer(*timer)->et = 0;
+        iec_timer(*timer)->t0 = 0;
+        iec_timer(*timer)->q = true;
+    } else {
+        if (iec_timer(*timer)->t0 == 0) {
+            iec_timer(*timer)->t0 = millis();
+        }
+        iec_timer(*timer)->et = millis() - iec_timer(*timer)->t0;
+    }
+
+    if (iec_timer(*timer)->t0 >= iec_timer(*timer)->pt) {
+        iec_timer(*timer)->et = iec_timer(*timer)->pt;
+        iec_timer(*timer)->q = false;
+    }
+
+    if (*et != NULL) {
+        iec_type_allowed(*et, IEC_T_TIME);
+        iec_set_value(*et, iec_timer(*timer)->et);
+    }
 
     return IEC_OK;
 }

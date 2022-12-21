@@ -179,9 +179,9 @@ typedef struct {
       time_t et;
         bool timer_run;
 #ifdef ALLOW_64BITS
-    uint64_t last_micros;
+    uint64_t t0;
 #else
-    uint32_t last_micros;
+    uint32_t t0;
 #endif
 } t_timer_t;
 
