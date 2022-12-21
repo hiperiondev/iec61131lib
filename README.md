@@ -4,9 +4,12 @@
 
 # Library for data types and functions for IEC 61131-3
 
-# Roadmap
+## Known bugs (will be corrected after complete libraries)
+ - iec_totype function interferes with strings
 
-## TODO
+## Roadmap
+
+### TODO
 * [ ] Add comments for Doxygen
 * [ ] Complete libraries
    * [x] core
