@@ -53,6 +53,14 @@
  *  EXPT          ANY_NUM                 2           Raise to power
  */
 
+/**
+ * @fn uint8_t iec_add(iec_t*, stack_t*)
+ * @brief
+ *
+ * @param result
+ * @param list
+ * @return
+ */
 uint8_t iec_add(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
         return IEC_NLL;
@@ -73,6 +81,14 @@ uint8_t iec_add(iec_t *result, stack_t *list) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_mul(iec_t*, stack_t*)
+ * @brief
+ *
+ * @param result
+ * @param list
+ * @return
+ */
 uint8_t iec_mul(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
         return IEC_NLL;
@@ -93,6 +109,15 @@ uint8_t iec_mul(iec_t *result, stack_t *list) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,,,,,);
     iec_anytype_allowed(v2, ANY_MAGNITUDE,,,,,);
@@ -104,6 +129,15 @@ uint8_t iec_sub(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_div(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_div(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,ANY_NUM,,,,);
     iec_anytype_allowed(v2, ANY_MAGNITUDE,ANY_NUM,,,,);
@@ -123,6 +157,15 @@ uint8_t iec_div(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_mod(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_mod(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INT,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
@@ -137,6 +180,15 @@ uint8_t iec_mod(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_expt(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_expt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_NUM,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
@@ -145,7 +197,7 @@ uint8_t iec_expt(iec_t *result, iec_t v1, iec_t v2) {
     iec_type_promote(&v1, IEC_T_LREAL);
     iec_type_promote(&v2, IEC_T_LREAL);
 
-    iec_set_value(*result, (iec_get_value(v1) ^ iec_get_value(v2)));
+    iec_set_value(*result, ((iec_get_value(v1)) ^ (iec_get_value(v2))));
 
     return IEC_OK;
 }

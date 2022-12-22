@@ -47,6 +47,15 @@
  *  NE            ANY_ELEMENTARY          2            Not equal to
  */
 
+/**
+ * @fn uint8_t iec_gt(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_gt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
@@ -57,6 +66,15 @@ uint8_t iec_gt(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ge(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_ge(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
@@ -67,6 +85,15 @@ uint8_t iec_ge(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_eq(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_eq(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
@@ -77,6 +104,15 @@ uint8_t iec_eq(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_le(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_le(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
@@ -87,6 +123,15 @@ uint8_t iec_le(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_lt(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_lt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);
@@ -97,6 +142,15 @@ uint8_t iec_lt(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ne(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_ne(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_ELEMENTARY,,,,,);
     iec_anytype_allowed(v2, ANY_ELEMENTARY,,,,,);

@@ -41,6 +41,11 @@
 #include "iec61131lib.h"
 #include "util_buffer_string.h"
 
+/**
+ * @enum LITERALS
+ * @brief
+ *
+ */
 enum LITERALS {
     IEC_LIT_BOOLEAN,       // 0x00
     IEC_LIT_DURATION,      // 0x01
@@ -84,7 +89,6 @@ const uint8_t IEC_LITERAL_FORMAT[]= {
     IEC_LIT_DATE_AND_TIME,
     IEC_LIT_DATE_AND_TIME
 };
-
 
 const char *IEC_IECTYPE_PFX[] = {
     "?#",       // 0
@@ -135,6 +139,14 @@ const char *IEC_IECTYPE_PFX[] = {
     "?#",       // 31
 };
 
+/**
+ * @fn uint8_t iec_identify_literal(str_t*, uint8_t*)
+ * @brief
+ *
+ * @param str
+ * @param iectype
+ * @return
+ */
 uint8_t iec_identify_literal(str_t *str, uint8_t *iectype) {
     uint8_t n;
 
@@ -193,6 +205,13 @@ uint8_t iec_identify_literal(str_t *str, uint8_t *iectype) {
     return IEC_LIT_INTEGER;
 }
 
+/**
+ * @fn void literal_toiec(iec_t*, str_t)
+ * @brief
+ *
+ * @param result
+ * @param str
+ */
 void literal_toiec(iec_t *result, str_t str) {
     uint8_t datatype;
     uint8_t iectype;

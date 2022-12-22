@@ -62,42 +62,138 @@
  *
  */
 
+/**
+ * @fn uint8_t iec_add_dt_time(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_add_dt_time(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_add_tod_time(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_add_tod_time(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_add_time(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_add_time(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_concat_date_tod(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_concat_date_tod(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_concat_date(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_concat_date(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_concat_dt(iec_t, iec_t, iec_t, iec_t, iec_t, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @param v4
+ * @param v5
+ * @param v6
+ * @param v7
+ * @return
+ */
 uint8_t iec_concat_dt(iec_t result, iec_t v1, iec_t v2, iec_t v3, iec_t v4, iec_t v5, iec_t v6, iec_t v7) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_concat_tod(iec_t, iec_t, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @param v4
+ * @return
+ */
 uint8_t iec_concat_tod(iec_t result, iec_t v1, iec_t v2, iec_t v3, iec_t v4) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_day_of_week(iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_day_of_week(iec_t result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_divtime(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_divtime(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_multime(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_multime(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
@@ -106,34 +202,115 @@ uint8_t iec_split_date(iec_t result, iec_t v1, iec_t v2, iec_t v3, iec_t v4) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_split_dt(iec_t, iec_t, iec_t, iec_t, iec_t, iec_t, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @param v4
+ * @param v5
+ * @param v6
+ * @param v7
+ * @param v8
+ * @return
+ */
 uint8_t iec_split_dt(iec_t result, iec_t v1, iec_t v2, iec_t v3, iec_t v4, iec_t v5, iec_t v6, iec_t v7, iec_t v8) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_split_tod(iec_t, iec_t, iec_t, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @param v4
+ * @param v5
+ * @return
+ */
 uint8_t iec_split_tod(iec_t result, iec_t v1, iec_t v2, iec_t v3, iec_t v4, iec_t v5) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub_date_date(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub_date_date(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub_dt_dt(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub_dt_dt(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub_dt_time(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub_dt_time(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub_tod_tod(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub_tod_tod(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub_tod_time(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub_tod_time(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sub_time(iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_sub_time(iec_t result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }

@@ -60,6 +60,15 @@
 #define rotr32(v, n) rotl32(v, 32 - (n))
 #define rotr64(v, n) rotl64(v, 64 - (n))
 
+/**
+ * @fn uint8_t iec_shl(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
@@ -79,6 +88,15 @@ uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_shr(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
@@ -96,6 +114,15 @@ uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_rol(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);
@@ -143,6 +170,15 @@ uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ror(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_ror(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
     iec_anytype_allowed(v2, ANY_NUM,,,,,);

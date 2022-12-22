@@ -57,18 +57,53 @@
  *   LINT_TO_BCD_LWORD: Convert a long integer (LINT) to sixteen BCD digits encoded in a LWORD.
  */
 
+/**
+ * @fn uint8_t iec_to(iec_t*, iec_t, iectype_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param to_type
+ * @return
+ */
 uint8_t iec_to(iec_t *result, iec_t v1, iectype_t to_type) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_trunc(iec_t*, iec_t, iectype_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param to_type
+ * @return
+ */
 uint8_t iec_trunc(iec_t *result, iec_t v1, iectype_t to_type) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_bcd_to(iec_t*, iec_t, iectype_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param to_type
+ * @return
+ */
 uint8_t iec_bcd_to(iec_t *result, iec_t v1, iectype_t to_type) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_to_bcd(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_to_bcd(iec_t *result, iec_t v1) {
     return IEC_OK;
 }

@@ -37,18 +37,42 @@
 #include <stdint.h>
 
 #ifdef ALLOW_64BITS
+/**
+ * @fn uint32_t hw_millis(void)
+ * @brief
+ *
+ * @return
+ */
 uint64_t hw_millis(void) {
     return 0;
 }
 
+/**
+ * @fn uint32_t hw_millis(void)
+ * @brief
+ *
+ * @return
+ */
 uint64_t hw_micros(void) {
     return 0;
 }
 #else
+/**
+ * @fn uint32_t hw_millis(void)
+ * @brief
+ *
+ * @return
+ */
 uint32_t hw_millis(void) {
     return 0;
 }
 
+/**
+ * @fn uint32_t hw_micros(void)
+ * @brief
+ *
+ * @return
+ */
 uint32_t hw_micros(void) {
     return 0;
 }

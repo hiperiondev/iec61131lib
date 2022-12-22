@@ -57,6 +57,14 @@
  *  FIND          1:ANY_STRING;2:ANY_CHAR              2            Finds the location of one string within another.
  */
 
+/**
+ * @fn unsigned char iec_string_len(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_string_len(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_totype(result, IEC_T_UDINT);
@@ -67,18 +75,46 @@ uint8_t iec_string_len(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_left(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_string_left(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_right(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_string_right(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_mid(iec_t*, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @return
+ */
 uint8_t iec_string_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
@@ -86,10 +122,28 @@ uint8_t iec_string_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_concat(iec_t*, stack_t)
+ * @brief
+ *
+ * @param result
+ * @param list
+ * @return
+ */
 uint8_t iec_string_concat(iec_t *result, stack_t list) {
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_insert(iec_t*, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @return
+ */
 uint8_t iec_string_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_CHARS,,,,,);
@@ -97,6 +151,16 @@ uint8_t iec_string_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_delete(iec_t*, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @return
+ */
 uint8_t iec_string_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_INT,,,,,);
@@ -104,6 +168,17 @@ uint8_t iec_string_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_replace(iec_t*, iec_t, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @param v4
+ * @return
+ */
 uint8_t iec_string_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_CHAR,,,,,);
@@ -112,12 +187,31 @@ uint8_t iec_string_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_find(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_string_find(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
     iec_anytype_allowed(v2, ANY_CHAR,,,,,);
     return IEC_OK;
 }
 
+/**
+ * @fn unsigned char iec_string_set(iec_t*, char*, bool, bool)
+ * @brief
+ *
+ * @param result
+ * @param str
+ * @param wstr
+ * @param hash
+ * @return
+ */
 uint8_t iec_string_set(iec_t *result, char *str, bool wstr, bool hash) {
     if (wstr) {
         iec_totype(result, IEC_T_WSTRING);

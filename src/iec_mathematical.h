@@ -55,6 +55,14 @@
  *  ATAN2         ANY_REAL, ANY_REAL      2            Return the principle tangent of the input. The output is in radians.
  */
 
+/**
+ * @fn uint8_t iec_abs(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_abs(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,,,,,);
     iec_type_promote(result, v1->type);
@@ -64,6 +72,14 @@ uint8_t iec_abs(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sqrt(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_sqrt(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -73,6 +89,14 @@ uint8_t iec_sqrt(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ln(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_ln(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -82,6 +106,14 @@ uint8_t iec_ln(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_log(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_log(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -91,6 +123,14 @@ uint8_t iec_log(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_exp(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_exp(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -100,6 +140,14 @@ uint8_t iec_exp(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sin(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_sin(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -109,6 +157,14 @@ uint8_t iec_sin(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_cos(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_cos(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -118,6 +174,14 @@ uint8_t iec_cos(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_tan(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_tan(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -127,6 +191,14 @@ uint8_t iec_tan(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_asin(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_asin(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -136,6 +208,14 @@ uint8_t iec_asin(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_acos(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_acos(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -145,6 +225,14 @@ uint8_t iec_acos(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_atan(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_atan(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_type_promote(result, v1->type);
@@ -154,6 +242,15 @@ uint8_t iec_atan(iec_t *result, iec_t v1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_atan2(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_atan2(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
     iec_anytype_allowed(v2, ANY_REAL,,,,,);

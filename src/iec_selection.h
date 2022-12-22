@@ -49,6 +49,14 @@
  * MUX            1:ANY_INT, 2-n:ANY      2-n          Return one of N values depending on an integer selector value.
  */
 
+/**
+ * @fn uint8_t iec_move(iec_t*, iec_t)
+ * @brief
+ *
+ * @param to
+ * @param from
+ * @return
+ */
 uint8_t iec_move(iec_t *to, iec_t from) {
     iec_deinit(to);
     (*to) = IEC_ALLOC;
@@ -61,6 +69,16 @@ uint8_t iec_move(iec_t *to, iec_t from) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_sel(iec_t*, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @param v3
+ * @return
+ */
 uint8_t iec_sel(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_type_allowed(v1, IEC_T_BOOL);
 
@@ -72,6 +90,14 @@ uint8_t iec_sel(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_max(iec_t*, stack_t*)
+ * @brief
+ *
+ * @param result
+ * @param list
+ * @return
+ */
 uint8_t iec_max(iec_t *result, stack_t *list) {
     if (*result == NULL || *list == NULL)
         return IEC_NLL;
@@ -93,6 +119,14 @@ uint8_t iec_max(iec_t *result, stack_t *list) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_min(iec_t*, stack_t*)
+ * @brief
+ *
+ * @param result
+ * @param list
+ * @return
+ */
 uint8_t iec_min(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
         return IEC_NLL;
@@ -114,6 +148,16 @@ uint8_t iec_min(iec_t *result, stack_t *list) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_limit(iec_t*, iec_t, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v
+ * @param min
+ * @param max
+ * @return
+ */
 uint8_t iec_limit(iec_t *result, iec_t v, iec_t min, iec_t max) {
     iec_anytype_allowed(v, ANY_NUM,,,,,);
     iec_anytype_allowed(min, ANY_NUM,,,,,);
@@ -129,6 +173,15 @@ uint8_t iec_limit(iec_t *result, iec_t v, iec_t min, iec_t max) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_mux(iec_t*, iec_t, stack_t*)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param list
+ * @return
+ */
 uint8_t iec_mux(iec_t *result, iec_t v1, stack_t *list) {
     iec_anytype_allowed(v1, ANY_INT,,,,,);
 

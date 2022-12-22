@@ -44,12 +44,25 @@
 
 #include "util_buffer_string.h"
 
-//#define ALLOW_64BITS // allow 64 bits data types
+/**
+ * @def ALLOW_64BITS
+ * @brief allow 64 bits data types
+ *
+ */
+//#define ALLOW_64BITS
 
-// seed for string hash
+/**
+ * @def STR_SEED_HASH
+ * @brief seed for string hash
+ *
+ */
 #define STR_SEED_HASH      0x12345
 
-// functions errors
+/**
+ * @enum IEC_ERRORS
+ * @brief errors
+ *
+ */
 enum IEC_ERRORS {
     IEC_OK  = 0x00, // ok
     IEC_NAT = 0x01, // not allowed data type in operation
@@ -64,7 +77,11 @@ enum IEC_ERRORS {
     IEC_ERR = 0xff, // generic error
 };
 
-// data types
+/**
+ * @enum data types
+ * @brief
+ *
+ */
 typedef enum {
     IEC_T_NULL    = 0x00,  // not value
     IEC_T_BOOL    = 0x01,  // bool
@@ -114,6 +131,11 @@ typedef enum {
     IEC_T_NDEF_1F = 0x1f,  // not defined
 } iectype_t;
 
+/**
+ * @enum
+ * @brief
+ *
+ */
 typedef enum {
     TT_MARK     = 0x01, // useful for gc
     TT_PERSIST  = 0x02, //
@@ -125,6 +147,11 @@ typedef enum {
     TT_FLAG2    = 0x80  //
 } tt_t;
 
+/**
+ * @union
+ * @brief
+ *
+ */
 typedef union {
     struct {
          uint8_t day;
@@ -134,6 +161,11 @@ typedef union {
     uint32_t dw_date;
 } date_t;
 
+/**
+ * @union
+ * @brief
+ *
+ */
 typedef union {
     struct {
         uint8_t csec;
@@ -145,6 +177,11 @@ typedef union {
 } tod_t;
 
 #ifdef ALLOW_64BITS
+/**
+ * @struct
+ * @brief
+ *
+ */
 typedef struct {
     struct {
          tod_t tod;
@@ -156,11 +193,21 @@ typedef struct {
 typedef uint64_t pointer_t;
 #endif
 
+/**
+ * @struct
+ * @brief
+ *
+ */
 typedef struct {
         void *data;
     uint32_t value;
 } user_t;
 
+/**
+ * @struct string
+ * @brief
+ *
+ */
 typedef struct string {
             bool wstring; // true if wide character type
         uint32_t len;
@@ -168,11 +215,21 @@ typedef struct string {
     str_t *str;
 } string_t;
 
+/**
+ * @struct
+ * @brief
+ *
+ */
 typedef struct {
     uint32_t len;
         void *table;
 } table_t;
 
+/**
+ * @struct
+ * @brief
+ *
+ */
 typedef struct {
         bool q;
       time_t pt;
@@ -185,7 +242,11 @@ typedef struct {
 #endif
 } t_timer_t;
 
-// main data type
+/**
+ * @struct iec
+ * @brief main data container
+ *
+ */
 typedef struct iec {
     iectype_t type;
          tt_t tt;
@@ -238,7 +299,7 @@ static uint8_t IEC_T_SIZEOF[] = {
         sizeof(user_t) * 8,    // IEC_T_USER
         sizeof(bool) * 8,      // IEC_T_R_EDGE
         sizeof(bool) * 8,      // IEC_T_F_EDGE
-        sizeof(t_timer_t) * 8,   // IEC_T_TIMER
+        sizeof(t_timer_t) * 8, // IEC_T_TIMER
         0,                     // IEC_T_NDEF_1E
         0,                     // IEC_T_NDEF_1F
 };
@@ -739,6 +800,13 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define iec_timer(v)  ((t_timer_t*)((v)->value))
 ////////////////////////////////////////////////////////////////
 
+/**
+ * @fn void iec_new_value(void**, iectype_t)
+ * @brief
+ *
+ * @param nw
+ * @param type
+ */
 static inline void iec_new_value(void **nw, iectype_t type) {
     switch (type) {
         case IEC_T_F_EDGE:
@@ -841,7 +909,13 @@ static inline void iec_new_value(void **nw, iectype_t type) {
     }
 }
 
-// create new value
+/**
+ * @fn void iec_init(iec_t*, iectype_t)
+ * @brief create nre value
+ *
+ * @param nw
+ * @param type
+ */
 static inline void iec_init(iec_t *nw, iectype_t type) {
     (*nw)->type = type;
     (*nw)->any_type = IEC_ANYTYPE(type);
@@ -849,6 +923,12 @@ static inline void iec_init(iec_t *nw, iectype_t type) {
     iec_new_value(&((*nw)->value), type);
 }
 
+/**
+ * @fn void iec_free_value(iec_t*)
+ * @brief
+ *
+ * @param var
+ */
 static inline void iec_free_value(iec_t *var) {
     if ((*var) == NULL)
         return;
@@ -856,12 +936,24 @@ static inline void iec_free_value(iec_t *var) {
         free((*var)->value);
 }
 
-// free value
+/**
+ * @fn void iec_deinit(iec_t*)
+ * @brief
+ *
+ * @param var
+ */
 static inline void iec_deinit(iec_t *var) {
     iec_free_value(var);
     free(*var);
 }
 
+/**
+ * @fn void iec_totype(iec_t*, uint8_t)
+ * @brief
+ *
+ * @param data
+ * @param tpy
+ */
 static inline void iec_totype(iec_t *data, uint8_t tpy) {
     void *_tmp_ = NULL;
     uint8_t tp_old = (*data)->type;
@@ -885,6 +977,13 @@ static inline void iec_totype(iec_t *data, uint8_t tpy) {
     }
 }
 
+/**
+ * @fn void iec_type_promote(iec_t*, uint8_t)
+ * @brief
+ *
+ * @param data
+ * @param tpy
+ */
 static inline void iec_type_promote(iec_t *data, uint8_t tpy) {
     if ((*data)->type < tpy) {
         iec_totype(data, tpy);

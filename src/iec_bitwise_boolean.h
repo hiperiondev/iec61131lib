@@ -45,6 +45,15 @@
  *  NOT           ANY_BIT, ANY_INT        1            Logical NOT
  */
 
+/**
+ * @fn uint8_t iec_and(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_and(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
     iec_anytype_allowed(v2, ANY_BIT, ANY_INT,,,,);
@@ -52,6 +61,15 @@ uint8_t iec_and(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_or(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_or(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
     iec_anytype_allowed(v2, ANY_BIT, ANY_INT,,,,);
@@ -59,6 +77,15 @@ uint8_t iec_or(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_xor(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @param v2
+ * @return
+ */
 uint8_t iec_xor(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
     iec_anytype_allowed(v2, ANY_BIT, ANY_INT,,,,);
@@ -66,6 +93,14 @@ uint8_t iec_xor(iec_t *result, iec_t v1, iec_t v2) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_not(iec_t*, iec_t)
+ * @brief
+ *
+ * @param result
+ * @param v1
+ * @return
+ */
 uint8_t iec_not(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
 

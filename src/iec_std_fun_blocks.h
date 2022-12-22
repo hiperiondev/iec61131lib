@@ -95,8 +95,17 @@
 #include <stdint.h>
 
 #include "iec61131lib.h"
-#include "fun_hardware.h"
+#include "iec_hardware.h"
 
+/**
+ * @fn uint8_t iec_sr(iec_t*, iec_t, iec_t)
+ * @brief
+ *
+ * @param q1
+ * @param s1
+ * @param r
+ * @return
+ */
 uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
     iec_type_allowed(s1, IEC_T_BOOL);
     iec_type_allowed(r, IEC_T_BOOL);
@@ -109,6 +118,15 @@ uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
     return IEC_OK;
 }
 
+ /**
+  * @fn uint8_t iec_rs(iec_t*, iec_t, iec_t)
+  * @brief
+  *
+  * @param q1
+  * @param s
+  * @param r1
+  * @return
+  */
 uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1) {
     iec_type_allowed(s, IEC_T_BOOL);
     iec_type_allowed(r1, IEC_T_BOOL);
@@ -121,6 +139,14 @@ uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_r_trig(iec_t*, iec_t)
+ * @brief
+ *
+ * @param q
+ * @param clk
+ * @return
+ */
 uint8_t iec_r_trig(iec_t *q, iec_t clk) {
     iec_type_allowed(clk, IEC_T_BOOL);
 
@@ -136,6 +162,14 @@ uint8_t iec_r_trig(iec_t *q, iec_t clk) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_f_trig(iec_t*, iec_t)
+ * @brief
+ *
+ * @param q
+ * @param clk
+ * @return
+ */
 uint8_t iec_f_trig(iec_t *q, iec_t clk) {
     iec_type_allowed(clk, IEC_T_BOOL);
 
@@ -151,6 +185,17 @@ uint8_t iec_f_trig(iec_t *q, iec_t clk) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ctu(iec_t*, iec_t, iec_t, iec_t, iec_t*)
+ * @brief
+ *
+ * @param q
+ * @param cu
+ * @param r
+ * @param pv
+ * @param cv
+ * @return
+ */
 uint8_t iec_ctu(iec_t *q, iec_t cu, iec_t r, iec_t pv, iec_t *cv) {
     iec_type_allowed(cu, IEC_T_R_EDGE);
     iec_type_allowed(r, IEC_T_BOOL);
@@ -169,6 +214,17 @@ uint8_t iec_ctu(iec_t *q, iec_t cu, iec_t r, iec_t pv, iec_t *cv) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ctd(iec_t*, iec_t, iec_t, iec_t, iec_t*)
+ * @brief
+ *
+ * @param q
+ * @param cd
+ * @param ld
+ * @param pv
+ * @param cv
+ * @return
+ */
 uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
     iec_type_allowed(cd, IEC_T_R_EDGE);
     iec_type_allowed(ld, IEC_T_BOOL);
@@ -187,6 +243,14 @@ uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_initialize_timer(iec_t*, iec_t)
+ * @brief
+ *
+ * @param timer
+ * @param pt
+ * @return
+ */
 uint8_t iec_initialize_timer(iec_t *timer, iec_t pt) {
     iec_type_allowed(*timer, IEC_T_TIMER);
     iec_type_allowed(pt, IEC_T_TIME);
@@ -202,6 +266,16 @@ uint8_t iec_initialize_timer(iec_t *timer, iec_t pt) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_tp(iec_t*, iec_t, iec_t, iec_t*)
+ * @brief
+ *
+ * @param timer
+ * @param in
+ * @param pt
+ * @param et
+ * @return
+ */
 uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
@@ -236,6 +310,16 @@ uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_ton(iec_t*, iec_t, iec_t, iec_t*)
+ * @brief
+ *
+ * @param timer
+ * @param in
+ * @param pt
+ * @param et
+ * @return
+ */
 uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
@@ -265,6 +349,16 @@ uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     return IEC_OK;
 }
 
+/**
+ * @fn uint8_t iec_tof(iec_t*, iec_t, iec_t, iec_t*)
+ * @brief
+ *
+ * @param timer
+ * @param in
+ * @param pt
+ * @param et
+ * @return
+ */
 uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
 
