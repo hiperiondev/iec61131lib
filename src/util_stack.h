@@ -4,18 +4,34 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-typedef struct stack_node {
-    struct stack_node *next;
-                 void *data;
-} stack_node;
+/**
+ * @typedef stack_node_t
+ * @brief
+ *
+ */
+typedef struct stack_node_t {
+    struct stack_node_t *next; /**< */
+                   void *data; /**< */
+} stack_node_t;
 
-typedef struct stack {
-    struct stack_node *top;
-                   int length;
+/**
+ * @typedef stack_t
+ * @brief
+ *
+ */
+typedef struct stack_t {
+    struct stack_node_t *top;    /**< */
+                    int length; /**< */
 } *stack_t;
 
+/**
+ * @fn stack_t stack_create()
+ * @brief
+ *
+ * @return
+ */
 stack_t stack_create() {
-    stack_t stack = (struct stack*) malloc(sizeof(struct stack));
+    stack_t stack = (struct stack_t*) malloc(sizeof(struct stack_t));
     if (stack == NULL)
         return NULL;
     stack->length = 0;
@@ -23,8 +39,16 @@ stack_t stack_create() {
     return stack;
 }
 
+/**
+ * @fn stack_t stack_push(stack_t, void*)
+ * @brief
+ *
+ * @param stack
+ * @param data
+ * @return
+ */
 stack_t stack_push(stack_t stack, void *data) {
-    stack_node *node = (struct stack_node*) malloc(sizeof(struct stack_node));
+    stack_node_t *node = (struct stack_node_t*) malloc(sizeof(struct stack_node_t));
     if (node == NULL)
         return NULL;
     node->data = data;
@@ -37,7 +61,7 @@ stack_t stack_push(stack_t stack, void *data) {
 }
 
 void* stack_pop(stack_t stack) {
-    stack_node *current = stack->top;
+    stack_node_t *current = stack->top;
     if (current == NULL)
         return NULL;
     void *data = current->data;
@@ -50,7 +74,7 @@ void* stack_pop(stack_t stack) {
 
 void stack_flush(stack_t stack) {
     int length = stack->length;
-    stack_node *current, *next;
+    stack_node_t *current, *next;
     current = stack->top;
     while (length--) {
         next = current->next;

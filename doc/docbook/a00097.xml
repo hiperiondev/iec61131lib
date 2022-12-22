@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00097" xml:lang="en-US">
+<title>str_t Struct Reference</title>
+<indexterm><primary>str_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;util_buffer_string.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>char * <link linkend="_a00097_a4e9aec275e566b978a3ccb4e043d8c61_1a4e9aec275e566b978a3ccb4e043d8c61">value</link></para>
+</listitem>
+            <listitem><para><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> <link linkend="_a00097_aebb70c2aab3407a9f05334c47131a43b_1aebb70c2aab3407a9f05334c47131a43b">length</link></para>
+</listitem>
+            <listitem><para><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> <link linkend="_a00097_a391c992c66c3e5540265a85ec2b9216a_1a391c992c66c3e5540265a85ec2b9216a">capacity</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_a00008_source_1l00022">22</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_a00097_a391c992c66c3e5540265a85ec2b9216a_1a391c992c66c3e5540265a85ec2b9216a"/><section>
+    <title>capacity</title>
+<indexterm><primary>capacity</primary><secondary>str_t</secondary></indexterm>
+<indexterm><primary>str_t</primary><secondary>capacity</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> capacity</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00025">25</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<anchor xml:id="_a00097_aebb70c2aab3407a9f05334c47131a43b_1aebb70c2aab3407a9f05334c47131a43b"/><section>
+    <title>length</title>
+<indexterm><primary>length</primary><secondary>str_t</secondary></indexterm>
+<indexterm><primary>str_t</primary><secondary>length</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> length</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00024">24</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<anchor xml:id="_a00097_a4e9aec275e566b978a3ccb4e043d8c61_1a4e9aec275e566b978a3ccb4e043d8c61"/><section>
+    <title>value</title>
+<indexterm><primary>value</primary><secondary>str_t</secondary></indexterm>
+<indexterm><primary>str_t</primary><secondary>value</secondary></indexterm>
+<para><computeroutput>char* value</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00023">23</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_a00008">util_buffer_string.h</link></section>
+</section>

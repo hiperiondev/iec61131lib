@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00105" xml:lang="en-US">
+<title>double_cast_t Union Reference</title>
+<indexterm><primary>double_cast_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;util_buffer_string.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>double <link linkend="_a00105_a160d6366514b7fe5ec086f528835c5ce_1a160d6366514b7fe5ec086f528835c5ce">decimal</link></para>
+</listitem>
+            <listitem><para>struct {</para>
+        <itemizedlist>
+            <listitem><para>&#160;&#160;&#160;uint64_t <link linkend="_a00105_a542558132c4e92a5bb73f7470755c3a7_1a542558132c4e92a5bb73f7470755c3a7">mantissa</link>: <link linkend="_a00008_afa95ce690539ec74a0079cd79416d944_1afa95ce690539ec74a0079cd79416d944">MANTISSA_BITS</link></para>
+</listitem>
+            <listitem><para>&#160;&#160;&#160;uint64_t <link linkend="_a00105_a793e594de558979eeb321298231b0a84_1a793e594de558979eeb321298231b0a84">exponent</link>: <link linkend="_a00008_a88ea77609bacf73073abcac034f8274a_1a88ea77609bacf73073abcac034f8274a">EXPONENT_BITS</link></para>
+</listitem>
+            <listitem><para>&#160;&#160;&#160;uint64_t <link linkend="_a00105_abb949d29b219e59e8570493a90d97bb6_1abb949d29b219e59e8570493a90d97bb6">sign</link>: <link linkend="_a00008_afdd33b6abe937bb3429d1690d864aa23_1afdd33b6abe937bb3429d1690d864aa23">SIGN_BITS</link></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>} <link linkend="_a00105_ac1625eb1db6e55ddfc621ab289169c8c_1ac1625eb1db6e55ddfc621ab289169c8c">parts</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_a00008_source_1l00141">141</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_a00105_a160d6366514b7fe5ec086f528835c5ce_1a160d6366514b7fe5ec086f528835c5ce"/><section>
+    <title>decimal</title>
+<indexterm><primary>decimal</primary><secondary>double_cast_t</secondary></indexterm>
+<indexterm><primary>double_cast_t</primary><secondary>decimal</secondary></indexterm>
+<para><computeroutput>double decimal</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00142">142</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<anchor xml:id="_a00105_a793e594de558979eeb321298231b0a84_1a793e594de558979eeb321298231b0a84"/><section>
+    <title>exponent</title>
+<indexterm><primary>exponent</primary><secondary>double_cast_t</secondary></indexterm>
+<indexterm><primary>double_cast_t</primary><secondary>exponent</secondary></indexterm>
+<para><computeroutput>uint64_t exponent</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00145">145</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<anchor xml:id="_a00105_a542558132c4e92a5bb73f7470755c3a7_1a542558132c4e92a5bb73f7470755c3a7"/><section>
+    <title>mantissa</title>
+<indexterm><primary>mantissa</primary><secondary>double_cast_t</secondary></indexterm>
+<indexterm><primary>double_cast_t</primary><secondary>mantissa</secondary></indexterm>
+<para><computeroutput>uint64_t mantissa</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00144">144</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<anchor xml:id="_a00105_ac1625eb1db6e55ddfc621ab289169c8c_1ac1625eb1db6e55ddfc621ab289169c8c"/><section>
+    <title></title>
+<indexterm><primary>parts</primary><secondary>double_cast_t</secondary></indexterm>
+<indexterm><primary>double_cast_t</primary><secondary>parts</secondary></indexterm>
+<para><computeroutput>struct  { ... }  parts</computeroutput></para></section>
+<anchor xml:id="_a00105_abb949d29b219e59e8570493a90d97bb6_1abb949d29b219e59e8570493a90d97bb6"/><section>
+    <title>sign</title>
+<indexterm><primary>sign</primary><secondary>double_cast_t</secondary></indexterm>
+<indexterm><primary>double_cast_t</primary><secondary>sign</secondary></indexterm>
+<para><computeroutput>uint64_t sign</computeroutput></para><para>
+Definition at line <link linkend="_a00008_source_1l00146">146</link> of file <link linkend="_a00008_source">util_buffer_string.h</link>.</para>
+</section>
+<para>
+The documentation for this union was generated from the following file:</para>
+<link linkend="_a00008">util_buffer_string.h</link></section>
+</section>

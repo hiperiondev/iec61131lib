@@ -138,14 +138,14 @@ static inline uint32_t stringCapacity(str_t *str) {
 #define NATURAL_LOG_OF_10            2.302585092994046     // ln(10)
 #define NATURAL_LOG_OF_2             0.6931471805599453     // ln(2)
 
-typedef union DoubleCast {
+typedef union double_cast_t {
     double decimal;
     struct {
         uint64_t mantissa : MANTISSA_BITS;
         uint64_t exponent : EXPONENT_BITS;
         uint64_t sign : SIGN_BITS;
     } parts;
-} DoubleCast;
+} double_cast_t;
 #endif
 
 typedef enum FormatFlagField {
@@ -1070,7 +1070,7 @@ static str_t* formatExponential(str_t *str, double decimalValue, uint8_t flags, 
     decimalValue = isNegative ? -decimalValue : decimalValue;
 
     // Determine the decimal exponent. Based on the algorithm by David Gay (https://github.com/jwiegley/gdtoa/blob/master/dtoa.c)
-    DoubleCast converter = { .decimal = decimalValue };
+    double_cast_t converter = { .decimal = decimalValue };
     int32_t exponentOfTwo = (converter.parts.exponent - DOUBLE_EXPONENT_ZERO_VALUE);
     converter.parts.exponent = DOUBLE_EXPONENT_ZERO_VALUE;  // drop the exponent so converter.decimal is now in [1,2)
 

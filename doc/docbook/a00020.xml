@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00020" xml:lang="en-US">
+<title>iec_literals.h File Reference</title>
+<indexterm><primary>iec_literals.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;ctype.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;iec61131lib.h&quot;<?linebreak?>#include &quot;util_buffer_string.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbb">LITERALS</link> { <?linebreak?><link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba45d62b65c3bd4cb844b6a374a196d486">IEC_LIT_BOOLEAN</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbbaecaddbc46dc1f195968e722c838853ff">IEC_LIT_DURATION</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba21a69265954c882a021ddd10b96d5ef1">IEC_LIT_DATE</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba44b295039d9b3981bd2fd94f3ba8e61a">IEC_LIT_TIME_OF_DAY</link>
+, <?linebreak?><link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba382aa1dbb59af114ea93b268b1fa86b5">IEC_LIT_DATE_AND_TIME</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba7bdeba5d68d68daac5f6dc4dde3a5639">IEC_LIT_INTEGER</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba013d3c1ca2afa4ec3fe94e5f031f1075">IEC_LIT_REAL</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba3d33a2603bcb98ec54c7287e245ad88d">IEC_LIT_REAL_EXP</link>
+, <?linebreak?><link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba84b806a78db98abefc8f09fc4b1d5c1e">IEC_LIT_BASE2</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba8ad62f1f90dc4fe327b7768babcdba60">IEC_LIT_BASE8</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba979e42c6e147f82b974beb2881122bc2">IEC_LIT_BASE16</link>
+, <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba57436cef7a39c6987531921f03bb0002">IEC_LIT_NONE</link> = 0xff
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00020_a8e4913b6a545bfaa3bf808ff86038e4f_1a8e4913b6a545bfaa3bf808ff86038e4f">iec_identify_literal</link> (<link linkend="_a00097">str_t</link> *str, <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> *iectype)</para>
+</listitem>
+            <listitem><para>void <link linkend="_a00020_a1ba772a18d49e58566522c0364080cd8_1a1ba772a18d49e58566522c0364080cd8">literal_toiec</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00097">str_t</link> str)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const char * <link linkend="_a00020_a593fdbf9bcb9f5b3ca1e0e91990e3035_1a593fdbf9bcb9f5b3ca1e0e91990e3035">IEC_DATAFORMAT_PFX</link> []</para>
+</listitem>
+            <listitem><para>const <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00020_af470a45817266aecf46355af518ddeaa_1af470a45817266aecf46355af518ddeaa">IEC_LITERAL_FORMAT</link> []</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_a00020_a597620f83edf4b6c63d7426577097ebc_1a597620f83edf4b6c63d7426577097ebc">IEC_IECTYPE_PFX</link> []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbb"/><section>
+    <title>LITERALS</title>
+<indexterm><primary>LITERALS</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>LITERALS</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbb">LITERALS</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>IEC_LIT_BOOLEAN</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_BOOLEAN</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba45d62b65c3bd4cb844b6a374a196d486"/>IEC_LIT_BOOLEAN</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_DURATION</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_DURATION</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbbaecaddbc46dc1f195968e722c838853ff"/>IEC_LIT_DURATION</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_DATE</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_DATE</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba21a69265954c882a021ddd10b96d5ef1"/>IEC_LIT_DATE</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_TIME_OF_DAY</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_TIME_OF_DAY</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba44b295039d9b3981bd2fd94f3ba8e61a"/>IEC_LIT_TIME_OF_DAY</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_DATE_AND_TIME</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_DATE_AND_TIME</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba382aa1dbb59af114ea93b268b1fa86b5"/>IEC_LIT_DATE_AND_TIME</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_INTEGER</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_INTEGER</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba7bdeba5d68d68daac5f6dc4dde3a5639"/>IEC_LIT_INTEGER</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_REAL</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_REAL</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba013d3c1ca2afa4ec3fe94e5f031f1075"/>IEC_LIT_REAL</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_REAL_EXP</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_REAL_EXP</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba3d33a2603bcb98ec54c7287e245ad88d"/>IEC_LIT_REAL_EXP</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_BASE2</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_BASE2</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba84b806a78db98abefc8f09fc4b1d5c1e"/>IEC_LIT_BASE2</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_BASE8</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_BASE8</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba8ad62f1f90dc4fe327b7768babcdba60"/>IEC_LIT_BASE8</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_BASE16</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_BASE16</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba979e42c6e147f82b974beb2881122bc2"/>IEC_LIT_BASE16</entry><entry></entry></row><row><entry><indexterm><primary>IEC_LIT_NONE</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LIT_NONE</secondary></indexterm>
+<anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba57436cef7a39c6987531921f03bb0002"/>IEC_LIT_NONE</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_a00020_source_1l00052">52</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_a00020_a8e4913b6a545bfaa3bf808ff86038e4f_1a8e4913b6a545bfaa3bf808ff86038e4f"/><section>
+    <title>iec_identify_literal()</title>
+<indexterm><primary>iec_identify_literal</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>iec_identify_literal</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_identify_literal (<link linkend="_a00097">str_t</link> * str, <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> * iectype)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>iectype</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00020_source_1l00153">153</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+<anchor xml:id="_a00020_a1ba772a18d49e58566522c0364080cd8_1a1ba772a18d49e58566522c0364080cd8"/><section>
+    <title>literal_toiec()</title>
+<indexterm><primary>literal_toiec</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>literal_toiec</secondary></indexterm>
+<para><computeroutput>void literal_toiec (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00097">str_t</link> str)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>str</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_a00020_source_1l00218">218</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_a00020_a593fdbf9bcb9f5b3ca1e0e91990e3035_1a593fdbf9bcb9f5b3ca1e0e91990e3035"/><section>
+    <title>IEC_DATAFORMAT_PFX</title>
+<indexterm><primary>IEC_DATAFORMAT_PFX</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_DATAFORMAT_PFX</secondary></indexterm>
+<para><computeroutput>const char* IEC_DATAFORMAT_PFX[]</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;2#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;8#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;16#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;T#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;TIME#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;D#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;DATE#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;TOD#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;TIME_OF_DAY#&quot;</emphasis>,&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;DT#&quot;</emphasis>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;DATE_AND_TIME#&quot;</emphasis>&#32;
+}
+</programlisting><para>
+Definition at line <link linkend="_a00020_source_1l00068">68</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+<anchor xml:id="_a00020_a597620f83edf4b6c63d7426577097ebc_1a597620f83edf4b6c63d7426577097ebc"/><section>
+    <title>IEC_IECTYPE_PFX</title>
+<indexterm><primary>IEC_IECTYPE_PFX</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_IECTYPE_PFX</secondary></indexterm>
+<para><computeroutput>const char* IEC_IECTYPE_PFX[]</computeroutput></para><para>
+Definition at line <link linkend="_a00020_source_1l00096">96</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+<anchor xml:id="_a00020_af470a45817266aecf46355af518ddeaa_1af470a45817266aecf46355af518ddeaa"/><section>
+    <title>IEC_LITERAL_FORMAT</title>
+<indexterm><primary>IEC_LITERAL_FORMAT</primary><secondary>iec_literals.h</secondary></indexterm>
+<indexterm><primary>iec_literals.h</primary><secondary>IEC_LITERAL_FORMAT</secondary></indexterm>
+<para><computeroutput>const <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> IEC_LITERAL_FORMAT[]</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba84b806a78db98abefc8f09fc4b1d5c1e">IEC_LIT_BASE2</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba8ad62f1f90dc4fe327b7768babcdba60">IEC_LIT_BASE8</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba979e42c6e147f82b974beb2881122bc2">IEC_LIT_BASE16</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbbaecaddbc46dc1f195968e722c838853ff">IEC_LIT_DURATION</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbbaecaddbc46dc1f195968e722c838853ff">IEC_LIT_DURATION</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba21a69265954c882a021ddd10b96d5ef1">IEC_LIT_DATE</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba21a69265954c882a021ddd10b96d5ef1">IEC_LIT_DATE</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba44b295039d9b3981bd2fd94f3ba8e61a">IEC_LIT_TIME_OF_DAY</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba44b295039d9b3981bd2fd94f3ba8e61a">IEC_LIT_TIME_OF_DAY</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba382aa1dbb59af114ea93b268b1fa86b5">IEC_LIT_DATE_AND_TIME</link>,
+&#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba382aa1dbb59af114ea93b268b1fa86b5">IEC_LIT_DATE_AND_TIME</link>
+}
+</programlisting><para>
+Definition at line <link linkend="_a00020_source_1l00082">82</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+</section>
+</section>

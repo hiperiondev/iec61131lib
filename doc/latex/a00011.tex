@@ -1,0 +1,136 @@
+\hypertarget{a00011}{}\doxysection{util\+\_\+stack.\+h File Reference}
+\label{a00011}\index{util\_stack.h@{util\_stack.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{a00113}{stack\+\_\+node\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{a00117}{stack\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{a00113}{stack\+\_\+node\+\_\+t}} \mbox{\hyperlink{a00011_a3413cc1c374aeb01c66275eddc5bbbd0_a3413cc1c374aeb01c66275eddc5bbbd0}{stack\+\_\+node\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{a00117}{stack\+\_\+t}} $\ast$ \mbox{\hyperlink{a00011_aca51d9a1c3b1ac1b2b54ed9dd7c26981_aca51d9a1c3b1ac1b2b54ed9dd7c26981}{stack\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{a00117}{stack\+\_\+t}} \mbox{\hyperlink{a00011_a107f81b1726bd5ab54b420142748d3e8_a107f81b1726bd5ab54b420142748d3e8}{stack\+\_\+create}} ()
+\item 
+\mbox{\hyperlink{a00117}{stack\+\_\+t}} \mbox{\hyperlink{a00011_a3e6e1309488216db3875c39028b06d3c_a3e6e1309488216db3875c39028b06d3c}{stack\+\_\+push}} (\mbox{\hyperlink{a00117}{stack\+\_\+t}} stack, void $\ast$data)
+\item 
+void $\ast$ \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\+\_\+pop}} (\mbox{\hyperlink{a00117}{stack\+\_\+t}} stack)
+\item 
+void \mbox{\hyperlink{a00011_a42359043c6700c6c6362ec63a599156f_a42359043c6700c6c6362ec63a599156f}{stack\+\_\+flush}} (\mbox{\hyperlink{a00117}{stack\+\_\+t}} stack)
+\item 
+int \mbox{\hyperlink{a00011_a198e52b336a0fb20ec0c049c0439d213_a198e52b336a0fb20ec0c049c0439d213}{stack\+\_\+size}} (\mbox{\hyperlink{a00117}{stack\+\_\+t}} stack)
+\item 
+bool \mbox{\hyperlink{a00011_a4d77f1f7bc09c81a4fedd03b425c1575_a4d77f1f7bc09c81a4fedd03b425c1575}{stack\+\_\+empty}} (\mbox{\hyperlink{a00117}{stack\+\_\+t}} stack)
+\item 
+void \mbox{\hyperlink{a00011_a231e3533fc7f6ea2f3db2f5cd8b71b51_a231e3533fc7f6ea2f3db2f5cd8b71b51}{stack\+\_\+release}} (\mbox{\hyperlink{a00117}{stack\+\_\+t}} stack)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{a00011_a3413cc1c374aeb01c66275eddc5bbbd0_a3413cc1c374aeb01c66275eddc5bbbd0}\label{a00011_a3413cc1c374aeb01c66275eddc5bbbd0_a3413cc1c374aeb01c66275eddc5bbbd0}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_node\_t@{stack\_node\_t}}
+\index{stack\_node\_t@{stack\_node\_t}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_node\_t}{stack\_node\_t}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00113}{stack\+\_\+node\+\_\+t}}}
+
+\mbox{\Hypertarget{a00011_aca51d9a1c3b1ac1b2b54ed9dd7c26981_aca51d9a1c3b1ac1b2b54ed9dd7c26981}\label{a00011_aca51d9a1c3b1ac1b2b54ed9dd7c26981_aca51d9a1c3b1ac1b2b54ed9dd7c26981}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_t@{stack\_t}}
+\index{stack\_t@{stack\_t}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_t}{stack\_t}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00117}{stack\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{a00011_a107f81b1726bd5ab54b420142748d3e8_a107f81b1726bd5ab54b420142748d3e8}\label{a00011_a107f81b1726bd5ab54b420142748d3e8_a107f81b1726bd5ab54b420142748d3e8}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_create@{stack\_create}}
+\index{stack\_create@{stack\_create}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_create()}{stack\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00117}{stack\+\_\+t}} stack\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00033}{33}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+
+\mbox{\Hypertarget{a00011_a4d77f1f7bc09c81a4fedd03b425c1575_a4d77f1f7bc09c81a4fedd03b425c1575}\label{a00011_a4d77f1f7bc09c81a4fedd03b425c1575_a4d77f1f7bc09c81a4fedd03b425c1575}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_empty@{stack\_empty}}
+\index{stack\_empty@{stack\_empty}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_empty()}{stack\_empty()}}
+{\footnotesize\ttfamily bool stack\+\_\+empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00093}{93}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+
+\mbox{\Hypertarget{a00011_a42359043c6700c6c6362ec63a599156f_a42359043c6700c6c6362ec63a599156f}\label{a00011_a42359043c6700c6c6362ec63a599156f_a42359043c6700c6c6362ec63a599156f}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_flush@{stack\_flush}}
+\index{stack\_flush@{stack\_flush}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_flush()}{stack\_flush()}}
+{\footnotesize\ttfamily void stack\+\_\+flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00075}{75}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+
+\mbox{\Hypertarget{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}\label{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_pop@{stack\_pop}}
+\index{stack\_pop@{stack\_pop}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_pop()}{stack\_pop()}}
+{\footnotesize\ttfamily void $\ast$ stack\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00063}{63}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+
+\mbox{\Hypertarget{a00011_a3e6e1309488216db3875c39028b06d3c_a3e6e1309488216db3875c39028b06d3c}\label{a00011_a3e6e1309488216db3875c39028b06d3c_a3e6e1309488216db3875c39028b06d3c}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_push@{stack\_push}}
+\index{stack\_push@{stack\_push}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_push()}{stack\_push()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00117}{stack\+\_\+t}} stack\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{stack,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00050}{50}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+
+\mbox{\Hypertarget{a00011_a231e3533fc7f6ea2f3db2f5cd8b71b51_a231e3533fc7f6ea2f3db2f5cd8b71b51}\label{a00011_a231e3533fc7f6ea2f3db2f5cd8b71b51_a231e3533fc7f6ea2f3db2f5cd8b71b51}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_release@{stack\_release}}
+\index{stack\_release@{stack\_release}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_release()}{stack\_release()}}
+{\footnotesize\ttfamily void stack\+\_\+release (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00097}{97}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+
+\mbox{\Hypertarget{a00011_a198e52b336a0fb20ec0c049c0439d213_a198e52b336a0fb20ec0c049c0439d213}\label{a00011_a198e52b336a0fb20ec0c049c0439d213_a198e52b336a0fb20ec0c049c0439d213}} 
+\index{util\_stack.h@{util\_stack.h}!stack\_size@{stack\_size}}
+\index{stack\_size@{stack\_size}!util\_stack.h@{util\_stack.h}}
+\doxysubsubsection{\texorpdfstring{stack\_size()}{stack\_size()}}
+{\footnotesize\ttfamily int stack\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00011_source_l00089}{89}} of file \mbox{\hyperlink{a00011_source}{util\+\_\+stack.\+h}}.
+

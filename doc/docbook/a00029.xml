@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00029" xml:lang="en-US">
+<title>util_murhash.h File Reference</title>
+<indexterm><primary>util_murhash.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;limits.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_1a7c2e7a9f901f0ffbf7684ef9c321c6f3">MH_UINT8</link>&#160;&#160;&#160;unsigned char</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>&#160;&#160;&#160;MH_UINT32</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#160;&#160;&#160;<link linkend="_a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_1a7c2e7a9f901f0ffbf7684ef9c321c6f3">MH_UINT8</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_aa2c4bb6d7658760c2b3c668362e126ea_1aa2c4bb6d7658760c2b3c668362e126ea">__BIG_ENDIAN</link>&#160;&#160;&#160;4321</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_aeccf3e279c16687d91cd28d0463cbde6_1aeccf3e279c16687d91cd28d0463cbde6">__LITTLE_ENDIAN</link>&#160;&#160;&#160;1234</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_ab3afb7ef76ced48cafdcef09407df75e_1ab3afb7ef76ced48cafdcef09407df75e">READ_UINT32</link>(ptr)&#160;&#160;&#160;(ptr[0] | ptr[1] &lt;&lt; 8 | ptr[2] &lt;&lt; 16 | ptr[3] &lt;&lt; 24)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_a013b95e31823324ac60880c16fb846b8_1a013b95e31823324ac60880c16fb846b8">UNALIGNED_SAFE</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_a6b7ad100703fa6fed06b5594a8cddced_1a6b7ad100703fa6fed06b5594a8cddced">rotl32</link>(x,  r)&#160;&#160;&#160;(((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>)x &lt;&lt; r) | ((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>)x &gt;&gt; (32 - r)))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_a44779f18d87e71c78fc9fbf9dc88537d_1a44779f18d87e71c78fc9fbf9dc88537d">C1</link>&#160;&#160;&#160;(0xcc9e2d51)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_1ad6fc13322a4f1c314332ff34aa8b3fa0">C2</link>&#160;&#160;&#160;(0x1b873593)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_a1dc85f68c0dce10481c733a718aa2458_1a1dc85f68c0dce10481c733a718aa2458">DOBLOCK</link>(h1,  k1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00029_af11fb5a047f2add1d41dfdf0d305161c_1af11fb5a047f2add1d41dfdf0d305161c">DOBYTES</link>(cnt,  h1,  c,  n,  ptr,  len)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_a00029_a9cc98d1e627311e4d5fcf960552292c0_1a9cc98d1e627311e4d5fcf960552292c0">PMurHash32_Process</link> (MH_UINT32 *ph1, MH_UINT32 *pcarry, const void *key, int len)</para>
+</listitem>
+            <listitem><para>MH_UINT32 <link linkend="_a00029_a15e304d5c33e5e469f836873e51c14b9_1a15e304d5c33e5e469f836873e51c14b9">PMurHash32_Result</link> (MH_UINT32 h1, MH_UINT32 carry, MH_UINT32 total_length)</para>
+</listitem>
+            <listitem><para>MH_UINT32 <link linkend="_a00029_a3ac44019c8d81f2f99ec851b20c6deac_1a3ac44019c8d81f2f99ec851b20c6deac">PMurHash32</link> (MH_UINT32 seed, const void *key, int len)</para>
+</listitem>
+            <listitem><para>void <link linkend="_a00029_a681a1c2e5d17dd94fb6ddb259dd0ced7_1a681a1c2e5d17dd94fb6ddb259dd0ced7">PMurHash32_test</link> (const void *key, int len, MH_UINT32 seed, void *out)</para>
+</listitem>
+            <listitem><para>void <link linkend="_a00029_ac1d0c342d1226500bff30374454e8e4f_1ac1d0c342d1226500bff30374454e8e4f">PMurHash32_Process</link> (<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> *ph1, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> *pcarry, const void *key, int len)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> <link linkend="_a00029_ab90ea04ebdd64760be1695b964ef62a0_1ab90ea04ebdd64760be1695b964ef62a0">PMurHash32_Result</link> (<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> h, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> carry, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> total_length)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> <link linkend="_a00029_acae60364a9a51b4dc34984d9a667b7c3_1acae60364a9a51b4dc34984d9a667b7c3">PMurHash32</link> (<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> seed, const void *key, int len)</para>
+</listitem>
+            <listitem><para>void <link linkend="_a00029_a8b9b59a95c048eec1e60ba75a49d87cc_1a8b9b59a95c048eec1e60ba75a49d87cc">PMurHash32_test</link> (const void *key, int len, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> seed, void *out)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_a00029_aa2c4bb6d7658760c2b3c668362e126ea_1aa2c4bb6d7658760c2b3c668362e126ea"/><section>
+    <title>__BIG_ENDIAN</title>
+<indexterm><primary>__BIG_ENDIAN</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>__BIG_ENDIAN</secondary></indexterm>
+<para><computeroutput>#define __BIG_ENDIAN&#160;&#160;&#160;4321</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00099">99</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_aeccf3e279c16687d91cd28d0463cbde6_1aeccf3e279c16687d91cd28d0463cbde6"/><section>
+    <title>__LITTLE_ENDIAN</title>
+<indexterm><primary>__LITTLE_ENDIAN</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>__LITTLE_ENDIAN</secondary></indexterm>
+<para><computeroutput>#define __LITTLE_ENDIAN&#160;&#160;&#160;1234</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00102">102</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a44779f18d87e71c78fc9fbf9dc88537d_1a44779f18d87e71c78fc9fbf9dc88537d"/><section>
+    <title>C1</title>
+<indexterm><primary>C1</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>C1</secondary></indexterm>
+<para><computeroutput>#define C1&#160;&#160;&#160;(0xcc9e2d51)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00172">172</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_1ad6fc13322a4f1c314332ff34aa8b3fa0"/><section>
+    <title>C2</title>
+<indexterm><primary>C2</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>C2</secondary></indexterm>
+<para><computeroutput>#define C2&#160;&#160;&#160;(0x1b873593)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00173">173</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a1dc85f68c0dce10481c733a718aa2458_1a1dc85f68c0dce10481c733a718aa2458"/><section>
+    <title>DOBLOCK</title>
+<indexterm><primary>DOBLOCK</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>DOBLOCK</secondary></indexterm>
+<para><computeroutput>#define DOBLOCK( h1,  k1)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;k1&#32;*=&#32;<link linkend="_a00029_a44779f18d87e71c78fc9fbf9dc88537d_1a44779f18d87e71c78fc9fbf9dc88537d">C1</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;k1&#32;=&#32;<link linkend="_a00029_a6b7ad100703fa6fed06b5594a8cddced_1a6b7ad100703fa6fed06b5594a8cddced">rotl32</link>(k1,&#32;15);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;k1&#32;*=&#32;<link linkend="_a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_1ad6fc13322a4f1c314332ff34aa8b3fa0">C2</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;h1&#32;^=&#32;k1;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;h1&#32;=&#32;<link linkend="_a00029_a6b7ad100703fa6fed06b5594a8cddced_1a6b7ad100703fa6fed06b5594a8cddced">rotl32</link>(h1,&#32;13);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;h1&#32;=&#32;h1&#32;*&#32;5&#32;+&#32;0xe6546b64;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting><para>
+Definition at line <link linkend="_a00029_source_1l00177">177</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_af11fb5a047f2add1d41dfdf0d305161c_1af11fb5a047f2add1d41dfdf0d305161c"/><section>
+    <title>DOBYTES</title>
+<indexterm><primary>DOBYTES</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>DOBYTES</secondary></indexterm>
+<para><computeroutput>#define DOBYTES( cnt,  h1,  c,  n,  ptr,  len)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;_i&#32;=&#32;cnt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;while&#32;(_i--)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;c&#32;=&#32;c&#32;&gt;&gt;&#32;8&#32;|&#32;*ptr++&#32;&lt;&lt;&#32;24;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;n++;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;len--;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(n&#32;==&#32;4)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DOBLOCK(h1,&#32;c);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;n&#32;=&#32;0;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting><para>
+Definition at line <link linkend="_a00029_source_1l00191">191</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_1a7c2e7a9f901f0ffbf7684ef9c321c6f3"/><section>
+    <title>MH_UINT8</title>
+<indexterm><primary>MH_UINT8</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>MH_UINT8</secondary></indexterm>
+<para><computeroutput>#define MH_UINT8&#160;&#160;&#160;unsigned char</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00049">49</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_ab3afb7ef76ced48cafdcef09407df75e_1ab3afb7ef76ced48cafdcef09407df75e"/><section>
+    <title>READ_UINT32</title>
+<indexterm><primary>READ_UINT32</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>READ_UINT32</secondary></indexterm>
+<para><computeroutput>#define READ_UINT32( ptr)&#160;&#160;&#160;(ptr[0] | ptr[1] &lt;&lt; 8 | ptr[2] &lt;&lt; 16 | ptr[3] &lt;&lt; 24)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00149">149</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a6b7ad100703fa6fed06b5594a8cddced_1a6b7ad100703fa6fed06b5594a8cddced"/><section>
+    <title>rotl32</title>
+<indexterm><primary>rotl32</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>rotl32</secondary></indexterm>
+<para><computeroutput>#define rotl32( x,  r)&#160;&#160;&#160;(((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>)x &lt;&lt; r) | ((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>)x &gt;&gt; (32 - r)))</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00164">164</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28"/><section>
+    <title>uint32_t</title>
+<indexterm><primary>uint32_t</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>uint32_t</secondary></indexterm>
+<para><computeroutput>#define uint32_t&#160;&#160;&#160;MH_UINT32</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00066">66</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7"/><section>
+    <title>uint8_t</title>
+<indexterm><primary>uint8_t</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>uint8_t</secondary></indexterm>
+<para><computeroutput>#define uint8_t&#160;&#160;&#160;<link linkend="_a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_1a7c2e7a9f901f0ffbf7684ef9c321c6f3">MH_UINT8</link></computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00068">68</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a013b95e31823324ac60880c16fb846b8_1a013b95e31823324ac60880c16fb846b8"/><section>
+    <title>UNALIGNED_SAFE</title>
+<indexterm><primary>UNALIGNED_SAFE</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>UNALIGNED_SAFE</secondary></indexterm>
+<para><computeroutput>#define UNALIGNED_SAFE</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00153">153</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_a00029_a3ac44019c8d81f2f99ec851b20c6deac_1a3ac44019c8d81f2f99ec851b20c6deac"/><section>
+    <title>PMurHash32()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>PMurHash32</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32</secondary></indexterm>
+<para><computeroutput>MH_UINT32 PMurHash32 (MH_UINT32 seed, const void * key, int len)</computeroutput></para></section>
+<anchor xml:id="_a00029_acae60364a9a51b4dc34984d9a667b7c3_1acae60364a9a51b4dc34984d9a667b7c3"/><section>
+    <title>PMurHash32()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>PMurHash32</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> PMurHash32 (<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> seed, const void * key, int len)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00320">320</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a9cc98d1e627311e4d5fcf960552292c0_1a9cc98d1e627311e4d5fcf960552292c0"/><section>
+    <title>PMurHash32_Process()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>PMurHash32_Process</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32_Process</secondary></indexterm>
+<para><computeroutput>void PMurHash32_Process (MH_UINT32 * ph1, MH_UINT32 * pcarry, const void * key, int len)</computeroutput></para></section>
+<anchor xml:id="_a00029_ac1d0c342d1226500bff30374454e8e4f_1ac1d0c342d1226500bff30374454e8e4f"/><section>
+    <title>PMurHash32_Process()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>PMurHash32_Process</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32_Process</secondary></indexterm>
+<para><computeroutput>void PMurHash32_Process (<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> * ph1, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> * pcarry, const void * key, int len)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00209">209</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a15e304d5c33e5e469f836873e51c14b9_1a15e304d5c33e5e469f836873e51c14b9"/><section>
+    <title>PMurHash32_Result()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>PMurHash32_Result</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32_Result</secondary></indexterm>
+<para><computeroutput>MH_UINT32 PMurHash32_Result (MH_UINT32 h1, MH_UINT32 carry, MH_UINT32 total_length)</computeroutput></para></section>
+<anchor xml:id="_a00029_ab90ea04ebdd64760be1695b964ef62a0_1ab90ea04ebdd64760be1695b964ef62a0"/><section>
+    <title>PMurHash32_Result()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>PMurHash32_Result</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32_Result</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> PMurHash32_Result (<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> h, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> carry, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> total_length)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00295">295</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+<anchor xml:id="_a00029_a681a1c2e5d17dd94fb6ddb259dd0ced7_1a681a1c2e5d17dd94fb6ddb259dd0ced7"/><section>
+    <title>PMurHash32_test()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>PMurHash32_test</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32_test</secondary></indexterm>
+<para><computeroutput>void PMurHash32_test (const void * key, int len, MH_UINT32 seed, void * out)</computeroutput></para></section>
+<anchor xml:id="_a00029_a8b9b59a95c048eec1e60ba75a49d87cc_1a8b9b59a95c048eec1e60ba75a49d87cc"/><section>
+    <title>PMurHash32_test()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>PMurHash32_test</primary><secondary>util_murhash.h</secondary></indexterm>
+<indexterm><primary>util_murhash.h</primary><secondary>PMurHash32_test</secondary></indexterm>
+<para><computeroutput>void PMurHash32_test (const void * key, int len, <link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> seed, void * out)</computeroutput></para><para>
+Definition at line <link linkend="_a00029_source_1l00329">329</link> of file <link linkend="_a00029_source">util_murhash.h</link>.</para>
+</section>
+</section>
+</section>

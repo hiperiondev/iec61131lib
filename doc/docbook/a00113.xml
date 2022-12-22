@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00113" xml:lang="en-US">
+<title>stack_node_t Struct Reference</title>
+<indexterm><primary>stack_node_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;util_stack.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_a00113">stack_node_t</link> * <link linkend="_a00113_a30af385bc2a15ac1f0e92117972769ff_1a30af385bc2a15ac1f0e92117972769ff">next</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_a00113_a735984d41155bc1032e09bece8f8d66d_1a735984d41155bc1032e09bece8f8d66d">data</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_a00011_source_1l00012">12</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_a00113_a735984d41155bc1032e09bece8f8d66d_1a735984d41155bc1032e09bece8f8d66d"/><section>
+    <title>data</title>
+<indexterm><primary>data</primary><secondary>stack_node_t</secondary></indexterm>
+<indexterm><primary>stack_node_t</primary><secondary>data</secondary></indexterm>
+<para><computeroutput>void* data</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00014">14</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00113_a30af385bc2a15ac1f0e92117972769ff_1a30af385bc2a15ac1f0e92117972769ff"/><section>
+    <title>next</title>
+<indexterm><primary>next</primary><secondary>stack_node_t</secondary></indexterm>
+<indexterm><primary>stack_node_t</primary><secondary>next</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_a00113">stack_node_t</link>* next</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00013">13</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_a00011">util_stack.h</link></section>
+</section>

@@ -1,0 +1,1509 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00038" xml:lang="en-US">
+<title>iec61131lib.h File Reference</title>
+<indexterm><primary>iec61131lib.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;time.h&gt;<?linebreak?>#include &lt;stddef.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;limits.h&gt;<?linebreak?>#include &lt;math.h&gt;<?linebreak?>#include &quot;util_buffer_string.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>union <link linkend="_a00053">date_t</link></para>
+</listitem>
+            <listitem><para>union <link linkend="_a00061">tod_t</link></para>
+</listitem>
+            <listitem><para>union <link linkend="_a00069">dat_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_a00077">user_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_a00081">string_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_a00085">table_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_a00089">t_timer_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_a00093">iec_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_ae2401fe529d1455e1f39c34999b01f0a_1ae2401fe529d1455e1f39c34999b01f0a">ALLOW_64BITS</link></para>
+
+<para>allow 64 bits data types </para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a29a9dcf1b11a993b6ccb79681cd4a3ab_1a29a9dcf1b11a993b6ccb79681cd4a3ab">STR_SEED_HASH</link>&#160;&#160;&#160;0x12345</para>
+
+<para>seed for string hash </para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aa35e0b1686f9406d90c634847016b1b9_1aa35e0b1686f9406d90c634847016b1b9">MAX_TYPE</link>(a,  b)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a8385f751da038db4a00bb5c6c6839689_1a8385f751da038db4a00bb5c6c6839689">IS_TRUNCATED</link>(a,  b)&#160;&#160;&#160;            (a)-&gt;type &gt; (b)-&gt;type ? 0 : 1</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a1a69f9f31b8ead4e6979eec7b22c4929_1a1a69f9f31b8ead4e6979eec7b22c4929">iec_get_string</link>(data)&#160;&#160;&#160;(((<link linkend="_a00081">string_t</link>*) (data-&gt;value))-&gt;str)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a293e2aace829f022ef9a2c039d622261_1a293e2aace829f022ef9a2c039d622261">IEC_ANYTYPE</link>(type)</para>
+
+<para>mask for type </para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(data,  A,  B,  C,  D,  E,  F)</para>
+
+<para>check if any_type if allowed </para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ac03eeb9f30d7c3f1b7a1a6e60e0b28f2_1ac03eeb9f30d7c3f1b7a1a6e60e0b28f2">iec_type_allowed</link>(data,  A)</para>
+
+<para>check for type allowed </para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aa1345ed436a6faa9c65a8c72d7917855_1aa1345ed436a6faa9c65a8c72d7917855">iec_fit</link>(data,  value)</para>
+
+<para>return true if value fit in type </para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_abb5c8dd19c76374ba7f2a135d9c15a81_1abb5c8dd19c76374ba7f2a135d9c15a81">FT_64</link>(data)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a95cc3bae0f599a87f61a7c2db2562f82_1a95cc3bae0f599a87f61a7c2db2562f82">iec_timer</link>(v)&#160;&#160;&#160;((<link linkend="_a00089">t_timer_t</link>*)((v)-&gt;value))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>utils</title>
+
+<para>internal utils</para>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a88fa737059e67b4b17ec980e5877361e_1a88fa737059e67b4b17ec980e5877361e">CONCAT</link>(a,  b)&#160;&#160;&#160;<link linkend="_a00038_a7f6d20b32301a85035fdb07c98169afd_1a7f6d20b32301a85035fdb07c98169afd">CONCAT_INNER</link>(a, b)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a7f6d20b32301a85035fdb07c98169afd_1a7f6d20b32301a85035fdb07c98169afd">CONCAT_INNER</link>(a,  b)&#160;&#160;&#160;a ## b</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a49e3dfb8720b0700ffa4a4bba97db4b6_1a49e3dfb8720b0700ffa4a4bba97db4b6">LABEL</link>(base,  x)&#160;&#160;&#160;<link linkend="_a00038_a88fa737059e67b4b17ec980e5877361e_1a88fa737059e67b4b17ec980e5877361e">CONCAT</link>(base, x)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ac740756f75e53153605d2702b30d2a9d_1ac740756f75e53153605d2702b30d2a9d">sign</link>(x)&#160;&#160;&#160;(((x) &gt; 0) - ((x) &lt; 0))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a2f39418f5659e106f059e62ec2474fad_1a2f39418f5659e106f059e62ec2474fad">IEC_ALLOC</link>&#160;&#160;&#160;malloc(sizeof(struct <link linkend="_a00093">iec_t</link>))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>any types</title>
+
+<para>check any types</para>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aef40b49c4c75eff938c72be15f08de29_1aef40b49c4c75eff938c72be15f08de29">ANY_UNSIGNED</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_afbf162cd286bbaf43a9f7249c8dd2e6e_1afbf162cd286bbaf43a9f7249c8dd2e6e">ANY_SIGNED</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec">ANY_DATE</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1f06b677deff1b576a3cb9dcf009f3d">IEC_T_DATE</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a118cda11441f15d20c95966700497034">IEC_T_DT</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ab09eead414983cd69c8959156706470a_1ab09eead414983cd69c8959156706470a">ANY_BOOL</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>(x)&#160;&#160;&#160;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6add7ccd40477135d2b7eeffd7fd1b8112">IEC_T_STRING</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a45825429c5561d8083241c75f36b97b7">IEC_T_WSTRING</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aa04f84840ee7d046f651918591b730fd_1aa04f84840ee7d046f651918591b730fd">ANY_ELEMENTARY</link>(x)&#160;&#160;&#160;(<link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x) || <link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>(x) || <link linkend="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec">ANY_DATE</link>(x) || <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x) || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ad4bc5c93dae97cef2f9d636e3b4ba36d_1ad4bc5c93dae97cef2f9d636e3b4ba36d">ANY_MAGNITUDE</link>(x)&#160;&#160;&#160;((<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x) || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>) &amp;&amp; !(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390">IEC_T_NULL</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_afd384f978e60fb3382fab8a31c44bd84_1afd384f978e60fb3382fab8a31c44bd84">ANY_INTEGRAL</link>(x)&#160;&#160;&#160;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd">ANY_CHAR</link>(x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af7e15ca13203185dccdaa1f671b50b53">IEC_T_CHAR</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a1cb729bae5ff8b6a8b1970c63bedc589">IEC_T_WCHAR</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aa23577c4776bf09771e92e394385ad3f_1aa23577c4776bf09771e92e394385ad3f">ANY_CHARS</link>(x)&#160;&#160;&#160;(<link linkend="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd">ANY_CHAR</link>(x) || <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>any type bit</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_af7beb4cbf80f07537f550cc916e3b34b_1af7beb4cbf80f07537f550cc916e3b34b">ANY_NUM_BIT</link>&#160;&#160;&#160;0x0001</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a671cc9518b4088717b18b635dc018ec5_1a671cc9518b4088717b18b635dc018ec5">ANY_DATE_BIT</link>&#160;&#160;&#160;0x0002</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a4125af89120cef9cf1409e8fae14c434_1a4125af89120cef9cf1409e8fae14c434">ANY_BIT_BIT</link>&#160;&#160;&#160;0x0004</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a6c8944264562d1e620bd167afefc2c95_1a6c8944264562d1e620bd167afefc2c95">ANY_REAL_BIT</link>&#160;&#160;&#160;0x0008</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a871445c6e58a55192b24d5553ee5e270_1a871445c6e58a55192b24d5553ee5e270">ANY_STRING_BIT</link>&#160;&#160;&#160;0x0010</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_af21c2e57bbb9b33849b04f9ce18bbd60_1af21c2e57bbb9b33849b04f9ce18bbd60">ANY_ELEMENTARY_BIT</link>&#160;&#160;&#160;0x0020</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a5a5bbef39f12342fe17bfe02ba2c2f92_1a5a5bbef39f12342fe17bfe02ba2c2f92">ANY_MAGNITUDE_BIT</link>&#160;&#160;&#160;0x0040</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a2a373fdd9b472d2844811f5f96b527ea_1a2a373fdd9b472d2844811f5f96b527ea">ANY_INT_BIT</link>&#160;&#160;&#160;0x0080</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a47334db00977ef1fbbc2050c7c7f199a_1a47334db00977ef1fbbc2050c7c7f199a">ANY_INTEGRAL_BIT</link>&#160;&#160;&#160;0x0100</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ae1b25467bb52d8e2b7bbe199189c5b8f_1ae1b25467bb52d8e2b7bbe199189c5b8f">ANY_UNSIGNED_BIT</link>&#160;&#160;&#160;0x0200</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ae3241e650f0c046b4d0a1d222ce54abf_1ae3241e650f0c046b4d0a1d222ce54abf">ANY_SIGNED_BIT</link>&#160;&#160;&#160;0x0400</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ad16dfb0ace23bfce3ddf7e37ac58f9cb_1ad16dfb0ace23bfce3ddf7e37ac58f9cb">ANY_CHAR_BIT</link>&#160;&#160;&#160;0x0800</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a9991f144e383438cd24e3eea7116ae19_1a9991f144e383438cd24e3eea7116ae19">ANY_CHARS_BIT</link>&#160;&#160;&#160;0x1000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>&#160;&#160;&#160;0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>bit manipulation</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a5ec3f4fd5113270299da342f5488d9d7_1a5ec3f4fd5113270299da342f5488d9d7">GET_BIT</link>(v,  b)&#160;&#160;&#160;((v &gt;&gt; b) &amp; 1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a8dcc35767a82d1f489180948eb947357_1a8dcc35767a82d1f489180948eb947357">SET_BIT</link>(v,  b)&#160;&#160;&#160;((v) | (1 &lt;&lt; b))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ac8836715bca841eb4104dcc0947a7552_1ac8836715bca841eb4104dcc0947a7552">CLR_BIT</link>(v,  b)&#160;&#160;&#160;((v) &amp; ~(1 &lt;&lt; b))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>(v,  b)&#160;&#160;&#160;(v &amp; b) ? 1 : 0</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>(v,  b)&#160;&#160;&#160;((v) | b)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>(v,  b)&#160;&#160;&#160;((v) &amp; ~b)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>tt manipulation</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a105dd5206e3ed1ebc1e98a9a3a9f1be9_1a105dd5206e3ed1ebc1e98a9a3a9f1be9">iec_is_mark</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ab56cef3166d73a75887ef13f84fd68e9_1ab56cef3166d73a75887ef13f84fd68e9">iec_is_persist</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a911b449bcbed38c028a16dd2dad1d97e_1a911b449bcbed38c028a16dd2dad1d97e">iec_is_retain</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ad55edee66f51d4b8c7168cae9096d339_1ad55edee66f51d4b8c7168cae9096d339">iec_is_maintain</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a6d2632159e5f8c69900545b10b032391_1a6d2632159e5f8c69900545b10b032391">iec_is_constant</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a099d5d9f7e8e2eaece0b093d7d6fcd45_1a099d5d9f7e8e2eaece0b093d7d6fcd45">iec_is_initialized</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a2903762a7d4e5ddff96c5275e034f4ed_1a2903762a7d4e5ddff96c5275e034f4ed">iec_is_flag1</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a28cbf3045fb34507e3e903734927b442_1a28cbf3045fb34507e3e903734927b442">iec_is_flag2</link>(v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a39e5f492aab71db126d4ebb7acc6994e_1a39e5f492aab71db126d4ebb7acc6994e">iec_set_mark</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a7a6f9023818440b311078fbec0f87478_1a7a6f9023818440b311078fbec0f87478">iec_set_persist</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a34a44feb8775c2418a17ca21f2e6d624_1a34a44feb8775c2418a17ca21f2e6d624">iec_set_retain</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aad2a628ec87fdb9b7f92a61041384561_1aad2a628ec87fdb9b7f92a61041384561">iec_set_maintain</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aef885b6dda511f84a87394cd14107e83_1aef885b6dda511f84a87394cd14107e83">iec_set_constant</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aeab0e36a80771baaff7c6ffc420e4afb_1aeab0e36a80771baaff7c6ffc420e4afb">iec_set_initialized</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aacd8fe85c80edf711a0a55880e0cdef8_1aacd8fe85c80edf711a0a55880e0cdef8">iec_set_flag1</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a431ddca4f28ff1f623e4b6395f2d8269_1a431ddca4f28ff1f623e4b6395f2d8269">iec_set_flag2</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_ae7a6e9cad5a59e5009a4593d38ee4ed5_1ae7a6e9cad5a59e5009a4593d38ee4ed5">iec_unset_mark</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aaa11662020cb1c031b57c6636ac336ce_1aaa11662020cb1c031b57c6636ac336ce">iec_unset_persist</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a76f68b4dc9fb282f9e2c1940cb1ac1bf_1a76f68b4dc9fb282f9e2c1940cb1ac1bf">iec_unset_retain</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_afeab2f733fce0295292f7661b65f76e2_1afeab2f733fce0295292f7661b65f76e2">iec_unset_maintain</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_aff49998422e3c80780bbeee8ce05f8b4_1aff49998422e3c80780bbeee8ce05f8b4">iec_unset_constant</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a76f8cdcd47148fbd288e791ef47508e0_1a76f8cdcd47148fbd288e791ef47508e0">iec_unset_initialized</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a3fed00a37419b3ad620fe643e07af223_1a3fed00a37419b3ad620fe643e07af223">iec_unset_flag1</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a927abea2f78562113717157af33637bb_1a927abea2f78562113717157af33637bb">iec_unset_flag2</link>(v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_get_value</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(data)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a3c10a6a4636cc255c59f9b08bde88246_1a3c10a6a4636cc255c59f9b08bde88246">GV_64</link>(data)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_get_value_type</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_ac28e15b01a3f6049822a722185a605b3_1ac28e15b01a3f6049822a722185a605b3">iec_get_value_type</link>(data,  type)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a9094bf00a9fdbf60fef433491655fff3_1a9094bf00a9fdbf60fef433491655fff3">GVT_64</link>(data,  type)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_get_valuep</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a1e11da856ad12640584bb18b1fe12c21_1a1e11da856ad12640584bb18b1fe12c21">iec_get_valuep</link>(data)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_adc6d4db99708dd39d5aff784e0c15384_1adc6d4db99708dd39d5aff784e0c15384">GVP_64</link>(data)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_get_tovoid</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a602da071aa484473933c23ad0766c078_1a602da071aa484473933c23ad0766c078">iec_get_tovoid</link>(data,  var)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a1485bf1be637783c0c4bd3d5556b0ae8_1a1485bf1be637783c0c4bd3d5556b0ae8">GTV_64</link>(data,  var)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a71b24f02aee3af6c7fe030f106bd8689_1a71b24f02aee3af6c7fe030f106bd8689">maxuint_t</link>&#160;&#160;&#160;uint64_t</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_set_value</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a280ee23b6997f1215b3701bdf59a05ef_1a280ee23b6997f1215b3701bdf59a05ef">iec_set_value</link>(data,  val)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_addf0c2f5c0970d5838c62aacb4f9e135_1addf0c2f5c0970d5838c62aacb4f9e135">SV_64</link>(data,  val)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_set_value_type</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a4caaaaf06fce8e26f4d8a0780e0df47b_1a4caaaaf06fce8e26f4d8a0780e0df47b">iec_set_value_type</link>(data,  val,  type)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a19f7dd3713f5057780a73fc07f5147b2_1a19f7dd3713f5057780a73fc07f5147b2">SVT_64</link>(data,  val)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect><title>iec_set_fromvoid</title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_a00038_a91bca30f7d7f4052575279bea2aa3b13_1a91bca30f7d7f4052575279bea2aa3b13">iec_set_fromvoid</link>(data,  val)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_a00038_a32a1e4fd73bda9579d3ac873ab1d76a3_1a32a1e4fd73bda9579d3ac873ab1d76a3">SFV_64</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef union <link linkend="_a00053">date_t</link> <link linkend="_a00038_af7249f7c2ae5af6ab407266ca2b281af_1af7249f7c2ae5af6ab407266ca2b281af">date_t</link></para>
+</listitem>
+            <listitem><para>typedef union <link linkend="_a00061">tod_t</link> <link linkend="_a00038_a1d2f9b5e57d87a0b6e45d4a20180cc0e_1a1d2f9b5e57d87a0b6e45d4a20180cc0e">tod_t</link></para>
+</listitem>
+            <listitem><para>typedef union <link linkend="_a00069">dat_t</link> <link linkend="_a00038_a8152db8302dcf67964a1739c8f3b856d_1a8152db8302dcf67964a1739c8f3b856d">dat_t</link></para>
+</listitem>
+            <listitem><para>typedef uint64_t <link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_a00077">user_t</link> <link linkend="_a00038_a1c46502512cf02c5d1b808986ab43285_1a1c46502512cf02c5d1b808986ab43285">user_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_a00081">string_t</link> <link linkend="_a00038_ac96b9b7963de688026e9c2564b78754b_1ac96b9b7963de688026e9c2564b78754b">string_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_a00085">table_t</link> <link linkend="_a00038_ad014cadd0f79267725f9e6201bb866fa_1ad014cadd0f79267725f9e6201bb866fa">table_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_a00089">t_timer_t</link> <link linkend="_a00038_a7a9b4ffad8d7d2ac5a456ff33a910732_1a7a9b4ffad8d7d2ac5a456ff33a910732">t_timer_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_a00093">iec_t</link> * <link linkend="_a00038_a334251968918d9eb57ad639861e2d7d1_1a334251968918d9eb57ad639861e2d7d1">iec_t</link></para>
+
+<para>main data container </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3">IEC_ERRORS</link> { <?linebreak?><link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link> = 0x00
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a152d6431633a3f323e4e77c9f9d0a201">IEC_NAT</link> = 0x01
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4d67c9a6b308feb8aadf8a5e293a3c69">IEC_TRN</link> = 0x02
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a967f2b2f61601a685a923106eac13bb8">IEC_OOR</link> = 0x03
+, <?linebreak?><link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3ac2ae7980352cd48058f5aed112a99def">IEC_TND</link> = 0x04
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a319f8699c145820f690c04d3848a4024">IEC_NLL</link> = 0x05
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a8add2412ad0381c87d24eacad65c8c0f">IEC_TRU</link> = 0x06
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a8cea5a5303f62bb37458c471c28c5125">IEC_FLS</link> = 0x07
+, <?linebreak?><link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3ac97135c72c3cbc9a6de0512a450b3586">IEC_ENL</link> = 0x08
+, <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3ade92e52d321a9e9e2da01107d2b9c9d1">IEC_ERR</link> = 0xff
+ }</para>
+
+<para>errors </para>
+</listitem>
+            <listitem><para>enum <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6">iectype_t</link> { <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390">IEC_T_NULL</link> = 0x00
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> = 0x01
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link> = 0x02
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link> = 0x03
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7891f7060418e82cd30bb2b00942ed3d">IEC_T_BYTE</link> = 0x04
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link> = 0x05
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> = 0x06
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link> = 0x07
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link> = 0x08
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link> = 0x09
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link> = 0x0a
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link> = 0x0b
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link> = 0x0c
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link> = 0x0d
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link> = 0x0e
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link> = 0x0f
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link> = 0x10
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1f06b677deff1b576a3cb9dcf009f3d">IEC_T_DATE</link> = 0x11
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6685aab912015f6b6af0d4aea4bfa806">IEC_T_TOD</link> = 0x12
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a118cda11441f15d20c95966700497034">IEC_T_DT</link> = 0x13
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af7e15ca13203185dccdaa1f671b50b53">IEC_T_CHAR</link> = 0x14
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a1cb729bae5ff8b6a8b1970c63bedc589">IEC_T_WCHAR</link> = 0x15
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6add7ccd40477135d2b7eeffd7fd1b8112">IEC_T_STRING</link> = 0x16
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a45825429c5561d8083241c75f36b97b7">IEC_T_WSTRING</link> = 0x17
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link> = 0x18
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aeeb1d6787f17f5a93711c4b1201b2ea1">IEC_T_TABLE</link> = 0x19
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a248c98545af434498dcfcc5a1f6ba9f8">IEC_T_USER</link> = 0x1a
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link> = 0x1b
+, <?linebreak?><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link> = 0x1c
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a22ea6c2926b7862d32fbf913ae270843">IEC_T_TIMER</link> = 0x1d
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6afea6d8e11d3275ecdbcdd18da8b7e959">IEC_T_NDEF_1E</link> = 0x1e
+, <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6afccd43930be19f62da34da35ea4b6d63">IEC_T_NDEF_1F</link> = 0x1f
+ }</para>
+
+<para>data types </para>
+</listitem>
+            <listitem><para>enum <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347">tt_t</link> { <?linebreak?><link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link> = 0x01
+, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link> = 0x02
+, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link> = 0x04
+, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link> = 0x08
+, <?linebreak?><link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link> = 0x10
+, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link> = 0x20
+, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link> = 0x40
+, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link> = 0x80
+ }</para>
+
+<para>status flags </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para><link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link></para>
+</formalpara>
+This is based on other projects: Others (see individual files)</para>
+
+<para>please contact their authors for more information.</para>
+
+<para>The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca"/><section>
+    <title>_BIT</title>
+<indexterm><primary>_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>_BIT</secondary></indexterm>
+<para><computeroutput>#define _BIT&#160;&#160;&#160;0</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00386">386</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ae2401fe529d1455e1f39c34999b01f0a_1ae2401fe529d1455e1f39c34999b01f0a"/><section>
+    <title>ALLOW_64BITS</title>
+<indexterm><primary>ALLOW_64BITS</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ALLOW_64BITS</secondary></indexterm>
+<para><computeroutput>#define ALLOW_64BITS</computeroutput></para><para>
+
+<para>allow 64 bits data types </para>
+</para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00055">55</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d"/><section>
+    <title>ANY_BIT</title>
+<indexterm><primary>ANY_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_BIT( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00343">343</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a4125af89120cef9cf1409e8fae14c434_1a4125af89120cef9cf1409e8fae14c434"/><section>
+    <title>ANY_BIT_BIT</title>
+<indexterm><primary>ANY_BIT_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_BIT_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_BIT_BIT&#160;&#160;&#160;0x0004</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00375">375</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ab09eead414983cd69c8959156706470a_1ab09eead414983cd69c8959156706470a"/><section>
+    <title>ANY_BOOL</title>
+<indexterm><primary>ANY_BOOL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_BOOL</secondary></indexterm>
+<para><computeroutput>#define ANY_BOOL( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00356">356</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd"/><section>
+    <title>ANY_CHAR</title>
+<indexterm><primary>ANY_CHAR</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHAR</secondary></indexterm>
+<para><computeroutput>#define ANY_CHAR( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af7e15ca13203185dccdaa1f671b50b53">IEC_T_CHAR</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a1cb729bae5ff8b6a8b1970c63bedc589">IEC_T_WCHAR</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00363">363</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ad16dfb0ace23bfce3ddf7e37ac58f9cb_1ad16dfb0ace23bfce3ddf7e37ac58f9cb"/><section>
+    <title>ANY_CHAR_BIT</title>
+<indexterm><primary>ANY_CHAR_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHAR_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_CHAR_BIT&#160;&#160;&#160;0x0800</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00384">384</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aa23577c4776bf09771e92e394385ad3f_1aa23577c4776bf09771e92e394385ad3f"/><section>
+    <title>ANY_CHARS</title>
+<indexterm><primary>ANY_CHARS</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHARS</secondary></indexterm>
+<para><computeroutput>#define ANY_CHARS( x)&#160;&#160;&#160;(<link linkend="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd">ANY_CHAR</link>(x) || <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00364">364</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a9991f144e383438cd24e3eea7116ae19_1a9991f144e383438cd24e3eea7116ae19"/><section>
+    <title>ANY_CHARS_BIT</title>
+<indexterm><primary>ANY_CHARS_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHARS_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_CHARS_BIT&#160;&#160;&#160;0x1000</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00385">385</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec"/><section>
+    <title>ANY_DATE</title>
+<indexterm><primary>ANY_DATE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_DATE</secondary></indexterm>
+<para><computeroutput>#define ANY_DATE( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1f06b677deff1b576a3cb9dcf009f3d">IEC_T_DATE</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a118cda11441f15d20c95966700497034">IEC_T_DT</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00348">348</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a671cc9518b4088717b18b635dc018ec5_1a671cc9518b4088717b18b635dc018ec5"/><section>
+    <title>ANY_DATE_BIT</title>
+<indexterm><primary>ANY_DATE_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_DATE_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_DATE_BIT&#160;&#160;&#160;0x0002</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00374">374</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aa04f84840ee7d046f651918591b730fd_1aa04f84840ee7d046f651918591b730fd"/><section>
+    <title>ANY_ELEMENTARY</title>
+<indexterm><primary>ANY_ELEMENTARY</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_ELEMENTARY</secondary></indexterm>
+<para><computeroutput>#define ANY_ELEMENTARY( x)&#160;&#160;&#160;(<link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x) || <link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>(x) || <link linkend="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec">ANY_DATE</link>(x) || <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x) || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00360">360</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_af21c2e57bbb9b33849b04f9ce18bbd60_1af21c2e57bbb9b33849b04f9ce18bbd60"/><section>
+    <title>ANY_ELEMENTARY_BIT</title>
+<indexterm><primary>ANY_ELEMENTARY_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_ELEMENTARY_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_ELEMENTARY_BIT&#160;&#160;&#160;0x0020</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00378">378</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a"/><section>
+    <title>ANY_INT</title>
+<indexterm><primary>ANY_INT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_INT</secondary></indexterm>
+<para><computeroutput>#define ANY_INT( x)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link>&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00346">346</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a2a373fdd9b472d2844811f5f96b527ea_1a2a373fdd9b472d2844811f5f96b527ea"/><section>
+    <title>ANY_INT_BIT</title>
+<indexterm><primary>ANY_INT_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_INT_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_INT_BIT&#160;&#160;&#160;0x0080</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00380">380</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_afd384f978e60fb3382fab8a31c44bd84_1afd384f978e60fb3382fab8a31c44bd84"/><section>
+    <title>ANY_INTEGRAL</title>
+<indexterm><primary>ANY_INTEGRAL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_INTEGRAL</secondary></indexterm>
+<para><computeroutput>#define ANY_INTEGRAL( x)&#160;&#160;&#160;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00362">362</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a47334db00977ef1fbbc2050c7c7f199a_1a47334db00977ef1fbbc2050c7c7f199a"/><section>
+    <title>ANY_INTEGRAL_BIT</title>
+<indexterm><primary>ANY_INTEGRAL_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_INTEGRAL_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_INTEGRAL_BIT&#160;&#160;&#160;0x0100</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00381">381</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ad4bc5c93dae97cef2f9d636e3b4ba36d_1ad4bc5c93dae97cef2f9d636e3b4ba36d"/><section>
+    <title>ANY_MAGNITUDE</title>
+<indexterm><primary>ANY_MAGNITUDE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_MAGNITUDE</secondary></indexterm>
+<para><computeroutput>#define ANY_MAGNITUDE( x)&#160;&#160;&#160;((<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x) || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>) &amp;&amp; !(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390">IEC_T_NULL</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00361">361</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a5a5bbef39f12342fe17bfe02ba2c2f92_1a5a5bbef39f12342fe17bfe02ba2c2f92"/><section>
+    <title>ANY_MAGNITUDE_BIT</title>
+<indexterm><primary>ANY_MAGNITUDE_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_MAGNITUDE_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_MAGNITUDE_BIT&#160;&#160;&#160;0x0040</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00379">379</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df"/><section>
+    <title>ANY_NUM</title>
+<indexterm><primary>ANY_NUM</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_NUM</secondary></indexterm>
+<para><computeroutput>#define ANY_NUM( x)&#160;&#160;&#160;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00358">358</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_af7beb4cbf80f07537f550cc916e3b34b_1af7beb4cbf80f07537f550cc916e3b34b"/><section>
+    <title>ANY_NUM_BIT</title>
+<indexterm><primary>ANY_NUM_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_NUM_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_NUM_BIT&#160;&#160;&#160;0x0001</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00373">373</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f"/><section>
+    <title>ANY_REAL</title>
+<indexterm><primary>ANY_REAL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_REAL</secondary></indexterm>
+<para><computeroutput>#define ANY_REAL( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00357">357</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a6c8944264562d1e620bd167afefc2c95_1a6c8944264562d1e620bd167afefc2c95"/><section>
+    <title>ANY_REAL_BIT</title>
+<indexterm><primary>ANY_REAL_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_REAL_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_REAL_BIT&#160;&#160;&#160;0x0008</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00376">376</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_afbf162cd286bbaf43a9f7249c8dd2e6e_1afbf162cd286bbaf43a9f7249c8dd2e6e"/><section>
+    <title>ANY_SIGNED</title>
+<indexterm><primary>ANY_SIGNED</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_SIGNED</secondary></indexterm>
+<para><computeroutput>#define ANY_SIGNED( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00345">345</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ae3241e650f0c046b4d0a1d222ce54abf_1ae3241e650f0c046b4d0a1d222ce54abf"/><section>
+    <title>ANY_SIGNED_BIT</title>
+<indexterm><primary>ANY_SIGNED_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_SIGNED_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_SIGNED_BIT&#160;&#160;&#160;0x0400</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00383">383</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24"/><section>
+    <title>ANY_STRING</title>
+<indexterm><primary>ANY_STRING</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_STRING</secondary></indexterm>
+<para><computeroutput>#define ANY_STRING( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6add7ccd40477135d2b7eeffd7fd1b8112">IEC_T_STRING</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a45825429c5561d8083241c75f36b97b7">IEC_T_WSTRING</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00359">359</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a871445c6e58a55192b24d5553ee5e270_1a871445c6e58a55192b24d5553ee5e270"/><section>
+    <title>ANY_STRING_BIT</title>
+<indexterm><primary>ANY_STRING_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_STRING_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_STRING_BIT&#160;&#160;&#160;0x0010</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00377">377</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aef40b49c4c75eff938c72be15f08de29_1aef40b49c4c75eff938c72be15f08de29"/><section>
+    <title>ANY_UNSIGNED</title>
+<indexterm><primary>ANY_UNSIGNED</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_UNSIGNED</secondary></indexterm>
+<para><computeroutput>#define ANY_UNSIGNED( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00344">344</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ae1b25467bb52d8e2b7bbe199189c5b8f_1ae1b25467bb52d8e2b7bbe199189c5b8f"/><section>
+    <title>ANY_UNSIGNED_BIT</title>
+<indexterm><primary>ANY_UNSIGNED_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>ANY_UNSIGNED_BIT</secondary></indexterm>
+<para><computeroutput>#define ANY_UNSIGNED_BIT&#160;&#160;&#160;0x0200</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00382">382</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ac8836715bca841eb4104dcc0947a7552_1ac8836715bca841eb4104dcc0947a7552"/><section>
+    <title>CLR_BIT</title>
+<indexterm><primary>CLR_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>CLR_BIT</secondary></indexterm>
+<para><computeroutput>#define CLR_BIT( v,  b)&#160;&#160;&#160;((v) &amp; ~(1 &lt;&lt; b))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00397">397</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe"/><section>
+    <title>CLR_BIT_VB</title>
+<indexterm><primary>CLR_BIT_VB</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>CLR_BIT_VB</secondary></indexterm>
+<para><computeroutput>#define CLR_BIT_VB( v,  b)&#160;&#160;&#160;((v) &amp; ~b)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00400">400</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a88fa737059e67b4b17ec980e5877361e_1a88fa737059e67b4b17ec980e5877361e"/><section>
+    <title>CONCAT</title>
+<indexterm><primary>CONCAT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>CONCAT</secondary></indexterm>
+<para><computeroutput>#define CONCAT( a,  b)&#160;&#160;&#160;<link linkend="_a00038_a7f6d20b32301a85035fdb07c98169afd_1a7f6d20b32301a85035fdb07c98169afd">CONCAT_INNER</link>(a, b)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00329">329</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a7f6d20b32301a85035fdb07c98169afd_1a7f6d20b32301a85035fdb07c98169afd"/><section>
+    <title>CONCAT_INNER</title>
+<indexterm><primary>CONCAT_INNER</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>CONCAT_INNER</secondary></indexterm>
+<para><computeroutput>#define CONCAT_INNER( a,  b)&#160;&#160;&#160;a ## b</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00330">330</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_abb5c8dd19c76374ba7f2a135d9c15a81_1abb5c8dd19c76374ba7f2a135d9c15a81"/><section>
+    <title>FT_64</title>
+<indexterm><primary>FT_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>FT_64</secondary></indexterm>
+<para><computeroutput>#define FT_64( data)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;0&#32;&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)&#32;&#32;?&#32;0&#32;&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;&#32;?&#32;0&#32;&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00911">911</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a5ec3f4fd5113270299da342f5488d9d7_1a5ec3f4fd5113270299da342f5488d9d7"/><section>
+    <title>GET_BIT</title>
+<indexterm><primary>GET_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>GET_BIT</secondary></indexterm>
+<para><computeroutput>#define GET_BIT( v,  b)&#160;&#160;&#160;((v &gt;&gt; b) &amp; 1)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00395">395</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a"/><section>
+    <title>GET_BIT_VB</title>
+<indexterm><primary>GET_BIT_VB</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>GET_BIT_VB</secondary></indexterm>
+<para><computeroutput>#define GET_BIT_VB( v,  b)&#160;&#160;&#160;(v &amp; b) ? 1 : 0</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00398">398</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a1485bf1be637783c0c4bd3d5556b0ae8_1a1485bf1be637783c0c4bd3d5556b0ae8"/><section>
+    <title>GTV_64</title>
+<indexterm><primary>GTV_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>GTV_64</secondary></indexterm>
+<para><computeroutput>#define GTV_64( data,  var)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((uint64_t*)(var))&#32;=&#32;*((uint64_t*)((data)-&gt;value));&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((int64_t*)(var))&#32;=&#32;*((int64_t*)((data)-&gt;value));&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)(var))&#32;=&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value));&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00614">614</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a3c10a6a4636cc255c59f9b08bde88246_1a3c10a6a4636cc255c59f9b08bde88246"/><section>
+    <title>GV_64</title>
+<indexterm><primary>GV_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>GV_64</secondary></indexterm>
+<para><computeroutput>#define GV_64( data)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((uint64_t*)((data)-&gt;value))&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)&#32;?&#32;*((int64_t*)((data)-&gt;value))&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;?&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value))&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00476">476</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_adc6d4db99708dd39d5aff784e0c15384_1adc6d4db99708dd39d5aff784e0c15384"/><section>
+    <title>GVP_64</title>
+<indexterm><primary>GVP_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>GVP_64</secondary></indexterm>
+<para><computeroutput>#define GVP_64( data)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((uint64_t*)(data)-&gt;value)&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)&#32;?&#32;((int64_t*)(data)-&gt;value)&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;?&#32;((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)(data)-&gt;value)&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00546">546</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a9094bf00a9fdbf60fef433491655fff3_1a9094bf00a9fdbf60fef433491655fff3"/><section>
+    <title>GVT_64</title>
+<indexterm><primary>GVT_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>GVT_64</secondary></indexterm>
+<para><computeroutput>#define GVT_64( data,  type)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((uint64_t*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)&#32;?&#32;*((int64_t*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;?&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00511">511</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a2f39418f5659e106f059e62ec2474fad_1a2f39418f5659e106f059e62ec2474fad"/><section>
+    <title>IEC_ALLOC</title>
+<indexterm><primary>IEC_ALLOC</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_ALLOC</secondary></indexterm>
+<para><computeroutput>#define IEC_ALLOC&#160;&#160;&#160;malloc(sizeof(struct <link linkend="_a00093">iec_t</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00333">333</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a293e2aace829f022ef9a2c039d622261_1a293e2aace829f022ef9a2c039d622261"/><section>
+    <title>IEC_ANYTYPE</title>
+<indexterm><primary>IEC_ANYTYPE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_ANYTYPE</secondary></indexterm>
+<para><computeroutput>#define IEC_ANYTYPE( type)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>(type))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec">ANY_DATE</link>(type)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;1)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(type)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;2)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(type)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;3)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(type)&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;4)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_aa04f84840ee7d046f651918591b730fd_1aa04f84840ee7d046f651918591b730fd">ANY_ELEMENTARY</link>(type)&#32;&lt;&lt;&#32;5)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_ad4bc5c93dae97cef2f9d636e3b4ba36d_1ad4bc5c93dae97cef2f9d636e3b4ba36d">ANY_MAGNITUDE</link>(type)&#32;&#32;&lt;&lt;&#32;6)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(type)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;7)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_afd384f978e60fb3382fab8a31c44bd84_1afd384f978e60fb3382fab8a31c44bd84">ANY_INTEGRAL</link>(type)&#32;&#32;&#32;&lt;&lt;&#32;8)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_aef40b49c4c75eff938c72be15f08de29_1aef40b49c4c75eff938c72be15f08de29">ANY_UNSIGNED</link>(type)&#32;&#32;&#32;&lt;&lt;&#32;9)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_afbf162cd286bbaf43a9f7249c8dd2e6e_1afbf162cd286bbaf43a9f7249c8dd2e6e">ANY_SIGNED</link>(type)&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;10)&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd">ANY_CHAR</link>(type)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;11)&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;(<link linkend="_a00038_aa23577c4776bf09771e92e394385ad3f_1aa23577c4776bf09771e92e394385ad3f">ANY_CHARS</link>(type)&#32;&#32;&#32;&#32;&#32;&#32;&lt;&lt;&#32;12)
+</programlisting><para>
+
+<para>mask for type </para>
+</para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00854">854</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec"/><section>
+    <title>iec_anytype_allowed</title>
+<indexterm><primary>iec_anytype_allowed</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_anytype_allowed</secondary></indexterm>
+<para><computeroutput>#define iec_anytype_allowed( data,  A,  B,  C,  D,  E,  F)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>((data)&#32;==&#32;NULL&#32;||&#32;!((data)-&gt;any_type&#32;&amp;&#32;(A&#32;##&#32;<link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>&#32;|&#32;B&#32;##&#32;<link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>&#32;|&#32;C&#32;##&#32;<link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>&#32;|&#32;D&#32;##&#32;<link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>&#32;|&#32;E&#32;##&#32;<link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>&#32;|&#32;F&#32;##&#32;<link linkend="_a00038_af07fd2971defe09745e1e15f0140a0ca_1af07fd2971defe09745e1e15f0140a0ca">_BIT</link>)))&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a152d6431633a3f323e4e77c9f9d0a201">IEC_NAT</link>
+</programlisting><para>
+
+<para>check if any_type if allowed </para>
+</para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00874">874</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aa1345ed436a6faa9c65a8c72d7917855_1aa1345ed436a6faa9c65a8c72d7917855"/><section>
+    <title>iec_fit</title>
+<indexterm><primary>iec_fit</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_fit</secondary></indexterm>
+<para><computeroutput>#define iec_fit( data,  value)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link>)&#32;?&#32;(value&#32;&gt;=&#32;UCHAR_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;UCHAR_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;(value&#32;&gt;=&#32;SCHAR_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;SCHAR_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7891f7060418e82cd30bb2b00942ed3d">IEC_T_BYTE</link>)&#32;&#32;&#32;&#32;?&#32;(value&#32;&gt;=&#32;UCHAR_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;UCHAR_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;(value&#32;&gt;=&#32;INT_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;INT_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link>)&#32;&#32;&#32;?&#32;(value&#32;&gt;=&#32;UINT_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;UINT_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;(value&#32;&gt;=&#32;LONG_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;LONG_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link>)&#32;&#32;?&#32;(value&#32;&gt;=&#32;ULONG_MIN)&#32;&amp;&amp;&#32;(value&#32;&lt;=&#32;ULONG_MAX)&#32;&amp;&amp;&#32;(round(val)&#32;==&#32;value)&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;0&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;0&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;0&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_abb5c8dd19c76374ba7f2a135d9c15a81_1abb5c8dd19c76374ba7f2a135d9c15a81">FT_64</link>(data)
+</programlisting><para>
+
+<para>return true if value fit in type </para>
+</para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00893">893</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a1a69f9f31b8ead4e6979eec7b22c4929_1a1a69f9f31b8ead4e6979eec7b22c4929"/><section>
+    <title>iec_get_string</title>
+<indexterm><primary>iec_get_string</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_get_string</secondary></indexterm>
+<para><computeroutput>#define iec_get_string( data)&#160;&#160;&#160;(((<link linkend="_a00081">string_t</link>*) (data-&gt;value))-&gt;str)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00637">637</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a602da071aa484473933c23ad0766c078_1a602da071aa484473933c23ad0766c078"/><section>
+    <title>iec_get_tovoid</title>
+<indexterm><primary>iec_get_tovoid</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_get_tovoid</secondary></indexterm>
+<para><computeroutput>#define iec_get_tovoid( data,  var)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00563">563</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a"/><section>
+    <title>iec_get_value</title>
+<indexterm><primary>iec_get_value</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_get_value</secondary></indexterm>
+<para><computeroutput>#define iec_get_value( data)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)&#32;&#32;?&#32;*((<emphasis role="keywordtype">bool</emphasis>*)((data)-&gt;value))&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((int8_t*)((data)-&gt;value))&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7891f7060418e82cd30bb2b00942ed3d">IEC_T_BYTE</link>)&#32;&#32;&#32;&#32;&#32;?&#32;*((<link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>*)((data)-&gt;value))&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((int16_t*)((data)-&gt;value))&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link>)&#32;&#32;&#32;&#32;?&#32;*((uint16_t*)((data)-&gt;value))&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((int32_t*)((data)-&gt;value))&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link>)&#32;&#32;&#32;?&#32;*((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>*)((data)-&gt;value))&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((<emphasis role="keywordtype">float</emphasis>*)((data)-&gt;value))&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;?&#32;*((<emphasis role="keywordtype">double</emphasis>*)((data)-&gt;value))&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_a3c10a6a4636cc255c59f9b08bde88246_1a3c10a6a4636cc255c59f9b08bde88246">GV_64</link>(data)
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00458">458</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ac28e15b01a3f6049822a722185a605b3_1ac28e15b01a3f6049822a722185a605b3"/><section>
+    <title>iec_get_value_type</title>
+<indexterm><primary>iec_get_value_type</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_get_value_type</secondary></indexterm>
+<para><computeroutput>#define iec_get_value_type( data,  type)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)&#32;&#32;?&#32;*((<emphasis role="keywordtype">bool</emphasis>*)(data))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((int8_t*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7891f7060418e82cd30bb2b00942ed3d">IEC_T_BYTE</link>)&#32;&#32;&#32;&#32;&#32;?&#32;*((<link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((int16_t*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link>)&#32;&#32;&#32;&#32;?&#32;*((uint16_t*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((int32_t*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link>)&#32;&#32;&#32;?&#32;*((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;*((<emphasis role="keywordtype">float</emphasis>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;?&#32;*((<emphasis role="keywordtype">double</emphasis>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_a9094bf00a9fdbf60fef433491655fff3_1a9094bf00a9fdbf60fef433491655fff3">GVT_64</link>(data,&#32;type)
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00493">493</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a1e11da856ad12640584bb18b1fe12c21_1a1e11da856ad12640584bb18b1fe12c21"/><section>
+    <title>iec_get_valuep</title>
+<indexterm><primary>iec_get_valuep</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_get_valuep</secondary></indexterm>
+<para><computeroutput>#define iec_get_valuep( data)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)&#32;&#32;?&#32;((<emphasis role="keywordtype">bool</emphasis>*)(data)-&gt;value)&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((int8_t*)(data)-&gt;value)&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7891f7060418e82cd30bb2b00942ed3d">IEC_T_BYTE</link>)&#32;&#32;&#32;&#32;&#32;?&#32;((<link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>*)(data)-&gt;value)&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((int16_t*)(data)-&gt;value)&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link>)&#32;&#32;&#32;&#32;?&#32;((uint16_t*)(data)-&gt;value)&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((int32_t*)(data)-&gt;value)&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link>)&#32;&#32;&#32;?&#32;((<link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link>*)(data)-&gt;value)&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((<emphasis role="keywordtype">float</emphasis>*)(data)-&gt;value)&#32;&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((<emphasis role="keywordtype">double</emphasis>*)(data)-&gt;value)&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((<emphasis role="keywordtype">double</emphasis>*)(data)-&gt;value)&#32;&#32;&#32;&#32;:&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_adc6d4db99708dd39d5aff784e0c15384_1adc6d4db99708dd39d5aff784e0c15384">GVP_64</link>(data)
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00528">528</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a6d2632159e5f8c69900545b10b032391_1a6d2632159e5f8c69900545b10b032391"/><section>
+    <title>iec_is_constant</title>
+<indexterm><primary>iec_is_constant</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_constant</secondary></indexterm>
+<para><computeroutput>#define iec_is_constant( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00413">413</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a2903762a7d4e5ddff96c5275e034f4ed_1a2903762a7d4e5ddff96c5275e034f4ed"/><section>
+    <title>iec_is_flag1</title>
+<indexterm><primary>iec_is_flag1</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_flag1</secondary></indexterm>
+<para><computeroutput>#define iec_is_flag1( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00415">415</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a28cbf3045fb34507e3e903734927b442_1a28cbf3045fb34507e3e903734927b442"/><section>
+    <title>iec_is_flag2</title>
+<indexterm><primary>iec_is_flag2</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_flag2</secondary></indexterm>
+<para><computeroutput>#define iec_is_flag2( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00416">416</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a099d5d9f7e8e2eaece0b093d7d6fcd45_1a099d5d9f7e8e2eaece0b093d7d6fcd45"/><section>
+    <title>iec_is_initialized</title>
+<indexterm><primary>iec_is_initialized</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_initialized</secondary></indexterm>
+<para><computeroutput>#define iec_is_initialized( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00414">414</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ad55edee66f51d4b8c7168cae9096d339_1ad55edee66f51d4b8c7168cae9096d339"/><section>
+    <title>iec_is_maintain</title>
+<indexterm><primary>iec_is_maintain</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_maintain</secondary></indexterm>
+<para><computeroutput>#define iec_is_maintain( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00412">412</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a105dd5206e3ed1ebc1e98a9a3a9f1be9_1a105dd5206e3ed1ebc1e98a9a3a9f1be9"/><section>
+    <title>iec_is_mark</title>
+<indexterm><primary>iec_is_mark</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_mark</secondary></indexterm>
+<para><computeroutput>#define iec_is_mark( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00409">409</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ab56cef3166d73a75887ef13f84fd68e9_1ab56cef3166d73a75887ef13f84fd68e9"/><section>
+    <title>iec_is_persist</title>
+<indexterm><primary>iec_is_persist</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_persist</secondary></indexterm>
+<para><computeroutput>#define iec_is_persist( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00410">410</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a911b449bcbed38c028a16dd2dad1d97e_1a911b449bcbed38c028a16dd2dad1d97e"/><section>
+    <title>iec_is_retain</title>
+<indexterm><primary>iec_is_retain</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_is_retain</secondary></indexterm>
+<para><computeroutput>#define iec_is_retain( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00411">411</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aef885b6dda511f84a87394cd14107e83_1aef885b6dda511f84a87394cd14107e83"/><section>
+    <title>iec_set_constant</title>
+<indexterm><primary>iec_set_constant</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_constant</secondary></indexterm>
+<para><computeroutput>#define iec_set_constant( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00421">421</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aacd8fe85c80edf711a0a55880e0cdef8_1aacd8fe85c80edf711a0a55880e0cdef8"/><section>
+    <title>iec_set_flag1</title>
+<indexterm><primary>iec_set_flag1</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_flag1</secondary></indexterm>
+<para><computeroutput>#define iec_set_flag1( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00423">423</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a431ddca4f28ff1f623e4b6395f2d8269_1a431ddca4f28ff1f623e4b6395f2d8269"/><section>
+    <title>iec_set_flag2</title>
+<indexterm><primary>iec_set_flag2</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_flag2</secondary></indexterm>
+<para><computeroutput>#define iec_set_flag2( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00424">424</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a91bca30f7d7f4052575279bea2aa3b13_1a91bca30f7d7f4052575279bea2aa3b13"/><section>
+    <title>iec_set_fromvoid</title>
+<indexterm><primary>iec_set_fromvoid</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_fromvoid</secondary></indexterm>
+<para><computeroutput>#define iec_set_fromvoid( data,  val)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00785">785</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aeab0e36a80771baaff7c6ffc420e4afb_1aeab0e36a80771baaff7c6ffc420e4afb"/><section>
+    <title>iec_set_initialized</title>
+<indexterm><primary>iec_set_initialized</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_initialized</secondary></indexterm>
+<para><computeroutput>#define iec_set_initialized( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00422">422</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aad2a628ec87fdb9b7f92a61041384561_1aad2a628ec87fdb9b7f92a61041384561"/><section>
+    <title>iec_set_maintain</title>
+<indexterm><primary>iec_set_maintain</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_maintain</secondary></indexterm>
+<para><computeroutput>#define iec_set_maintain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00420">420</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a39e5f492aab71db126d4ebb7acc6994e_1a39e5f492aab71db126d4ebb7acc6994e"/><section>
+    <title>iec_set_mark</title>
+<indexterm><primary>iec_set_mark</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_mark</secondary></indexterm>
+<para><computeroutput>#define iec_set_mark( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00417">417</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a7a6f9023818440b311078fbec0f87478_1a7a6f9023818440b311078fbec0f87478"/><section>
+    <title>iec_set_persist</title>
+<indexterm><primary>iec_set_persist</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_persist</secondary></indexterm>
+<para><computeroutput>#define iec_set_persist( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00418">418</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a34a44feb8775c2418a17ca21f2e6d624_1a34a44feb8775c2418a17ca21f2e6d624"/><section>
+    <title>iec_set_retain</title>
+<indexterm><primary>iec_set_retain</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_retain</secondary></indexterm>
+<para><computeroutput>#define iec_set_retain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00419">419</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a280ee23b6997f1215b3701bdf59a05ef_1a280ee23b6997f1215b3701bdf59a05ef"/><section>
+    <title>iec_set_value</title>
+<indexterm><primary>iec_set_value</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_value</secondary></indexterm>
+<para><computeroutput>#define iec_set_value( data,  val)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00645">645</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a4caaaaf06fce8e26f4d8a0780e0df47b_1a4caaaaf06fce8e26f4d8a0780e0df47b"/><section>
+    <title>iec_set_value_type</title>
+<indexterm><primary>iec_set_value_type</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_set_value_type</secondary></indexterm>
+<para><computeroutput>#define iec_set_value_type( data,  val,  type)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00715">715</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a95cc3bae0f599a87f61a7c2db2562f82_1a95cc3bae0f599a87f61a7c2db2562f82"/><section>
+    <title>iec_timer</title>
+<indexterm><primary>iec_timer</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_timer</secondary></indexterm>
+<para><computeroutput>#define iec_timer( v)&#160;&#160;&#160;((<link linkend="_a00089">t_timer_t</link>*)((v)-&gt;value))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00926">926</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ac03eeb9f30d7c3f1b7a1a6e60e0b28f2_1ac03eeb9f30d7c3f1b7a1a6e60e0b28f2"/><section>
+    <title>iec_type_allowed</title>
+<indexterm><primary>iec_type_allowed</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_type_allowed</secondary></indexterm>
+<para><computeroutput>#define iec_type_allowed( data,  A)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(data&#32;==&#32;NULL&#32;||&#32;!((data)-&gt;type&#32;==&#32;(A)))&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a152d6431633a3f323e4e77c9f9d0a201">IEC_NAT</link>
+</programlisting><para>
+
+<para>check for type allowed </para>
+</para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00883">883</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aff49998422e3c80780bbeee8ce05f8b4_1aff49998422e3c80780bbeee8ce05f8b4"/><section>
+    <title>iec_unset_constant</title>
+<indexterm><primary>iec_unset_constant</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_constant</secondary></indexterm>
+<para><computeroutput>#define iec_unset_constant( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00429">429</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a3fed00a37419b3ad620fe643e07af223_1a3fed00a37419b3ad620fe643e07af223"/><section>
+    <title>iec_unset_flag1</title>
+<indexterm><primary>iec_unset_flag1</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_flag1</secondary></indexterm>
+<para><computeroutput>#define iec_unset_flag1( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00431">431</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a927abea2f78562113717157af33637bb_1a927abea2f78562113717157af33637bb"/><section>
+    <title>iec_unset_flag2</title>
+<indexterm><primary>iec_unset_flag2</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_flag2</secondary></indexterm>
+<para><computeroutput>#define iec_unset_flag2( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00432">432</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a76f8cdcd47148fbd288e791ef47508e0_1a76f8cdcd47148fbd288e791ef47508e0"/><section>
+    <title>iec_unset_initialized</title>
+<indexterm><primary>iec_unset_initialized</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_initialized</secondary></indexterm>
+<para><computeroutput>#define iec_unset_initialized( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00430">430</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_afeab2f733fce0295292f7661b65f76e2_1afeab2f733fce0295292f7661b65f76e2"/><section>
+    <title>iec_unset_maintain</title>
+<indexterm><primary>iec_unset_maintain</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_maintain</secondary></indexterm>
+<para><computeroutput>#define iec_unset_maintain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00428">428</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ae7a6e9cad5a59e5009a4593d38ee4ed5_1ae7a6e9cad5a59e5009a4593d38ee4ed5"/><section>
+    <title>iec_unset_mark</title>
+<indexterm><primary>iec_unset_mark</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_mark</secondary></indexterm>
+<para><computeroutput>#define iec_unset_mark( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00425">425</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aaa11662020cb1c031b57c6636ac336ce_1aaa11662020cb1c031b57c6636ac336ce"/><section>
+    <title>iec_unset_persist</title>
+<indexterm><primary>iec_unset_persist</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_persist</secondary></indexterm>
+<para><computeroutput>#define iec_unset_persist( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00426">426</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a76f68b4dc9fb282f9e2c1940cb1ac1bf_1a76f68b4dc9fb282f9e2c1940cb1ac1bf"/><section>
+    <title>iec_unset_retain</title>
+<indexterm><primary>iec_unset_retain</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_retain</secondary></indexterm>
+<para><computeroutput>#define iec_unset_retain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00427">427</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a8385f751da038db4a00bb5c6c6839689_1a8385f751da038db4a00bb5c6c6839689"/><section>
+    <title>IS_TRUNCATED</title>
+<indexterm><primary>IS_TRUNCATED</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IS_TRUNCATED</secondary></indexterm>
+<para><computeroutput>#define IS_TRUNCATED( a,  b)&#160;&#160;&#160;            (a)-&gt;type &gt; (b)-&gt;type ? 0 : 1</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00449">449</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a49e3dfb8720b0700ffa4a4bba97db4b6_1a49e3dfb8720b0700ffa4a4bba97db4b6"/><section>
+    <title>LABEL</title>
+<indexterm><primary>LABEL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>LABEL</secondary></indexterm>
+<para><computeroutput>#define LABEL( base,  x)&#160;&#160;&#160;<link linkend="_a00038_a88fa737059e67b4b17ec980e5877361e_1a88fa737059e67b4b17ec980e5877361e">CONCAT</link>(base, x)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00331">331</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_aa35e0b1686f9406d90c634847016b1b9_1aa35e0b1686f9406d90c634847016b1b9"/><section>
+    <title>MAX_TYPE</title>
+<indexterm><primary>MAX_TYPE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>MAX_TYPE</secondary></indexterm>
+<para><computeroutput>#define MAX_TYPE( a,  b)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(a)-&gt;type&#32;&gt;&#32;(b)-&gt;type&#32;?&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(a)-&gt;type&#32;:&#32;(b)-&gt;type
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00440">440</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a71b24f02aee3af6c7fe030f106bd8689_1a71b24f02aee3af6c7fe030f106bd8689"/><section>
+    <title>maxuint_t</title>
+<indexterm><primary>maxuint_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>maxuint_t</secondary></indexterm>
+<para><computeroutput>#define maxuint_t&#160;&#160;&#160;uint64_t</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00625">625</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a8dcc35767a82d1f489180948eb947357_1a8dcc35767a82d1f489180948eb947357"/><section>
+    <title>SET_BIT</title>
+<indexterm><primary>SET_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>SET_BIT</secondary></indexterm>
+<para><computeroutput>#define SET_BIT( v,  b)&#160;&#160;&#160;((v) | (1 &lt;&lt; b))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00396">396</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c"/><section>
+    <title>SET_BIT_VB</title>
+<indexterm><primary>SET_BIT_VB</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>SET_BIT_VB</secondary></indexterm>
+<para><computeroutput>#define SET_BIT_VB( v,  b)&#160;&#160;&#160;((v) | b)</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00399">399</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a32a1e4fd73bda9579d3ac873ab1d76a3_1a32a1e4fd73bda9579d3ac873ab1d76a3"/><section>
+    <title>SFV_64</title>
+<indexterm><primary>SFV_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>SFV_64</secondary></indexterm>
+<para><computeroutput>#define SFV_64</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((uint64_t*)((data)-&gt;value))&#32;=&#32;*((uint64_t*)val);&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((int64_t*)((data)-&gt;value))&#32;=&#32;*((int64_t*)val);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value))&#32;=&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)val);&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00833">833</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ac740756f75e53153605d2702b30d2a9d_1ac740756f75e53153605d2702b30d2a9d"/><section>
+    <title>sign</title>
+<indexterm><primary>sign</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>sign</secondary></indexterm>
+<para><computeroutput>#define sign( x)&#160;&#160;&#160;(((x) &gt; 0) - ((x) &lt; 0))</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00332">332</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a29a9dcf1b11a993b6ccb79681cd4a3ab_1a29a9dcf1b11a993b6ccb79681cd4a3ab"/><section>
+    <title>STR_SEED_HASH</title>
+<indexterm><primary>STR_SEED_HASH</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>STR_SEED_HASH</secondary></indexterm>
+<para><computeroutput>#define STR_SEED_HASH&#160;&#160;&#160;0x12345</computeroutput></para><para>
+
+<para>seed for string hash </para>
+</para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00062">62</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_addf0c2f5c0970d5838c62aacb4f9e135_1addf0c2f5c0970d5838c62aacb4f9e135"/><section>
+    <title>SV_64</title>
+<indexterm><primary>SV_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>SV_64</secondary></indexterm>
+<para><computeroutput>#define SV_64( data,  val)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((uint64_t*)((data)-&gt;value))&#32;=&#32;val;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((int64_t*)((data)-&gt;value))&#32;=&#32;val;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value))&#32;=&#32;val;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00693">693</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a19f7dd3713f5057780a73fc07f5147b2_1a19f7dd3713f5057780a73fc07f5147b2"/><section>
+    <title>SVT_64</title>
+<indexterm><primary>SVT_64</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>SVT_64</secondary></indexterm>
+<para><computeroutput>#define SVT_64( data,  val)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((uint64_t*)(data))&#32;=&#32;val;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((int64_t*)(data))&#32;=&#32;val;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)(data))&#32;=&#32;val;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+</programlisting><para>
+Definition at line <link linkend="_a00038_source_1l00763">763</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_a00038_a8152db8302dcf67964a1739c8f3b856d_1a8152db8302dcf67964a1739c8f3b856d"/><section>
+    <title>dat_t</title>
+<indexterm><primary>dat_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>dat_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00069">dat_t</link></computeroutput></para></section>
+<anchor xml:id="_a00038_af7249f7c2ae5af6ab407266ca2b281af_1af7249f7c2ae5af6ab407266ca2b281af"/><section>
+    <title>date_t</title>
+<indexterm><primary>date_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>date_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00053">date_t</link></computeroutput></para></section>
+<anchor xml:id="_a00038_a334251968918d9eb57ad639861e2d7d1_1a334251968918d9eb57ad639861e2d7d1"/><section>
+    <title>iec_t</title>
+<indexterm><primary>iec_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iec_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00093">iec_t</link></computeroutput></para><para>
+
+<para>main data container </para>
+</para>
+</section>
+<anchor xml:id="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d"/><section>
+    <title>pointer_t</title>
+<indexterm><primary>pointer_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>pointer_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link></computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00203">203</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_ac96b9b7963de688026e9c2564b78754b_1ac96b9b7963de688026e9c2564b78754b"/><section>
+    <title>string_t</title>
+<indexterm><primary>string_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>string_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00081">string_t</link></computeroutput></para></section>
+<anchor xml:id="_a00038_a7a9b4ffad8d7d2ac5a456ff33a910732_1a7a9b4ffad8d7d2ac5a456ff33a910732"/><section>
+    <title>t_timer_t</title>
+<indexterm><primary>t_timer_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>t_timer_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00089">t_timer_t</link></computeroutput></para></section>
+<anchor xml:id="_a00038_ad014cadd0f79267725f9e6201bb866fa_1ad014cadd0f79267725f9e6201bb866fa"/><section>
+    <title>table_t</title>
+<indexterm><primary>table_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>table_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00085">table_t</link></computeroutput></para></section>
+<anchor xml:id="_a00038_a1d2f9b5e57d87a0b6e45d4a20180cc0e_1a1d2f9b5e57d87a0b6e45d4a20180cc0e"/><section>
+    <title>tod_t</title>
+<indexterm><primary>tod_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>tod_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00061">tod_t</link></computeroutput></para></section>
+<anchor xml:id="_a00038_a1c46502512cf02c5d1b808986ab43285_1a1c46502512cf02c5d1b808986ab43285"/><section>
+    <title>user_t</title>
+<indexterm><primary>user_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>user_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00077">user_t</link></computeroutput></para></section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3"/><section>
+    <title>IEC_ERRORS</title>
+<indexterm><primary>IEC_ERRORS</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_ERRORS</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3">IEC_ERRORS</link></computeroutput></para><para>
+
+<para>errors </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>IEC_OK</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_OK</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6"/>IEC_OK</entry><entry>
+<para>ok </para>
+</entry></row><row><entry><indexterm><primary>IEC_NAT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_NAT</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a152d6431633a3f323e4e77c9f9d0a201"/>IEC_NAT</entry><entry>
+<para>not allowed data type in operation </para>
+</entry></row><row><entry><indexterm><primary>IEC_TRN</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_TRN</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4d67c9a6b308feb8aadf8a5e293a3c69"/>IEC_TRN</entry><entry>
+<para>result function on variable are truncated </para>
+</entry></row><row><entry><indexterm><primary>IEC_OOR</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_OOR</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a967f2b2f61601a685a923106eac13bb8"/>IEC_OOR</entry><entry>
+<para>variable out of range (ex: string too long) </para>
+</entry></row><row><entry><indexterm><primary>IEC_TND</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_TND</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3ac2ae7980352cd48058f5aed112a99def"/>IEC_TND</entry><entry>
+<para>data type not defined </para>
+</entry></row><row><entry><indexterm><primary>IEC_NLL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_NLL</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a319f8699c145820f690c04d3848a4024"/>IEC_NLL</entry><entry>
+<para>parameter is NULL </para>
+</entry></row><row><entry><indexterm><primary>IEC_TRU</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_TRU</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a8add2412ad0381c87d24eacad65c8c0f"/>IEC_TRU</entry><entry>
+<para>result is true </para>
+</entry></row><row><entry><indexterm><primary>IEC_FLS</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_FLS</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a8cea5a5303f62bb37458c471c28c5125"/>IEC_FLS</entry><entry>
+<para>result is false </para>
+</entry></row><row><entry><indexterm><primary>IEC_ENL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_ENL</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3ac97135c72c3cbc9a6de0512a450b3586"/>IEC_ENL</entry><entry>
+<para>element not in list or search behind length </para>
+</entry></row><row><entry><indexterm><primary>IEC_ERR</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_ERR</secondary></indexterm>
+<anchor xml:id="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3ade92e52d321a9e9e2da01107d2b9c9d1"/>IEC_ERR</entry><entry>
+<para>generic error </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_a00038_source_1l00069">69</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6"/><section>
+    <title>iectype_t</title>
+<indexterm><primary>iectype_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>iectype_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6">iectype_t</link></computeroutput></para><para>
+
+<para>data types </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>IEC_T_NULL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_NULL</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390"/>IEC_T_NULL</entry><entry>
+<para>not value </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_BOOL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_BOOL</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb"/>IEC_T_BOOL</entry><entry>
+<para>bool </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_SINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_SINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34"/>IEC_T_SINT</entry><entry>
+<para>int8_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_USINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_USINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42"/>IEC_T_USINT</entry><entry>
+<para>uint8_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_BYTE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_BYTE</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7891f7060418e82cd30bb2b00942ed3d"/>IEC_T_BYTE</entry><entry>
+<para>uint8_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_INT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_INT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258"/>IEC_T_INT</entry><entry>
+<para>int16_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_UINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_UINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420"/>IEC_T_UINT</entry><entry>
+<para>uint16_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_WORD</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_WORD</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753"/>IEC_T_WORD</entry><entry>
+<para>uint16_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_DINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_DINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746"/>IEC_T_DINT</entry><entry>
+<para>int32_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_UDINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_UDINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d"/>IEC_T_UDINT</entry><entry>
+<para>uint32_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_DWORD</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_DWORD</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897"/>IEC_T_DWORD</entry><entry>
+<para>uint32_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_LINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_LINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c"/>IEC_T_LINT</entry><entry>
+<para>int64_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_ULINT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_ULINT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a"/>IEC_T_ULINT</entry><entry>
+<para>uint64_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_LWORD</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_LWORD</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd"/>IEC_T_LWORD</entry><entry>
+<para>int64_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_REAL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_REAL</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892"/>IEC_T_REAL</entry><entry>
+<para>float </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_LREAL</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_LREAL</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65"/>IEC_T_LREAL</entry><entry>
+<para>double </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_TIME</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_TIME</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6"/>IEC_T_TIME</entry><entry>
+<para>time_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_DATE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_DATE</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1f06b677deff1b576a3cb9dcf009f3d"/>IEC_T_DATE</entry><entry>
+<para><link linkend="_a00053">date_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_TOD</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_TOD</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6685aab912015f6b6af0d4aea4bfa806"/>IEC_T_TOD</entry><entry>
+<para><link linkend="_a00061">tod_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_DT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_DT</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a118cda11441f15d20c95966700497034"/>IEC_T_DT</entry><entry>
+<para><link linkend="_a00069">dat_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_CHAR</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_CHAR</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af7e15ca13203185dccdaa1f671b50b53"/>IEC_T_CHAR</entry><entry>
+<para>char </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_WCHAR</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_WCHAR</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a1cb729bae5ff8b6a8b1970c63bedc589"/>IEC_T_WCHAR</entry><entry>
+<para>wchar </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_STRING</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_STRING</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6add7ccd40477135d2b7eeffd7fd1b8112"/>IEC_T_STRING</entry><entry>
+<para><link linkend="_a00081">string_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_WSTRING</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_WSTRING</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a45825429c5561d8083241c75f36b97b7"/>IEC_T_WSTRING</entry><entry>
+<para><link linkend="_a00081">string_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_POINTER</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_POINTER</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea"/>IEC_T_POINTER</entry><entry>
+<para>pointer_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_TABLE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_TABLE</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aeeb1d6787f17f5a93711c4b1201b2ea1"/>IEC_T_TABLE</entry><entry>
+<para><link linkend="_a00085">table_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_USER</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_USER</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a248c98545af434498dcfcc5a1f6ba9f8"/>IEC_T_USER</entry><entry>
+<para><link linkend="_a00077">user_t</link> </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_R_EDGE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_R_EDGE</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5"/>IEC_T_R_EDGE</entry><entry>
+<para>bool </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_F_EDGE</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_F_EDGE</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a"/>IEC_T_F_EDGE</entry><entry>
+<para>bool </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_TIMER</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_TIMER</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a22ea6c2926b7862d32fbf913ae270843"/>IEC_T_TIMER</entry><entry>
+<para>timer_t </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_NDEF_1E</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_NDEF_1E</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6afea6d8e11d3275ecdbcdd18da8b7e959"/>IEC_T_NDEF_1E</entry><entry>
+<para>not defined </para>
+</entry></row><row><entry><indexterm><primary>IEC_T_NDEF_1F</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>IEC_T_NDEF_1F</secondary></indexterm>
+<anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6afccd43930be19f62da34da35ea4b6d63"/>IEC_T_NDEF_1F</entry><entry>
+<para>not defined </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_a00038_source_1l00088">88</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347"/><section>
+    <title>tt_t</title>
+<indexterm><primary>tt_t</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>tt_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347">tt_t</link></computeroutput></para><para>
+
+<para>status flags </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>TT_MARK</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_MARK</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40"/>TT_MARK</entry><entry>
+<para>for gc </para>
+</entry></row><row><entry><indexterm><primary>TT_PERSIST</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_PERSIST</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879"/>TT_PERSIST</entry><entry>
+<para>is persist </para>
+</entry></row><row><entry><indexterm><primary>TT_RETAIN</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_RETAIN</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd"/>TT_RETAIN</entry><entry>
+<para>is retain </para>
+</entry></row><row><entry><indexterm><primary>TT_MAINTAIN</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_MAINTAIN</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360"/>TT_MAINTAIN</entry><entry>
+<para>is persist local </para>
+</entry></row><row><entry><indexterm><primary>TT_CONSTANT</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_CONSTANT</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4"/>TT_CONSTANT</entry><entry>
+<para>is constant </para>
+</entry></row><row><entry><indexterm><primary>TT_INITILZD</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_INITILZD</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf"/>TT_INITILZD</entry><entry>
+<para>value initialized </para>
+</entry></row><row><entry><indexterm><primary>TT_FLAG1</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_FLAG1</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4"/>TT_FLAG1</entry><entry>
+<para>generic flag </para>
+</entry></row><row><entry><indexterm><primary>TT_FLAG2</primary><secondary>iec61131lib.h</secondary></indexterm>
+<indexterm><primary>iec61131lib.h</primary><secondary>TT_FLAG2</secondary></indexterm>
+<anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68"/>TT_FLAG2</entry><entry>
+<para>generic flag </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_a00038_source_1l00142">142</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00069" xml:lang="en-US">
+<title>dat_t Union Reference</title>
+<indexterm><primary>dat_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;iec61131lib.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct {</para>
+        <itemizedlist>
+            <listitem><para>&#160;&#160;&#160;<link linkend="_a00061">tod_t</link> <link linkend="_a00069_a2c9fe3abacdbb6f2669d9992efd97622_1a2c9fe3abacdbb6f2669d9992efd97622">tod</link></para>
+</listitem>
+            <listitem><para>&#160;&#160;&#160;<link linkend="_a00053">date_t</link> <link linkend="_a00069_afde06411957b2605d7680270bfbaf259_1afde06411957b2605d7680270bfbaf259">date</link></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>} <link linkend="_a00069_a5c8e6114f59f7f40b19e9caad83206ef_1a5c8e6114f59f7f40b19e9caad83206ef">v</link></para>
+</listitem>
+            <listitem><para>uint64_t <link linkend="_a00069_ae5936b692084c821a5532a88298dca65_1ae5936b692084c821a5532a88298dca65">dw_dat</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_a00038_source_1l00188">188</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_a00069_afde06411957b2605d7680270bfbaf259_1afde06411957b2605d7680270bfbaf259"/><section>
+    <title>date</title>
+<indexterm><primary>date</primary><secondary>dat_t</secondary></indexterm>
+<indexterm><primary>dat_t</primary><secondary>date</secondary></indexterm>
+<para><computeroutput><link linkend="_a00053">date_t</link> date</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00191">191</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00069_ae5936b692084c821a5532a88298dca65_1ae5936b692084c821a5532a88298dca65"/><section>
+    <title>dw_dat</title>
+<indexterm><primary>dw_dat</primary><secondary>dat_t</secondary></indexterm>
+<indexterm><primary>dat_t</primary><secondary>dw_dat</secondary></indexterm>
+<para><computeroutput>uint64_t dw_dat</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00193">193</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00069_a2c9fe3abacdbb6f2669d9992efd97622_1a2c9fe3abacdbb6f2669d9992efd97622"/><section>
+    <title>tod</title>
+<indexterm><primary>tod</primary><secondary>dat_t</secondary></indexterm>
+<indexterm><primary>dat_t</primary><secondary>tod</secondary></indexterm>
+<para><computeroutput><link linkend="_a00061">tod_t</link> tod</computeroutput></para><para>
+Definition at line <link linkend="_a00038_source_1l00190">190</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00069_a5c8e6114f59f7f40b19e9caad83206ef_1a5c8e6114f59f7f40b19e9caad83206ef"/><section>
+    <title></title>
+<indexterm><primary>v</primary><secondary>dat_t</secondary></indexterm>
+<indexterm><primary>dat_t</primary><secondary>v</secondary></indexterm>
+<para><computeroutput>struct  { ... }  v</computeroutput></para>
+<para>elements </para>
+</section>
+<para>
+The documentation for this union was generated from the following file:</para>
+<link linkend="_a00038">iec61131lib.h</link></section>
+</section>

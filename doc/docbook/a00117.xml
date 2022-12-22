@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00117" xml:lang="en-US">
+<title>stack_t Struct Reference</title>
+<indexterm><primary>stack_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;util_stack.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_a00113">stack_node_t</link> * <link linkend="_a00117_a48a8ea69c7f38da68a61ab06b7304c90_1a48a8ea69c7f38da68a61ab06b7304c90">top</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_a00117_a9f59b34b1f25fe00023291b678246bcc_1a9f59b34b1f25fe00023291b678246bcc">length</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_a00011_source_1l00022">22</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_a00117_a9f59b34b1f25fe00023291b678246bcc_1a9f59b34b1f25fe00023291b678246bcc"/><section>
+    <title>length</title>
+<indexterm><primary>length</primary><secondary>stack_t</secondary></indexterm>
+<indexterm><primary>stack_t</primary><secondary>length</secondary></indexterm>
+<para><computeroutput>int length</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00024">24</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00117_a48a8ea69c7f38da68a61ab06b7304c90_1a48a8ea69c7f38da68a61ab06b7304c90"/><section>
+    <title>top</title>
+<indexterm><primary>top</primary><secondary>stack_t</secondary></indexterm>
+<indexterm><primary>stack_t</primary><secondary>top</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_a00113">stack_node_t</link>* top</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00023">23</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_a00011">util_stack.h</link></section>
+</section>

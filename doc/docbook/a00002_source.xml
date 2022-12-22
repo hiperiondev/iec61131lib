@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00002_source" xml:lang="en-US">
+<title>iec_selection.h</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_a00002_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_a00002_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;@file&#32;iec_selection.h</emphasis>
+<anchor xml:id="_a00002_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;@brief&#32;main&#32;header</emphasis>
+<anchor xml:id="_a00002_source_1l00004"/>00004 <emphasis role="comment">&#32;*&#32;@copyright&#32;2022&#32;Emiliano&#32;Augusto&#32;Gonzalez&#32;(hiperiondev).&#32;This&#32;project&#32;is&#32;released&#32;under&#32;MIT&#32;licence</emphasis>
+<anchor xml:id="_a00002_source_1l00005"/>00005 <emphasis role="comment">&#32;*&#32;Contact:&#32;egonzalez.hiperion@gmail.com</emphasis>
+<anchor xml:id="_a00002_source_1l00006"/>00006 <emphasis role="comment">&#32;*&#32;@see&#32;https://github.com/hiperiondev/iec61131lib</emphasis>
+<anchor xml:id="_a00002_source_1l00007"/>00007 <emphasis role="comment">&#32;*&#32;Project&#32;Site:&#32;https://github.com/hiperiondev/iec61131lib</emphasis>
+<anchor xml:id="_a00002_source_1l00008"/>00008 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00009"/>00009 <emphasis role="comment">&#32;*&#32;This&#32;is&#32;based&#32;on&#32;other&#32;projects:</emphasis>
+<anchor xml:id="_a00002_source_1l00010"/>00010 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00011"/>00011 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;Others&#32;(see&#32;individual&#32;files)</emphasis>
+<anchor xml:id="_a00002_source_1l00012"/>00012 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00013"/>00013 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;please&#32;contact&#32;their&#32;authors&#32;for&#32;more&#32;information.</emphasis>
+<anchor xml:id="_a00002_source_1l00014"/>00014 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00015"/>00015 <emphasis role="comment">&#32;*&#32;The&#32;MIT&#32;License&#32;(MIT)</emphasis>
+<anchor xml:id="_a00002_source_1l00016"/>00016 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00017"/>00017 <emphasis role="comment">&#32;*&#32;Permission&#32;is&#32;hereby&#32;granted,&#32;free&#32;of&#32;charge,&#32;to&#32;any&#32;person&#32;obtaining</emphasis>
+<anchor xml:id="_a00002_source_1l00018"/>00018 <emphasis role="comment">&#32;*&#32;a&#32;copy&#32;of&#32;this&#32;software&#32;and&#32;associated&#32;documentation&#32;files&#32;(the</emphasis>
+<anchor xml:id="_a00002_source_1l00019"/>00019 <emphasis role="comment">&#32;*&#32;&quot;Software&quot;),&#32;to&#32;deal&#32;in&#32;the&#32;Software&#32;without&#32;restriction,&#32;including</emphasis>
+<anchor xml:id="_a00002_source_1l00020"/>00020 <emphasis role="comment">&#32;*&#32;without&#32;limitation&#32;the&#32;rights&#32;to&#32;use,&#32;copy,&#32;modify,&#32;merge,&#32;publish,</emphasis>
+<anchor xml:id="_a00002_source_1l00021"/>00021 <emphasis role="comment">&#32;*&#32;distribute,&#32;sublicense,&#32;and/or&#32;sell&#32;copies&#32;of&#32;the&#32;Software,&#32;and&#32;to</emphasis>
+<anchor xml:id="_a00002_source_1l00022"/>00022 <emphasis role="comment">&#32;*&#32;permit&#32;persons&#32;to&#32;whom&#32;the&#32;Software&#32;is&#32;furnished&#32;to&#32;do&#32;so,&#32;subject&#32;to</emphasis>
+<anchor xml:id="_a00002_source_1l00023"/>00023 <emphasis role="comment">&#32;*&#32;the&#32;following&#32;conditions:</emphasis>
+<anchor xml:id="_a00002_source_1l00024"/>00024 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00025"/>00025 <emphasis role="comment">&#32;*&#32;The&#32;above&#32;copyright&#32;notice&#32;and&#32;this&#32;permission&#32;notice&#32;shall&#32;be</emphasis>
+<anchor xml:id="_a00002_source_1l00026"/>00026 <emphasis role="comment">&#32;*&#32;included&#32;in&#32;all&#32;copies&#32;or&#32;substantial&#32;portions&#32;of&#32;the&#32;Software.</emphasis>
+<anchor xml:id="_a00002_source_1l00027"/>00027 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00028"/>00028 <emphasis role="comment">&#32;*&#32;THE&#32;SOFTWARE&#32;IS&#32;PROVIDED&#32;&quot;AS&#32;IS&quot;,&#32;WITHOUT&#32;WARRANTY&#32;OF&#32;ANY&#32;KIND,</emphasis>
+<anchor xml:id="_a00002_source_1l00029"/>00029 <emphasis role="comment">&#32;*&#32;EXPRESS&#32;OR&#32;IMPLIED,&#32;INCLUDING&#32;BUT&#32;NOT&#32;LIMITED&#32;TO&#32;THE&#32;WARRANTIES&#32;OF</emphasis>
+<anchor xml:id="_a00002_source_1l00030"/>00030 <emphasis role="comment">&#32;*&#32;MERCHANTABILITY,&#32;FITNESS&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE&#32;AND</emphasis>
+<anchor xml:id="_a00002_source_1l00031"/>00031 <emphasis role="comment">&#32;*&#32;NONINFRINGEMENT.&#32;IN&#32;NO&#32;EVENT&#32;SHALL&#32;THE&#32;AUTHORS&#32;OR&#32;COPYRIGHT&#32;HOLDERS&#32;BE</emphasis>
+<anchor xml:id="_a00002_source_1l00032"/>00032 <emphasis role="comment">&#32;*&#32;LIABLE&#32;FOR&#32;ANY&#32;CLAIM,&#32;DAMAGES&#32;OR&#32;OTHER&#32;LIABILITY,&#32;WHETHER&#32;IN&#32;AN&#32;ACTION</emphasis>
+<anchor xml:id="_a00002_source_1l00033"/>00033 <emphasis role="comment">&#32;*&#32;OF&#32;CONTRACT,&#32;TORT&#32;OR&#32;OTHERWISE,&#32;ARISING&#32;FROM,&#32;OUT&#32;OF&#32;OR&#32;IN&#32;CONNECTION</emphasis>
+<anchor xml:id="_a00002_source_1l00034"/>00034 <emphasis role="comment">&#32;*&#32;WITH&#32;THE&#32;SOFTWARE&#32;OR&#32;THE&#32;USE&#32;OR&#32;OTHER&#32;DEALINGS&#32;IN&#32;THE&#32;SOFTWARE.</emphasis>
+<anchor xml:id="_a00002_source_1l00035"/>00035 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00036"/>00036 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_a00002_source_1l00037"/>00037 
+<anchor xml:id="_a00002_source_1l00038"/>00038 <emphasis role="preprocessor">#ifndef&#32;IEC_SELECTION_H_</emphasis>
+<anchor xml:id="_a00002_source_1l00039"/>00039 <emphasis role="preprocessor">#define&#32;IEC_SELECTION_H_</emphasis>
+<anchor xml:id="_a00002_source_1l00040"/>00040 
+<anchor xml:id="_a00002_source_1l00041"/>00041 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_a00011">util_stack.h</link>&quot;</emphasis>
+<anchor xml:id="_a00002_source_1l00042"/>00042 
+<anchor xml:id="_a00002_source_1l00043"/>00043 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_a00002_source_1l00044"/>00044 <emphasis role="comment">&#32;*&#32;Summary:</emphasis>
+<anchor xml:id="_a00002_source_1l00045"/>00045 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_a00002_source_1l00046"/>00046 <emphasis role="comment">&#32;*&#32;&#32;Function&#32;&#32;&#32;&#32;&#32;&#32;Parameter&#32;Type&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Parameters&#32;&#32;&#32;Description</emphasis>
+<anchor xml:id="_a00002_source_1l00047"/>00047 <emphasis role="comment">&#32;*&#32;MOVE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ANY&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Assign&#32;one&#32;value&#32;to&#32;another.</emphasis>
+<anchor xml:id="_a00002_source_1l00048"/>00048 <emphasis role="comment">&#32;*&#32;SEL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1:BOOL;2,3:ANY&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;3&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Returns&#32;one&#32;of&#32;two&#32;values&#32;depending&#32;on&#32;a&#32;BOOL&#32;value.</emphasis>
+<anchor xml:id="_a00002_source_1l00049"/>00049 <emphasis role="comment">&#32;*&#32;MAX&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ANY_NUM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1-n&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Returns&#32;the&#32;highest&#32;value&#32;input.</emphasis>
+<anchor xml:id="_a00002_source_1l00050"/>00050 <emphasis role="comment">&#32;*&#32;MIN&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ANY_NUM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1-n&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Returns&#32;the&#32;lowest&#32;value&#32;input.</emphasis>
+<anchor xml:id="_a00002_source_1l00051"/>00051 <emphasis role="comment">&#32;*&#32;LIMIT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ANY_NUM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;3&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Returns&#32;a&#32;value&#32;limited&#32;to&#32;a&#32;maximum&#32;or&#32;minimum.</emphasis>
+<anchor xml:id="_a00002_source_1l00052"/>00052 <emphasis role="comment">&#32;*&#32;MUX&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1:ANY_INT,&#32;2-n:ANY&#32;&#32;&#32;&#32;&#32;&#32;2-n&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Return&#32;one&#32;of&#32;N&#32;values&#32;depending&#32;on&#32;an&#32;integer&#32;selector&#32;value.</emphasis>
+<anchor xml:id="_a00002_source_1l00053"/>00053 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_a00002_source_1l00054"/>00054 
+<anchor xml:id="_a00002_source_1l00063"/><link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">00063</link> <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(<link linkend="_a00093">iec_t</link>&#32;*to,&#32;<link linkend="_a00093">iec_t</link>&#32;from)&#32;{
+<anchor xml:id="_a00002_source_1l00064"/>00064 &#32;&#32;&#32;&#32;iec_deinit(to);
+<anchor xml:id="_a00002_source_1l00065"/>00065 &#32;&#32;&#32;&#32;(*to)&#32;=&#32;<link linkend="_a00038_a2f39418f5659e106f059e62ec2474fad_1a2f39418f5659e106f059e62ec2474fad">IEC_ALLOC</link>;
+<anchor xml:id="_a00002_source_1l00066"/>00066 &#32;&#32;&#32;&#32;iec_init(to,&#32;from-&gt;<link linkend="_a00093_afc318e26f4822171d8741b84a05a4c43_1afc318e26f4822171d8741b84a05a4c43">type</link>);
+<anchor xml:id="_a00002_source_1l00067"/>00067 
+<anchor xml:id="_a00002_source_1l00068"/>00068 &#32;&#32;&#32;&#32;(*to)-&gt;tt&#32;=&#32;from-&gt;<link linkend="_a00093_a5011cfe1e1ddccee588709578f1b81a8_1a5011cfe1e1ddccee588709578f1b81a8">tt</link>;
+<anchor xml:id="_a00002_source_1l00069"/>00069 &#32;&#32;&#32;&#32;(*to)-&gt;any_type&#32;=&#32;from-&gt;<link linkend="_a00093_a6d5d8c5413f9ee85c714cf40a86eadb3_1a6d5d8c5413f9ee85c714cf40a86eadb3">any_type</link>;
+<anchor xml:id="_a00002_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<link linkend="_a00038_a280ee23b6997f1215b3701bdf59a05ef_1a280ee23b6997f1215b3701bdf59a05ef">iec_set_value</link>((*to),&#32;<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(from));
+<anchor xml:id="_a00002_source_1l00071"/>00071 
+<anchor xml:id="_a00002_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00073"/>00073 }
+<anchor xml:id="_a00002_source_1l00074"/>00074 
+<anchor xml:id="_a00002_source_1l00085"/><link linkend="_a00002_a73403d24c8a734a5449020c343934bba_1a73403d24c8a734a5449020c343934bba">00085</link> <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#32;<link linkend="_a00002_a73403d24c8a734a5449020c343934bba_1a73403d24c8a734a5449020c343934bba">iec_sel</link>(<link linkend="_a00093">iec_t</link>&#32;*result,&#32;<link linkend="_a00093">iec_t</link>&#32;v1,&#32;<link linkend="_a00093">iec_t</link>&#32;v2,&#32;<link linkend="_a00093">iec_t</link>&#32;v3)&#32;{
+<anchor xml:id="_a00002_source_1l00086"/>00086 &#32;&#32;&#32;&#32;<link linkend="_a00038_ac03eeb9f30d7c3f1b7a1a6e60e0b28f2_1ac03eeb9f30d7c3f1b7a1a6e60e0b28f2">iec_type_allowed</link>(v1,&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link>);
+<anchor xml:id="_a00002_source_1l00087"/>00087 
+<anchor xml:id="_a00002_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(v1))
+<anchor xml:id="_a00002_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;v3);
+<anchor xml:id="_a00002_source_1l00090"/>00090 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_a00002_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;v2);
+<anchor xml:id="_a00002_source_1l00092"/>00092 
+<anchor xml:id="_a00002_source_1l00093"/>00093 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00094"/>00094 }
+<anchor xml:id="_a00002_source_1l00095"/>00095 
+<anchor xml:id="_a00002_source_1l00104"/><link linkend="_a00002_adbda53c337f891ab831aff3e23a98ad6_1adbda53c337f891ab831aff3e23a98ad6">00104</link> <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#32;<link linkend="_a00002_adbda53c337f891ab831aff3e23a98ad6_1adbda53c337f891ab831aff3e23a98ad6">iec_max</link>(<link linkend="_a00093">iec_t</link>&#32;*result,&#32;<link linkend="_a00117">stack_t</link>&#32;*list)&#32;{
+<anchor xml:id="_a00002_source_1l00105"/>00105 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(*result&#32;==&#32;NULL&#32;||&#32;*list&#32;==&#32;NULL)
+<anchor xml:id="_a00002_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a319f8699c145820f690c04d3848a4024">IEC_NLL</link>;
+<anchor xml:id="_a00002_source_1l00107"/>00107 
+<anchor xml:id="_a00002_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<link linkend="_a00093">iec_t</link>&#32;tmp&#32;=&#32;<link linkend="_a00038_a2f39418f5659e106f059e62ec2474fad_1a2f39418f5659e106f059e62ec2474fad">IEC_ALLOC</link>;
+<anchor xml:id="_a00002_source_1l00109"/>00109 &#32;&#32;&#32;&#32;iec_init(&amp;tmp,&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390">IEC_T_NULL</link>);
+<anchor xml:id="_a00002_source_1l00110"/>00110 &#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;(<link linkend="_a00093">iec_t</link>)&#32;<link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link>(*list));
+<anchor xml:id="_a00002_source_1l00111"/>00111 &#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(*result,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00112"/>00112 
+<anchor xml:id="_a00002_source_1l00113"/>00113 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_a00011_a4d77f1f7bc09c81a4fedd03b425c1575_1a4d77f1f7bc09c81a4fedd03b425c1575">stack_empty</link>(*list))&#32;{
+<anchor xml:id="_a00002_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(&amp;tmp,&#32;(<link linkend="_a00093">iec_t</link>)&#32;<link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link>(*list));
+<anchor xml:id="_a00002_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(tmp,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(*result))&#32;&lt;&#32;(<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(tmp)))&#32;{
+<anchor xml:id="_a00002_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;tmp);
+<anchor xml:id="_a00002_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_a00002_source_1l00119"/>00119 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_a00002_source_1l00120"/>00120 
+<anchor xml:id="_a00002_source_1l00121"/>00121 &#32;&#32;&#32;&#32;iec_deinit(&amp;tmp);
+<anchor xml:id="_a00002_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00123"/>00123 }
+<anchor xml:id="_a00002_source_1l00124"/>00124 
+<anchor xml:id="_a00002_source_1l00133"/><link linkend="_a00002_a3f32143aac2c647ddff00179bd779ad1_1a3f32143aac2c647ddff00179bd779ad1">00133</link> <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#32;<link linkend="_a00002_a3f32143aac2c647ddff00179bd779ad1_1a3f32143aac2c647ddff00179bd779ad1">iec_min</link>(<link linkend="_a00093">iec_t</link>&#32;*result,&#32;<link linkend="_a00117">stack_t</link>&#32;*list)&#32;{
+<anchor xml:id="_a00002_source_1l00134"/>00134 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(*result&#32;==&#32;NULL&#32;||&#32;list&#32;==&#32;NULL)
+<anchor xml:id="_a00002_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a319f8699c145820f690c04d3848a4024">IEC_NLL</link>;
+<anchor xml:id="_a00002_source_1l00136"/>00136 
+<anchor xml:id="_a00002_source_1l00137"/>00137 &#32;&#32;&#32;&#32;<link linkend="_a00093">iec_t</link>&#32;tmp&#32;=&#32;<link linkend="_a00038_a2f39418f5659e106f059e62ec2474fad_1a2f39418f5659e106f059e62ec2474fad">IEC_ALLOC</link>;
+<anchor xml:id="_a00002_source_1l00138"/>00138 &#32;&#32;&#32;&#32;iec_init(&amp;tmp,&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390">IEC_T_NULL</link>);
+<anchor xml:id="_a00002_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;(<link linkend="_a00093">iec_t</link>)&#32;<link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link>(*list));
+<anchor xml:id="_a00002_source_1l00140"/>00140 &#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(tmp,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00141"/>00141 
+<anchor xml:id="_a00002_source_1l00142"/>00142 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_a00011_a4d77f1f7bc09c81a4fedd03b425c1575_1a4d77f1f7bc09c81a4fedd03b425c1575">stack_empty</link>(*list))&#32;{
+<anchor xml:id="_a00002_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(&amp;tmp,&#32;(<link linkend="_a00093">iec_t</link>)&#32;<link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link>(*list));
+<anchor xml:id="_a00002_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(*result,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(*result))&#32;&gt;&#32;(<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(tmp)))&#32;{
+<anchor xml:id="_a00002_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;tmp);
+<anchor xml:id="_a00002_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_a00002_source_1l00148"/>00148 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_a00002_source_1l00149"/>00149 
+<anchor xml:id="_a00002_source_1l00150"/>00150 &#32;&#32;&#32;&#32;iec_deinit(&amp;tmp);
+<anchor xml:id="_a00002_source_1l00151"/>00151 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00152"/>00152 }
+<anchor xml:id="_a00002_source_1l00153"/>00153 
+<anchor xml:id="_a00002_source_1l00164"/><link linkend="_a00002_aad21345d6ddc4d7be281a67b6c6c65cb_1aad21345d6ddc4d7be281a67b6c6c65cb">00164</link> <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#32;<link linkend="_a00002_aad21345d6ddc4d7be281a67b6c6c65cb_1aad21345d6ddc4d7be281a67b6c6c65cb">iec_limit</link>(<link linkend="_a00093">iec_t</link>&#32;*result,&#32;<link linkend="_a00093">iec_t</link>&#32;v,&#32;<link linkend="_a00093">iec_t</link>&#32;min,&#32;<link linkend="_a00093">iec_t</link>&#32;max)&#32;{
+<anchor xml:id="_a00002_source_1l00165"/>00165 &#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(v,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00166"/>00166 &#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(min,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00167"/>00167 &#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(max,&#32;<link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00168"/>00168 
+<anchor xml:id="_a00002_source_1l00169"/>00169 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(v))&#32;&lt;&#32;(<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(min)))
+<anchor xml:id="_a00002_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;min);
+<anchor xml:id="_a00002_source_1l00171"/>00171 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(v))&#32;&gt;&#32;(<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(max)))
+<anchor xml:id="_a00002_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;max);
+<anchor xml:id="_a00002_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_a00002_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;v);
+<anchor xml:id="_a00002_source_1l00175"/>00175 
+<anchor xml:id="_a00002_source_1l00176"/>00176 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00177"/>00177 }
+<anchor xml:id="_a00002_source_1l00178"/>00178 
+<anchor xml:id="_a00002_source_1l00188"/><link linkend="_a00002_aff6c6b6456617e72672aa744a2503349_1aff6c6b6456617e72672aa744a2503349">00188</link> <link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link>&#32;<link linkend="_a00002_aff6c6b6456617e72672aa744a2503349_1aff6c6b6456617e72672aa744a2503349">iec_mux</link>(<link linkend="_a00093">iec_t</link>&#32;*result,&#32;<link linkend="_a00093">iec_t</link>&#32;v1,&#32;<link linkend="_a00117">stack_t</link>&#32;*list)&#32;{
+<anchor xml:id="_a00002_source_1l00189"/>00189 &#32;&#32;&#32;&#32;<link linkend="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec">iec_anytype_allowed</link>(v1,&#32;<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>,,,,,);
+<anchor xml:id="_a00002_source_1l00190"/>00190 
+<anchor xml:id="_a00002_source_1l00191"/>00191 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(v1)&#32;&lt;=&#32;0)&#32;{
+<anchor xml:id="_a00002_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;(<link linkend="_a00093">iec_t</link>)&#32;<link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link>(*list));
+<anchor xml:id="_a00002_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00011_a42359043c6700c6c6362ec63a599156f_1a42359043c6700c6c6362ec63a599156f">stack_flush</link>(*list);
+<anchor xml:id="_a00002_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00195"/>00195 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_a00002_source_1l00196"/>00196 
+<anchor xml:id="_a00002_source_1l00197"/>00197 &#32;&#32;&#32;&#32;<link linkend="_a00038_a71b24f02aee3af6c7fe030f106bd8689_1a71b24f02aee3af6c7fe030f106bd8689">maxuint_t</link>&#32;cnt&#32;=&#32;<link linkend="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a">iec_get_value</link>(v1);
+<anchor xml:id="_a00002_source_1l00198"/>00198 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_a00011_a4d77f1f7bc09c81a4fedd03b425c1575_1a4d77f1f7bc09c81a4fedd03b425c1575">stack_empty</link>(*list))&#32;{
+<anchor xml:id="_a00002_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(cnt--&#32;==&#32;0)
+<anchor xml:id="_a00002_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_a00002_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link>(result,&#32;(<link linkend="_a00093">iec_t</link>)&#32;<link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link>(*list));
+<anchor xml:id="_a00002_source_1l00202"/>00202 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_a00002_source_1l00203"/>00203 
+<anchor xml:id="_a00002_source_1l00204"/>00204 &#32;&#32;&#32;&#32;<link linkend="_a00011_a42359043c6700c6c6362ec63a599156f_1a42359043c6700c6c6362ec63a599156f">stack_flush</link>(*list);
+<anchor xml:id="_a00002_source_1l00205"/>00205 
+<anchor xml:id="_a00002_source_1l00206"/>00206 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_a00038_a966366923b7d3617bae16390caa8fde3_1a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6">IEC_OK</link>;
+<anchor xml:id="_a00002_source_1l00207"/>00207 }
+<anchor xml:id="_a00002_source_1l00208"/>00208 
+<anchor xml:id="_a00002_source_1l00209"/>00209 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;IEC_SELECTION_H_&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>

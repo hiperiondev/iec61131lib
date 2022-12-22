@@ -1,0 +1,161 @@
+\hypertarget{a00002_source}{}\doxysection{iec\+\_\+selection.\+h}
+\mbox{\hyperlink{a00002}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00002}00002 \textcolor{comment}{ * @file iec\_selection.h}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00003}00003 \textcolor{comment}{ * @brief main header}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00004}00004 \textcolor{comment}{ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00005}00005 \textcolor{comment}{ * Contact: egonzalez.hiperion@gmail.com}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00006}00006 \textcolor{comment}{ * @see https://github.com/hiperiondev/iec61131lib}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00007}00007 \textcolor{comment}{ * Project Site: https://github.com/hiperiondev/iec61131lib}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00008}00008 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00009}00009 \textcolor{comment}{ * This is based on other projects:}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00011}00011 \textcolor{comment}{ *    Others (see individual files)}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00012}00012 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00013}00013 \textcolor{comment}{ *    please contact their authors for more information.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00015}00015 \textcolor{comment}{ * The MIT License (MIT)}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00016}00016 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00017}00017 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00018}00018 \textcolor{comment}{ * a copy of this software and associated documentation files (the}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00019}00019 \textcolor{comment}{ * "{}Software"{}), to deal in the Software without restriction, including}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00020}00020 \textcolor{comment}{ * without limitation the rights to use, copy, modify, merge, publish,}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00021}00021 \textcolor{comment}{ * distribute, sublicense, and/or sell copies of the Software, and to}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00022}00022 \textcolor{comment}{ * permit persons to whom the Software is furnished to do so, subject to}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00023}00023 \textcolor{comment}{ * the following conditions:}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00024}00024 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00025}00025 \textcolor{comment}{ * The above copyright notice and this permission notice shall be}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00026}00026 \textcolor{comment}{ * included in all copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00027}00027 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00028}00028 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND,}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00029}00029 \textcolor{comment}{ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00030}00030 \textcolor{comment}{ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00031}00031 \textcolor{comment}{ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00032}00032 \textcolor{comment}{ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00033}00033 \textcolor{comment}{ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00034}00034 \textcolor{comment}{ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00035}00035 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00036}00036 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00038}00038 \textcolor{preprocessor}{\#ifndef IEC\_SELECTION\_H\_}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00039}00039 \textcolor{preprocessor}{\#define IEC\_SELECTION\_H\_}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00041}00041 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{a00011}{util\_stack.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00043}00043 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00044}00044 \textcolor{comment}{ * Summary:}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00045}00045 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00046}00046 \textcolor{comment}{ *  Function      Parameter Type          Parameters   Description}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00047}00047 \textcolor{comment}{ * MOVE           ANY                     1            Assign one value to another.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00048}00048 \textcolor{comment}{ * SEL            1:BOOL;2,3:ANY          3            Returns one of two values depending on a BOOL value.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00049}00049 \textcolor{comment}{ * MAX            ANY\_NUM                 1-\/n          Returns the highest value input.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00050}00050 \textcolor{comment}{ * MIN            ANY\_NUM                 1-\/n          Returns the lowest value input.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00051}00051 \textcolor{comment}{ * LIMIT          ANY\_NUM                 3            Returns a value limited to a maximum or minimum.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00052}00052 \textcolor{comment}{ * MUX            1:ANY\_INT, 2-\/n:ANY      2-\/n          Return one of N values depending on an integer selector value.}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00053}00053 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00063}\mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{00063}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(\mbox{\hyperlink{a00093}{iec\_t}} *to, \mbox{\hyperlink{a00093}{iec\_t}} from) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00064}00064     iec\_deinit(to);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00065}00065     (*to) = \mbox{\hyperlink{a00038_a2f39418f5659e106f059e62ec2474fad_a2f39418f5659e106f059e62ec2474fad}{IEC\_ALLOC}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00066}00066     iec\_init(to, from-\/>\mbox{\hyperlink{a00093_afc318e26f4822171d8741b84a05a4c43_afc318e26f4822171d8741b84a05a4c43}{type}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00068}00068     (*to)-\/>tt = from-\/>\mbox{\hyperlink{a00093_a5011cfe1e1ddccee588709578f1b81a8_a5011cfe1e1ddccee588709578f1b81a8}{tt}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00069}00069     (*to)-\/>any\_type = from-\/>\mbox{\hyperlink{a00093_a6d5d8c5413f9ee85c714cf40a86eadb3_a6d5d8c5413f9ee85c714cf40a86eadb3}{any\_type}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00070}00070     \mbox{\hyperlink{a00038_a280ee23b6997f1215b3701bdf59a05ef_a280ee23b6997f1215b3701bdf59a05ef}{iec\_set\_value}}((*to), \mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(from));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00072}00072     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00073}00073 \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00085}\mbox{\hyperlink{a00002_a73403d24c8a734a5449020c343934bba_a73403d24c8a734a5449020c343934bba}{00085}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00002_a73403d24c8a734a5449020c343934bba_a73403d24c8a734a5449020c343934bba}{iec\_sel}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2, \mbox{\hyperlink{a00093}{iec\_t}} v3) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00086}00086     \mbox{\hyperlink{a00038_ac03eeb9f30d7c3f1b7a1a6e60e0b28f2_ac03eeb9f30d7c3f1b7a1a6e60e0b28f2}{iec\_type\_allowed}}(v1, \mbox{\hyperlink{a00038_a830418bec524aa2fefd465c946a4f6e6_a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb}{IEC\_T\_BOOL}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00088}00088     \textcolor{keywordflow}{if} (\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(v1))}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00089}00089         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, v3);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00090}00090     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00091}00091         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, v2);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00093}00093     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00104}\mbox{\hyperlink{a00002_adbda53c337f891ab831aff3e23a98ad6_adbda53c337f891ab831aff3e23a98ad6}{00104}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00002_adbda53c337f891ab831aff3e23a98ad6_adbda53c337f891ab831aff3e23a98ad6}{iec\_max}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00117}{stack\_t}} *list) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00105}00105     \textcolor{keywordflow}{if} (*result == NULL || *list == NULL)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00106}00106         \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a319f8699c145820f690c04d3848a4024}{IEC\_NLL}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00108}00108     \mbox{\hyperlink{a00093}{iec\_t}} tmp = \mbox{\hyperlink{a00038_a2f39418f5659e106f059e62ec2474fad_a2f39418f5659e106f059e62ec2474fad}{IEC\_ALLOC}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00109}00109     iec\_init(\&tmp, \mbox{\hyperlink{a00038_a830418bec524aa2fefd465c946a4f6e6_a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390}{IEC\_T\_NULL}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00110}00110     \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, (\mbox{\hyperlink{a00093}{iec\_t}}) \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\_pop}}(*list));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00111}00111     \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(*result, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00113}00113     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{a00011_a4d77f1f7bc09c81a4fedd03b425c1575_a4d77f1f7bc09c81a4fedd03b425c1575}{stack\_empty}}(*list)) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00114}00114         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(\&tmp, (\mbox{\hyperlink{a00093}{iec\_t}}) \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\_pop}}(*list));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00115}00115         \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(tmp, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00116}00116         \textcolor{keywordflow}{if} ((\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(*result)) < (\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(tmp))) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00117}00117             \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, tmp);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00118}00118         \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00119}00119     \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00121}00121     iec\_deinit(\&tmp);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00122}00122     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00123}00123 \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00133}\mbox{\hyperlink{a00002_a3f32143aac2c647ddff00179bd779ad1_a3f32143aac2c647ddff00179bd779ad1}{00133}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00002_a3f32143aac2c647ddff00179bd779ad1_a3f32143aac2c647ddff00179bd779ad1}{iec\_min}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00117}{stack\_t}} *list) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00134}00134     \textcolor{keywordflow}{if} (*result == NULL || list == NULL)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00135}00135         \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a319f8699c145820f690c04d3848a4024}{IEC\_NLL}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00137}00137     \mbox{\hyperlink{a00093}{iec\_t}} tmp = \mbox{\hyperlink{a00038_a2f39418f5659e106f059e62ec2474fad_a2f39418f5659e106f059e62ec2474fad}{IEC\_ALLOC}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00138}00138     iec\_init(\&tmp, \mbox{\hyperlink{a00038_a830418bec524aa2fefd465c946a4f6e6_a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390}{IEC\_T\_NULL}});}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00139}00139     \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, (\mbox{\hyperlink{a00093}{iec\_t}}) \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\_pop}}(*list));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00140}00140     \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(tmp, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00142}00142     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{a00011_a4d77f1f7bc09c81a4fedd03b425c1575_a4d77f1f7bc09c81a4fedd03b425c1575}{stack\_empty}}(*list)) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00143}00143         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(\&tmp, (\mbox{\hyperlink{a00093}{iec\_t}}) \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\_pop}}(*list));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00144}00144         \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(*result, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00145}00145         \textcolor{keywordflow}{if} ((\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(*result)) > (\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(tmp))) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00146}00146             \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, tmp);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00147}00147         \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00148}00148     \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00149}00149 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00150}00150     iec\_deinit(\&tmp);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00151}00151     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00152}00152 \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00164}\mbox{\hyperlink{a00002_aad21345d6ddc4d7be281a67b6c6c65cb_aad21345d6ddc4d7be281a67b6c6c65cb}{00164}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00002_aad21345d6ddc4d7be281a67b6c6c65cb_aad21345d6ddc4d7be281a67b6c6c65cb}{iec\_limit}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v, \mbox{\hyperlink{a00093}{iec\_t}} min, \mbox{\hyperlink{a00093}{iec\_t}} max) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00165}00165     \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(v, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00166}00166     \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(min, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00167}00167     \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(max, \mbox{\hyperlink{a00038_a51fe4d2166112e834e795a85b60949df_a51fe4d2166112e834e795a85b60949df}{ANY\_NUM}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00169}00169     \textcolor{keywordflow}{if} ((\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(v)) < (\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(min)))}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00170}00170         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, min);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00171}00171     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(v)) > (\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(max)))}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00172}00172         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, max);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00173}00173     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00174}00174         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, v);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00176}00176     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00177}00177 \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00188}\mbox{\hyperlink{a00002_aff6c6b6456617e72672aa744a2503349_aff6c6b6456617e72672aa744a2503349}{00188}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00002_aff6c6b6456617e72672aa744a2503349_aff6c6b6456617e72672aa744a2503349}{iec\_mux}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00117}{stack\_t}} *list) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00189}00189     \mbox{\hyperlink{a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_a98d7647c068f92ead0c5c8a31f0bd6ec}{iec\_anytype\_allowed}}(v1, \mbox{\hyperlink{a00038_a9dd067619bd3550ba4245fc51d23991a_a9dd067619bd3550ba4245fc51d23991a}{ANY\_INT}},,,,,);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00191}00191     \textcolor{keywordflow}{if} (\mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(v1) <= 0) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00192}00192         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, (\mbox{\hyperlink{a00093}{iec\_t}}) \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\_pop}}(*list));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00193}00193         \mbox{\hyperlink{a00011_a42359043c6700c6c6362ec63a599156f_a42359043c6700c6c6362ec63a599156f}{stack\_flush}}(*list);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00194}00194         \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00195}00195     \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00197}00197     \mbox{\hyperlink{a00038_a71b24f02aee3af6c7fe030f106bd8689_a71b24f02aee3af6c7fe030f106bd8689}{maxuint\_t}} cnt = \mbox{\hyperlink{a00038_aabc64bb9c009665860dfa993db35837a_aabc64bb9c009665860dfa993db35837a}{iec\_get\_value}}(v1);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00198}00198     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{a00011_a4d77f1f7bc09c81a4fedd03b425c1575_a4d77f1f7bc09c81a4fedd03b425c1575}{stack\_empty}}(*list)) \{}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00199}00199         \textcolor{keywordflow}{if} (cnt-\/-\/ == 0)}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00200}00200             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00201}00201         \mbox{\hyperlink{a00002_a7ca0f82a81a442719f66c59825e3f056_a7ca0f82a81a442719f66c59825e3f056}{iec\_move}}(result, (\mbox{\hyperlink{a00093}{iec\_t}}) \mbox{\hyperlink{a00011_ac8883b8ba7dc90eb8b5c983da191e465_ac8883b8ba7dc90eb8b5c983da191e465}{stack\_pop}}(*list));}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00202}00202     \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00203}00203 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00204}00204     \mbox{\hyperlink{a00011_a42359043c6700c6c6362ec63a599156f_a42359043c6700c6c6362ec63a599156f}{stack\_flush}}(*list);}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00206}00206     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00207}00207 \}}
+\DoxyCodeLine{\Hypertarget{a00002_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{a00002_source_l00209}00209 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IEC\_SELECTION\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,268 @@
+\hypertarget{a00029}{}\doxysection{util\+\_\+murhash.\+h File Reference}
+\label{a00029}\index{util\_murhash.h@{util\_murhash.h}}
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_a7c2e7a9f901f0ffbf7684ef9c321c6f3}{MH\+\_\+\+UINT8}}~unsigned char
+\item 
+\#define \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}}~MH\+\_\+\+UINT32
+\item 
+\#define \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}}~\mbox{\hyperlink{a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_a7c2e7a9f901f0ffbf7684ef9c321c6f3}{MH\+\_\+\+UINT8}}
+\item 
+\#define \mbox{\hyperlink{a00029_aa2c4bb6d7658760c2b3c668362e126ea_aa2c4bb6d7658760c2b3c668362e126ea}{\+\_\+\+\_\+\+BIG\+\_\+\+ENDIAN}}~4321
+\item 
+\#define \mbox{\hyperlink{a00029_aeccf3e279c16687d91cd28d0463cbde6_aeccf3e279c16687d91cd28d0463cbde6}{\+\_\+\+\_\+\+LITTLE\+\_\+\+ENDIAN}}~1234
+\item 
+\#define \mbox{\hyperlink{a00029_ab3afb7ef76ced48cafdcef09407df75e_ab3afb7ef76ced48cafdcef09407df75e}{READ\+\_\+\+UINT32}}(ptr)~(ptr\mbox{[}0\mbox{]} $\vert$ ptr\mbox{[}1\mbox{]} $<$$<$ 8 $\vert$ ptr\mbox{[}2\mbox{]} $<$$<$ 16 $\vert$ ptr\mbox{[}3\mbox{]} $<$$<$ 24)
+\item 
+\#define \mbox{\hyperlink{a00029_a013b95e31823324ac60880c16fb846b8_a013b95e31823324ac60880c16fb846b8}{UNALIGNED\+\_\+\+SAFE}}
+\item 
+\#define \mbox{\hyperlink{a00029_a6b7ad100703fa6fed06b5594a8cddced_a6b7ad100703fa6fed06b5594a8cddced}{rotl32}}(x,  r)~(((\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}})x $<$$<$ r) $\vert$ ((\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}})x $>$$>$ (32 -\/ r)))
+\item 
+\#define \mbox{\hyperlink{a00029_a44779f18d87e71c78fc9fbf9dc88537d_a44779f18d87e71c78fc9fbf9dc88537d}{C1}}~(0xcc9e2d51)
+\item 
+\#define \mbox{\hyperlink{a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_ad6fc13322a4f1c314332ff34aa8b3fa0}{C2}}~(0x1b873593)
+\item 
+\#define \mbox{\hyperlink{a00029_a1dc85f68c0dce10481c733a718aa2458_a1dc85f68c0dce10481c733a718aa2458}{DOBLOCK}}(h1,  k1)
+\item 
+\#define \mbox{\hyperlink{a00029_af11fb5a047f2add1d41dfdf0d305161c_af11fb5a047f2add1d41dfdf0d305161c}{DOBYTES}}(cnt,  h1,  c,  n,  ptr,  len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{a00029_a9cc98d1e627311e4d5fcf960552292c0_a9cc98d1e627311e4d5fcf960552292c0}{PMur\+Hash32\+\_\+\+Process}} (MH\+\_\+\+UINT32 $\ast$ph1, MH\+\_\+\+UINT32 $\ast$pcarry, const void $\ast$key, int len)
+\item 
+MH\+\_\+\+UINT32 \mbox{\hyperlink{a00029_a15e304d5c33e5e469f836873e51c14b9_a15e304d5c33e5e469f836873e51c14b9}{PMur\+Hash32\+\_\+\+Result}} (MH\+\_\+\+UINT32 h1, MH\+\_\+\+UINT32 carry, MH\+\_\+\+UINT32 total\+\_\+length)
+\item 
+MH\+\_\+\+UINT32 \mbox{\hyperlink{a00029_a3ac44019c8d81f2f99ec851b20c6deac_a3ac44019c8d81f2f99ec851b20c6deac}{PMur\+Hash32}} (MH\+\_\+\+UINT32 seed, const void $\ast$key, int len)
+\item 
+void \mbox{\hyperlink{a00029_a681a1c2e5d17dd94fb6ddb259dd0ced7_a681a1c2e5d17dd94fb6ddb259dd0ced7}{PMur\+Hash32\+\_\+test}} (const void $\ast$key, int len, MH\+\_\+\+UINT32 seed, void $\ast$out)
+\item 
+void \mbox{\hyperlink{a00029_ac1d0c342d1226500bff30374454e8e4f_ac1d0c342d1226500bff30374454e8e4f}{PMur\+Hash32\+\_\+\+Process}} (\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} $\ast$ph1, \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} $\ast$pcarry, const void $\ast$key, int len)
+\item 
+\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} \mbox{\hyperlink{a00029_ab90ea04ebdd64760be1695b964ef62a0_ab90ea04ebdd64760be1695b964ef62a0}{PMur\+Hash32\+\_\+\+Result}} (\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} h, \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} carry, \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} total\+\_\+length)
+\item 
+\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} \mbox{\hyperlink{a00029_acae60364a9a51b4dc34984d9a667b7c3_acae60364a9a51b4dc34984d9a667b7c3}{PMur\+Hash32}} (\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} seed, const void $\ast$key, int len)
+\item 
+void \mbox{\hyperlink{a00029_a8b9b59a95c048eec1e60ba75a49d87cc_a8b9b59a95c048eec1e60ba75a49d87cc}{PMur\+Hash32\+\_\+test}} (const void $\ast$key, int len, \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} seed, void $\ast$out)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{a00029_aa2c4bb6d7658760c2b3c668362e126ea_aa2c4bb6d7658760c2b3c668362e126ea}\label{a00029_aa2c4bb6d7658760c2b3c668362e126ea_aa2c4bb6d7658760c2b3c668362e126ea}} 
+\index{util\_murhash.h@{util\_murhash.h}!\_\_BIG\_ENDIAN@{\_\_BIG\_ENDIAN}}
+\index{\_\_BIG\_ENDIAN@{\_\_BIG\_ENDIAN}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{\_\_BIG\_ENDIAN}{\_\_BIG\_ENDIAN}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+BIG\+\_\+\+ENDIAN~4321}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00099}{99}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_aeccf3e279c16687d91cd28d0463cbde6_aeccf3e279c16687d91cd28d0463cbde6}\label{a00029_aeccf3e279c16687d91cd28d0463cbde6_aeccf3e279c16687d91cd28d0463cbde6}} 
+\index{util\_murhash.h@{util\_murhash.h}!\_\_LITTLE\_ENDIAN@{\_\_LITTLE\_ENDIAN}}
+\index{\_\_LITTLE\_ENDIAN@{\_\_LITTLE\_ENDIAN}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{\_\_LITTLE\_ENDIAN}{\_\_LITTLE\_ENDIAN}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+LITTLE\+\_\+\+ENDIAN~1234}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00102}{102}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a44779f18d87e71c78fc9fbf9dc88537d_a44779f18d87e71c78fc9fbf9dc88537d}\label{a00029_a44779f18d87e71c78fc9fbf9dc88537d_a44779f18d87e71c78fc9fbf9dc88537d}} 
+\index{util\_murhash.h@{util\_murhash.h}!C1@{C1}}
+\index{C1@{C1}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{C1}{C1}}
+{\footnotesize\ttfamily \#define C1~(0xcc9e2d51)}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00172}{172}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_ad6fc13322a4f1c314332ff34aa8b3fa0}\label{a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_ad6fc13322a4f1c314332ff34aa8b3fa0}} 
+\index{util\_murhash.h@{util\_murhash.h}!C2@{C2}}
+\index{C2@{C2}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{C2}{C2}}
+{\footnotesize\ttfamily \#define C2~(0x1b873593)}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00173}{173}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a1dc85f68c0dce10481c733a718aa2458_a1dc85f68c0dce10481c733a718aa2458}\label{a00029_a1dc85f68c0dce10481c733a718aa2458_a1dc85f68c0dce10481c733a718aa2458}} 
+\index{util\_murhash.h@{util\_murhash.h}!DOBLOCK@{DOBLOCK}}
+\index{DOBLOCK@{DOBLOCK}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{DOBLOCK}{DOBLOCK}}
+{\footnotesize\ttfamily \#define DOBLOCK(\begin{DoxyParamCaption}\item[{}]{h1,  }\item[{}]{k1 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{         \textcolor{keywordflow}{do} \{                                                                       \(\backslash\)}
+\DoxyCodeLine{             k1 *= \mbox{\hyperlink{a00029_a44779f18d87e71c78fc9fbf9dc88537d_a44779f18d87e71c78fc9fbf9dc88537d}{C1}};                                                              \(\backslash\)}
+\DoxyCodeLine{             k1 = \mbox{\hyperlink{a00029_a6b7ad100703fa6fed06b5594a8cddced_a6b7ad100703fa6fed06b5594a8cddced}{rotl32}}(k1, 15);                                                   \(\backslash\)}
+\DoxyCodeLine{             k1 *= \mbox{\hyperlink{a00029_ad6fc13322a4f1c314332ff34aa8b3fa0_ad6fc13322a4f1c314332ff34aa8b3fa0}{C2}};                                                              \(\backslash\)}
+\DoxyCodeLine{                                                                                    \(\backslash\)}
+\DoxyCodeLine{             h1 \string^= k1;                                                              \(\backslash\)}
+\DoxyCodeLine{             h1 = \mbox{\hyperlink{a00029_a6b7ad100703fa6fed06b5594a8cddced_a6b7ad100703fa6fed06b5594a8cddced}{rotl32}}(h1, 13);                                                   \(\backslash\)}
+\DoxyCodeLine{             h1 = h1 * 5 + 0xe6546b64;                                              \(\backslash\)}
+\DoxyCodeLine{         \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00177}{177}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_af11fb5a047f2add1d41dfdf0d305161c_af11fb5a047f2add1d41dfdf0d305161c}\label{a00029_af11fb5a047f2add1d41dfdf0d305161c_af11fb5a047f2add1d41dfdf0d305161c}} 
+\index{util\_murhash.h@{util\_murhash.h}!DOBYTES@{DOBYTES}}
+\index{DOBYTES@{DOBYTES}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{DOBYTES}{DOBYTES}}
+{\footnotesize\ttfamily \#define DOBYTES(\begin{DoxyParamCaption}\item[{}]{cnt,  }\item[{}]{h1,  }\item[{}]{c,  }\item[{}]{n,  }\item[{}]{ptr,  }\item[{}]{len }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{         \textcolor{keywordflow}{do} \{                                                                       \(\backslash\)}
+\DoxyCodeLine{             \textcolor{keywordtype}{int} \_i = cnt;                                                          \(\backslash\)}
+\DoxyCodeLine{             while (\_i-\/-\/) \{                                                         \(\backslash\)}
+\DoxyCodeLine{                 c = c >> 8 | *ptr++ << 24;                                         \(\backslash\)}
+\DoxyCodeLine{                 n++;                                                               \(\backslash\)}
+\DoxyCodeLine{                 len-\/-\/;                                                             \(\backslash\)}
+\DoxyCodeLine{                 if (n == 4) \{                                                      \(\backslash\)}
+\DoxyCodeLine{                     DOBLOCK(h1, c);                                                \(\backslash\)}
+\DoxyCodeLine{                     n = 0;                                                         \(\backslash\)}
+\DoxyCodeLine{                 \}                                                                  \(\backslash\)}
+\DoxyCodeLine{             \}                                                                      \(\backslash\)}
+\DoxyCodeLine{         \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00191}{191}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_a7c2e7a9f901f0ffbf7684ef9c321c6f3}\label{a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_a7c2e7a9f901f0ffbf7684ef9c321c6f3}} 
+\index{util\_murhash.h@{util\_murhash.h}!MH\_UINT8@{MH\_UINT8}}
+\index{MH\_UINT8@{MH\_UINT8}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{MH\_UINT8}{MH\_UINT8}}
+{\footnotesize\ttfamily \#define MH\+\_\+\+UINT8~unsigned char}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00049}{49}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_ab3afb7ef76ced48cafdcef09407df75e_ab3afb7ef76ced48cafdcef09407df75e}\label{a00029_ab3afb7ef76ced48cafdcef09407df75e_ab3afb7ef76ced48cafdcef09407df75e}} 
+\index{util\_murhash.h@{util\_murhash.h}!READ\_UINT32@{READ\_UINT32}}
+\index{READ\_UINT32@{READ\_UINT32}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{READ\_UINT32}{READ\_UINT32}}
+{\footnotesize\ttfamily \#define READ\+\_\+\+UINT32(\begin{DoxyParamCaption}\item[{}]{ptr }\end{DoxyParamCaption})~(ptr\mbox{[}0\mbox{]} $\vert$ ptr\mbox{[}1\mbox{]} $<$$<$ 8 $\vert$ ptr\mbox{[}2\mbox{]} $<$$<$ 16 $\vert$ ptr\mbox{[}3\mbox{]} $<$$<$ 24)}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00149}{149}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a6b7ad100703fa6fed06b5594a8cddced_a6b7ad100703fa6fed06b5594a8cddced}\label{a00029_a6b7ad100703fa6fed06b5594a8cddced_a6b7ad100703fa6fed06b5594a8cddced}} 
+\index{util\_murhash.h@{util\_murhash.h}!rotl32@{rotl32}}
+\index{rotl32@{rotl32}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{rotl32}{rotl32}}
+{\footnotesize\ttfamily \#define rotl32(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{r }\end{DoxyParamCaption})~(((\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}})x $<$$<$ r) $\vert$ ((\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}})x $>$$>$ (32 -\/ r)))}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00164}{164}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}\label{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}} 
+\index{util\_murhash.h@{util\_murhash.h}!uint32\_t@{uint32\_t}}
+\index{uint32\_t@{uint32\_t}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{uint32\_t}{uint32\_t}}
+{\footnotesize\ttfamily \#define uint32\+\_\+t~MH\+\_\+\+UINT32}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00066}{66}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}\label{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}} 
+\index{util\_murhash.h@{util\_murhash.h}!uint8\_t@{uint8\_t}}
+\index{uint8\_t@{uint8\_t}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{uint8\_t}{uint8\_t}}
+{\footnotesize\ttfamily \#define uint8\+\_\+t~\mbox{\hyperlink{a00029_a7c2e7a9f901f0ffbf7684ef9c321c6f3_a7c2e7a9f901f0ffbf7684ef9c321c6f3}{MH\+\_\+\+UINT8}}}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00068}{68}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a013b95e31823324ac60880c16fb846b8_a013b95e31823324ac60880c16fb846b8}\label{a00029_a013b95e31823324ac60880c16fb846b8_a013b95e31823324ac60880c16fb846b8}} 
+\index{util\_murhash.h@{util\_murhash.h}!UNALIGNED\_SAFE@{UNALIGNED\_SAFE}}
+\index{UNALIGNED\_SAFE@{UNALIGNED\_SAFE}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{UNALIGNED\_SAFE}{UNALIGNED\_SAFE}}
+{\footnotesize\ttfamily \#define UNALIGNED\+\_\+\+SAFE}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00153}{153}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{a00029_a3ac44019c8d81f2f99ec851b20c6deac_a3ac44019c8d81f2f99ec851b20c6deac}\label{a00029_a3ac44019c8d81f2f99ec851b20c6deac_a3ac44019c8d81f2f99ec851b20c6deac}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32@{PMurHash32}}
+\index{PMurHash32@{PMurHash32}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32()}{PMurHash32()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MH\+\_\+\+UINT32 PMur\+Hash32 (\begin{DoxyParamCaption}\item[{MH\+\_\+\+UINT32}]{seed,  }\item[{const void $\ast$}]{key,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{a00029_acae60364a9a51b4dc34984d9a667b7c3_acae60364a9a51b4dc34984d9a667b7c3}\label{a00029_acae60364a9a51b4dc34984d9a667b7c3_acae60364a9a51b4dc34984d9a667b7c3}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32@{PMurHash32}}
+\index{PMurHash32@{PMurHash32}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32()}{PMurHash32()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} PMur\+Hash32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}}}]{seed,  }\item[{const void $\ast$}]{key,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00320}{320}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a9cc98d1e627311e4d5fcf960552292c0_a9cc98d1e627311e4d5fcf960552292c0}\label{a00029_a9cc98d1e627311e4d5fcf960552292c0_a9cc98d1e627311e4d5fcf960552292c0}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32\_Process@{PMurHash32\_Process}}
+\index{PMurHash32\_Process@{PMurHash32\_Process}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32\_Process()}{PMurHash32\_Process()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void PMur\+Hash32\+\_\+\+Process (\begin{DoxyParamCaption}\item[{MH\+\_\+\+UINT32 $\ast$}]{ph1,  }\item[{MH\+\_\+\+UINT32 $\ast$}]{pcarry,  }\item[{const void $\ast$}]{key,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{a00029_ac1d0c342d1226500bff30374454e8e4f_ac1d0c342d1226500bff30374454e8e4f}\label{a00029_ac1d0c342d1226500bff30374454e8e4f_ac1d0c342d1226500bff30374454e8e4f}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32\_Process@{PMurHash32\_Process}}
+\index{PMurHash32\_Process@{PMurHash32\_Process}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32\_Process()}{PMurHash32\_Process()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void PMur\+Hash32\+\_\+\+Process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} $\ast$}]{ph1,  }\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} $\ast$}]{pcarry,  }\item[{const void $\ast$}]{key,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00209}{209}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a15e304d5c33e5e469f836873e51c14b9_a15e304d5c33e5e469f836873e51c14b9}\label{a00029_a15e304d5c33e5e469f836873e51c14b9_a15e304d5c33e5e469f836873e51c14b9}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32\_Result@{PMurHash32\_Result}}
+\index{PMurHash32\_Result@{PMurHash32\_Result}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32\_Result()}{PMurHash32\_Result()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MH\+\_\+\+UINT32 PMur\+Hash32\+\_\+\+Result (\begin{DoxyParamCaption}\item[{MH\+\_\+\+UINT32}]{h1,  }\item[{MH\+\_\+\+UINT32}]{carry,  }\item[{MH\+\_\+\+UINT32}]{total\+\_\+length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{a00029_ab90ea04ebdd64760be1695b964ef62a0_ab90ea04ebdd64760be1695b964ef62a0}\label{a00029_ab90ea04ebdd64760be1695b964ef62a0_ab90ea04ebdd64760be1695b964ef62a0}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32\_Result@{PMurHash32\_Result}}
+\index{PMurHash32\_Result@{PMurHash32\_Result}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32\_Result()}{PMurHash32\_Result()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}} PMur\+Hash32\+\_\+\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}}}]{h,  }\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}}}]{carry,  }\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}}}]{total\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00295}{295}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+
+\mbox{\Hypertarget{a00029_a681a1c2e5d17dd94fb6ddb259dd0ced7_a681a1c2e5d17dd94fb6ddb259dd0ced7}\label{a00029_a681a1c2e5d17dd94fb6ddb259dd0ced7_a681a1c2e5d17dd94fb6ddb259dd0ced7}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32\_test@{PMurHash32\_test}}
+\index{PMurHash32\_test@{PMurHash32\_test}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32\_test()}{PMurHash32\_test()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void PMur\+Hash32\+\_\+test (\begin{DoxyParamCaption}\item[{const void $\ast$}]{key,  }\item[{int}]{len,  }\item[{MH\+\_\+\+UINT32}]{seed,  }\item[{void $\ast$}]{out }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{a00029_a8b9b59a95c048eec1e60ba75a49d87cc_a8b9b59a95c048eec1e60ba75a49d87cc}\label{a00029_a8b9b59a95c048eec1e60ba75a49d87cc_a8b9b59a95c048eec1e60ba75a49d87cc}} 
+\index{util\_murhash.h@{util\_murhash.h}!PMurHash32\_test@{PMurHash32\_test}}
+\index{PMurHash32\_test@{PMurHash32\_test}!util\_murhash.h@{util\_murhash.h}}
+\doxysubsubsection{\texorpdfstring{PMurHash32\_test()}{PMurHash32\_test()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void PMur\+Hash32\+\_\+test (\begin{DoxyParamCaption}\item[{const void $\ast$}]{key,  }\item[{int}]{len,  }\item[{\mbox{\hyperlink{a00029_a0ddb3f43e52282b59ee55d059ed74a28_a0ddb3f43e52282b59ee55d059ed74a28}{uint32\+\_\+t}}}]{seed,  }\item[{void $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{a00029_source_l00329}{329}} of file \mbox{\hyperlink{a00029_source}{util\+\_\+murhash.\+h}}.
+

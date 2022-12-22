@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00002" xml:lang="en-US">
+<title>iec_selection.h File Reference</title>
+<indexterm><primary>iec_selection.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;util_stack.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056">iec_move</link> (<link linkend="_a00093">iec_t</link> *to, <link linkend="_a00093">iec_t</link> from)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00002_a73403d24c8a734a5449020c343934bba_1a73403d24c8a734a5449020c343934bba">iec_sel</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1, <link linkend="_a00093">iec_t</link> v2, <link linkend="_a00093">iec_t</link> v3)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00002_adbda53c337f891ab831aff3e23a98ad6_1adbda53c337f891ab831aff3e23a98ad6">iec_max</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00117">stack_t</link> *list)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00002_a3f32143aac2c647ddff00179bd779ad1_1a3f32143aac2c647ddff00179bd779ad1">iec_min</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00117">stack_t</link> *list)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00002_aad21345d6ddc4d7be281a67b6c6c65cb_1aad21345d6ddc4d7be281a67b6c6c65cb">iec_limit</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v, <link linkend="_a00093">iec_t</link> min, <link linkend="_a00093">iec_t</link> max)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00002_aff6c6b6456617e72672aa744a2503349_1aff6c6b6456617e72672aa744a2503349">iec_mux</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1, <link linkend="_a00117">stack_t</link> *list)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_a00002_aad21345d6ddc4d7be281a67b6c6c65cb_1aad21345d6ddc4d7be281a67b6c6c65cb"/><section>
+    <title>iec_limit()</title>
+<indexterm><primary>iec_limit</primary><secondary>iec_selection.h</secondary></indexterm>
+<indexterm><primary>iec_selection.h</primary><secondary>iec_limit</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_limit (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v, <link linkend="_a00093">iec_t</link> min, <link linkend="_a00093">iec_t</link> max)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>min</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>max</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00002_source_1l00164">164</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
+<anchor xml:id="_a00002_adbda53c337f891ab831aff3e23a98ad6_1adbda53c337f891ab831aff3e23a98ad6"/><section>
+    <title>iec_max()</title>
+<indexterm><primary>iec_max</primary><secondary>iec_selection.h</secondary></indexterm>
+<indexterm><primary>iec_selection.h</primary><secondary>iec_max</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_max (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00117">stack_t</link> * list)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>list</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00002_source_1l00104">104</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
+<anchor xml:id="_a00002_a3f32143aac2c647ddff00179bd779ad1_1a3f32143aac2c647ddff00179bd779ad1"/><section>
+    <title>iec_min()</title>
+<indexterm><primary>iec_min</primary><secondary>iec_selection.h</secondary></indexterm>
+<indexterm><primary>iec_selection.h</primary><secondary>iec_min</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_min (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00117">stack_t</link> * list)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>list</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00002_source_1l00133">133</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
+<anchor xml:id="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056"/><section>
+    <title>iec_move()</title>
+<indexterm><primary>iec_move</primary><secondary>iec_selection.h</secondary></indexterm>
+<indexterm><primary>iec_selection.h</primary><secondary>iec_move</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_move (<link linkend="_a00093">iec_t</link> * to, <link linkend="_a00093">iec_t</link> from)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>to</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>from</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00002_source_1l00063">63</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
+<anchor xml:id="_a00002_aff6c6b6456617e72672aa744a2503349_1aff6c6b6456617e72672aa744a2503349"/><section>
+    <title>iec_mux()</title>
+<indexterm><primary>iec_mux</primary><secondary>iec_selection.h</secondary></indexterm>
+<indexterm><primary>iec_selection.h</primary><secondary>iec_mux</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_mux (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1, <link linkend="_a00117">stack_t</link> * list)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>list</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00002_source_1l00188">188</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
+<anchor xml:id="_a00002_a73403d24c8a734a5449020c343934bba_1a73403d24c8a734a5449020c343934bba"/><section>
+    <title>iec_sel()</title>
+<indexterm><primary>iec_sel</primary><secondary>iec_selection.h</secondary></indexterm>
+<indexterm><primary>iec_selection.h</primary><secondary>iec_sel</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_sel (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1, <link linkend="_a00093">iec_t</link> v2, <link linkend="_a00093">iec_t</link> v3)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v2</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v3</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00002_source_1l00085">85</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
+</section>
+</section>

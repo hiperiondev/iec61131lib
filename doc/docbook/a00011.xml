@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00011" xml:lang="en-US">
+<title>util_stack.h File Reference</title>
+<indexterm><primary>util_stack.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stddef.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_a00113">stack_node_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_a00117">stack_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_a00113">stack_node_t</link> <link linkend="_a00011_a3413cc1c374aeb01c66275eddc5bbbd0_1a3413cc1c374aeb01c66275eddc5bbbd0">stack_node_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_a00117">stack_t</link> * <link linkend="_a00011_aca51d9a1c3b1ac1b2b54ed9dd7c26981_1aca51d9a1c3b1ac1b2b54ed9dd7c26981">stack_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_a00117">stack_t</link> <link linkend="_a00011_a107f81b1726bd5ab54b420142748d3e8_1a107f81b1726bd5ab54b420142748d3e8">stack_create</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_a00117">stack_t</link> <link linkend="_a00011_a3e6e1309488216db3875c39028b06d3c_1a3e6e1309488216db3875c39028b06d3c">stack_push</link> (<link linkend="_a00117">stack_t</link> stack, void *data)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465">stack_pop</link> (<link linkend="_a00117">stack_t</link> stack)</para>
+</listitem>
+            <listitem><para>void <link linkend="_a00011_a42359043c6700c6c6362ec63a599156f_1a42359043c6700c6c6362ec63a599156f">stack_flush</link> (<link linkend="_a00117">stack_t</link> stack)</para>
+</listitem>
+            <listitem><para>int <link linkend="_a00011_a198e52b336a0fb20ec0c049c0439d213_1a198e52b336a0fb20ec0c049c0439d213">stack_size</link> (<link linkend="_a00117">stack_t</link> stack)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_a00011_a4d77f1f7bc09c81a4fedd03b425c1575_1a4d77f1f7bc09c81a4fedd03b425c1575">stack_empty</link> (<link linkend="_a00117">stack_t</link> stack)</para>
+</listitem>
+            <listitem><para>void <link linkend="_a00011_a231e3533fc7f6ea2f3db2f5cd8b71b51_1a231e3533fc7f6ea2f3db2f5cd8b71b51">stack_release</link> (<link linkend="_a00117">stack_t</link> stack)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_a00011_a3413cc1c374aeb01c66275eddc5bbbd0_1a3413cc1c374aeb01c66275eddc5bbbd0"/><section>
+    <title>stack_node_t</title>
+<indexterm><primary>stack_node_t</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_node_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00113">stack_node_t</link></computeroutput></para></section>
+<anchor xml:id="_a00011_aca51d9a1c3b1ac1b2b54ed9dd7c26981_1aca51d9a1c3b1ac1b2b54ed9dd7c26981"/><section>
+    <title>stack_t</title>
+<indexterm><primary>stack_t</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_t</secondary></indexterm>
+<para><computeroutput><link linkend="_a00117">stack_t</link></computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_a00011_a107f81b1726bd5ab54b420142748d3e8_1a107f81b1726bd5ab54b420142748d3e8"/><section>
+    <title>stack_create()</title>
+<indexterm><primary>stack_create</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_create</secondary></indexterm>
+<para><computeroutput><link linkend="_a00117">stack_t</link> stack_create ( )</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00011_source_1l00033">33</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00011_a4d77f1f7bc09c81a4fedd03b425c1575_1a4d77f1f7bc09c81a4fedd03b425c1575"/><section>
+    <title>stack_empty()</title>
+<indexterm><primary>stack_empty</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_empty</secondary></indexterm>
+<para><computeroutput>bool stack_empty (<link linkend="_a00117">stack_t</link> stack)</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00093">93</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00011_a42359043c6700c6c6362ec63a599156f_1a42359043c6700c6c6362ec63a599156f"/><section>
+    <title>stack_flush()</title>
+<indexterm><primary>stack_flush</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_flush</secondary></indexterm>
+<para><computeroutput>void stack_flush (<link linkend="_a00117">stack_t</link> stack)</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00075">75</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00011_ac8883b8ba7dc90eb8b5c983da191e465_1ac8883b8ba7dc90eb8b5c983da191e465"/><section>
+    <title>stack_pop()</title>
+<indexterm><primary>stack_pop</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_pop</secondary></indexterm>
+<para><computeroutput>void * stack_pop (<link linkend="_a00117">stack_t</link> stack)</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00063">63</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00011_a3e6e1309488216db3875c39028b06d3c_1a3e6e1309488216db3875c39028b06d3c"/><section>
+    <title>stack_push()</title>
+<indexterm><primary>stack_push</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_push</secondary></indexterm>
+<para><computeroutput><link linkend="_a00117">stack_t</link> stack_push (<link linkend="_a00117">stack_t</link> stack, void * data)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>stack</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00011_source_1l00050">50</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00011_a231e3533fc7f6ea2f3db2f5cd8b71b51_1a231e3533fc7f6ea2f3db2f5cd8b71b51"/><section>
+    <title>stack_release()</title>
+<indexterm><primary>stack_release</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_release</secondary></indexterm>
+<para><computeroutput>void stack_release (<link linkend="_a00117">stack_t</link> stack)</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00097">97</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+<anchor xml:id="_a00011_a198e52b336a0fb20ec0c049c0439d213_1a198e52b336a0fb20ec0c049c0439d213"/><section>
+    <title>stack_size()</title>
+<indexterm><primary>stack_size</primary><secondary>util_stack.h</secondary></indexterm>
+<indexterm><primary>util_stack.h</primary><secondary>stack_size</secondary></indexterm>
+<para><computeroutput>int stack_size (<link linkend="_a00117">stack_t</link> stack)</computeroutput></para><para>
+Definition at line <link linkend="_a00011_source_1l00089">89</link> of file <link linkend="_a00011_source">util_stack.h</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Data Structures</title>
+Here are the data structures with brief descriptions:<link linkend="_a00069">dat_t</link><link linkend="_a00053">date_t</link><link linkend="_a00105">double_cast_t</link><link linkend="_a00093">iec_t</link><link linkend="_a00113">stack_node_t</link><link linkend="_a00117">stack_t</link><link linkend="_a00101">str_iter_t</link><link linkend="_a00097">str_t</link><link linkend="_a00081">string_t</link><link linkend="_a00089">t_timer_t</link><link linkend="_a00085">table_t</link><link linkend="_a00061">tod_t</link><link linkend="_a00077">user_t</link></section>

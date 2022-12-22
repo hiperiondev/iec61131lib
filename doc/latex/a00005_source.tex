@@ -1,0 +1,149 @@
+\hypertarget{a00005_source}{}\doxysection{iec\+\_\+date\+\_\+time.\+h}
+\mbox{\hyperlink{a00005}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00002}00002 \textcolor{comment}{ * @file iec\_date\_time.h}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00003}00003 \textcolor{comment}{ * @brief main header}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00004}00004 \textcolor{comment}{ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00005}00005 \textcolor{comment}{ * Contact: egonzalez.hiperion@gmail.com}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00006}00006 \textcolor{comment}{ * @see https://github.com/hiperiondev/iec61131lib}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00007}00007 \textcolor{comment}{ * Project Site: https://github.com/hiperiondev/iec61131lib}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00008}00008 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00009}00009 \textcolor{comment}{ * This is based on other projects:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00011}00011 \textcolor{comment}{ *    Others (see individual files)}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00012}00012 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00013}00013 \textcolor{comment}{ *    please contact their authors for more information.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00015}00015 \textcolor{comment}{ * The MIT License (MIT)}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00016}00016 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00017}00017 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00018}00018 \textcolor{comment}{ * a copy of this software and associated documentation files (the}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00019}00019 \textcolor{comment}{ * "{}Software"{}), to deal in the Software without restriction, including}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00020}00020 \textcolor{comment}{ * without limitation the rights to use, copy, modify, merge, publish,}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00021}00021 \textcolor{comment}{ * distribute, sublicense, and/or sell copies of the Software, and to}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00022}00022 \textcolor{comment}{ * permit persons to whom the Software is furnished to do so, subject to}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00023}00023 \textcolor{comment}{ * the following conditions:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00024}00024 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00025}00025 \textcolor{comment}{ * The above copyright notice and this permission notice shall be}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00026}00026 \textcolor{comment}{ * included in all copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00027}00027 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00028}00028 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND,}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00029}00029 \textcolor{comment}{ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00030}00030 \textcolor{comment}{ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00031}00031 \textcolor{comment}{ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00032}00032 \textcolor{comment}{ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00033}00033 \textcolor{comment}{ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00034}00034 \textcolor{comment}{ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00035}00035 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00036}00036 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00038}00038 \textcolor{preprocessor}{\#ifndef IEC\_DATE\_TIME\_H\_}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00039}00039 \textcolor{preprocessor}{\#define IEC\_DATE\_TIME\_H\_}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00041}00041 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00042}00042 \textcolor{comment}{ * Summary:}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00043}00043 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00044}00044 \textcolor{comment}{ *  Function      Parameter Type          Parameters   Description}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00045}00045 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00046}00046 \textcolor{comment}{ * ADD\_DT\_TIME                                         Adds an interval to a date and time value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00047}00047 \textcolor{comment}{ * ADD\_TOD\_TIME                                        Adds an interval to a time of day value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00048}00048 \textcolor{comment}{ * ADD\_TIME                                            Adds two interval values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00049}00049 \textcolor{comment}{ * CONCAT\_DATE\_TOD                                     Adds a time of day value to a date.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00050}00050 \textcolor{comment}{ * CONCAT\_DATE                                         Constructs a DATE value from: Year, Month and Date values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00051}00051 \textcolor{comment}{ * CONCAT\_DT                                           Constructs a DATE\_AND\_TIME value from: Year, Month, Date, Hour, Minute, Second and Millisecond values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00052}00052 \textcolor{comment}{ * CONCAT\_TOD                                          Constructs a TIME\_OF\_DAY value from: Hour, Minute, Second and Millisecond values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00053}00053 \textcolor{comment}{ * DAY\_OF\_WEEK                                         Returns the day of week of a DATE value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00054}00054 \textcolor{comment}{ * DIVTIME                                             Divides an interval by a numeric value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00055}00055 \textcolor{comment}{ * MULTIME                                             Multiplies an interval by a numeric value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00056}00056 \textcolor{comment}{ * SPLIT\_DATE                                          Extracts the fields from a DATE value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00057}00057 \textcolor{comment}{ * SPLIT\_DT                                            Extracts the fields from a DATE\_AND\_TIME value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00058}00058 \textcolor{comment}{ * SPLIT\_TOD                                           Extracts the fields from a TIME\_OF\_DAY value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00059}00059 \textcolor{comment}{ * SUB\_DATE\_DATE                                       Subtracts two date values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00060}00060 \textcolor{comment}{ * SUB\_DT\_DT                                           Subtracts two date and time values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00061}00061 \textcolor{comment}{ * SUB\_DT\_TIME                                         Subtracts an interval from a date and time value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00062}00062 \textcolor{comment}{ * SUB\_TOD\_TOD                                         Subtracts two time of day values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00063}00063 \textcolor{comment}{ * SUB\_TOD\_TIME                                        Subtracts an interval from a time of day value.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00064}00064 \textcolor{comment}{ * SUB\_TIME                                            Subtracts two interval values.}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00065}00065 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00066}00066 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00077}\mbox{\hyperlink{a00005_a16ae7ac644c3d942c4bb706463413bfa_a16ae7ac644c3d942c4bb706463413bfa}{00077}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a16ae7ac644c3d942c4bb706463413bfa_a16ae7ac644c3d942c4bb706463413bfa}{iec\_add\_dt\_time}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00078}00078     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00079}00079 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00090}\mbox{\hyperlink{a00005_a09dd2e2d3a96555ba47381bfecf2a317_a09dd2e2d3a96555ba47381bfecf2a317}{00090}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a09dd2e2d3a96555ba47381bfecf2a317_a09dd2e2d3a96555ba47381bfecf2a317}{iec\_add\_tod\_time}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00091}00091     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00092}00092 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00103}\mbox{\hyperlink{a00005_a751e6e9399c0ede8fb8196191e2ce479_a751e6e9399c0ede8fb8196191e2ce479}{00103}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a751e6e9399c0ede8fb8196191e2ce479_a751e6e9399c0ede8fb8196191e2ce479}{iec\_add\_time}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00104}00104     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00116}\mbox{\hyperlink{a00005_ae05a10842306de2016ef88442a927c64_ae05a10842306de2016ef88442a927c64}{00116}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_ae05a10842306de2016ef88442a927c64_ae05a10842306de2016ef88442a927c64}{iec\_concat\_date\_tod}}(\mbox{\hyperlink{a00093}{iec\_t}} *result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00117}00117     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00118}00118 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00129}\mbox{\hyperlink{a00005_a9c2fa861e9b8fc18177c710df5c16c78_a9c2fa861e9b8fc18177c710df5c16c78}{00129}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a9c2fa861e9b8fc18177c710df5c16c78_a9c2fa861e9b8fc18177c710df5c16c78}{iec\_concat\_date}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00130}00130     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00131}00131 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00147}\mbox{\hyperlink{a00005_a611c7ed3580b5318533aa179c8ee71c1_a611c7ed3580b5318533aa179c8ee71c1}{00147}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a611c7ed3580b5318533aa179c8ee71c1_a611c7ed3580b5318533aa179c8ee71c1}{iec\_concat\_dt}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2, \mbox{\hyperlink{a00093}{iec\_t}} v3, \mbox{\hyperlink{a00093}{iec\_t}} v4, \mbox{\hyperlink{a00093}{iec\_t}} v5, \mbox{\hyperlink{a00093}{iec\_t}} v6, \mbox{\hyperlink{a00093}{iec\_t}} v7) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00148}00148     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00149}00149 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00162}\mbox{\hyperlink{a00005_ab4246c50ad7db2279e756e9058f9e64e_ab4246c50ad7db2279e756e9058f9e64e}{00162}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_ab4246c50ad7db2279e756e9058f9e64e_ab4246c50ad7db2279e756e9058f9e64e}{iec\_concat\_tod}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2, \mbox{\hyperlink{a00093}{iec\_t}} v3, \mbox{\hyperlink{a00093}{iec\_t}} v4) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00163}00163     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00164}00164 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00174}\mbox{\hyperlink{a00005_a17d69c9972b1ffc3855e924a2d34d2bb_a17d69c9972b1ffc3855e924a2d34d2bb}{00174}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a17d69c9972b1ffc3855e924a2d34d2bb_a17d69c9972b1ffc3855e924a2d34d2bb}{iec\_day\_of\_week}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00175}00175     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00176}00176 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00187}\mbox{\hyperlink{a00005_ad1f79c9a1c614072e82e67513bbcf834_ad1f79c9a1c614072e82e67513bbcf834}{00187}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_ad1f79c9a1c614072e82e67513bbcf834_ad1f79c9a1c614072e82e67513bbcf834}{iec\_divtime}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00188}00188     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00189}00189 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00200}\mbox{\hyperlink{a00005_af955397cb6c1793dd8ba29981724d7df_af955397cb6c1793dd8ba29981724d7df}{00200}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_af955397cb6c1793dd8ba29981724d7df_af955397cb6c1793dd8ba29981724d7df}{iec\_multime}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00201}00201     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00202}00202 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00203}00203 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00204}\mbox{\hyperlink{a00005_aedf325defe40f444515b27ea52916328_aedf325defe40f444515b27ea52916328}{00204}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_aedf325defe40f444515b27ea52916328_aedf325defe40f444515b27ea52916328}{iec\_split\_date}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2, \mbox{\hyperlink{a00093}{iec\_t}} v3, \mbox{\hyperlink{a00093}{iec\_t}} v4) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00205}00205     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00206}00206 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00207}00207 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00223}\mbox{\hyperlink{a00005_aa9791c95bbd1708e5dc3f8279f01bab5_aa9791c95bbd1708e5dc3f8279f01bab5}{00223}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_aa9791c95bbd1708e5dc3f8279f01bab5_aa9791c95bbd1708e5dc3f8279f01bab5}{iec\_split\_dt}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2, \mbox{\hyperlink{a00093}{iec\_t}} v3, \mbox{\hyperlink{a00093}{iec\_t}} v4, \mbox{\hyperlink{a00093}{iec\_t}} v5, \mbox{\hyperlink{a00093}{iec\_t}} v6, \mbox{\hyperlink{a00093}{iec\_t}} v7, \mbox{\hyperlink{a00093}{iec\_t}} v8) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00224}00224     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00225}00225 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00239}\mbox{\hyperlink{a00005_a62096ec9f20a0342f8c41cee8d22fd05_a62096ec9f20a0342f8c41cee8d22fd05}{00239}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a62096ec9f20a0342f8c41cee8d22fd05_a62096ec9f20a0342f8c41cee8d22fd05}{iec\_split\_tod}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2, \mbox{\hyperlink{a00093}{iec\_t}} v3, \mbox{\hyperlink{a00093}{iec\_t}} v4, \mbox{\hyperlink{a00093}{iec\_t}} v5) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00240}00240     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00241}00241 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00242}00242 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00252}\mbox{\hyperlink{a00005_a3b49f5110f58c7f3dc0ea9b8dfdbf2fc_a3b49f5110f58c7f3dc0ea9b8dfdbf2fc}{00252}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a3b49f5110f58c7f3dc0ea9b8dfdbf2fc_a3b49f5110f58c7f3dc0ea9b8dfdbf2fc}{iec\_sub\_date\_date}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00253}00253     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00254}00254 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00255}00255 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00265}\mbox{\hyperlink{a00005_a166a78720119beccc05821db6ceff0e6_a166a78720119beccc05821db6ceff0e6}{00265}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a166a78720119beccc05821db6ceff0e6_a166a78720119beccc05821db6ceff0e6}{iec\_sub\_dt\_dt}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00266}00266     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00267}00267 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00278}\mbox{\hyperlink{a00005_a23267dc1024ca802dc3af5300f6798ee_a23267dc1024ca802dc3af5300f6798ee}{00278}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a23267dc1024ca802dc3af5300f6798ee_a23267dc1024ca802dc3af5300f6798ee}{iec\_sub\_dt\_time}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00279}00279     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00280}00280 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00281}00281 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00291}\mbox{\hyperlink{a00005_aac90e0bdbe031dd044f38bd2ab0f733d_aac90e0bdbe031dd044f38bd2ab0f733d}{00291}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_aac90e0bdbe031dd044f38bd2ab0f733d_aac90e0bdbe031dd044f38bd2ab0f733d}{iec\_sub\_tod\_tod}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00292}00292     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00293}00293 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00294}00294 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00304}\mbox{\hyperlink{a00005_ae3472617003bebe926684a0441d63656_ae3472617003bebe926684a0441d63656}{00304}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_ae3472617003bebe926684a0441d63656_ae3472617003bebe926684a0441d63656}{iec\_sub\_tod\_time}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00305}00305     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00306}00306 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00307}00307 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00317}\mbox{\hyperlink{a00005_a26689146390b0a56f51e8ff863d6c63a_a26689146390b0a56f51e8ff863d6c63a}{00317}} \mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\_t}} \mbox{\hyperlink{a00005_a26689146390b0a56f51e8ff863d6c63a_a26689146390b0a56f51e8ff863d6c63a}{iec\_sub\_time}}(\mbox{\hyperlink{a00093}{iec\_t}} result, \mbox{\hyperlink{a00093}{iec\_t}} v1, \mbox{\hyperlink{a00093}{iec\_t}} v2) \{}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00318}00318     \textcolor{keywordflow}{return} \mbox{\hyperlink{a00038_a966366923b7d3617bae16390caa8fde3_a966366923b7d3617bae16390caa8fde3a4b9436c49a1574cbd15321049ef3baa6}{IEC\_OK}};}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00319}00319 \}}
+\DoxyCodeLine{\Hypertarget{a00005_source_l00320}00320 }
+\DoxyCodeLine{\Hypertarget{a00005_source_l00321}00321 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IEC\_DATE\_TIME\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

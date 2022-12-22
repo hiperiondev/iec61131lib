@@ -1,12 +1,15 @@
-/*
- * Project Site: https://github.com/hiperiondev/iec61131lib
+/**
+ * @file iec61131lib.h
+ * @brief main header
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence
+ * Contact: egonzalez.hiperion@gmail.com
+ * @see https://github.com/hiperiondev/iec61131lib
  *
  * This is based on other projects:
  *    Others (see individual files)
  *
  *    please contact their authors for more information.
  *
- * Copyright (c) 2022 Emiliano Augusto Gonzalez ( egonzalez . hiperion @ gmail . com )
  *
  * The MIT License (MIT)
  *
@@ -49,7 +52,7 @@
  * @brief allow 64 bits data types
  *
  */
-//#define ALLOW_64BITS
+#define ALLOW_64BITS
 
 /**
  * @def STR_SEED_HASH
@@ -68,7 +71,7 @@ enum IEC_ERRORS {
     IEC_NAT = 0x01, /**< not allowed data type in operation */
     IEC_TRN = 0x02, /**< result function on variable are truncated */
     IEC_OOR = 0x03, /**< variable out of range (ex: string too long) */
-    IEC_TND = 0x04, /**< data type not defined (unknown) */
+    IEC_TND = 0x04, /**< data type not defined */
     IEC_NLL = 0x05, /**< parameter is NULL */
     IEC_TRU = 0x06, /**< result is true */
     IEC_FLS = 0x07, /**< result is false */
@@ -78,8 +81,8 @@ enum IEC_ERRORS {
 };
 
 /**
- * @typedef data types
- * @brief
+ * @typedef iectype_t
+ * @brief data types
  *
  */
 typedef enum {
@@ -132,126 +135,135 @@ typedef enum {
 } iectype_t;
 
 /**
- * @typedef
+ * @typedef tt_t
  * @brief status flags
  *
  */
 typedef enum {
     TT_MARK     = 0x01, /**< for gc */
-    TT_PERSIST  = 0x02, /**< */
-    TT_RETAIN   = 0x04, /**< */
-    TT_MAINTAIN = 0x08, /**< persist local */
-    TT_CONSTANT = 0x10, /**< */
+    TT_PERSIST  = 0x02, /**< is persist */
+    TT_RETAIN   = 0x04, /**< is retain */
+    TT_MAINTAIN = 0x08, /**< is persist local */
+    TT_CONSTANT = 0x10, /**< is constant */
     TT_INITILZD = 0x20, /**< value initialized */
-    TT_FLAG1    = 0x40, /**< */
-    TT_FLAG2    = 0x80  /**< */
+    TT_FLAG1    = 0x40, /**< generic flag*/
+    TT_FLAG2    = 0x80  /**< generic flag*/
 } tt_t;
 
 /**
- * @typedef
+ * @typedef date_t
  * @brief
  *
  */
-typedef union {
+typedef union date_t {
     struct {
          uint8_t day;   /**< */
          uint8_t month; /**< */
         uint16_t year;  /**< */
-    } v;                /**< */
+    } v;                /**< union */
     uint32_t dw_date;   /**< */
 } date_t;
 
 /**
- * @typedef
+ * @typedef tod_t
  * @brief
  *
  */
-typedef union {
+typedef union tod_t {
     struct {
         uint8_t csec; /**< */
         uint8_t sec;  /**< */
         uint8_t min;  /**< */
         uint8_t hour; /**< */
-    } v;              /**< */
+    } v;              /**< elements */
     uint32_t dw_tod;  /**< */
 } tod_t;
 
 #ifdef ALLOW_64BITS
 /**
- * @typedef
+ * @typedef dat_t
  * @brief
  *
  */
-typedef struct {
+typedef union dat_t {
     struct {
          tod_t tod;  /**< */
         date_t date; /**< */
-    } v;             /**< */
+    } v;             /**< elements */
     uint64_t dw_dat; /**< */
 } dat_t;
-
-typedef uint64_t pointer_t;
 #endif
 
 /**
- * @typedef
+ * @typedef pointer_t
  * @brief
  *
  */
-typedef struct {
+#ifdef ALLOW_64BITS
+typedef uint64_t pointer_t;
+#else
+typedef uint32_t pointer_t;
+#endif
+
+/**
+ * @typedef user_t
+ * @brief
+ *
+ */
+typedef struct user_t{
         void *data; /**< */
     uint32_t value; /**< */
 } user_t;
 
 /**
- * @typedef string
+ * @typedef string_t
  * @brief
  *
  */
-typedef struct string {
-            bool wstring;  /**< true if wide character type */
-        uint32_t len;      /**< */
-        uint32_t hash;     /**< */
-    str_t *str;
+typedef struct string_t {
+        bool wstring; /**< true if wide character type */
+    uint32_t len;     /**< string length*/
+    uint32_t hash;    /**< string hash*/
+        str_t *str;   /**< string pointer*/
 } string_t;
 
 /**
- * @typedef
+ * @typedef table_t
  * @brief
  *
  */
-typedef struct {
+typedef struct table_t {
     uint32_t len;    /**< */
         void *table; /**< */
 } table_t;
 
 /**
- * @typedef
+ * @typedef t_timer_t
  * @brief
  *
  */
-typedef struct {
-        bool q;         /**< */
-      time_t pt;        /**< */
-      time_t et;        /**< */
-        bool timer_run; /**< */
+typedef struct t_timer_t {
+        bool q;         /**< output */
+      time_t pt;        /**< preset time */
+      time_t et;        /**< elapsed time */
+        bool timer_run; /**< timer is running */
 #ifdef ALLOW_64BITS
-    uint64_t t0;        /**< */
+    uint64_t t0;        /**< start internal time */
 #else
-    uint32_t t0;        /**< */
+    uint32_t t0;        /**< start internal time */
 #endif
 } t_timer_t;
 
 /**
- * @typedef iec
+ * @typedef iec_t
  * @brief main data container
  *
  */
-typedef struct iec {
-    iectype_t type;     /**< */
-         tt_t tt;       /**< */
-     uint16_t any_type; /**< */
-        void* value;    /**< */
+typedef struct iec_t {
+    iectype_t type;     /**< data type */
+         tt_t tt;       /**< data tt */
+     uint16_t any_type; /**< any type flags */
+        void* value;    /**< data value */
 } *iec_t;
 
 /**
@@ -309,7 +321,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 ///////////////////////////// MACROS ///////////////////////////
 
 /**
- * @def utils
+ * @name utils
  * @brief internal utils
  *
  */
@@ -318,12 +330,12 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define CONCAT_INNER(a, b)    a ## b
 #define LABEL(base,x)         CONCAT(base, x)
 #define sign(x)               (((x) > 0) - ((x) < 0))
-#define IEC_ALLOC             malloc(sizeof(struct iec))
+#define IEC_ALLOC             malloc(sizeof(struct iec_t))
 /**@}*/
 
 /**
- * @def any types
- * @brief
+ * @name any types
+ * @brief check any types
  *
  */
 /**@{*/
@@ -335,13 +347,13 @@ static uint8_t IEC_T_SIZEOF[] = {
                                 || x == IEC_T_UDINT || x == IEC_T_ULINT)
 #define ANY_DATE(x)           (x == IEC_T_DATE || x == IEC_T_DT)
 #else
-#define ANY_BOOL(x)           (x == IEC_T_BOOL || x == IEC_T_R_EDGE || x == IEC_T_F_EDGE)
 #define ANY_BIT(x)            (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_R_EDGE || x == IEC_T_F_EDGE)
 #define ANY_UNSIGNED(x)       (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
 #define ANY_SIGNED(x)         (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT)
 #define ANY_INT(x)            (x == IEC_T_SINT || x == IEC_T_INT || x == IEC_T_DINT || x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT)
-#endif
 #define ANY_DATE(x)           (x == IEC_T_DATE)
+#endif
+#define ANY_BOOL(x)           (x == IEC_T_BOOL || x == IEC_T_R_EDGE || x == IEC_T_F_EDGE)
 #define ANY_REAL(x)           (x == IEC_T_REAL || x == IEC_T_LREAL)
 #define ANY_NUM(x)            (ANY_INT(x) || ANY_REAL(x))
 #define ANY_STRING(x)         (x == IEC_T_STRING || x == IEC_T_WSTRING)
@@ -353,7 +365,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def any type bit
+ * @name any type bit
  * @brief
  *
  */
@@ -375,7 +387,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def bit manipulation
+ * @name bit manipulation
  * @brief
  *
  */
@@ -389,7 +401,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def tt manipulation
+ * @name tt manipulation
  * @brief
  *
  */
@@ -438,7 +450,7 @@ static uint8_t IEC_T_SIZEOF[] = {
             (a)->type > (b)->type ? 0 : 1
 
 /**
- * @def iec_get_value
+ * @name iec_get_value
  * @brief
  *
  */
@@ -473,7 +485,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def iec_get_value_type
+ * @name iec_get_value_type
  * @brief
  *
  */
@@ -508,7 +520,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def iec_get_valuep
+ * @name iec_get_valuep
  * @brief
  *
  */
@@ -543,7 +555,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def iec_get_tovoid
+ * @name iec_get_tovoid
  * @brief
  *
  */
@@ -625,7 +637,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define iec_get_string(data)  (((string_t*) (data->value))->str)
 
 /**
- * @def iec_set_value
+ * @name iec_set_value
  * @brief
  *
  */
@@ -695,7 +707,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def iec_set_value_type
+ * @name iec_set_value_type
  * @brief
  *
  */
@@ -765,7 +777,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def iec_set_fromvoid
+ * @name iec_set_fromvoid
  * @brief
  *
  */
@@ -835,8 +847,8 @@ static uint8_t IEC_T_SIZEOF[] = {
 /**@}*/
 
 /**
- * @def mask for type
- * @brief
+ * @def IEC_ANYTYPE
+ * @brief mask for type
  *
  */
 #define IEC_ANYTYPE(type)                  \

@@ -1,0 +1,261 @@
+\hypertarget{a00047}{}\doxysection{iec\+\_\+string.\+h File Reference}
+\label{a00047}\index{iec\_string.h@{iec\_string.h}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$wchar.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}iec61131lib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util\+\_\+buffer\+\_\+string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util\+\_\+murhash.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_ad55e8a521dccff167b3e4eaf21e4b83e_ad55e8a521dccff167b3e4eaf21e4b83e}{iec\+\_\+string\+\_\+len}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_a383fa661f6f6a31766d7831bc34ad990_a383fa661f6f6a31766d7831bc34ad990}{iec\+\_\+string\+\_\+left}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_aa0749bfefce8c202450e4e24b580a03b_aa0749bfefce8c202450e4e24b580a03b}{iec\+\_\+string\+\_\+right}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_a2471b073f0242ed15dea57119b8d862c_a2471b073f0242ed15dea57119b8d862c}{iec\+\_\+string\+\_\+mid}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v3)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_a71acdd7b8d685d18728ba0c277b49ce5_a71acdd7b8d685d18728ba0c277b49ce5}{iec\+\_\+string\+\_\+concat}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00117}{stack\+\_\+t}} list)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_a1896d10fb50cbbfcd3074b167a92db3d_a1896d10fb50cbbfcd3074b167a92db3d}{iec\+\_\+string\+\_\+insert}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v3)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_a61f5af12e1ea1c92016cfce6ba83db17_a61f5af12e1ea1c92016cfce6ba83db17}{iec\+\_\+string\+\_\+delete}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v3)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_acd14a1d45147095adce210fb45e4dcb8_acd14a1d45147095adce210fb45e4dcb8}{iec\+\_\+string\+\_\+replace}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v3, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v4)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_a3ad77a7268826690c8d80b4bc27055e9_a3ad77a7268826690c8d80b4bc27055e9}{iec\+\_\+string\+\_\+find}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v1, \mbox{\hyperlink{a00093}{iec\+\_\+t}} v2)
+\item 
+\mbox{\hyperlink{a00029_ab077fa1127453be2bd9d4c3c8a768fa7_ab077fa1127453be2bd9d4c3c8a768fa7}{uint8\+\_\+t}} \mbox{\hyperlink{a00047_ab719683c000807a344eff22745889d08_ab719683c000807a344eff22745889d08}{iec\+\_\+string\+\_\+set}} (\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$result, char $\ast$str, bool wstr, bool hash)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{a00047_a71acdd7b8d685d18728ba0c277b49ce5_a71acdd7b8d685d18728ba0c277b49ce5}\label{a00047_a71acdd7b8d685d18728ba0c277b49ce5_a71acdd7b8d685d18728ba0c277b49ce5}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_concat@{iec\_string\_concat}}
+\index{iec\_string\_concat@{iec\_string\_concat}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_concat()}{iec\_string\_concat()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+concat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00117}{stack\+\_\+t}}}]{list }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00136}{136}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_a61f5af12e1ea1c92016cfce6ba83db17_a61f5af12e1ea1c92016cfce6ba83db17}\label{a00047_a61f5af12e1ea1c92016cfce6ba83db17_a61f5af12e1ea1c92016cfce6ba83db17}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_delete@{iec\_string\_delete}}
+\index{iec\_string\_delete@{iec\_string\_delete}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_delete()}{iec\_string\_delete()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v3 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+{\em v3} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00167}{167}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_a3ad77a7268826690c8d80b4bc27055e9_a3ad77a7268826690c8d80b4bc27055e9}\label{a00047_a3ad77a7268826690c8d80b4bc27055e9_a3ad77a7268826690c8d80b4bc27055e9}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_find@{iec\_string\_find}}
+\index{iec\_string\_find@{iec\_string\_find}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_find()}{iec\_string\_find()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00202}{202}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_a1896d10fb50cbbfcd3074b167a92db3d_a1896d10fb50cbbfcd3074b167a92db3d}\label{a00047_a1896d10fb50cbbfcd3074b167a92db3d_a1896d10fb50cbbfcd3074b167a92db3d}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_insert@{iec\_string\_insert}}
+\index{iec\_string\_insert@{iec\_string\_insert}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_insert()}{iec\_string\_insert()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v3 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+{\em v3} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00150}{150}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_a383fa661f6f6a31766d7831bc34ad990_a383fa661f6f6a31766d7831bc34ad990}\label{a00047_a383fa661f6f6a31766d7831bc34ad990_a383fa661f6f6a31766d7831bc34ad990}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_left@{iec\_string\_left}}
+\index{iec\_string\_left@{iec\_string\_left}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_left()}{iec\_string\_left()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00090}{90}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_ad55e8a521dccff167b3e4eaf21e4b83e_ad55e8a521dccff167b3e4eaf21e4b83e}\label{a00047_ad55e8a521dccff167b3e4eaf21e4b83e_ad55e8a521dccff167b3e4eaf21e4b83e}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_len@{iec\_string\_len}}
+\index{iec\_string\_len@{iec\_string\_len}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_len()}{iec\_string\_len()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+len (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00071}{71}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_a2471b073f0242ed15dea57119b8d862c_a2471b073f0242ed15dea57119b8d862c}\label{a00047_a2471b073f0242ed15dea57119b8d862c_a2471b073f0242ed15dea57119b8d862c}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_mid@{iec\_string\_mid}}
+\index{iec\_string\_mid@{iec\_string\_mid}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_mid()}{iec\_string\_mid()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+mid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v3 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+{\em v3} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00121}{121}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_acd14a1d45147095adce210fb45e4dcb8_acd14a1d45147095adce210fb45e4dcb8}\label{a00047_acd14a1d45147095adce210fb45e4dcb8_acd14a1d45147095adce210fb45e4dcb8}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_replace@{iec\_string\_replace}}
+\index{iec\_string\_replace@{iec\_string\_replace}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_replace()}{iec\_string\_replace()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v3,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v4 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+{\em v3} & \\
+\hline
+{\em v4} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00185}{185}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_aa0749bfefce8c202450e4e24b580a03b_aa0749bfefce8c202450e4e24b580a03b}\label{a00047_aa0749bfefce8c202450e4e24b580a03b_aa0749bfefce8c202450e4e24b580a03b}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_right@{iec\_string\_right}}
+\index{iec\_string\_right@{iec\_string\_right}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_right()}{iec\_string\_right()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v1,  }\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}}}]{v2 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00105}{105}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+
+\mbox{\Hypertarget{a00047_ab719683c000807a344eff22745889d08_ab719683c000807a344eff22745889d08}\label{a00047_ab719683c000807a344eff22745889d08_ab719683c000807a344eff22745889d08}} 
+\index{iec\_string.h@{iec\_string.h}!iec\_string\_set@{iec\_string\_set}}
+\index{iec\_string\_set@{iec\_string\_set}!iec\_string.h@{iec\_string.h}}
+\doxysubsubsection{\texorpdfstring{iec\_string\_set()}{iec\_string\_set()}}
+{\footnotesize\ttfamily unsigned char iec\+\_\+string\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{a00093}{iec\+\_\+t}} $\ast$}]{result,  }\item[{char $\ast$}]{str,  }\item[{bool}]{wstr,  }\item[{bool}]{hash }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \\
+\hline
+{\em str} & \\
+\hline
+{\em wstr} & \\
+\hline
+{\em hash} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{a00047_source_l00218}{218}} of file \mbox{\hyperlink{a00047_source}{iec\+\_\+string.\+h}}.
+

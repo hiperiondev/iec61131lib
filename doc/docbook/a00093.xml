@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00093" xml:lang="en-US">
+<title>iec_t Struct Reference</title>
+<indexterm><primary>iec_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;iec61131lib.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6">iectype_t</link> <link linkend="_a00093_afc318e26f4822171d8741b84a05a4c43_1afc318e26f4822171d8741b84a05a4c43">type</link></para>
+</listitem>
+            <listitem><para><link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347">tt_t</link> <link linkend="_a00093_a5011cfe1e1ddccee588709578f1b81a8_1a5011cfe1e1ddccee588709578f1b81a8">tt</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_a00093_a6d5d8c5413f9ee85c714cf40a86eadb3_1a6d5d8c5413f9ee85c714cf40a86eadb3">any_type</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_a00093_a0f61d63b009d0880a89c843bd50d8d76_1a0f61d63b009d0880a89c843bd50d8d76">value</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_a00038_source_1l00262">262</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_a00093_a6d5d8c5413f9ee85c714cf40a86eadb3_1a6d5d8c5413f9ee85c714cf40a86eadb3"/><section>
+    <title>any_type</title>
+<indexterm><primary>any_type</primary><secondary>iec_t</secondary></indexterm>
+<indexterm><primary>iec_t</primary><secondary>any_type</secondary></indexterm>
+<para><computeroutput>uint16_t any_type</computeroutput></para>
+<para>any type flags </para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00265">265</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00093_a5011cfe1e1ddccee588709578f1b81a8_1a5011cfe1e1ddccee588709578f1b81a8"/><section>
+    <title>tt</title>
+<indexterm><primary>tt</primary><secondary>iec_t</secondary></indexterm>
+<indexterm><primary>iec_t</primary><secondary>tt</secondary></indexterm>
+<para><computeroutput><link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347">tt_t</link> tt</computeroutput></para>
+<para>data tt </para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00264">264</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00093_afc318e26f4822171d8741b84a05a4c43_1afc318e26f4822171d8741b84a05a4c43"/><section>
+    <title>type</title>
+<indexterm><primary>type</primary><secondary>iec_t</secondary></indexterm>
+<indexterm><primary>iec_t</primary><secondary>type</secondary></indexterm>
+<para><computeroutput><link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6">iectype_t</link> type</computeroutput></para>
+<para>data type </para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00263">263</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<anchor xml:id="_a00093_a0f61d63b009d0880a89c843bd50d8d76_1a0f61d63b009d0880a89c843bd50d8d76"/><section>
+    <title>value</title>
+<indexterm><primary>value</primary><secondary>iec_t</secondary></indexterm>
+<indexterm><primary>iec_t</primary><secondary>value</secondary></indexterm>
+<para><computeroutput>void* value</computeroutput></para>
+<para>data value </para>
+<para>
+Definition at line <link linkend="_a00038_source_1l00266">266</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_a00038">iec61131lib.h</link></section>
+</section>

@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00017" xml:lang="en-US">
+<title>iec_mathematical.h File Reference</title>
+<indexterm><primary>iec_mathematical.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;math.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_ac82bb278412417046ec1c5e133e08341_1ac82bb278412417046ec1c5e133e08341">iec_abs</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_ab2a0de15cea163cff598195052e4f140_1ab2a0de15cea163cff598195052e4f140">iec_sqrt</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a893b0f2ba973e7ade2ab3a3a86029497_1a893b0f2ba973e7ade2ab3a3a86029497">iec_ln</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a52881cbb1477658aaffa87455f06475b_1a52881cbb1477658aaffa87455f06475b">iec_log</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a66e3d70b9a3eca38fdf39d3661841518_1a66e3d70b9a3eca38fdf39d3661841518">iec_exp</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_abca7bfde2dcb861ab5f4ff2b20da8b82_1abca7bfde2dcb861ab5f4ff2b20da8b82">iec_sin</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a194e9da090cdd142841c68304303659a_1a194e9da090cdd142841c68304303659a">iec_cos</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a6731039f3572e70be54b3c048c3f7926_1a6731039f3572e70be54b3c048c3f7926">iec_tan</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_af972f815468d7029d05e9a72e19cc516_1af972f815468d7029d05e9a72e19cc516">iec_asin</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a6d45ebd24c5a2e10acb3db69764d7f04_1a6d45ebd24c5a2e10acb3db69764d7f04">iec_acos</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_a7eb96ae1eff458fd8886f9c6cf45ef46_1a7eb96ae1eff458fd8886f9c6cf45ef46">iec_atan</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1)</para>
+</listitem>
+            <listitem><para><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> <link linkend="_a00017_adfe936132b91b1adfc620ddf9cd8e1e0_1adfe936132b91b1adfc620ddf9cd8e1e0">iec_atan2</link> (<link linkend="_a00093">iec_t</link> *result, <link linkend="_a00093">iec_t</link> v1, <link linkend="_a00093">iec_t</link> v2)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_a00017_ac82bb278412417046ec1c5e133e08341_1ac82bb278412417046ec1c5e133e08341"/><section>
+    <title>iec_abs()</title>
+<indexterm><primary>iec_abs</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_abs</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_abs (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00069">69</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a6d45ebd24c5a2e10acb3db69764d7f04_1a6d45ebd24c5a2e10acb3db69764d7f04"/><section>
+    <title>iec_acos()</title>
+<indexterm><primary>iec_acos</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_acos</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_acos (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00222">222</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_af972f815468d7029d05e9a72e19cc516_1af972f815468d7029d05e9a72e19cc516"/><section>
+    <title>iec_asin()</title>
+<indexterm><primary>iec_asin</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_asin</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_asin (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00205">205</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a7eb96ae1eff458fd8886f9c6cf45ef46_1a7eb96ae1eff458fd8886f9c6cf45ef46"/><section>
+    <title>iec_atan()</title>
+<indexterm><primary>iec_atan</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_atan</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_atan (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00239">239</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_adfe936132b91b1adfc620ddf9cd8e1e0_1adfe936132b91b1adfc620ddf9cd8e1e0"/><section>
+    <title>iec_atan2()</title>
+<indexterm><primary>iec_atan2</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_atan2</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_atan2 (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1, <link linkend="_a00093">iec_t</link> v2)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v2</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00257">257</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a194e9da090cdd142841c68304303659a_1a194e9da090cdd142841c68304303659a"/><section>
+    <title>iec_cos()</title>
+<indexterm><primary>iec_cos</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_cos</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_cos (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00171">171</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a66e3d70b9a3eca38fdf39d3661841518_1a66e3d70b9a3eca38fdf39d3661841518"/><section>
+    <title>iec_exp()</title>
+<indexterm><primary>iec_exp</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_exp</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_exp (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00137">137</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a893b0f2ba973e7ade2ab3a3a86029497_1a893b0f2ba973e7ade2ab3a3a86029497"/><section>
+    <title>iec_ln()</title>
+<indexterm><primary>iec_ln</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_ln</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_ln (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00103">103</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a52881cbb1477658aaffa87455f06475b_1a52881cbb1477658aaffa87455f06475b"/><section>
+    <title>iec_log()</title>
+<indexterm><primary>iec_log</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_log</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_log (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00120">120</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_abca7bfde2dcb861ab5f4ff2b20da8b82_1abca7bfde2dcb861ab5f4ff2b20da8b82"/><section>
+    <title>iec_sin()</title>
+<indexterm><primary>iec_sin</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_sin</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_sin (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00154">154</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_ab2a0de15cea163cff598195052e4f140_1ab2a0de15cea163cff598195052e4f140"/><section>
+    <title>iec_sqrt()</title>
+<indexterm><primary>iec_sqrt</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_sqrt</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_sqrt (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00086">86</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+<anchor xml:id="_a00017_a6731039f3572e70be54b3c048c3f7926_1a6731039f3572e70be54b3c048c3f7926"/><section>
+    <title>iec_tan()</title>
+<indexterm><primary>iec_tan</primary><secondary>iec_mathematical.h</secondary></indexterm>
+<indexterm><primary>iec_mathematical.h</primary><secondary>iec_tan</secondary></indexterm>
+<para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> iec_tan (<link linkend="_a00093">iec_t</link> * result, <link linkend="_a00093">iec_t</link> v1)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>v1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_a00017_source_1l00188">188</link> of file <link linkend="_a00017_source">iec_mathematical.h</link>.</para>
+</section>
+</section>
+</section>
