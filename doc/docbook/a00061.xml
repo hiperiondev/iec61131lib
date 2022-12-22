@@ -29,7 +29,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="_a00038_source_1l00172">172</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00167">167</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -38,35 +38,35 @@ Definition at line <link linkend="_a00038_source_1l00172">172</link> of file <li
 <indexterm><primary>csec</primary><secondary>tod_t</secondary></indexterm>
 <indexterm><primary>tod_t</primary><secondary>csec</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> csec</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00174">174</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00169">169</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00061_ad325d7e5b8eef3f3dcf89f743f38eeb1_1ad325d7e5b8eef3f3dcf89f743f38eeb1"/><section>
     <title>dw_tod</title>
 <indexterm><primary>dw_tod</primary><secondary>tod_t</secondary></indexterm>
 <indexterm><primary>tod_t</primary><secondary>dw_tod</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> dw_tod</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00179">179</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00174">174</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00061_ae5af4ff48939d13d480f87e56a9385d6_1ae5af4ff48939d13d480f87e56a9385d6"/><section>
     <title>hour</title>
 <indexterm><primary>hour</primary><secondary>tod_t</secondary></indexterm>
 <indexterm><primary>tod_t</primary><secondary>hour</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> hour</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00177">177</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00172">172</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00061_ac9b481208b43f7c37ed25e446bdec692_1ac9b481208b43f7c37ed25e446bdec692"/><section>
     <title>min</title>
 <indexterm><primary>min</primary><secondary>tod_t</secondary></indexterm>
 <indexterm><primary>tod_t</primary><secondary>min</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> min</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00176">176</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00171">171</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00061_ad1696900026b287a87c563b733a21bc3_1ad1696900026b287a87c563b733a21bc3"/><section>
     <title>sec</title>
 <indexterm><primary>sec</primary><secondary>tod_t</secondary></indexterm>
 <indexterm><primary>tod_t</primary><secondary>sec</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> sec</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00175">175</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00170">170</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00061_aaa48d434d4721a131a438222c5702817_1aaa48d434d4721a131a438222c5702817"/><section>
     <title></title>

@@ -1,7 +1,7 @@
-/*
+/**
  * @file iec_hardware.h
  * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
  * Contact: egonzalez.hiperion@gmail.com
  * @see https://github.com/hiperiondev/iec61131lib
  * Project Site: https://github.com/hiperiondev/iec61131lib

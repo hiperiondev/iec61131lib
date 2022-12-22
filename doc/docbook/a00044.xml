@@ -2,6 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00044" xml:lang="en-US">
 <title>iec_conversion.h File Reference</title>
 <indexterm><primary>iec_conversion.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
 <simplesect>
     <title>Functions    </title>
         <itemizedlist>
@@ -15,6 +20,33 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
+</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_a00044_a3e840ead70705d7b303380b9e300a22e_1a3e840ead70705d7b303380b9e300a22e"/><section>
@@ -58,7 +90,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00044_source_1l00098">98</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
+Definition at line <link linkend="_a00044_source_1l00092">92</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
 </section>
 <anchor xml:id="_a00044_a8db7964e81834bd8be939db5ea3de19e_1a8db7964e81834bd8be939db5ea3de19e"/><section>
     <title>iec_to()</title>
@@ -101,7 +133,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00044_source_1l00072">72</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
+Definition at line <link linkend="_a00044_source_1l00066">66</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
 </section>
 <anchor xml:id="_a00044_ab582fa92cd34b714ea64ffa79d7eb119_1ab582fa92cd34b714ea64ffa79d7eb119"/><section>
     <title>iec_to_bcd()</title>
@@ -139,7 +171,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00044_source_1l00110">110</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
+Definition at line <link linkend="_a00044_source_1l00104">104</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
 </section>
 <anchor xml:id="_a00044_aeba959a4ca2bc3e58f819ff7cd16bf7c_1aeba959a4ca2bc3e58f819ff7cd16bf7c"/><section>
     <title>iec_trunc()</title>
@@ -182,7 +214,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00044_source_1l00085">85</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
+Definition at line <link linkend="_a00044_source_1l00079">79</link> of file <link linkend="_a00044_source">iec_conversion.h</link>.</para>
 </section>
 </section>
 </section>

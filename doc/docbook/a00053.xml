@@ -27,7 +27,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="_a00038_source_1l00158">158</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00153">153</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -36,21 +36,21 @@ Definition at line <link linkend="_a00038_source_1l00158">158</link> of file <li
 <indexterm><primary>day</primary><secondary>date_t</secondary></indexterm>
 <indexterm><primary>date_t</primary><secondary>day</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> day</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00160">160</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00155">155</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00053_a45bad240976930437352d796d05670cb_1a45bad240976930437352d796d05670cb"/><section>
     <title>dw_date</title>
 <indexterm><primary>dw_date</primary><secondary>date_t</secondary></indexterm>
 <indexterm><primary>date_t</primary><secondary>dw_date</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> dw_date</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00164">164</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00159">159</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00053_a3e00faf7fbf9805e9ec4d2edd6339050_1a3e00faf7fbf9805e9ec4d2edd6339050"/><section>
     <title>month</title>
 <indexterm><primary>month</primary><secondary>date_t</secondary></indexterm>
 <indexterm><primary>date_t</primary><secondary>month</secondary></indexterm>
 <para><computeroutput><link linkend="_a00029_ab077fa1127453be2bd9d4c3c8a768fa7_1ab077fa1127453be2bd9d4c3c8a768fa7">uint8_t</link> month</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00161">161</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00156">156</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00053_a72785264dbbb48127044433607dbc5ff_1a72785264dbbb48127044433607dbc5ff"/><section>
     <title></title>
@@ -64,7 +64,7 @@ Definition at line <link linkend="_a00038_source_1l00161">161</link> of file <li
 <indexterm><primary>year</primary><secondary>date_t</secondary></indexterm>
 <indexterm><primary>date_t</primary><secondary>year</secondary></indexterm>
 <para><computeroutput>uint16_t year</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00162">162</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00157">157</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <para>
 The documentation for this union was generated from the following file:</para>

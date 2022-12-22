@@ -2,6 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00041" xml:lang="en-US">
 <title>iec_bitwise_boolean.h File Reference</title>
 <indexterm><primary>iec_bitwise_boolean.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
 <simplesect>
     <title>Functions    </title>
         <itemizedlist>
@@ -15,6 +20,33 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
+</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_a00041_aaa3ed3c7dd0e65b5b2ebfd5c34d967ac_1aaa3ed3c7dd0e65b5b2ebfd5c34d967ac"/><section>
@@ -58,7 +90,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00041_source_1l00060">60</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
+Definition at line <link linkend="_a00041_source_1l00054">54</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
 </section>
 <anchor xml:id="_a00041_a2cf03753fc1e0d0fc22bc8a0d1909fe5_1a2cf03753fc1e0d0fc22bc8a0d1909fe5"/><section>
     <title>iec_not()</title>
@@ -96,7 +128,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00041_source_1l00107">107</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
+Definition at line <link linkend="_a00041_source_1l00101">101</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
 </section>
 <anchor xml:id="_a00041_a20889f81b6f84cf34a1f682076f13ed0_1a20889f81b6f84cf34a1f682076f13ed0"/><section>
     <title>iec_or()</title>
@@ -139,7 +171,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00041_source_1l00076">76</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
+Definition at line <link linkend="_a00041_source_1l00070">70</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
 </section>
 <anchor xml:id="_a00041_a624435aa6dcb6b96acfc6f3550067571_1a624435aa6dcb6b96acfc6f3550067571"/><section>
     <title>iec_xor()</title>
@@ -182,7 +214,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00041_source_1l00092">92</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
+Definition at line <link linkend="_a00041_source_1l00086">86</link> of file <link linkend="_a00041_source">iec_bitwise_boolean.h</link>.</para>
 </section>
 </section>
 </section>

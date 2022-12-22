@@ -21,7 +21,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="_a00038_source_1l00223">223</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00218">218</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -32,7 +32,7 @@ Definition at line <link linkend="_a00038_source_1l00223">223</link> of file <li
 <para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> hash</computeroutput></para>
 <para>string hash </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00226">226</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00221">221</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00081_a96bbf959016e4411c9e6b9812a8be60a_1a96bbf959016e4411c9e6b9812a8be60a"/><section>
     <title>len</title>
@@ -41,7 +41,7 @@ Definition at line <link linkend="_a00038_source_1l00226">226</link> of file <li
 <para><computeroutput><link linkend="_a00029_a0ddb3f43e52282b59ee55d059ed74a28_1a0ddb3f43e52282b59ee55d059ed74a28">uint32_t</link> len</computeroutput></para>
 <para>string length </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00225">225</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00220">220</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00081_acaf79f0107dd753c7657aaf44aea38fe_1acaf79f0107dd753c7657aaf44aea38fe"/><section>
     <title>str</title>
@@ -50,7 +50,7 @@ Definition at line <link linkend="_a00038_source_1l00225">225</link> of file <li
 <para><computeroutput><link linkend="_a00097">str_t</link>* str</computeroutput></para>
 <para>string pointer </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00227">227</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00222">222</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00081_ad8f91838348fae787b69696a49f904c0_1ad8f91838348fae787b69696a49f904c0"/><section>
     <title>wstring</title>
@@ -59,7 +59,7 @@ Definition at line <link linkend="_a00038_source_1l00227">227</link> of file <li
 <para><computeroutput>bool wstring</computeroutput></para>
 <para>true if wide character type </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00224">224</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00219">219</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

@@ -2,6 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00002" xml:lang="en-US">
 <title>iec_selection.h File Reference</title>
 <indexterm><primary>iec_selection.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
 <programlisting linenumbering="unnumbered">#include &quot;util_stack.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
@@ -19,6 +24,33 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_a00002_aad21345d6ddc4d7be281a67b6c6c65cb_1aad21345d6ddc4d7be281a67b6c6c65cb"/><section>
@@ -67,7 +99,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00002_source_1l00164">164</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+Definition at line <link linkend="_a00002_source_1l00158">158</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
 </section>
 <anchor xml:id="_a00002_adbda53c337f891ab831aff3e23a98ad6_1adbda53c337f891ab831aff3e23a98ad6"/><section>
     <title>iec_max()</title>
@@ -105,7 +137,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00002_source_1l00104">104</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+Definition at line <link linkend="_a00002_source_1l00098">98</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
 </section>
 <anchor xml:id="_a00002_a3f32143aac2c647ddff00179bd779ad1_1a3f32143aac2c647ddff00179bd779ad1"/><section>
     <title>iec_min()</title>
@@ -143,7 +175,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00002_source_1l00133">133</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+Definition at line <link linkend="_a00002_source_1l00127">127</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
 </section>
 <anchor xml:id="_a00002_a7ca0f82a81a442719f66c59825e3f056_1a7ca0f82a81a442719f66c59825e3f056"/><section>
     <title>iec_move()</title>
@@ -181,7 +213,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00002_source_1l00063">63</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+Definition at line <link linkend="_a00002_source_1l00057">57</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
 </section>
 <anchor xml:id="_a00002_aff6c6b6456617e72672aa744a2503349_1aff6c6b6456617e72672aa744a2503349"/><section>
     <title>iec_mux()</title>
@@ -224,7 +256,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00002_source_1l00188">188</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+Definition at line <link linkend="_a00002_source_1l00182">182</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
 </section>
 <anchor xml:id="_a00002_a73403d24c8a734a5449020c343934bba_1a73403d24c8a734a5449020c343934bba"/><section>
     <title>iec_sel()</title>
@@ -272,7 +304,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00002_source_1l00085">85</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
+Definition at line <link linkend="_a00002_source_1l00079">79</link> of file <link linkend="_a00002_source">iec_selection.h</link>.</para>
 </section>
 </section>
 </section>

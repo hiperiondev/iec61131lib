@@ -2,6 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00020" xml:lang="en-US">
 <title>iec_literals.h File Reference</title>
 <indexterm><primary>iec_literals.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
 <programlisting linenumbering="unnumbered">#include &lt;ctype.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;iec61131lib.h&quot;<?linebreak?>#include &quot;util_buffer_string.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Enumerations    </title>
         <itemizedlist>
@@ -42,6 +47,33 @@
         </itemizedlist>
 </simplesect>
 <section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+</section>
+<section>
 <title>Enumeration Type Documentation</title>
 <anchor xml:id="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbb"/><section>
     <title>LITERALS</title>
@@ -81,7 +113,7 @@
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="_a00020_source_1l00052">52</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+Definition at line <link linkend="_a00020_source_1l00046">46</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
 </section>
 </section>
 <section>
@@ -122,7 +154,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00020_source_1l00153">153</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+Definition at line <link linkend="_a00020_source_1l00147">147</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
 </section>
 <anchor xml:id="_a00020_a1ba772a18d49e58566522c0364080cd8_1a1ba772a18d49e58566522c0364080cd8"/><section>
     <title>literal_toiec()</title>
@@ -156,7 +188,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_a00020_source_1l00218">218</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+Definition at line <link linkend="_a00020_source_1l00212">212</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
 </section>
 </section>
 <section>
@@ -179,14 +211,14 @@ Definition at line <link linkend="_a00020_source_1l00218">218</link> of file <li
 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;DATE_AND_TIME#&quot;</emphasis>&#32;
 }
 </programlisting><para>
-Definition at line <link linkend="_a00020_source_1l00068">68</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+Definition at line <link linkend="_a00020_source_1l00062">62</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
 </section>
 <anchor xml:id="_a00020_a597620f83edf4b6c63d7426577097ebc_1a597620f83edf4b6c63d7426577097ebc"/><section>
     <title>IEC_IECTYPE_PFX</title>
 <indexterm><primary>IEC_IECTYPE_PFX</primary><secondary>iec_literals.h</secondary></indexterm>
 <indexterm><primary>iec_literals.h</primary><secondary>IEC_IECTYPE_PFX</secondary></indexterm>
 <para><computeroutput>const char* IEC_IECTYPE_PFX[]</computeroutput></para><para>
-Definition at line <link linkend="_a00020_source_1l00096">96</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+Definition at line <link linkend="_a00020_source_1l00090">90</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
 </section>
 <anchor xml:id="_a00020_af470a45817266aecf46355af518ddeaa_1af470a45817266aecf46355af518ddeaa"/><section>
     <title>IEC_LITERAL_FORMAT</title>
@@ -206,7 +238,7 @@ Definition at line <link linkend="_a00020_source_1l00096">96</link> of file <lin
 &#32;&#32;&#32;&#32;<link linkend="_a00020_a3b876f1d5eb910af6bf244c2906a2dbb_1a3b876f1d5eb910af6bf244c2906a2dbba382aa1dbb59af114ea93b268b1fa86b5">IEC_LIT_DATE_AND_TIME</link>
 }
 </programlisting><para>
-Definition at line <link linkend="_a00020_source_1l00082">82</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
+Definition at line <link linkend="_a00020_source_1l00076">76</link> of file <link linkend="_a00020_source">iec_literals.h</link>.</para>
 </section>
 </section>
 </section>

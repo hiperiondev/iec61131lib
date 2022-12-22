@@ -1,16 +1,9 @@
-/*
+/**
  * @file iec_bit_shift.h
  * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
  * Contact: egonzalez.hiperion@gmail.com
- * @see https://github.com/hiperiondev/iec61131lib
- * Project Site: https://github.com/hiperiondev/iec61131lib
- *
- * This is based on other projects:
- *
- *    Others (see individual files)
- *
- *    please contact their authors for more information.
+ * @note This is based on other projects. Please contact their authors for more information.
  *
  * The MIT License (MIT)
  *

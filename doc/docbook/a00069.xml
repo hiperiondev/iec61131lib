@@ -25,7 +25,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="_a00038_source_1l00188">188</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00183">183</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -34,21 +34,21 @@ Definition at line <link linkend="_a00038_source_1l00188">188</link> of file <li
 <indexterm><primary>date</primary><secondary>dat_t</secondary></indexterm>
 <indexterm><primary>dat_t</primary><secondary>date</secondary></indexterm>
 <para><computeroutput><link linkend="_a00053">date_t</link> date</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00191">191</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00186">186</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00069_ae5936b692084c821a5532a88298dca65_1ae5936b692084c821a5532a88298dca65"/><section>
     <title>dw_dat</title>
 <indexterm><primary>dw_dat</primary><secondary>dat_t</secondary></indexterm>
 <indexterm><primary>dat_t</primary><secondary>dw_dat</secondary></indexterm>
 <para><computeroutput>uint64_t dw_dat</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00193">193</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00188">188</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00069_a2c9fe3abacdbb6f2669d9992efd97622_1a2c9fe3abacdbb6f2669d9992efd97622"/><section>
     <title>tod</title>
 <indexterm><primary>tod</primary><secondary>dat_t</secondary></indexterm>
 <indexterm><primary>dat_t</primary><secondary>tod</secondary></indexterm>
 <para><computeroutput><link linkend="_a00061">tod_t</link> tod</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00190">190</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00185">185</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00069_a5c8e6114f59f7f40b19e9caad83206ef_1a5c8e6114f59f7f40b19e9caad83206ef"/><section>
     <title></title>

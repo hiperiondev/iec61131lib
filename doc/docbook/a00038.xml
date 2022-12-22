@@ -374,17 +374,17 @@
 
 <para><formalpara><title>Copyright</title>
 
-<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT licence Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
 </formalpara>
 <formalpara><title>See also</title>
 
-<para><link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link></para>
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
 </formalpara>
-This is based on other projects: Others (see individual files)</para>
+<note><title>Note</title>
 
-<para>please contact their authors for more information.</para>
-
-<para>The MIT License (MIT)</para>
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
 
 <para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
 
@@ -401,7 +401,7 @@ Definition in file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 <indexterm><primary>_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>_BIT</secondary></indexterm>
 <para><computeroutput>#define _BIT&#160;&#160;&#160;0</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00386">386</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00381">381</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ae2401fe529d1455e1f39c34999b01f0a_1ae2401fe529d1455e1f39c34999b01f0a"/><section>
     <title>ALLOW_64BITS</title>
@@ -412,84 +412,84 @@ Definition at line <link linkend="_a00038_source_1l00386">386</link> of file <li
 <para>allow 64 bits data types </para>
 </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00055">55</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00050">50</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d"/><section>
     <title>ANY_BIT</title>
 <indexterm><primary>ANY_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_BIT( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a2140b068422aa14fa72d88828c512753">IEC_T_WORD</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae323ea4cf56d00ea3bab6177696ae897">IEC_T_DWORD</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a86a01a8ed5d86bd41f215693533bf4fd">IEC_T_LWORD</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00343">343</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00338">338</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a4125af89120cef9cf1409e8fae14c434_1a4125af89120cef9cf1409e8fae14c434"/><section>
     <title>ANY_BIT_BIT</title>
 <indexterm><primary>ANY_BIT_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_BIT_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_BIT_BIT&#160;&#160;&#160;0x0004</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00375">375</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00370">370</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ab09eead414983cd69c8959156706470a_1ab09eead414983cd69c8959156706470a"/><section>
     <title>ANY_BOOL</title>
 <indexterm><primary>ANY_BOOL</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_BOOL</secondary></indexterm>
 <para><computeroutput>#define ANY_BOOL( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6aa0c5b0ad1cfb3e7cb01fa37f668434eb">IEC_T_BOOL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a604d21ecc5f4e9a8f4e27fb4041f74a5">IEC_T_R_EDGE</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1ac0c63832a80d485e687477588779a">IEC_T_F_EDGE</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00356">356</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00351">351</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd"/><section>
     <title>ANY_CHAR</title>
 <indexterm><primary>ANY_CHAR</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHAR</secondary></indexterm>
 <para><computeroutput>#define ANY_CHAR( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af7e15ca13203185dccdaa1f671b50b53">IEC_T_CHAR</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a1cb729bae5ff8b6a8b1970c63bedc589">IEC_T_WCHAR</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00363">363</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00358">358</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ad16dfb0ace23bfce3ddf7e37ac58f9cb_1ad16dfb0ace23bfce3ddf7e37ac58f9cb"/><section>
     <title>ANY_CHAR_BIT</title>
 <indexterm><primary>ANY_CHAR_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHAR_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_CHAR_BIT&#160;&#160;&#160;0x0800</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00384">384</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00379">379</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aa23577c4776bf09771e92e394385ad3f_1aa23577c4776bf09771e92e394385ad3f"/><section>
     <title>ANY_CHARS</title>
 <indexterm><primary>ANY_CHARS</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHARS</secondary></indexterm>
 <para><computeroutput>#define ANY_CHARS( x)&#160;&#160;&#160;(<link linkend="_a00038_a942241e4d371dc3684600829299733dd_1a942241e4d371dc3684600829299733dd">ANY_CHAR</link>(x) || <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00364">364</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00359">359</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a9991f144e383438cd24e3eea7116ae19_1a9991f144e383438cd24e3eea7116ae19"/><section>
     <title>ANY_CHARS_BIT</title>
 <indexterm><primary>ANY_CHARS_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_CHARS_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_CHARS_BIT&#160;&#160;&#160;0x1000</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00385">385</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00380">380</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec"/><section>
     <title>ANY_DATE</title>
 <indexterm><primary>ANY_DATE</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_DATE</secondary></indexterm>
 <para><computeroutput>#define ANY_DATE( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ae1f06b677deff1b576a3cb9dcf009f3d">IEC_T_DATE</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a118cda11441f15d20c95966700497034">IEC_T_DT</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00348">348</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00343">343</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a671cc9518b4088717b18b635dc018ec5_1a671cc9518b4088717b18b635dc018ec5"/><section>
     <title>ANY_DATE_BIT</title>
 <indexterm><primary>ANY_DATE_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_DATE_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_DATE_BIT&#160;&#160;&#160;0x0002</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00374">374</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00369">369</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aa04f84840ee7d046f651918591b730fd_1aa04f84840ee7d046f651918591b730fd"/><section>
     <title>ANY_ELEMENTARY</title>
 <indexterm><primary>ANY_ELEMENTARY</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_ELEMENTARY</secondary></indexterm>
 <para><computeroutput>#define ANY_ELEMENTARY( x)&#160;&#160;&#160;(<link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x) || <link linkend="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df">ANY_NUM</link>(x) || <link linkend="_a00038_adbe2d1c16944f4c72726d8d951f7e0ec_1adbe2d1c16944f4c72726d8d951f7e0ec">ANY_DATE</link>(x) || <link linkend="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24">ANY_STRING</link>(x) || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00360">360</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00355">355</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_af21c2e57bbb9b33849b04f9ce18bbd60_1af21c2e57bbb9b33849b04f9ce18bbd60"/><section>
     <title>ANY_ELEMENTARY_BIT</title>
 <indexterm><primary>ANY_ELEMENTARY_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_ELEMENTARY_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_ELEMENTARY_BIT&#160;&#160;&#160;0x0020</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00378">378</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00373">373</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a"/><section>
     <title>ANY_INT</title>
@@ -498,140 +498,140 @@ Definition at line <link linkend="_a00038_source_1l00378">378</link> of file <li
 <para><computeroutput>#define ANY_INT( x)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link>&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link>&#32;||&#32;x&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00346">346</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00341">341</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a2a373fdd9b472d2844811f5f96b527ea_1a2a373fdd9b472d2844811f5f96b527ea"/><section>
     <title>ANY_INT_BIT</title>
 <indexterm><primary>ANY_INT_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_INT_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_INT_BIT&#160;&#160;&#160;0x0080</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00380">380</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00375">375</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_afd384f978e60fb3382fab8a31c44bd84_1afd384f978e60fb3382fab8a31c44bd84"/><section>
     <title>ANY_INTEGRAL</title>
 <indexterm><primary>ANY_INTEGRAL</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_INTEGRAL</secondary></indexterm>
 <para><computeroutput>#define ANY_INTEGRAL( x)&#160;&#160;&#160;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_ae1190c39909bf18b252ed4cb42456a4d_1ae1190c39909bf18b252ed4cb42456a4d">ANY_BIT</link>(x))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00362">362</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00357">357</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a47334db00977ef1fbbc2050c7c7f199a_1a47334db00977ef1fbbc2050c7c7f199a"/><section>
     <title>ANY_INTEGRAL_BIT</title>
 <indexterm><primary>ANY_INTEGRAL_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_INTEGRAL_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_INTEGRAL_BIT&#160;&#160;&#160;0x0100</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00381">381</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00376">376</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ad4bc5c93dae97cef2f9d636e3b4ba36d_1ad4bc5c93dae97cef2f9d636e3b4ba36d"/><section>
     <title>ANY_MAGNITUDE</title>
 <indexterm><primary>ANY_MAGNITUDE</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_MAGNITUDE</secondary></indexterm>
 <para><computeroutput>#define ANY_MAGNITUDE( x)&#160;&#160;&#160;((<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x) || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a98e46de72edc62d9efdcdcd671ce3dd6">IEC_T_TIME</link>) &amp;&amp; !(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a76840f553ee617118a351997bead9390">IEC_T_NULL</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00361">361</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00356">356</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a5a5bbef39f12342fe17bfe02ba2c2f92_1a5a5bbef39f12342fe17bfe02ba2c2f92"/><section>
     <title>ANY_MAGNITUDE_BIT</title>
 <indexterm><primary>ANY_MAGNITUDE_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_MAGNITUDE_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_MAGNITUDE_BIT&#160;&#160;&#160;0x0040</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00379">379</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00374">374</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a51fe4d2166112e834e795a85b60949df_1a51fe4d2166112e834e795a85b60949df"/><section>
     <title>ANY_NUM</title>
 <indexterm><primary>ANY_NUM</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_NUM</secondary></indexterm>
 <para><computeroutput>#define ANY_NUM( x)&#160;&#160;&#160;(<link linkend="_a00038_a9dd067619bd3550ba4245fc51d23991a_1a9dd067619bd3550ba4245fc51d23991a">ANY_INT</link>(x) || <link linkend="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f">ANY_REAL</link>(x))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00358">358</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00353">353</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_af7beb4cbf80f07537f550cc916e3b34b_1af7beb4cbf80f07537f550cc916e3b34b"/><section>
     <title>ANY_NUM_BIT</title>
 <indexterm><primary>ANY_NUM_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_NUM_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_NUM_BIT&#160;&#160;&#160;0x0001</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00373">373</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00368">368</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a9177ae29cbb60691aa6e2d812921ae3f_1a9177ae29cbb60691aa6e2d812921ae3f"/><section>
     <title>ANY_REAL</title>
 <indexterm><primary>ANY_REAL</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_REAL</secondary></indexterm>
 <para><computeroutput>#define ANY_REAL( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a73549c71b4ccc7012946b0a69ca84892">IEC_T_REAL</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00357">357</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00352">352</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a6c8944264562d1e620bd167afefc2c95_1a6c8944264562d1e620bd167afefc2c95"/><section>
     <title>ANY_REAL_BIT</title>
 <indexterm><primary>ANY_REAL_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_REAL_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_REAL_BIT&#160;&#160;&#160;0x0008</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00376">376</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00371">371</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_afbf162cd286bbaf43a9f7249c8dd2e6e_1afbf162cd286bbaf43a9f7249c8dd2e6e"/><section>
     <title>ANY_SIGNED</title>
 <indexterm><primary>ANY_SIGNED</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_SIGNED</secondary></indexterm>
 <para><computeroutput>#define ANY_SIGNED( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a4dee97ab35368179bce18b684c639e34">IEC_T_SINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a0884f06eb3265f6f7eadd18f4c572258">IEC_T_INT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6af44fee77b76409c0d7ecb0f9d5e1c746">IEC_T_DINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a6d0fa14095370bcd41bcdfcf6a6be35c">IEC_T_LINT</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00345">345</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00340">340</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ae3241e650f0c046b4d0a1d222ce54abf_1ae3241e650f0c046b4d0a1d222ce54abf"/><section>
     <title>ANY_SIGNED_BIT</title>
 <indexterm><primary>ANY_SIGNED_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_SIGNED_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_SIGNED_BIT&#160;&#160;&#160;0x0400</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00383">383</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00378">378</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aa53c80bf43aa2105de51fdff6c6bdd24_1aa53c80bf43aa2105de51fdff6c6bdd24"/><section>
     <title>ANY_STRING</title>
 <indexterm><primary>ANY_STRING</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_STRING</secondary></indexterm>
 <para><computeroutput>#define ANY_STRING( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6add7ccd40477135d2b7eeffd7fd1b8112">IEC_T_STRING</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a45825429c5561d8083241c75f36b97b7">IEC_T_WSTRING</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00359">359</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00354">354</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a871445c6e58a55192b24d5553ee5e270_1a871445c6e58a55192b24d5553ee5e270"/><section>
     <title>ANY_STRING_BIT</title>
 <indexterm><primary>ANY_STRING_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_STRING_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_STRING_BIT&#160;&#160;&#160;0x0010</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00377">377</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00372">372</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aef40b49c4c75eff938c72be15f08de29_1aef40b49c4c75eff938c72be15f08de29"/><section>
     <title>ANY_UNSIGNED</title>
 <indexterm><primary>ANY_UNSIGNED</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_UNSIGNED</secondary></indexterm>
 <para><computeroutput>#define ANY_UNSIGNED( x)&#160;&#160;&#160;(x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a5df35e4b79bfde7efa7d080462658c42">IEC_T_USINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a08c76584975e855131eeb3311058c420">IEC_T_UINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a980c32ee943c8765b49b22969bfc4e2d">IEC_T_UDINT</link> || x == <link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6a7e4c409892374c7a07de3e0e2909ec7a">IEC_T_ULINT</link>)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00344">344</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00339">339</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ae1b25467bb52d8e2b7bbe199189c5b8f_1ae1b25467bb52d8e2b7bbe199189c5b8f"/><section>
     <title>ANY_UNSIGNED_BIT</title>
 <indexterm><primary>ANY_UNSIGNED_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>ANY_UNSIGNED_BIT</secondary></indexterm>
 <para><computeroutput>#define ANY_UNSIGNED_BIT&#160;&#160;&#160;0x0200</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00382">382</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00377">377</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ac8836715bca841eb4104dcc0947a7552_1ac8836715bca841eb4104dcc0947a7552"/><section>
     <title>CLR_BIT</title>
 <indexterm><primary>CLR_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>CLR_BIT</secondary></indexterm>
 <para><computeroutput>#define CLR_BIT( v,  b)&#160;&#160;&#160;((v) &amp; ~(1 &lt;&lt; b))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00397">397</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00392">392</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe"/><section>
     <title>CLR_BIT_VB</title>
 <indexterm><primary>CLR_BIT_VB</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>CLR_BIT_VB</secondary></indexterm>
 <para><computeroutput>#define CLR_BIT_VB( v,  b)&#160;&#160;&#160;((v) &amp; ~b)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00400">400</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00395">395</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a88fa737059e67b4b17ec980e5877361e_1a88fa737059e67b4b17ec980e5877361e"/><section>
     <title>CONCAT</title>
 <indexterm><primary>CONCAT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>CONCAT</secondary></indexterm>
 <para><computeroutput>#define CONCAT( a,  b)&#160;&#160;&#160;<link linkend="_a00038_a7f6d20b32301a85035fdb07c98169afd_1a7f6d20b32301a85035fdb07c98169afd">CONCAT_INNER</link>(a, b)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00329">329</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00324">324</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a7f6d20b32301a85035fdb07c98169afd_1a7f6d20b32301a85035fdb07c98169afd"/><section>
     <title>CONCAT_INNER</title>
 <indexterm><primary>CONCAT_INNER</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>CONCAT_INNER</secondary></indexterm>
 <para><computeroutput>#define CONCAT_INNER( a,  b)&#160;&#160;&#160;a ## b</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00330">330</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00325">325</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_abb5c8dd19c76374ba7f2a135d9c15a81_1abb5c8dd19c76374ba7f2a135d9c15a81"/><section>
     <title>FT_64</title>
@@ -643,21 +643,21 @@ Definition at line <link linkend="_a00038_source_1l00330">330</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;&#32;?&#32;0&#32;&#32;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00911">911</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00906">906</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a5ec3f4fd5113270299da342f5488d9d7_1a5ec3f4fd5113270299da342f5488d9d7"/><section>
     <title>GET_BIT</title>
 <indexterm><primary>GET_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>GET_BIT</secondary></indexterm>
 <para><computeroutput>#define GET_BIT( v,  b)&#160;&#160;&#160;((v &gt;&gt; b) &amp; 1)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00395">395</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00390">390</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a"/><section>
     <title>GET_BIT_VB</title>
 <indexterm><primary>GET_BIT_VB</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>GET_BIT_VB</secondary></indexterm>
 <para><computeroutput>#define GET_BIT_VB( v,  b)&#160;&#160;&#160;(v &amp; b) ? 1 : 0</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00398">398</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00393">393</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a1485bf1be637783c0c4bd3d5556b0ae8_1a1485bf1be637783c0c4bd3d5556b0ae8"/><section>
     <title>GTV_64</title>
@@ -674,7 +674,7 @@ Definition at line <link linkend="_a00038_source_1l00398">398</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)(var))&#32;=&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value));&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00614">614</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00609">609</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a3c10a6a4636cc255c59f9b08bde88246_1a3c10a6a4636cc255c59f9b08bde88246"/><section>
     <title>GV_64</title>
@@ -686,7 +686,7 @@ Definition at line <link linkend="_a00038_source_1l00614">614</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;?&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value))&#32;&#32;&#32;:&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00476">476</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00471">471</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_adc6d4db99708dd39d5aff784e0c15384_1adc6d4db99708dd39d5aff784e0c15384"/><section>
     <title>GVP_64</title>
@@ -698,7 +698,7 @@ Definition at line <link linkend="_a00038_source_1l00476">476</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;?&#32;((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)(data)-&gt;value)&#32;&#32;&#32;:&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00546">546</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00541">541</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a9094bf00a9fdbf60fef433491655fff3_1a9094bf00a9fdbf60fef433491655fff3"/><section>
     <title>GVT_64</title>
@@ -710,14 +710,14 @@ Definition at line <link linkend="_a00038_source_1l00546">546</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6ab962452504889b8a1581dbafbb0f84ea">IEC_T_POINTER</link>)&#32;&#32;&#32;&#32;?&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00511">511</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00506">506</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a2f39418f5659e106f059e62ec2474fad_1a2f39418f5659e106f059e62ec2474fad"/><section>
     <title>IEC_ALLOC</title>
 <indexterm><primary>IEC_ALLOC</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>IEC_ALLOC</secondary></indexterm>
 <para><computeroutput>#define IEC_ALLOC&#160;&#160;&#160;malloc(sizeof(struct <link linkend="_a00093">iec_t</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00333">333</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00328">328</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a293e2aace829f022ef9a2c039d622261_1a293e2aace829f022ef9a2c039d622261"/><section>
     <title>IEC_ANYTYPE</title>
@@ -741,7 +741,7 @@ Definition at line <link linkend="_a00038_source_1l00333">333</link> of file <li
 <para>mask for type </para>
 </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00854">854</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00849">849</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a98d7647c068f92ead0c5c8a31f0bd6ec_1a98d7647c068f92ead0c5c8a31f0bd6ec"/><section>
     <title>iec_anytype_allowed</title>
@@ -754,7 +754,7 @@ Definition at line <link linkend="_a00038_source_1l00854">854</link> of file <li
 <para>check if any_type if allowed </para>
 </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00874">874</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00869">869</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aa1345ed436a6faa9c65a8c72d7917855_1aa1345ed436a6faa9c65a8c72d7917855"/><section>
     <title>iec_fit</title>
@@ -781,21 +781,21 @@ Definition at line <link linkend="_a00038_source_1l00874">874</link> of file <li
 <para>return true if value fit in type </para>
 </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00893">893</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00888">888</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a1a69f9f31b8ead4e6979eec7b22c4929_1a1a69f9f31b8ead4e6979eec7b22c4929"/><section>
     <title>iec_get_string</title>
 <indexterm><primary>iec_get_string</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_get_string</secondary></indexterm>
 <para><computeroutput>#define iec_get_string( data)&#160;&#160;&#160;(((<link linkend="_a00081">string_t</link>*) (data-&gt;value))-&gt;str)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00637">637</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00632">632</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a602da071aa484473933c23ad0766c078_1a602da071aa484473933c23ad0766c078"/><section>
     <title>iec_get_tovoid</title>
 <indexterm><primary>iec_get_tovoid</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_get_tovoid</secondary></indexterm>
 <para><computeroutput>#define iec_get_tovoid( data,  var)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00563">563</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00558">558</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aabc64bb9c009665860dfa993db35837a_1aabc64bb9c009665860dfa993db35837a"/><section>
     <title>iec_get_value</title>
@@ -818,7 +818,7 @@ Definition at line <link linkend="_a00038_source_1l00563">563</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;?&#32;*((<emphasis role="keywordtype">double</emphasis>*)((data)-&gt;value))&#32;&#32;&#32;&#32;:&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_a3c10a6a4636cc255c59f9b08bde88246_1a3c10a6a4636cc255c59f9b08bde88246">GV_64</link>(data)
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00458">458</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00453">453</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ac28e15b01a3f6049822a722185a605b3_1ac28e15b01a3f6049822a722185a605b3"/><section>
     <title>iec_get_value_type</title>
@@ -841,7 +841,7 @@ Definition at line <link linkend="_a00038_source_1l00458">458</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;?&#32;*((<emphasis role="keywordtype">double</emphasis>*)((data)))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_a9094bf00a9fdbf60fef433491655fff3_1a9094bf00a9fdbf60fef433491655fff3">GVT_64</link>(data,&#32;type)
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00493">493</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00488">488</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a1e11da856ad12640584bb18b1fe12c21_1a1e11da856ad12640584bb18b1fe12c21"/><section>
     <title>iec_get_valuep</title>
@@ -864,147 +864,147 @@ Definition at line <link linkend="_a00038_source_1l00493">493</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;((data)-&gt;type&#32;==&#32;<link linkend="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6abeb611f8fa98b249c966e5f1d0162c65">IEC_T_LREAL</link>)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;?&#32;((<emphasis role="keywordtype">double</emphasis>*)(data)-&gt;value)&#32;&#32;&#32;&#32;:&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_a00038_adc6d4db99708dd39d5aff784e0c15384_1adc6d4db99708dd39d5aff784e0c15384">GVP_64</link>(data)
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00528">528</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00523">523</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a6d2632159e5f8c69900545b10b032391_1a6d2632159e5f8c69900545b10b032391"/><section>
     <title>iec_is_constant</title>
 <indexterm><primary>iec_is_constant</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_constant</secondary></indexterm>
 <para><computeroutput>#define iec_is_constant( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00413">413</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00408">408</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a2903762a7d4e5ddff96c5275e034f4ed_1a2903762a7d4e5ddff96c5275e034f4ed"/><section>
     <title>iec_is_flag1</title>
 <indexterm><primary>iec_is_flag1</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_flag1</secondary></indexterm>
 <para><computeroutput>#define iec_is_flag1( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00415">415</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00410">410</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a28cbf3045fb34507e3e903734927b442_1a28cbf3045fb34507e3e903734927b442"/><section>
     <title>iec_is_flag2</title>
 <indexterm><primary>iec_is_flag2</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_flag2</secondary></indexterm>
 <para><computeroutput>#define iec_is_flag2( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00416">416</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00411">411</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a099d5d9f7e8e2eaece0b093d7d6fcd45_1a099d5d9f7e8e2eaece0b093d7d6fcd45"/><section>
     <title>iec_is_initialized</title>
 <indexterm><primary>iec_is_initialized</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_initialized</secondary></indexterm>
 <para><computeroutput>#define iec_is_initialized( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00414">414</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00409">409</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ad55edee66f51d4b8c7168cae9096d339_1ad55edee66f51d4b8c7168cae9096d339"/><section>
     <title>iec_is_maintain</title>
 <indexterm><primary>iec_is_maintain</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_maintain</secondary></indexterm>
 <para><computeroutput>#define iec_is_maintain( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00412">412</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00407">407</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a105dd5206e3ed1ebc1e98a9a3a9f1be9_1a105dd5206e3ed1ebc1e98a9a3a9f1be9"/><section>
     <title>iec_is_mark</title>
 <indexterm><primary>iec_is_mark</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_mark</secondary></indexterm>
 <para><computeroutput>#define iec_is_mark( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00409">409</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00404">404</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ab56cef3166d73a75887ef13f84fd68e9_1ab56cef3166d73a75887ef13f84fd68e9"/><section>
     <title>iec_is_persist</title>
 <indexterm><primary>iec_is_persist</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_persist</secondary></indexterm>
 <para><computeroutput>#define iec_is_persist( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00410">410</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00405">405</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a911b449bcbed38c028a16dd2dad1d97e_1a911b449bcbed38c028a16dd2dad1d97e"/><section>
     <title>iec_is_retain</title>
 <indexterm><primary>iec_is_retain</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_is_retain</secondary></indexterm>
 <para><computeroutput>#define iec_is_retain( v)&#160;&#160;&#160;(<link linkend="_a00038_a2522566d4afb710fdf27f62dde23fc7a_1a2522566d4afb710fdf27f62dde23fc7a">GET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00411">411</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00406">406</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aef885b6dda511f84a87394cd14107e83_1aef885b6dda511f84a87394cd14107e83"/><section>
     <title>iec_set_constant</title>
 <indexterm><primary>iec_set_constant</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_constant</secondary></indexterm>
 <para><computeroutput>#define iec_set_constant( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00421">421</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00416">416</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aacd8fe85c80edf711a0a55880e0cdef8_1aacd8fe85c80edf711a0a55880e0cdef8"/><section>
     <title>iec_set_flag1</title>
 <indexterm><primary>iec_set_flag1</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_flag1</secondary></indexterm>
 <para><computeroutput>#define iec_set_flag1( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00423">423</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00418">418</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a431ddca4f28ff1f623e4b6395f2d8269_1a431ddca4f28ff1f623e4b6395f2d8269"/><section>
     <title>iec_set_flag2</title>
 <indexterm><primary>iec_set_flag2</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_flag2</secondary></indexterm>
 <para><computeroutput>#define iec_set_flag2( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00424">424</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00419">419</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a91bca30f7d7f4052575279bea2aa3b13_1a91bca30f7d7f4052575279bea2aa3b13"/><section>
     <title>iec_set_fromvoid</title>
 <indexterm><primary>iec_set_fromvoid</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_fromvoid</secondary></indexterm>
 <para><computeroutput>#define iec_set_fromvoid( data,  val)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00785">785</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00780">780</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aeab0e36a80771baaff7c6ffc420e4afb_1aeab0e36a80771baaff7c6ffc420e4afb"/><section>
     <title>iec_set_initialized</title>
 <indexterm><primary>iec_set_initialized</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_initialized</secondary></indexterm>
 <para><computeroutput>#define iec_set_initialized( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00422">422</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00417">417</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aad2a628ec87fdb9b7f92a61041384561_1aad2a628ec87fdb9b7f92a61041384561"/><section>
     <title>iec_set_maintain</title>
 <indexterm><primary>iec_set_maintain</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_maintain</secondary></indexterm>
 <para><computeroutput>#define iec_set_maintain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00420">420</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00415">415</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a39e5f492aab71db126d4ebb7acc6994e_1a39e5f492aab71db126d4ebb7acc6994e"/><section>
     <title>iec_set_mark</title>
 <indexterm><primary>iec_set_mark</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_mark</secondary></indexterm>
 <para><computeroutput>#define iec_set_mark( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00417">417</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00412">412</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a7a6f9023818440b311078fbec0f87478_1a7a6f9023818440b311078fbec0f87478"/><section>
     <title>iec_set_persist</title>
 <indexterm><primary>iec_set_persist</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_persist</secondary></indexterm>
 <para><computeroutput>#define iec_set_persist( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00418">418</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00413">413</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a34a44feb8775c2418a17ca21f2e6d624_1a34a44feb8775c2418a17ca21f2e6d624"/><section>
     <title>iec_set_retain</title>
 <indexterm><primary>iec_set_retain</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_retain</secondary></indexterm>
 <para><computeroutput>#define iec_set_retain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c">SET_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00419">419</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00414">414</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a280ee23b6997f1215b3701bdf59a05ef_1a280ee23b6997f1215b3701bdf59a05ef"/><section>
     <title>iec_set_value</title>
 <indexterm><primary>iec_set_value</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_value</secondary></indexterm>
 <para><computeroutput>#define iec_set_value( data,  val)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00645">645</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00640">640</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a4caaaaf06fce8e26f4d8a0780e0df47b_1a4caaaaf06fce8e26f4d8a0780e0df47b"/><section>
     <title>iec_set_value_type</title>
 <indexterm><primary>iec_set_value_type</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_set_value_type</secondary></indexterm>
 <para><computeroutput>#define iec_set_value_type( data,  val,  type)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00715">715</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00710">710</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a95cc3bae0f599a87f61a7c2db2562f82_1a95cc3bae0f599a87f61a7c2db2562f82"/><section>
     <title>iec_timer</title>
 <indexterm><primary>iec_timer</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_timer</secondary></indexterm>
 <para><computeroutput>#define iec_timer( v)&#160;&#160;&#160;((<link linkend="_a00089">t_timer_t</link>*)((v)-&gt;value))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00926">926</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00921">921</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ac03eeb9f30d7c3f1b7a1a6e60e0b28f2_1ac03eeb9f30d7c3f1b7a1a6e60e0b28f2"/><section>
     <title>iec_type_allowed</title>
@@ -1017,77 +1017,77 @@ Definition at line <link linkend="_a00038_source_1l00926">926</link> of file <li
 <para>check for type allowed </para>
 </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00883">883</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00878">878</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aff49998422e3c80780bbeee8ce05f8b4_1aff49998422e3c80780bbeee8ce05f8b4"/><section>
     <title>iec_unset_constant</title>
 <indexterm><primary>iec_unset_constant</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_constant</secondary></indexterm>
 <para><computeroutput>#define iec_unset_constant( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0fd0b59e7e1a522070162269b2e071d4">TT_CONSTANT</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00429">429</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00424">424</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a3fed00a37419b3ad620fe643e07af223_1a3fed00a37419b3ad620fe643e07af223"/><section>
     <title>iec_unset_flag1</title>
 <indexterm><primary>iec_unset_flag1</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_flag1</secondary></indexterm>
 <para><computeroutput>#define iec_unset_flag1( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a7dd7c2d68ea28e230c1f344200f58db4">TT_FLAG1</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00431">431</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00426">426</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a927abea2f78562113717157af33637bb_1a927abea2f78562113717157af33637bb"/><section>
     <title>iec_unset_flag2</title>
 <indexterm><primary>iec_unset_flag2</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_flag2</secondary></indexterm>
 <para><computeroutput>#define iec_unset_flag2( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a58ee725e76a61cf242f68523a02d8f68">TT_FLAG2</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00432">432</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00427">427</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a76f8cdcd47148fbd288e791ef47508e0_1a76f8cdcd47148fbd288e791ef47508e0"/><section>
     <title>iec_unset_initialized</title>
 <indexterm><primary>iec_unset_initialized</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_initialized</secondary></indexterm>
 <para><computeroutput>#define iec_unset_initialized( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a9364c8df8f4aef37d26b0e098303e9cf">TT_INITILZD</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00430">430</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00425">425</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_afeab2f733fce0295292f7661b65f76e2_1afeab2f733fce0295292f7661b65f76e2"/><section>
     <title>iec_unset_maintain</title>
 <indexterm><primary>iec_unset_maintain</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_maintain</secondary></indexterm>
 <para><computeroutput>#define iec_unset_maintain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347af134dd08933ee23ee871df08b6a6a360">TT_MAINTAIN</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00428">428</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00423">423</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ae7a6e9cad5a59e5009a4593d38ee4ed5_1ae7a6e9cad5a59e5009a4593d38ee4ed5"/><section>
     <title>iec_unset_mark</title>
 <indexterm><primary>iec_unset_mark</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_mark</secondary></indexterm>
 <para><computeroutput>#define iec_unset_mark( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a23e209ff52a8bef2409b1e74148c3f40">TT_MARK</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00425">425</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00420">420</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aaa11662020cb1c031b57c6636ac336ce_1aaa11662020cb1c031b57c6636ac336ce"/><section>
     <title>iec_unset_persist</title>
 <indexterm><primary>iec_unset_persist</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_persist</secondary></indexterm>
 <para><computeroutput>#define iec_unset_persist( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347a0337e9c608fd7413dcdba8dc83abd879">TT_PERSIST</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00426">426</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00421">421</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a76f68b4dc9fb282f9e2c1940cb1ac1bf_1a76f68b4dc9fb282f9e2c1940cb1ac1bf"/><section>
     <title>iec_unset_retain</title>
 <indexterm><primary>iec_unset_retain</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>iec_unset_retain</secondary></indexterm>
 <para><computeroutput>#define iec_unset_retain( v)&#160;&#160;&#160;((v)-&gt;tt = <link linkend="_a00038_a52742b70dee6c79569917d8d32d53bfe_1a52742b70dee6c79569917d8d32d53bfe">CLR_BIT_VB</link>((v)-&gt;tt, <link linkend="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347ad9331b3f53c654c3776a5d34af0548cd">TT_RETAIN</link>))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00427">427</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00422">422</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a8385f751da038db4a00bb5c6c6839689_1a8385f751da038db4a00bb5c6c6839689"/><section>
     <title>IS_TRUNCATED</title>
 <indexterm><primary>IS_TRUNCATED</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>IS_TRUNCATED</secondary></indexterm>
 <para><computeroutput>#define IS_TRUNCATED( a,  b)&#160;&#160;&#160;            (a)-&gt;type &gt; (b)-&gt;type ? 0 : 1</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00449">449</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00444">444</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a49e3dfb8720b0700ffa4a4bba97db4b6_1a49e3dfb8720b0700ffa4a4bba97db4b6"/><section>
     <title>LABEL</title>
 <indexterm><primary>LABEL</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>LABEL</secondary></indexterm>
 <para><computeroutput>#define LABEL( base,  x)&#160;&#160;&#160;<link linkend="_a00038_a88fa737059e67b4b17ec980e5877361e_1a88fa737059e67b4b17ec980e5877361e">CONCAT</link>(base, x)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00331">331</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00326">326</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_aa35e0b1686f9406d90c634847016b1b9_1aa35e0b1686f9406d90c634847016b1b9"/><section>
     <title>MAX_TYPE</title>
@@ -1096,28 +1096,28 @@ Definition at line <link linkend="_a00038_source_1l00331">331</link> of file <li
 <para><computeroutput>#define MAX_TYPE( a,  b)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(a)-&gt;type&#32;&gt;&#32;(b)-&gt;type&#32;?&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(a)-&gt;type&#32;:&#32;(b)-&gt;type
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00440">440</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00435">435</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a71b24f02aee3af6c7fe030f106bd8689_1a71b24f02aee3af6c7fe030f106bd8689"/><section>
     <title>maxuint_t</title>
 <indexterm><primary>maxuint_t</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>maxuint_t</secondary></indexterm>
 <para><computeroutput>#define maxuint_t&#160;&#160;&#160;uint64_t</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00625">625</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00620">620</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a8dcc35767a82d1f489180948eb947357_1a8dcc35767a82d1f489180948eb947357"/><section>
     <title>SET_BIT</title>
 <indexterm><primary>SET_BIT</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>SET_BIT</secondary></indexterm>
 <para><computeroutput>#define SET_BIT( v,  b)&#160;&#160;&#160;((v) | (1 &lt;&lt; b))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00396">396</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00391">391</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a12f80e8eeda84159b8fe32a1bc23e40c_1a12f80e8eeda84159b8fe32a1bc23e40c"/><section>
     <title>SET_BIT_VB</title>
 <indexterm><primary>SET_BIT_VB</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>SET_BIT_VB</secondary></indexterm>
 <para><computeroutput>#define SET_BIT_VB( v,  b)&#160;&#160;&#160;((v) | b)</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00399">399</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00394">394</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a32a1e4fd73bda9579d3ac873ab1d76a3_1a32a1e4fd73bda9579d3ac873ab1d76a3"/><section>
     <title>SFV_64</title>
@@ -1134,14 +1134,14 @@ Definition at line <link linkend="_a00038_source_1l00399">399</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value))&#32;=&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)val);&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00833">833</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00828">828</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ac740756f75e53153605d2702b30d2a9d_1ac740756f75e53153605d2702b30d2a9d"/><section>
     <title>sign</title>
 <indexterm><primary>sign</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>sign</secondary></indexterm>
 <para><computeroutput>#define sign( x)&#160;&#160;&#160;(((x) &gt; 0) - ((x) &lt; 0))</computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00332">332</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00327">327</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a29a9dcf1b11a993b6ccb79681cd4a3ab_1a29a9dcf1b11a993b6ccb79681cd4a3ab"/><section>
     <title>STR_SEED_HASH</title>
@@ -1152,7 +1152,7 @@ Definition at line <link linkend="_a00038_source_1l00332">332</link> of file <li
 <para>seed for string hash </para>
 </para>
 <para>
-Definition at line <link linkend="_a00038_source_1l00062">62</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00057">57</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_addf0c2f5c0970d5838c62aacb4f9e135_1addf0c2f5c0970d5838c62aacb4f9e135"/><section>
     <title>SV_64</title>
@@ -1169,7 +1169,7 @@ Definition at line <link linkend="_a00038_source_1l00062">62</link> of file <lin
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)((data)-&gt;value))&#32;=&#32;val;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00693">693</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00688">688</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a19f7dd3713f5057780a73fc07f5147b2_1a19f7dd3713f5057780a73fc07f5147b2"/><section>
     <title>SVT_64</title>
@@ -1186,7 +1186,7 @@ Definition at line <link linkend="_a00038_source_1l00693">693</link> of file <li
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*((<link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link>*)(data))&#32;=&#32;val;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
 </programlisting><para>
-Definition at line <link linkend="_a00038_source_1l00763">763</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00758">758</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 </section>
 <section>
@@ -1215,7 +1215,7 @@ Definition at line <link linkend="_a00038_source_1l00763">763</link> of file <li
 <indexterm><primary>pointer_t</primary><secondary>iec61131lib.h</secondary></indexterm>
 <indexterm><primary>iec61131lib.h</primary><secondary>pointer_t</secondary></indexterm>
 <para><computeroutput><link linkend="_a00038_a5ba32092af0b318d55b769841606807d_1a5ba32092af0b318d55b769841606807d">pointer_t</link></computeroutput></para><para>
-Definition at line <link linkend="_a00038_source_1l00203">203</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00198">198</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_ac96b9b7963de688026e9c2564b78754b_1ac96b9b7963de688026e9c2564b78754b"/><section>
     <title>string_t</title>
@@ -1303,7 +1303,7 @@ Definition at line <link linkend="_a00038_source_1l00203">203</link> of file <li
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="_a00038_source_1l00069">69</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00064">64</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a830418bec524aa2fefd465c946a4f6e6_1a830418bec524aa2fefd465c946a4f6e6"/><section>
     <title>iectype_t</title>
@@ -1451,7 +1451,7 @@ Definition at line <link linkend="_a00038_source_1l00069">69</link> of file <lin
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="_a00038_source_1l00088">88</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00083">83</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 <anchor xml:id="_a00038_a4d2cef86382b1d4f56184269a8bc4347_1a4d2cef86382b1d4f56184269a8bc4347"/><section>
     <title>tt_t</title>
@@ -1503,7 +1503,7 @@ Definition at line <link linkend="_a00038_source_1l00088">88</link> of file <lin
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="_a00038_source_1l00142">142</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
+Definition at line <link linkend="_a00038_source_1l00137">137</link> of file <link linkend="_a00038_source">iec61131lib.h</link>.</para>
 </section>
 </section>
 </section>

@@ -2,6 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00035" xml:lang="en-US">
 <title>iec_arithmetic.h File Reference</title>
 <indexterm><primary>iec_arithmetic.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
 <programlisting linenumbering="unnumbered">#include &lt;math.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &quot;util_stack.h&quot;<?linebreak?>#include &quot;iec_selection.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
@@ -19,6 +24,33 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_a00035_aa1acec1ca60962527f63080a065988d2_1aa1acec1ca60962527f63080a065988d2"/><section>
@@ -57,7 +89,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00035_source_1l00067">67</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+Definition at line <link linkend="_a00035_source_1l00061">61</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
 </section>
 <anchor xml:id="_a00035_a45b1bb9dc16cb018f8604e4dc2acd6c7_1a45b1bb9dc16cb018f8604e4dc2acd6c7"/><section>
     <title>iec_div()</title>
@@ -100,7 +132,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00035_source_1l00144">144</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+Definition at line <link linkend="_a00035_source_1l00138">138</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
 </section>
 <anchor xml:id="_a00035_aa41fc5e3f18cd4c6a9fb5f4b126b96b6_1aa41fc5e3f18cd4c6a9fb5f4b126b96b6"/><section>
     <title>iec_expt()</title>
@@ -143,7 +175,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00035_source_1l00195">195</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+Definition at line <link linkend="_a00035_source_1l00189">189</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
 </section>
 <anchor xml:id="_a00035_ac416473e6d016365e6ab85e4b35590aa_1ac416473e6d016365e6ab85e4b35590aa"/><section>
     <title>iec_mod()</title>
@@ -186,7 +218,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00035_source_1l00172">172</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+Definition at line <link linkend="_a00035_source_1l00166">166</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
 </section>
 <anchor xml:id="_a00035_aa953c11c430f027845cd03f7bbf3561c_1aa953c11c430f027845cd03f7bbf3561c"/><section>
     <title>iec_mul()</title>
@@ -224,7 +256,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00035_source_1l00095">95</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+Definition at line <link linkend="_a00035_source_1l00089">89</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
 </section>
 <anchor xml:id="_a00035_a171c033ed76f4ac39a625bc561727af7_1a171c033ed76f4ac39a625bc561727af7"/><section>
     <title>iec_sub()</title>
@@ -267,7 +299,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00035_source_1l00124">124</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
+Definition at line <link linkend="_a00035_source_1l00118">118</link> of file <link linkend="_a00035_source">iec_arithmetic.h</link>.</para>
 </section>
 </section>
 </section>

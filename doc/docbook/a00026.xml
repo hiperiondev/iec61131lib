@@ -2,6 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_a00026" xml:lang="en-US">
 <title>iec_comparison.h File Reference</title>
 <indexterm><primary>iec_comparison.h</primary></indexterm>
+<para>
+
+<para>main header </para>
+ 
+</para>
 <simplesect>
     <title>Functions    </title>
         <itemizedlist>
@@ -19,6 +24,33 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>main header </para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: <link xlink:href="mailto:egonzalez.hiperion@gmail.com">egonzalez.hiperion@gmail.com</link> </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>Project Site: <link xlink:href="https://github.com/hiperiondev/iec61131lib">https://github.com/hiperiondev/iec61131lib</link> </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is based on other projects. Please contact their authors for more information.</para>
+</note>
+The MIT License (MIT)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+<para>
+Definition in file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_a00026_a6c3171cf7493fe4e807e41c4dd983318_1a6c3171cf7493fe4e807e41c4dd983318"/><section>
@@ -62,7 +94,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00026_source_1l00100">100</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+Definition at line <link linkend="_a00026_source_1l00094">94</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
 </section>
 <anchor xml:id="_a00026_a55d6d1d768aea4192ad4c290ba1ed3fa_1a55d6d1d768aea4192ad4c290ba1ed3fa"/><section>
     <title>iec_ge()</title>
@@ -105,7 +137,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00026_source_1l00081">81</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+Definition at line <link linkend="_a00026_source_1l00075">75</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
 </section>
 <anchor xml:id="_a00026_a6c0cb5fece7adffa4af342dfb6e8f426_1a6c0cb5fece7adffa4af342dfb6e8f426"/><section>
     <title>iec_gt()</title>
@@ -148,7 +180,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00026_source_1l00062">62</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+Definition at line <link linkend="_a00026_source_1l00056">56</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
 </section>
 <anchor xml:id="_a00026_a17bb15d99384bd86ac557bde47626f31_1a17bb15d99384bd86ac557bde47626f31"/><section>
     <title>iec_le()</title>
@@ -191,7 +223,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00026_source_1l00119">119</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+Definition at line <link linkend="_a00026_source_1l00113">113</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
 </section>
 <anchor xml:id="_a00026_a69a87ab505e96f9e70ebe5ff9d614b7a_1a69a87ab505e96f9e70ebe5ff9d614b7a"/><section>
     <title>iec_lt()</title>
@@ -234,7 +266,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00026_source_1l00138">138</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+Definition at line <link linkend="_a00026_source_1l00132">132</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
 </section>
 <anchor xml:id="_a00026_ae52ed350541fe3e9e9921a4da6a129c5_1ae52ed350541fe3e9e9921a4da6a129c5"/><section>
     <title>iec_ne()</title>
@@ -277,7 +309,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_a00026_source_1l00157">157</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
+Definition at line <link linkend="_a00026_source_1l00151">151</link> of file <link linkend="_a00026_source">iec_comparison.h</link>.</para>
 </section>
 </section>
 </section>

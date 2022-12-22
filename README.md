@@ -11,7 +11,7 @@
 ## Roadmap
 
 ### TODO
-* [ ] Add comments for Doxygen
+* [x] Add comments for Doxygen
 * [ ] Complete libraries
    * [x] core
    * [x] arithmetic
