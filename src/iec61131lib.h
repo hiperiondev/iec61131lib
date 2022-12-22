@@ -64,256 +64,269 @@
  *
  */
 enum IEC_ERRORS {
-    IEC_OK  = 0x00, // ok
-    IEC_NAT = 0x01, // not allowed data type in operation
-    IEC_TRN = 0x02, // result function on variable are truncated
-    IEC_OOR = 0x03, // variable out of range (ex: string too long)
-    IEC_TND = 0x04, // data type not defined (unknown)
-    IEC_NLL = 0x05, // parameter is NULL
-    IEC_TRU = 0x06, // result is true
-    IEC_FLS = 0x07, // result is false
-    IEC_ENL = 0x08, // element not in list or search behind length
+    IEC_OK  = 0x00, /**< ok */
+    IEC_NAT = 0x01, /**< not allowed data type in operation */
+    IEC_TRN = 0x02, /**< result function on variable are truncated */
+    IEC_OOR = 0x03, /**< variable out of range (ex: string too long) */
+    IEC_TND = 0x04, /**< data type not defined (unknown) */
+    IEC_NLL = 0x05, /**< parameter is NULL */
+    IEC_TRU = 0x06, /**< result is true */
+    IEC_FLS = 0x07, /**< result is false */
+    IEC_ENL = 0x08, /**< element not in list or search behind length */
     // ... //
-    IEC_ERR = 0xff, // generic error
+    IEC_ERR = 0xff, /**< generic error */
 };
 
 /**
- * @enum data types
+ * @typedef data types
  * @brief
  *
  */
 typedef enum {
-    IEC_T_NULL    = 0x00,  // not value
-    IEC_T_BOOL    = 0x01,  // bool
-    IEC_T_SINT    = 0x02,  // int8_t
-    IEC_T_USINT   = 0x03,  // uint8_t
-    IEC_T_BYTE    = 0x04,  // uint8_t
-    IEC_T_INT     = 0x05,  // int16_t
-    IEC_T_UINT    = 0x06,  // uint16_t
-    IEC_T_WORD    = 0x07,  // uint16_t
-    IEC_T_DINT    = 0x08,  // int32_t
-    IEC_T_UDINT   = 0x09,  // uint32_t
-    IEC_T_DWORD   = 0x0a,  // uint32_t
+    IEC_T_NULL    = 0x00,  /**< not value */
+    IEC_T_BOOL    = 0x01,  /**< bool */
+    IEC_T_SINT    = 0x02,  /**< int8_t */
+    IEC_T_USINT   = 0x03,  /**< uint8_t */
+    IEC_T_BYTE    = 0x04,  /**< uint8_t */
+    IEC_T_INT     = 0x05,  /**< int16_t */
+    IEC_T_UINT    = 0x06,  /**< uint16_t */
+    IEC_T_WORD    = 0x07,  /**< uint16_t */
+    IEC_T_DINT    = 0x08,  /**< int32_t */
+    IEC_T_UDINT   = 0x09,  /**< uint32_t */
+    IEC_T_DWORD   = 0x0a,  /**< uint32_t */
 #ifdef ALLOW_64BITS
-    IEC_T_LINT    = 0x0b,  // int64_t
-    IEC_T_ULINT   = 0x0c,  // uint64_t
-    IEC_T_LWORD   = 0x0d,  // int64_t
+    IEC_T_LINT    = 0x0b,  /**< int64_t */
+    IEC_T_ULINT   = 0x0c,  /**< uint64_t */
+    IEC_T_LWORD   = 0x0d,  /**< int64_t */
 #else
-    IEC_T_NDEF_0B = 0x0b,  // not defined
-    IEC_T_NDEF_0C = 0x0c,  // not defined
-    IEC_T_NDEF_0D = 0x0d,  // not defined
+    IEC_T_NDEF_0B = 0x0b,  /**< not defined */
+    IEC_T_NDEF_0C = 0x0c,  /**< not defined */
+    IEC_T_NDEF_0D = 0x0d,  /**< not defined */
 #endif
-    IEC_T_REAL    = 0x0e,  // float
-    IEC_T_LREAL   = 0x0f,  // double
-    IEC_T_TIME    = 0x10,  // time_t
-    IEC_T_DATE    = 0x11,  // date_t
-    IEC_T_TOD     = 0x12,  // tod_t
+    IEC_T_REAL    = 0x0e,  /**< float */
+    IEC_T_LREAL   = 0x0f,  /**< double */
+    IEC_T_TIME    = 0x10,  /**< time_t */
+    IEC_T_DATE    = 0x11,  /**< date_t */
+    IEC_T_TOD     = 0x12,  /**< tod_t */
 #ifdef ALLOW_64BITS
-    IEC_T_DT      = 0x13,  // dat_t
+    IEC_T_DT      = 0x13,  /**< dat_t */
 #else
-    IEC_T_NDEF_13 = 0x13,  // not defined
+    IEC_T_NDEF_13 = 0x13,  /**< not defined */
 #endif
-    IEC_T_CHAR    = 0x14,  // char
-    IEC_T_WCHAR   = 0x15,  // wchar
-    IEC_T_STRING  = 0x16,  // string_t
-    IEC_T_WSTRING = 0x17,  // string_t
+    IEC_T_CHAR    = 0x14,  /**< char */
+    IEC_T_WCHAR   = 0x15,  /**< wchar */
+    IEC_T_STRING  = 0x16,  /**< string_t */
+    IEC_T_WSTRING = 0x17,  /**< string_t */
 #ifdef ALLOW_64BITS
-    IEC_T_POINTER = 0x18,  // pointer_t
+    IEC_T_POINTER = 0x18,  /**< pointer_t */
 #else
-    IEC_T_NDEF_18 = 0x18,  // not defined
+    IEC_T_NDEF_18 = 0x18,  /**< not defined */
 #endif
-    IEC_T_TABLE   = 0x19,  // table_t
-    IEC_T_USER    = 0x1a,  // user_t
-    IEC_T_R_EDGE  = 0x1b,  // bool
-    IEC_T_F_EDGE  = 0x1c,  // bool
-    IEC_T_TIMER   = 0x1d,  // timer_t
-    IEC_T_NDEF_1E = 0x1e,  // not defined
-    IEC_T_NDEF_1F = 0x1f,  // not defined
+    IEC_T_TABLE   = 0x19,  /**< table_t */
+    IEC_T_USER    = 0x1a,  /**< user_t */
+    IEC_T_R_EDGE  = 0x1b,  /**< bool */
+    IEC_T_F_EDGE  = 0x1c,  /**< bool */
+    IEC_T_TIMER   = 0x1d,  /**< timer_t */
+    IEC_T_NDEF_1E = 0x1e,  /**< not defined */
+    IEC_T_NDEF_1F = 0x1f,  /**< not defined */
 } iectype_t;
 
 /**
- * @enum
- * @brief
+ * @typedef
+ * @brief status flags
  *
  */
 typedef enum {
-    TT_MARK     = 0x01, // useful for gc
-    TT_PERSIST  = 0x02, //
-    TT_RETAIN   = 0x04, //
-    TT_MAINTAIN = 0x08, // persist local
-    TT_CONSTANT = 0x10, //
-    TT_INITILZD = 0x20, // value initialized
-    TT_FLAG1    = 0x40, //
-    TT_FLAG2    = 0x80  //
+    TT_MARK     = 0x01, /**< for gc */
+    TT_PERSIST  = 0x02, /**< */
+    TT_RETAIN   = 0x04, /**< */
+    TT_MAINTAIN = 0x08, /**< persist local */
+    TT_CONSTANT = 0x10, /**< */
+    TT_INITILZD = 0x20, /**< value initialized */
+    TT_FLAG1    = 0x40, /**< */
+    TT_FLAG2    = 0x80  /**< */
 } tt_t;
 
 /**
- * @union
+ * @typedef
  * @brief
  *
  */
 typedef union {
     struct {
-         uint8_t day;
-         uint8_t month;
-        uint16_t year;
-    } v;
-    uint32_t dw_date;
+         uint8_t day;   /**< */
+         uint8_t month; /**< */
+        uint16_t year;  /**< */
+    } v;                /**< */
+    uint32_t dw_date;   /**< */
 } date_t;
 
 /**
- * @union
+ * @typedef
  * @brief
  *
  */
 typedef union {
     struct {
-        uint8_t csec;
-        uint8_t sec;
-        uint8_t min;
-        uint8_t hour;
-    } v;
-    uint32_t dw_tod;
+        uint8_t csec; /**< */
+        uint8_t sec;  /**< */
+        uint8_t min;  /**< */
+        uint8_t hour; /**< */
+    } v;              /**< */
+    uint32_t dw_tod;  /**< */
 } tod_t;
 
 #ifdef ALLOW_64BITS
 /**
- * @struct
+ * @typedef
  * @brief
  *
  */
 typedef struct {
     struct {
-         tod_t tod;
-        date_t date;
-    } v;
-    uint64_t dw_dat;
+         tod_t tod;  /**< */
+        date_t date; /**< */
+    } v;             /**< */
+    uint64_t dw_dat; /**< */
 } dat_t;
 
 typedef uint64_t pointer_t;
 #endif
 
 /**
- * @struct
+ * @typedef
  * @brief
  *
  */
 typedef struct {
-        void *data;
-    uint32_t value;
+        void *data; /**< */
+    uint32_t value; /**< */
 } user_t;
 
 /**
- * @struct string
+ * @typedef string
  * @brief
  *
  */
 typedef struct string {
-            bool wstring; // true if wide character type
-        uint32_t len;
-        uint32_t hash;
+            bool wstring;  /**< true if wide character type */
+        uint32_t len;      /**< */
+        uint32_t hash;     /**< */
     str_t *str;
 } string_t;
 
 /**
- * @struct
+ * @typedef
  * @brief
  *
  */
 typedef struct {
-    uint32_t len;
-        void *table;
+    uint32_t len;    /**< */
+        void *table; /**< */
 } table_t;
 
 /**
- * @struct
+ * @typedef
  * @brief
  *
  */
 typedef struct {
-        bool q;
-      time_t pt;
-      time_t et;
-        bool timer_run;
+        bool q;         /**< */
+      time_t pt;        /**< */
+      time_t et;        /**< */
+        bool timer_run; /**< */
 #ifdef ALLOW_64BITS
-    uint64_t t0;
+    uint64_t t0;        /**< */
 #else
-    uint32_t t0;
+    uint32_t t0;        /**< */
 #endif
 } t_timer_t;
 
 /**
- * @struct iec
+ * @typedef iec
  * @brief main data container
  *
  */
 typedef struct iec {
-    iectype_t type;
-         tt_t tt;
-     uint16_t any_type;
-        void* value;
+    iectype_t type;     /**< */
+         tt_t tt;       /**< */
+     uint16_t any_type; /**< */
+        void* value;    /**< */
 } *iec_t;
 
-// size of types in bits
+/**
+ * @brief size of types in bits
+ */
 static uint8_t IEC_T_SIZEOF[] = {
-        0,                     // IEC_T_NULL
-        sizeof(bool) * 8,      // IEC_T_BOOL
-        sizeof(int8_t) * 8,    // IEC_T_SINT
-        sizeof(uint8_t) * 8,   // IEC_T_USINT
-        sizeof(uint8_t) * 8,   // IEC_T_BYTE
-        sizeof(int16_t) * 8,   // IEC_T_INT
-        sizeof(uint16_t) * 8,  // IEC_T_UINT
-        sizeof(uint16_t) * 8,  // IEC_T_WORD
-        sizeof(int32_t) * 8,   // IEC_T_DINT
-        sizeof(uint32_t) * 8,  // IEC_T_UDINT
-        sizeof(uint32_t) * 8,  // IEC_T_DWORD
+        0,                     /**< IEC_T_NULL */
+        sizeof(bool) * 8,      /**< IEC_T_BOOL */
+        sizeof(int8_t) * 8,    /**< IEC_T_SINT */
+        sizeof(uint8_t) * 8,   /**< IEC_T_USINT */
+        sizeof(uint8_t) * 8,   /**< IEC_T_BYTE */
+        sizeof(int16_t) * 8,   /**< IEC_T_INT */
+        sizeof(uint16_t) * 8,  /**< IEC_T_UINT */
+        sizeof(uint16_t) * 8,  /**< IEC_T_WORD */
+        sizeof(int32_t) * 8,   /**< IEC_T_DINT */
+        sizeof(uint32_t) * 8,  /**< IEC_T_UDINT */
+        sizeof(uint32_t) * 8,  /**< IEC_T_DWORD */
 #ifdef ALLOW_64BITS
-        sizeof(int64_t) * 8,   // IEC_T_LINT
-        sizeof(uint64_t) * 8,  // IEC_T_ULINT
-        sizeof(int64_t) * 8,   // IEC_T_LWORD
+        sizeof(int64_t) * 8,   /**< IEC_T_LINT */
+        sizeof(uint64_t) * 8,  /**< IEC_T_ULINT */
+        sizeof(int64_t) * 8,   /**< IEC_T_LWORD */
 #else
         0,
         0,
         0,
 #endif
-        sizeof(float) * 8,     // IEC_T_REAL
-        sizeof(double) * 8,    // IEC_T_LREAL
-        sizeof(time_t) * 8,    // IEC_T_TIME
-        sizeof(date_t) * 8,    // IEC_T_DATE
-        sizeof(tod_t) * 8,     // IEC_T_TOD
+        sizeof(float) * 8,     /**< IEC_T_REAL */
+        sizeof(double) * 8,    /**< IEC_T_LREAL */
+        sizeof(time_t) * 8,    /**< IEC_T_TIME */
+        sizeof(date_t) * 8,    /**< IEC_T_DATE */
+        sizeof(tod_t) * 8,     /**< IEC_T_TOD */
 #ifdef ALLOW_64BITS
-        sizeof(dat_t) * 8,     // IEC_T_DT
+        sizeof(dat_t) * 8,     /**< IEC_T_DT */
 #else
         0,
 #endif
-        sizeof(char) * 8,      // IEC_T_CHAR
-        sizeof(wchar_t) * 8,   // IEC_T_WCHAR
-        sizeof(string_t) * 8,  // IEC_T_STRING
-        sizeof(string_t) * 8,  // IEC_T_WSTRING
+        sizeof(char) * 8,      /**< IEC_T_CHAR */
+        sizeof(wchar_t) * 8,   /**< IEC_T_WCHAR */
+        sizeof(string_t) * 8,  /**< IEC_T_STRING */
+        sizeof(string_t) * 8,  /**< IEC_T_WSTRING */
 #ifdef ALLOW_64BITS
-        sizeof(pointer_t) * 8, // IEC_T_POINTER
+        sizeof(pointer_t) * 8, /**< IEC_T_POINTER */
 #else
         0,
 #endif
-        sizeof(table_t) * 8,   // IEC_T_TABLE
-        sizeof(user_t) * 8,    // IEC_T_USER
-        sizeof(bool) * 8,      // IEC_T_R_EDGE
-        sizeof(bool) * 8,      // IEC_T_F_EDGE
-        sizeof(t_timer_t) * 8, // IEC_T_TIMER
-        0,                     // IEC_T_NDEF_1E
-        0,                     // IEC_T_NDEF_1F
+        sizeof(table_t) * 8,   /**< IEC_T_TABLE */
+        sizeof(user_t) * 8,    /**< IEC_T_USER */
+        sizeof(bool) * 8,      /**< IEC_T_R_EDGE */
+        sizeof(bool) * 8,      /**< IEC_T_F_EDGE */
+        sizeof(t_timer_t) * 8, /**< IEC_T_TIMER */
+        0,                     /**< IEC_T_NDEF_1E */
+        0,                     /**< IEC_T_NDEF_1F */
 };
 
 ///////////////////////////// MACROS ///////////////////////////
 
-// utils
+/**
+ * @def utils
+ * @brief internal utils
+ *
+ */
+/**@{*/
 #define CONCAT(a, b)          CONCAT_INNER(a, b)
 #define CONCAT_INNER(a, b)    a ## b
 #define LABEL(base,x)         CONCAT(base, x)
 #define sign(x)               (((x) > 0) - ((x) < 0))
 #define IEC_ALLOC             malloc(sizeof(struct iec))
+/**@}*/
 
-// any types
+/**
+ * @def any types
+ * @brief
+ *
+ */
+/**@{*/
 #ifdef ALLOW_64BITS
 #define ANY_BIT(x)            (x == IEC_T_BOOL || x == IEC_T_UINT || x == IEC_T_WORD || x == IEC_T_DWORD || x == IEC_T_LWORD)
 #define ANY_UNSIGNED(x)       (x == IEC_T_USINT || x == IEC_T_UINT || x == IEC_T_UDINT || x == IEC_T_ULINT)
@@ -337,7 +350,14 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define ANY_INTEGRAL(x)       (ANY_INT(x) || ANY_BIT(x))
 #define ANY_CHAR(x)           (x == IEC_T_CHAR || x == IEC_T_WCHAR)
 #define ANY_CHARS(x)          (ANY_CHAR(x) || ANY_STRING(x))
+/**@}*/
 
+/**
+ * @def any type bit
+ * @brief
+ *
+ */
+/**@{*/
 #define ANY_NUM_BIT           0x0001
 #define ANY_DATE_BIT          0x0002
 #define ANY_BIT_BIT           0x0004
@@ -352,16 +372,28 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define ANY_CHAR_BIT          0x0800
 #define ANY_CHARS_BIT         0x1000
 #define _BIT                  0
+/**@}*/
 
-// bit manipulation
+/**
+ * @def bit manipulation
+ * @brief
+ *
+ */
+/**@{*/
 #define GET_BIT(v, b)         ((v >> b) & 1)
 #define SET_BIT(v, b)         ((v) | (1 << b))
 #define CLR_BIT(v, b)         ((v) & ~(1 << b))
 #define GET_BIT_VB(v, b)      (v & b) ? 1 : 0
 #define SET_BIT_VB(v, b)      ((v) | b)
 #define CLR_BIT_VB(v, b)      ((v) & ~b)
+/**@}*/
 
-// tt get
+/**
+ * @def tt manipulation
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_is_mark(v)           (GET_BIT_VB((v)->tt, TT_MARK))
 #define iec_is_persist(v)        (GET_BIT_VB((v)->tt, TT_PERSIST))
 #define iec_is_retain(v)         (GET_BIT_VB((v)->tt, TT_RETAIN))
@@ -386,16 +418,31 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define iec_unset_initialized(v) ((v)->tt = CLR_BIT_VB((v)->tt, TT_INITILZD))
 #define iec_unset_flag1(v)       ((v)->tt = CLR_BIT_VB((v)->tt, TT_FLAG1))
 #define iec_unset_flag2(v)       ((v)->tt = CLR_BIT_VB((v)->tt, TT_FLAG2))
+/**@}*/
 
-// check type by length
+/**
+ * @def MAX_TYPE
+ * @brief
+ *
+ */
 #define MAX_TYPE(a,b)               \
             (a)->type > (b)->type ? \
             (a)->type : (b)->type
 
+/**
+ * @def IS_TRUNCATED
+ * @brief
+ *
+ */
 #define IS_TRUNCATED(a,b)                 \
             (a)->type > (b)->type ? 0 : 1
 
-// get value
+/**
+ * @def iec_get_value
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_get_value(data)                                                         \
             ((data)->type == IEC_T_BOOL)                                            \
               || ((data)->type == IEC_T_R_EDGE)                                     \
@@ -423,7 +470,14 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define GV_64(data) 0
 #endif
+/**@}*/
 
+/**
+ * @def iec_get_value_type
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_get_value_type(data, type)                                       \
             (type == IEC_T_BOOL)                                             \
               || (type == IEC_T_R_EDGE)                                      \
@@ -451,7 +505,14 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define GVT_64(data, type) 0
 #endif
+/**@}*/
 
+/**
+ * @def iec_get_valuep
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_get_valuep(data)                                                     \
             ((data)->type == IEC_T_BOOL)                                         \
 			  || ((data)->type == IEC_T_R_EDGE)                                  \
@@ -479,8 +540,14 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define GVP_64(data) 0
 #endif
+/**@}*/
 
-// get value and assign to void pointer variable
+/**
+ * @def iec_get_tovoid
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_get_tovoid(data, var)                                          \
 		    maxuint_t CONCAT(var, _) = 0;                                  \
 		    void *var = &CONCAT(var, _);                                   \
@@ -548,9 +615,21 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define GTV_64(data, var)
 #define maxuint_t uint32_t
 #endif
+/**@}*/
 
+/**
+ * @def iec_get_string
+ * @brief
+ *
+ */
 #define iec_get_string(data)  (((string_t*) (data->value))->str)
-// set value
+
+/**
+ * @def iec_set_value
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_set_value(data, val)                          \
             switch ((data)->type) {                       \
                 case IEC_T_F_EDGE:                        \
@@ -613,7 +692,14 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define SV_64(data, val)
 #endif
+/**@}*/
 
+/**
+ * @def iec_set_value_type
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_set_value_type(data, val, type)     \
             switch (type) {                     \
                 case IEC_T_F_EDGE:              \
@@ -676,8 +762,14 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define SVT_64(data, val)
 #endif
+/**@}*/
 
-// set value from void pointer variable
+/**
+ * @def iec_set_fromvoid
+ * @brief
+ *
+ */
+/**@{*/
 #define iec_set_fromvoid(data, val)                                     \
             switch ((data)->type) {                                     \
                 case IEC_T_F_EDGE:                                      \
@@ -740,8 +832,13 @@ static uint8_t IEC_T_SIZEOF[] = {
 #else
 #define SFV_64
 #endif
+/**@}*/
 
-// mask for type
+/**
+ * @def mask for type
+ * @brief
+ *
+ */
 #define IEC_ANYTYPE(type)                  \
               (ANY_NUM(type))              \
             | (ANY_DATE(type)       << 1)  \
@@ -757,18 +854,30 @@ static uint8_t IEC_T_SIZEOF[] = {
             | (ANY_CHAR(type)       << 11) \
             | (ANY_CHARS(type)      << 12)
 
-// check if any_type if allowed
+/**
+ * @def iec_anytype_allowed
+ * @brief check if any_type if allowed
+ *
+ */
 #define iec_anytype_allowed(data, A, B, C, D, E, F)                                                                             \
             if((data) == NULL || !((data)->any_type & (A ## _BIT | B ## _BIT | C ## _BIT | D ## _BIT | E ## _BIT | F ## _BIT))) \
                 return IEC_NAT
 
-// check for type allowed
+/**
+ * @def iec_type_allowed
+ * @brief check for type allowed
+ *
+ */
 #define iec_type_allowed(data, A)                      \
             if(data == NULL || !((data)->type == (A))) \
                 return IEC_NAT
 
 // TODO: INCOMPLETE!
-// return true if value fit in type
+/**
+ * @def iec_fit
+ * @brief return true if value fit in type
+ *
+ */
 #define iec_fit(data, value)                                                                                              \
             ((data)->type == IEC_T_BOOL)                                                                                  \
               || ((data)->type == IEC_T_F_EDGE)                                                                           \
@@ -797,6 +906,11 @@ static uint8_t IEC_T_SIZEOF[] = {
 #define FT_64(data) 0
 #endif
 
+/**
+ * @def iec_timer
+ * @brief
+ *
+ */
 #define iec_timer(v)  ((t_timer_t*)((v)->value))
 ////////////////////////////////////////////////////////////////
 

@@ -197,7 +197,7 @@ uint8_t iec_expt(iec_t *result, iec_t v1, iec_t v2) {
     iec_type_promote(&v1, IEC_T_LREAL);
     iec_type_promote(&v2, IEC_T_LREAL);
 
-    iec_set_value(*result, ((iec_get_value(v1)) ^ (iec_get_value(v2))));
+    iec_set_value(*result, (iec_get_value(v1) ^ iec_get_value(v2)));
 
     return IEC_OK;
 }
