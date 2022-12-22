@@ -1,8 +1,7 @@
 /**
  * @file iec_arithmetic.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -51,12 +50,12 @@
  */
 
 /**
- * @fn uint8_t iec_add(iec_t*, stack_t*)
+ * @fn uint8_t iec_add(iec_t *result, stack_t *list)
  * @brief
  *
  * @param result
  * @param list
- * @return
+ * @return status
  */
 uint8_t iec_add(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
@@ -79,12 +78,12 @@ uint8_t iec_add(iec_t *result, stack_t *list) {
 }
 
 /**
- * @fn uint8_t iec_mul(iec_t*, stack_t*)
+ * @fn uint8_t iec_mul(iec_t *result, stack_t *list)
  * @brief
  *
  * @param result
  * @param list
- * @return
+ * @return status
  */
 uint8_t iec_mul(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
@@ -107,13 +106,13 @@ uint8_t iec_mul(iec_t *result, stack_t *list) {
 }
 
 /**
- * @fn uint8_t iec_sub(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_sub(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_sub(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,,,,,);
@@ -127,13 +126,13 @@ uint8_t iec_sub(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_div(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_div(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_div(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,ANY_NUM,,,,);
@@ -155,13 +154,13 @@ uint8_t iec_div(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_mod(iec_t*, iec_t, iec_t)
+ * @fn int8_t iec_mod(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_mod(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INT,,,,,);
@@ -178,13 +177,13 @@ uint8_t iec_mod(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_expt(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_expt(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_expt(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_NUM,,,,,);

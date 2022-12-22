@@ -1,8 +1,7 @@
 /**
  * @file iec_bitwise_boolean.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -43,13 +42,13 @@
  */
 
 /**
- * @fn uint8_t iec_and(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_and(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_and(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
@@ -59,13 +58,13 @@ uint8_t iec_and(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_or(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_or(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_or(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
@@ -75,13 +74,13 @@ uint8_t iec_or(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_xor(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_xor(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_xor(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);
@@ -91,12 +90,12 @@ uint8_t iec_xor(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_not(iec_t*, iec_t)
+ * @fn uint8_t iec_not(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_not(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_BIT, ANY_INT,,,,);

@@ -1,9 +1,0 @@
-var a00061 =
-[
-    [ "csec", "a00061_a35012c650dea927c17f796823e3ae55f.html#a35012c650dea927c17f796823e3ae55f", null ],
-    [ "dw_tod", "a00061_ad325d7e5b8eef3f3dcf89f743f38eeb1.html#ad325d7e5b8eef3f3dcf89f743f38eeb1", null ],
-    [ "hour", "a00061_ae5af4ff48939d13d480f87e56a9385d6.html#ae5af4ff48939d13d480f87e56a9385d6", null ],
-    [ "min", "a00061_ac9b481208b43f7c37ed25e446bdec692.html#ac9b481208b43f7c37ed25e446bdec692", null ],
-    [ "sec", "a00061_ad1696900026b287a87c563b733a21bc3.html#ad1696900026b287a87c563b733a21bc3", null ],
-    [ "v", "a00061_aaa48d434d4721a131a438222c5702817.html#aaa48d434d4721a131a438222c5702817", null ]
-];

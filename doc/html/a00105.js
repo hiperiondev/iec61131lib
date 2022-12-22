@@ -1,8 +1,0 @@
-var a00105 =
-[
-    [ "decimal", "a00105_a160d6366514b7fe5ec086f528835c5ce.html#a160d6366514b7fe5ec086f528835c5ce", null ],
-    [ "exponent", "a00105_a793e594de558979eeb321298231b0a84.html#a793e594de558979eeb321298231b0a84", null ],
-    [ "mantissa", "a00105_a542558132c4e92a5bb73f7470755c3a7.html#a542558132c4e92a5bb73f7470755c3a7", null ],
-    [ "parts", "a00105_ac1625eb1db6e55ddfc621ab289169c8c.html#ac1625eb1db6e55ddfc621ab289169c8c", null ],
-    [ "sign", "a00105_abb949d29b219e59e8570493a90d97bb6.html#abb949d29b219e59e8570493a90d97bb6", null ]
-];

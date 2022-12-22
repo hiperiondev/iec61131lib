@@ -1,8 +1,7 @@
 /**
  * @file iec_string.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -55,12 +54,12 @@
  */
 
 /**
- * @fn unsigned char iec_string_len(iec_t*, iec_t)
+ * @fn uint8_t iec_string_len(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_string_len(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
@@ -73,7 +72,7 @@ uint8_t iec_string_len(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn unsigned char iec_string_left(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_string_left(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
@@ -88,7 +87,7 @@ uint8_t iec_string_left(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn unsigned char iec_string_right(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_string_right(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
@@ -103,14 +102,14 @@ uint8_t iec_string_right(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn unsigned char iec_string_mid(iec_t*, iec_t, iec_t, iec_t)
+ * @fn uint8_t iec_string_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
  * @param v3
- * @return
+ * @return status
  */
 uint8_t iec_string_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
@@ -120,26 +119,26 @@ uint8_t iec_string_mid(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
 }
 
 /**
- * @fn unsigned char iec_string_concat(iec_t*, stack_t)
+ * @fn uint8_t iec_string_concat(iec_t *result, stack_t list)
  * @brief
  *
  * @param result
  * @param list
- * @return
+ * @return status
  */
 uint8_t iec_string_concat(iec_t *result, stack_t list) {
     return IEC_OK;
 }
 
 /**
- * @fn unsigned char iec_string_insert(iec_t*, iec_t, iec_t, iec_t)
+ * @fn uint8_t iec_string_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
  * @param v3
- * @return
+ * @return status
  */
 uint8_t iec_string_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
@@ -149,14 +148,14 @@ uint8_t iec_string_insert(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
 }
 
 /**
- * @fn unsigned char iec_string_delete(iec_t*, iec_t, iec_t, iec_t)
+ * @fn uint8_t iec_string_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
  * @param v3
- * @return
+ * @return status
  */
 uint8_t iec_string_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_anytype_allowed(v1, ANY_STRING,,,,,);
@@ -166,7 +165,7 @@ uint8_t iec_string_delete(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
 }
 
 /**
- * @fn unsigned char iec_string_replace(iec_t*, iec_t, iec_t, iec_t, iec_t)
+ * @fn uint8_t iec_string_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4)
  * @brief
  *
  * @param result
@@ -185,7 +184,7 @@ uint8_t iec_string_replace(iec_t *result, iec_t v1, iec_t v2, iec_t v3, iec_t v4
 }
 
 /**
- * @fn unsigned char iec_string_find(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_string_find(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
@@ -200,14 +199,14 @@ uint8_t iec_string_find(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn unsigned char iec_string_set(iec_t*, char*, bool, bool)
+ * @fn uint8_t iec_string_set(iec_t *result, char *str, bool wstr, bool hash)
  * @brief
  *
  * @param result
  * @param str
  * @param wstr
  * @param hash
- * @return
+ * @return status
  */
 uint8_t iec_string_set(iec_t *result, char *str, bool wstr, bool hash) {
     if (wstr) {

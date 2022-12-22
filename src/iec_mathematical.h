@@ -1,8 +1,7 @@
 /**
  * @file iec_mathematical.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -53,12 +52,12 @@
  */
 
 /**
- * @fn uint8_t iec_abs(iec_t*, iec_t)
+ * @fn uint8_t iec_abs(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_abs(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_MAGNITUDE,,,,,);
@@ -70,12 +69,12 @@ uint8_t iec_abs(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_sqrt(iec_t*, iec_t)
+ * @fn uint8_t iec_sqrt(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_sqrt(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -87,12 +86,12 @@ uint8_t iec_sqrt(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_ln(iec_t*, iec_t)
+ * @fn uint8_t iec_ln(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_ln(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -104,12 +103,12 @@ uint8_t iec_ln(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_log(iec_t*, iec_t)
+ * @fn uint8_t iec_log(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_log(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -121,12 +120,12 @@ uint8_t iec_log(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_exp(iec_t*, iec_t)
+ * @fn uint8_t iec_exp(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_exp(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -138,12 +137,12 @@ uint8_t iec_exp(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_sin(iec_t*, iec_t)
+ * @fn uint8_t iec_sin(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_sin(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -155,12 +154,12 @@ uint8_t iec_sin(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_cos(iec_t*, iec_t)
+ * @fn uint8_t iec_cos(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_cos(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -172,12 +171,12 @@ uint8_t iec_cos(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_tan(iec_t*, iec_t)
+ * @fn uint8_t iec_tan(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_tan(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -189,12 +188,12 @@ uint8_t iec_tan(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_asin(iec_t*, iec_t)
+ * @fn uint8_t iec_asin(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_asin(iec_t *result, iec_t v1) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);
@@ -206,7 +205,7 @@ uint8_t iec_asin(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_acos(iec_t*, iec_t)
+ * @fn uint8_t iec_acos(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
@@ -223,7 +222,7 @@ uint8_t iec_acos(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_atan(iec_t*, iec_t)
+ * @fn uint8_t iec_atan(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
@@ -240,13 +239,13 @@ uint8_t iec_atan(iec_t *result, iec_t v1) {
 }
 
 /**
- * @fn uint8_t iec_atan2(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_atan2(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_atan2(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_REAL,,,,,);

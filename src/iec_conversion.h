@@ -1,8 +1,7 @@
 /**
  * @file iec_conversion.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -55,51 +54,51 @@
  */
 
 /**
- * @fn uint8_t iec_to(iec_t*, iec_t, iectype_t)
+ * @fn uint8_t iec_to(iec_t *result, iec_t v1, iectype_t to_type)
  * @brief
  *
  * @param result
  * @param v1
  * @param to_type
- * @return
+ * @return status
  */
 uint8_t iec_to(iec_t *result, iec_t v1, iectype_t to_type) {
     return IEC_OK;
 }
 
 /**
- * @fn uint8_t iec_trunc(iec_t*, iec_t, iectype_t)
+ * @fn uint8_t iec_trunc(iec_t *result, iec_t v1, iectype_t to_type)
  * @brief
  *
  * @param result
  * @param v1
  * @param to_type
- * @return
+ * @return status
  */
 uint8_t iec_trunc(iec_t *result, iec_t v1, iectype_t to_type) {
     return IEC_OK;
 }
 
 /**
- * @fn uint8_t iec_bcd_to(iec_t*, iec_t, iectype_t)
+ * @fn uint8_t iec_bcd_to(iec_t *result, iec_t v1, iectype_t to_type)
  * @brief
  *
  * @param result
  * @param v1
  * @param to_type
- * @return
+ * @return status
  */
 uint8_t iec_bcd_to(iec_t *result, iec_t v1, iectype_t to_type) {
     return IEC_OK;
 }
 
 /**
- * @fn uint8_t iec_to_bcd(iec_t*, iec_t)
+ * @fn uint8_t iec_to_bcd(iec_t *result, iec_t v1)
  * @brief
  *
  * @param result
  * @param v1
- * @return
+ * @return status
  */
 uint8_t iec_to_bcd(iec_t *result, iec_t v1) {
     return IEC_OK;

@@ -1,8 +1,7 @@
 /**
  * @file iec_selection.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -47,12 +46,12 @@
  */
 
 /**
- * @fn uint8_t iec_move(iec_t*, iec_t)
+ * @fn uint8_t iec_move(iec_t *to, iec_t from)
  * @brief
  *
  * @param to
  * @param from
- * @return
+ * @return status
  */
 uint8_t iec_move(iec_t *to, iec_t from) {
     iec_deinit(to);
@@ -67,14 +66,14 @@ uint8_t iec_move(iec_t *to, iec_t from) {
 }
 
 /**
- * @fn uint8_t iec_sel(iec_t*, iec_t, iec_t, iec_t)
+ * @fn uint8_t iec_sel(iec_t *result, iec_t v1, iec_t v2, iec_t v3)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
  * @param v3
- * @return
+ * @return status
  */
 uint8_t iec_sel(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
     iec_type_allowed(v1, IEC_T_BOOL);
@@ -88,12 +87,12 @@ uint8_t iec_sel(iec_t *result, iec_t v1, iec_t v2, iec_t v3) {
 }
 
 /**
- * @fn uint8_t iec_max(iec_t*, stack_t*)
+ * @fn uint8_t iec_max(iec_t *result, stack_t *list)
  * @brief
  *
  * @param result
  * @param list
- * @return
+ * @return status
  */
 uint8_t iec_max(iec_t *result, stack_t *list) {
     if (*result == NULL || *list == NULL)
@@ -117,12 +116,12 @@ uint8_t iec_max(iec_t *result, stack_t *list) {
 }
 
 /**
- * @fn uint8_t iec_min(iec_t*, stack_t*)
+ * @fn uint8_t iec_min(iec_t *result, stack_t *list)
  * @brief
  *
  * @param result
  * @param list
- * @return
+ * @return status
  */
 uint8_t iec_min(iec_t *result, stack_t *list) {
     if (*result == NULL || list == NULL)
@@ -146,14 +145,14 @@ uint8_t iec_min(iec_t *result, stack_t *list) {
 }
 
 /**
- * @fn uint8_t iec_limit(iec_t*, iec_t, iec_t, iec_t)
+ * @fn uint8_t iec_limit(iec_t *result, iec_t v, iec_t min, iec_t max)
  * @brief
  *
  * @param result
  * @param v
  * @param min
  * @param max
- * @return
+ * @return status
  */
 uint8_t iec_limit(iec_t *result, iec_t v, iec_t min, iec_t max) {
     iec_anytype_allowed(v, ANY_NUM,,,,,);
@@ -171,13 +170,13 @@ uint8_t iec_limit(iec_t *result, iec_t v, iec_t min, iec_t max) {
 }
 
 /**
- * @fn uint8_t iec_mux(iec_t*, iec_t, stack_t*)
+ * @fn uint8_t iec_mux(iec_t *result, iec_t v1, stack_t *list)
  * @brief
  *
  * @param result
  * @param v1
  * @param list
- * @return
+ * @return status
  */
 uint8_t iec_mux(iec_t *result, iec_t v1, stack_t *list) {
     iec_anytype_allowed(v1, ANY_INT,,,,,);

@@ -1,8 +1,8 @@
 var a00008 =
 [
-    [ "str_t", "a00097.html", "a00097" ],
-    [ "str_iter_t", "a00101.html", "a00101" ],
-    [ "double_cast_t", "a00105.html", "a00105" ],
+    [ "str_t", "a00098.html", "a00098" ],
+    [ "str_iter_t", "a00102.html", "a00102" ],
+    [ "double_cast_t", "a00106.html", "a00106" ],
     [ "BIN_BASE", "a00008_a2eecb02a249d3ce09f3b2c9ecd241d8e.html#a2eecb02a249d3ce09f3b2c9ecd241d8e", null ],
     [ "BIT_CLEAR", "a00008_a00bda5613fe59582e9cd36d07b8f2851.html#a00bda5613fe59582e9cd36d07b8f2851", null ],
     [ "BIT_READ", "a00008_abe4c93bdf909706a57a177f6786af897.html#abe4c93bdf909706a57a177f6786af897", null ],

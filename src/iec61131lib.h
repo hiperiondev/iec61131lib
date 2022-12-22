@@ -1,8 +1,7 @@
 /**
  * @file iec61131lib.h
  * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -879,11 +878,10 @@ static uint8_t IEC_T_SIZEOF[] = {
             if(data == NULL || !((data)->type == (A))) \
                 return IEC_NAT
 
-// TODO: INCOMPLETE!
 /**
  * @def iec_fit
  * @brief return true if value fit in type
- *
+ * @todo INCOMPLETE
  */
 #define iec_fit(data, value)                                                                                              \
             ((data)->type == IEC_T_BOOL)                                                                                  \
@@ -922,7 +920,7 @@ static uint8_t IEC_T_SIZEOF[] = {
 ////////////////////////////////////////////////////////////////
 
 /**
- * @fn void iec_new_value(void**, iectype_t)
+ * @fn static inline void iec_new_value(void **nw, iectype_t type)
  * @brief
  *
  * @param nw
@@ -1031,8 +1029,8 @@ static inline void iec_new_value(void **nw, iectype_t type) {
 }
 
 /**
- * @fn void iec_init(iec_t*, iectype_t)
- * @brief create nre value
+ * @fn static inline void iec_init(iec_t *nw, iectype_t type)
+ * @brief create new value
  *
  * @param nw
  * @param type
@@ -1045,7 +1043,7 @@ static inline void iec_init(iec_t *nw, iectype_t type) {
 }
 
 /**
- * @fn void iec_free_value(iec_t*)
+ * @fn static inline void iec_free_value(iec_t *var)
  * @brief
  *
  * @param var
@@ -1058,7 +1056,7 @@ static inline void iec_free_value(iec_t *var) {
 }
 
 /**
- * @fn void iec_deinit(iec_t*)
+ * @fn static inline void iec_deinit(iec_t *var)
  * @brief
  *
  * @param var
@@ -1069,7 +1067,7 @@ static inline void iec_deinit(iec_t *var) {
 }
 
 /**
- * @fn void iec_totype(iec_t*, uint8_t)
+ * @fn static inline void iec_totype(iec_t *data, uint8_t tpy)
  * @brief
  *
  * @param data
@@ -1099,7 +1097,7 @@ static inline void iec_totype(iec_t *data, uint8_t tpy) {
 }
 
 /**
- * @fn void iec_type_promote(iec_t*, uint8_t)
+ * @fn static inline void iec_type_promote(iec_t *data, uint8_t tpy)
  * @brief
  *
  * @param data

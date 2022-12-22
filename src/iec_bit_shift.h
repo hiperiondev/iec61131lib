@@ -1,8 +1,7 @@
 /**
  * @file iec_bit_shift.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @note This is based on other projects. Please contact their authors for more information.
  *
  * The MIT License (MIT)
@@ -57,13 +56,13 @@
 #define rotr64(v, n) rotl64(v, 64 - (n))
 
 /**
- * @fn uint8_t iec_shl(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
@@ -85,13 +84,13 @@ uint8_t iec_shl(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_shr(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
@@ -111,13 +110,13 @@ uint8_t iec_shr(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_rol(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);
@@ -167,13 +166,13 @@ uint8_t iec_rol(iec_t *result, iec_t v1, iec_t v2) {
 }
 
 /**
- * @fn uint8_t iec_ror(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_ror(iec_t *result, iec_t v1, iec_t v2)
  * @brief
  *
  * @param result
  * @param v1
  * @param v2
- * @return
+ * @return status
  */
 uint8_t iec_ror(iec_t *result, iec_t v1, iec_t v2) {
     iec_anytype_allowed(v1, ANY_INTEGRAL,,,,,);

@@ -1,8 +1,7 @@
 /**
  * @file iec_literals.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -137,12 +136,12 @@ const char *IEC_IECTYPE_PFX[] = {
 };
 
 /**
- * @fn uint8_t iec_identify_literal(str_t*, uint8_t*)
+ * @fn uint8_t iec_identify_literal(str_t *str, uint8_t *iectype)
  * @brief
  *
  * @param str
  * @param iectype
- * @return
+ * @return literal type
  */
 uint8_t iec_identify_literal(str_t *str, uint8_t *iectype) {
     uint8_t n;
@@ -203,7 +202,7 @@ uint8_t iec_identify_literal(str_t *str, uint8_t *iectype) {
 }
 
 /**
- * @fn void literal_toiec(iec_t*, str_t)
+ * @fn void literal_toiec(iec_t *result, str_t str)
  * @brief
  *
  * @param result

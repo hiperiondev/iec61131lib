@@ -1,8 +1,7 @@
 /**
  * @file iec_std_fun_blocks.h
- * @brief main header
- * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license.
- * Contact: egonzalez.hiperion@gmail.com
+ * @brief
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
  *
@@ -95,13 +94,13 @@
 #include "iec_hardware.h"
 
 /**
- * @fn uint8_t iec_sr(iec_t*, iec_t, iec_t)
+ * @fn uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r)
  * @brief
  *
  * @param q1
  * @param s1
  * @param r
- * @return
+ * @return status
  */
 uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
     iec_type_allowed(s1, IEC_T_BOOL);
@@ -116,13 +115,13 @@ uint8_t iec_sr(iec_t *q1, iec_t s1, iec_t r) {
 }
 
  /**
-  * @fn uint8_t iec_rs(iec_t*, iec_t, iec_t)
+  * @fn uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1)
   * @brief
   *
   * @param q1
   * @param s
   * @param r1
-  * @return
+  * @return status
   */
 uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1) {
     iec_type_allowed(s, IEC_T_BOOL);
@@ -137,12 +136,12 @@ uint8_t iec_rs(iec_t *q1, iec_t s, iec_t r1) {
 }
 
 /**
- * @fn uint8_t iec_r_trig(iec_t*, iec_t)
+ * @fn uint8_t iec_r_trig(iec_t *q, iec_t clk)
  * @brief
  *
  * @param q
  * @param clk
- * @return
+ * @return status
  */
 uint8_t iec_r_trig(iec_t *q, iec_t clk) {
     iec_type_allowed(clk, IEC_T_BOOL);
@@ -160,12 +159,12 @@ uint8_t iec_r_trig(iec_t *q, iec_t clk) {
 }
 
 /**
- * @fn uint8_t iec_f_trig(iec_t*, iec_t)
+ * @fn uint8_t iec_f_trig(iec_t *q, iec_t clk)
  * @brief
  *
  * @param q
  * @param clk
- * @return
+ * @return status
  */
 uint8_t iec_f_trig(iec_t *q, iec_t clk) {
     iec_type_allowed(clk, IEC_T_BOOL);
@@ -183,7 +182,7 @@ uint8_t iec_f_trig(iec_t *q, iec_t clk) {
 }
 
 /**
- * @fn uint8_t iec_ctu(iec_t*, iec_t, iec_t, iec_t, iec_t*)
+ * @fn uint8_t iec_ctu(iec_t *q, iec_t cu, iec_t r, iec_t pv, iec_t *cv)
  * @brief
  *
  * @param q
@@ -191,7 +190,7 @@ uint8_t iec_f_trig(iec_t *q, iec_t clk) {
  * @param r
  * @param pv
  * @param cv
- * @return
+ * @return status
  */
 uint8_t iec_ctu(iec_t *q, iec_t cu, iec_t r, iec_t pv, iec_t *cv) {
     iec_type_allowed(cu, IEC_T_R_EDGE);
@@ -212,7 +211,7 @@ uint8_t iec_ctu(iec_t *q, iec_t cu, iec_t r, iec_t pv, iec_t *cv) {
 }
 
 /**
- * @fn uint8_t iec_ctd(iec_t*, iec_t, iec_t, iec_t, iec_t*)
+ * @fn uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv)
  * @brief
  *
  * @param q
@@ -220,7 +219,7 @@ uint8_t iec_ctu(iec_t *q, iec_t cu, iec_t r, iec_t pv, iec_t *cv) {
  * @param ld
  * @param pv
  * @param cv
- * @return
+ * @return status
  */
 uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
     iec_type_allowed(cd, IEC_T_R_EDGE);
@@ -241,12 +240,12 @@ uint8_t iec_ctd(iec_t *q, iec_t cd, iec_t ld, iec_t pv, iec_t *cv) {
 }
 
 /**
- * @fn uint8_t iec_initialize_timer(iec_t*, iec_t)
+ * @fn uint8_t iec_initialize_timer(iec_t *timer, iec_t pt)
  * @brief
  *
  * @param timer
  * @param pt
- * @return
+ * @return status
  */
 uint8_t iec_initialize_timer(iec_t *timer, iec_t pt) {
     iec_type_allowed(*timer, IEC_T_TIMER);
@@ -264,14 +263,14 @@ uint8_t iec_initialize_timer(iec_t *timer, iec_t pt) {
 }
 
 /**
- * @fn uint8_t iec_tp(iec_t*, iec_t, iec_t, iec_t*)
+ * @fn uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et)
  * @brief
  *
  * @param timer
  * @param in
  * @param pt
  * @param et
- * @return
+ * @return status
  */
 uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
@@ -308,14 +307,14 @@ uint8_t iec_tp(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
 }
 
 /**
- * @fn uint8_t iec_ton(iec_t*, iec_t, iec_t, iec_t*)
+ * @fn uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et)
  * @brief
  *
  * @param timer
  * @param in
  * @param pt
  * @param et
- * @return
+ * @return status
  */
 uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);
@@ -347,14 +346,14 @@ uint8_t iec_ton(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
 }
 
 /**
- * @fn uint8_t iec_tof(iec_t*, iec_t, iec_t, iec_t*)
+ * @fn uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t *et)
  * @brief
  *
  * @param timer
  * @param in
  * @param pt
  * @param et
- * @return
+ * @return status
  */
 uint8_t iec_tof(iec_t *timer, iec_t in, iec_t pt, iec_t *et) {
     iec_type_allowed(*timer, IEC_T_TIMER);

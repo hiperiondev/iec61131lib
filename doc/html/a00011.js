@@ -1,7 +1,7 @@
 var a00011 =
 [
-    [ "stack_node_t", "a00113.html", "a00113" ],
-    [ "stack_t", "a00117.html", "a00117" ],
+    [ "stack_node_t", "a00114.html", "a00114" ],
+    [ "stack_t", "a00118.html", "a00118" ],
     [ "stack_node_t", "a00011_a3413cc1c374aeb01c66275eddc5bbbd0.html#a3413cc1c374aeb01c66275eddc5bbbd0", null ],
     [ "stack_t", "a00011_aca51d9a1c3b1ac1b2b54ed9dd7c26981.html#aca51d9a1c3b1ac1b2b54ed9dd7c26981", null ],
     [ "stack_create", "a00011_a107f81b1726bd5ab54b420142748d3e8.html#a107f81b1726bd5ab54b420142748d3e8", null ],
