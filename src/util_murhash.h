@@ -1,15 +1,13 @@
-/*-----------------------------------------------------------------------------
- * MurmurHash3 was written by Austin Appleby, and is placed in the public
- * domain.
+/**
+ * @file util_murhash.h
+ * @brief This is a portable ANSI C implementation of MurmurHash3_x86_32 (Murmur3A) with support for progressive processing.
+ * @copyright MurmurHash3 was written by Austin Appleby, This implementation was written by Shane Day. This project is is placed in the public domain.
+ * @note Please contact their authors for more information.
  *
- * This implementation was written by Shane Day, and is also public domain.
- *
- * This is a portable ANSI C implementation of MurmurHash3_x86_32 (Murmur3A)
- * with support for progressive processing.
  */
 
-#ifndef PMURHASH_H_
-#define PMURHASH_H_
+#ifndef UTIL_MURHASH_H_
+#define UTIL_MURHASH_H_
 
 //////////////////////////////////////////////////
 // Determine what native type to use for uint32_t
@@ -346,4 +344,4 @@ void PMurHash32_test(const void *key, int len, uint32_t seed, void *out) {
     *(uint32_t*) out = h1;
 }
 
-#endif
+#endif /* UTIL_MURHASH_H_ */

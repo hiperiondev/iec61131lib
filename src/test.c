@@ -1,12 +1,9 @@
-/*
- * Project Site: https://github.com/hiperiondev/iec61131lib
- *
- * This is based on other projects:
- *    Others (see individual files)
- *
- *    please contact their authors for more information.
- *
- * Copyright (c) 2022 Emiliano Augusto Gonzalez ( egonzalez . hiperion @ gmail . com )
+/**
+ * @file test.c
+ * @brief tests
+ * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
+ * @see Project Site: https://github.com/hiperiondev/iec61131lib
+ * @note This is based on other projects. Please contact their authors for more information.
  *
  * The MIT License (MIT)
  *

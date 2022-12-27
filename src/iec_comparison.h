@@ -1,6 +1,6 @@
 /**
  * @file iec_comparison.h
- * @brief
+ * @brief Functions and operators compare two or more variables returning a BOOL value (TRUE or FALSE).
  * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.

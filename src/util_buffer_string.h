@@ -1,9 +1,35 @@
-/* https://github.com/ximtech/BufferString
- * MIT license
+/**
+ * @file util_buffer_string.h
+ * @brief String library for C designed to augment standard <string.h> handling functionalities.
+ * @copyright Stanislav Vodolagin (ximtech). This project is released under MIT license. Contact: ximtech@inbox.lv
+ * @see Project Site: https://github.com/ximtech/BufferString
+ * @note Please contact their authors for more information.
+ *
+ * The MIT License (MIT)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  */
 
-#ifndef BUFFERSTRING_H_
-#define BUFFERSTRING_H_
+#ifndef UTIL_BUFFER_STRING_H_
+#define UTIL_BUFFER_STRING_H_
 
 #include <stdbool.h>
 #include <string.h>
@@ -1376,4 +1402,4 @@ static inline bool isBuffStringNotEquals(str_t *one, str_t *two) {
     return !isBuffStringEquals(one, two);
 }
 
-#endif /* BUFFERSTRING_H_ */
+#endif /* UTIL_BUFFER_STRING_H_ */

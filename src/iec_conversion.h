@@ -1,6 +1,6 @@
 /**
  * @file iec_conversion.h
- * @brief
+ * @brief Functions convert from one Elementary Data Type to another.
  * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
@@ -35,10 +35,10 @@
  * Summary:
  *
  *  Function      Parameter Type          Parameters   Description
- * TO             ANY                     1            Simple conversion, changing from type * to type **
- * TRUNC          (note 1)                1            Real to integer conversion, changing from real type * to integer type **
- * BCD_TO         (note 2)                1            Change from Binary Coded Decimal (BCD) type * to integer type **
- * TO_BCD         (note 3)                1            Change from integer type * to Binary Coded Decimal (BCD) type **
+ *  TO            ANY                     1            Simple conversion, changing from type * to type **
+ *  TRUNC         (note 1)                1            Real to integer conversion, changing from real type * to integer type **
+ *  BCD_TO        (note 2)                1            Change from Binary Coded Decimal (BCD) type * to integer type **
+ *  TO_BCD        (note 3)                1            Change from integer type * to Binary Coded Decimal (BCD) type **
  *
  * note 1: The from (*) type can be REAL or LREAL. The to (**) type can be SINT, USINT, INT, UINT, DINT, UDINT, LINT, or ULINT
  * note 2: allowed

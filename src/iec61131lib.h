@@ -218,7 +218,7 @@ typedef struct string_t {
         bool wstring; /**< true if wide character type */
     uint32_t len;     /**< string length*/
     uint32_t hash;    /**< string hash*/
-        str_t *str;   /**< string pointer*/
+       str_t *str;    /**< string pointer*/
 } string_t;
 
 /**
@@ -298,11 +298,7 @@ static uint8_t IEC_T_SIZEOF[] = {
         sizeof(wchar_t) * 8,   /**< IEC_T_WCHAR */
         sizeof(string_t) * 8,  /**< IEC_T_STRING */
         sizeof(string_t) * 8,  /**< IEC_T_WSTRING */
-#ifdef ALLOW_64BITS
         sizeof(pointer_t) * 8, /**< IEC_T_POINTER */
-#else
-        0,
-#endif
         sizeof(table_t) * 8,   /**< IEC_T_TABLE */
         sizeof(user_t) * 8,    /**< IEC_T_USER */
         sizeof(bool) * 8,      /**< IEC_T_R_EDGE */
@@ -994,23 +990,23 @@ static inline void iec_new_value(void **nw, iectype_t type) {
             (*nw) = malloc(sizeof(string_t));
             break;
 #ifdef ALLOW_64BITS
-            case IEC_T_DT:
-                (*nw) = malloc(sizeof(dat_t));
-                break;
+        case IEC_T_DT:
+            (*nw) = malloc(sizeof(dat_t));
+            break;
 
-            case IEC_T_ULINT:
-                (*nw) = malloc(sizeof(uint64_t));
-                break;
+        case IEC_T_ULINT:
+            (*nw) = malloc(sizeof(uint64_t));
+            break;
 
-            case IEC_T_LINT:
-            case IEC_T_LWORD:
-                (*nw) = malloc(sizeof(int64_t));
-                break;
+        case IEC_T_LINT:
+        case IEC_T_LWORD:
+            (*nw) = malloc(sizeof(int64_t));
+            break;
+#endif
+        case IEC_T_POINTER:
+            (*nw) = malloc(sizeof(pointer_t));
+            break;
 
-            case IEC_T_POINTER:
-                (*nw) = malloc(sizeof(pointer_t));
-                break;
-    #endif
         case IEC_T_TABLE:
             (*nw) = malloc(sizeof(table_t));
             break;

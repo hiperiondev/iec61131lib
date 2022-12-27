@@ -1,6 +1,6 @@
 /**
  * @file util_stack.h
- * @brief
+ * @brief simple generic stack
  * @copyright 2022 Emiliano Augusto Gonzalez (hiperiondev). This project is released under MIT license. Contact: egonzalez.hiperion@gmail.com
  * @see Project Site: https://github.com/hiperiondev/iec61131lib
  * @note This is based on other projects. Please contact their authors for more information.
@@ -28,8 +28,8 @@
  *
  */
 
-#ifndef __STACK_H__
-#define __STACK_H__
+#ifndef UTIL_STACK_H_
+#define UTIL_STACK_H_
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -129,4 +129,4 @@ void stack_release(stack_t stack) {
     free(stack);
 }
 
-#endif
+#endif /* UTIL_STACK_H_ */
